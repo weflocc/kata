@@ -1,5 +1,5 @@
 import {title, textBody, shortFeatures, features, text, featureTabs, featureImageTabs, locations} from './featureFields'
-import {links} from '../partials/links'
+import {links, newLinks} from '../partials/links'
 import {defaultOptions} from '../partials/defaults'
 import {standardImage} from '../partials/image'
 
@@ -9,6 +9,14 @@ const feature01 = {
   title: 'Feature #1',
   options: defaultOptions,
   fields: [title, text, links(), standardImage()]
+}
+
+const feature01a = {
+  name: 'feature01a',
+  type: 'object',
+  title: 'Feature #1',
+  options: defaultOptions,
+  fields: [title, text, newLinks(), standardImage()]
 }
 
 const feature02 = {
@@ -92,4 +100,4 @@ const feature12 = {
   fields: [title, text, shortFeatures, links(), standardImage()]
 }
 
-export {feature01, feature02, feature03, feature04, feature05, feature06, feature07, feature08, feature09, feature10, feature11, feature12}
+export {feature01, feature01a, feature02, feature03, feature04, feature05, feature06, feature07, feature08, feature09, feature10, feature11, feature12}

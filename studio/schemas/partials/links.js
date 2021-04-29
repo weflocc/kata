@@ -1,5 +1,6 @@
 const allTypesFallback = [{type: 'page'}]
 const camelCase = require('lodash.camelcase')
+import {kataButton} from './kataButton'
 
 const links = (name = 'Links') => {
   return {
@@ -13,6 +14,17 @@ const links = (name = 'Links') => {
       {type: 'fileLink'},
       {type: 'externalLink'}
     ]
+  }
+}
+
+const newLinks = (name = 'Links') => {
+  return {
+    name: camelCase(name),
+    title: name,
+    type: 'array',
+    validation: Rule => Rule.max(2).warning('The maximum number of CTA links on this slice is 2'),
+    editModal: 'popover',
+    of: [kataButton()]
   }
 }
 
@@ -45,4 +57,4 @@ const linkStyle = {
   }
 }
 
-export {linkText, linkStyle, links, internalLink}
+export {linkText, linkStyle, links, newLinks, internalLink}
