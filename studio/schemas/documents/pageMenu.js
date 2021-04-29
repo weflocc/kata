@@ -19,23 +19,27 @@ export default {
       type: 'array',
       name: 'menu',
       of: [
-        internalLink(),
+        {
+          name: 'internalLink',
+          type: 'internalLink',
+        },
         {
           title: 'External Link',
           name: 'externalLink',
-          type: 'object',
-          fields: [
-            {
-              title: 'Title',
-              type: 'string',
-              name: 'title'
-            },
-            {
-              title: 'Link',
-              type: 'url',
-              name: 'link'
-            }
-          ]
+          type: 'externalLink'
+          // type: 'object',
+          // fields: [
+          //   {
+          //     title: 'Title',
+          //     type: 'string',
+          //     name: 'title'
+          //   },
+          //   {
+          //     title: 'Link',
+          //     type: 'url',
+          //     name: 'link'
+          //   }
+          // ]
         }
       ]
     }

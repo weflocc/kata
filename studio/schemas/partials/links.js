@@ -1,27 +1,4 @@
-// let allTypes = [{type: 'page'}]
-// try {
-//   // this will load the types from the site!
-//   const {allTypes} = require('../../../../../../schemas/partials/allTypes')
-// }
-// catch (e) {
-//   // when using yarn link locally, the above path won't work. fall back to this so as not to get errors
-//   console.log('could not load allTypes from site')
-//   console.log(e)
-//   const {allTypes} = require('../../site')
-//  }
-
-import {GiPartyFlags} from 'react-icons/gi'
-import {FaHotel, FaHome} from 'react-icons/fa'
-import {MdLocalHotel} from 'react-icons/md'
-
-const allTypes = [
-  {type: 'pageStaycations', icon: FaHotel},
-  {type: 'pageWeddings', icon: GiPartyFlags},
-  {type: 'pageHub', icon: FaHome},
-  {type: 'pageCambridgeHotel', icon: MdLocalHotel}
-]
-
-
+const allTypesFallback = [{type: 'page'}]
 const camelCase = require('lodash.camelcase')
 
 const links = (name = 'Links') => {
@@ -39,7 +16,7 @@ const links = (name = 'Links') => {
   }
 }
 
-const internalLink = (name = 'internalLink') => {
+const internalLink = (name = 'internalLink', allTypes = allTypesFallback) => {
   return {
       name: name,
       type: 'reference',
