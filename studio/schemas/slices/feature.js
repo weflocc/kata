@@ -1,5 +1,5 @@
 import {title, textBody, shortFeatures, features, text, featureTabs, featureImageTabs, locations} from './featureFields'
-import {links, newLinks} from '../partials/links'
+import {links, buttons} from '../partials/links'
 import {defaultOptions} from '../partials/defaults'
 import {standardImage} from '../partials/image'
 
@@ -16,7 +16,7 @@ const feature01a = {
   type: 'object',
   title: 'Feature #1',
   options: defaultOptions,
-  fields: [title, text, newLinks(), standardImage()]
+  fields: [title, text, buttons(), standardImage()]
 }
 
 const feature02 = {

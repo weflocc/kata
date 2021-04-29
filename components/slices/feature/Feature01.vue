@@ -3,7 +3,8 @@
     <div class="sm:w-1/2 order-2 sm:order-1 py-medium">
       <h2 v-if="title" class="mb-large fade-up" v-html="title" />
       <p v-if="text" class="mb-large fade-up" v-html="text" />
-      <KataLinks :links="links" class="fade-up" />
+      <!-- <KataLinks :links="links" class="fade-up" /> -->
+      <KataButtons :buttons="buttons" />
     </div>
     <div class="sm:w-1/2 order-1 sm:order-2 mb-large sm:mb-0">
       <KataImage
@@ -19,9 +20,9 @@
 </template>
 
 <script>
-import { title, text, links, image } from '../shared'
+import { title, text, buttons, image } from '../shared'
 
 export default {
-  mixins: [title, text, links, image],
+  mixins: [title, text, buttons, image],
 }
 </script>

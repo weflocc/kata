@@ -17,7 +17,7 @@ const links = (name = 'Links') => {
   }
 }
 
-const newLinks = (name = 'Links') => {
+const buttons = (name = 'Buttons') => {
   return {
     name: camelCase(name),
     title: name,
@@ -57,4 +57,4 @@ const linkStyle = {
   }
 }
 
-export {linkText, linkStyle, links, newLinks, internalLink}
+export {linkText, linkStyle, links, buttons, internalLink}

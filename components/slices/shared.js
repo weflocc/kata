@@ -45,6 +45,17 @@ const links = {
   },
 }
 
+const buttons = {
+  props: {
+    buttons: {
+      type: Array,
+      default: function () {
+        return []
+      },
+    },
+  },
+}
+
 const media = {
   props: {
     media: {
@@ -74,4 +85,4 @@ const description = {
   },
 }
 
-export { title, superHeading, text, textBody, description, links, media, image }
+export { title, superHeading, text, textBody, description, links, buttons, media, image }
