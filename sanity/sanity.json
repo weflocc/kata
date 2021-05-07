@@ -13,6 +13,14 @@
       "path": "parts/resolvePreviewUrl"
     },
     {
+      "implements": "part:@sanity/dashboard/config",
+      "path": "parts/dashboardConfig"
+    },
+    {
+      "implements": "part:@sanity/form-builder/input/image/asset-sources",
+      "path": "parts/assetSources"
+    },
+    {
       "name": "part:kata/partials/internalLink",
       "path": "schemas/partials/internalLink"
     },

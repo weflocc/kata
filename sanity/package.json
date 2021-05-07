@@ -17,7 +17,6 @@
   "license": "MIT",
   "dependencies": {
     "@sanity/desk-tool": "^2.10.2",
-    "@sanity/structure": "^2.10.0",
     "lodash.camelcase": "^4.3.0",
     "prop-types": "15.7.2",
     "react-icons": "^4.2.0"

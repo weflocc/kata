@@ -1,4 +1,4 @@
-import {kataConfig} from '../../../kata.config.js'
+import kataConfig from 'config:kata'
 
 export default {
   widgets: [
@@ -20,7 +20,7 @@ export default {
       },
       options: {
         title: 'Deploy changes',
-        sites: kataConfig.netlifyDeploy
+        sites: kataConfig.netlifyDeploy | []
       }
     },
     {
