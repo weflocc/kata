@@ -2,9 +2,9 @@
 import {MdInfo} from 'react-icons/md'
 import {RiStarSFill, RiDraftFill, RiArticleFill, RiGlobeFill, RiPriceTag3Fill, RiPagesLine} from 'react-icons/ri'
 import {AiOutlineExclamationCircle} from 'react-icons/ai'
-import PreviewIFrame from 'part:kata/previewIFrame'
+import PreviewIFrame from './previewIFrame'
 
-function articlesStructureBuilder (S, kataConfig,  {documentType, plural, indexPageId = null, categoryDocumentType, categoryName, showFeatured, indexPageType = 'listingPage', icon = RiArticleFill, instance}) {
+function articlesStructureBuilder (S,  {documentType, plural, indexPageId = null, categoryDocumentType, categoryName, showFeatured, indexPageType = 'listingPage', icon = RiArticleFill, instance}) {
   let featured
   let theInstance = instance || documentType
   if (showFeatured) {
@@ -87,7 +87,7 @@ function articlesStructureBuilder (S, kataConfig,  {documentType, plural, indexP
           S.document()
             .schemaType(indexPageType)
             .documentId(indexPageId)
-            .views([S.view.form(), PreviewIFrame(kataConfig)])
+            .views([S.view.form(), PreviewIFrame()])
         )
     } else {
       return S.divider()
@@ -115,7 +115,7 @@ function articlesStructureBuilder (S, kataConfig,  {documentType, plural, indexP
                   S.document()
                     .documentId(documentId)
                     .schemaType(documentType)
-                    .views([S.view.form(), PreviewIFrame(kataConfig)])
+                    .views([S.view.form(), PreviewIFrame()])
                 )
             ),
           S.listItem()
@@ -132,7 +132,7 @@ function articlesStructureBuilder (S, kataConfig,  {documentType, plural, indexP
                   S.document()
                     .documentId(documentId)
                     .schemaType(documentType)
-                    .views([S.view.form(), PreviewIFrame(kataConfig)])
+                    .views([S.view.form(), PreviewIFrame()])
                 )
             ),
           featured,

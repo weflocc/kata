@@ -1,9 +1,4 @@
-import config from 'config:kata'
-const allTypes = config.allTypes.map( (item) => {
-  return {
-    type: item
-  }
-})
+import kataConfig from 'config:kata'
 
 const camelCase = require('lodash.camelcase')
 
@@ -11,6 +6,6 @@ export default function internalLink(name = 'internalLink') {
   return {
       name: name,
       type: 'reference',
-      to: allTypes
+      to: kataConfig.allTypes
   }
 }

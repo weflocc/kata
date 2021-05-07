@@ -41,8 +41,8 @@ const PreviewIFrame = (kataConfig) =>
         }
       }, /*#__PURE__*/React.createElement("p", null, "Click refresh below to see changes even without publishing")), /*#__PURE__*/React.createElement("iframe", {
         style: {
-          width: '100%',
-          height: '100%'
+          width: '50%',
+          height: '50%'
         },
         frameBorder: '0',
         src: url

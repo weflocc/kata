@@ -9,8 +9,24 @@
       "path": "schemas/components/internalLinkTest"
     },
     {
-      "name": "part:kata-sanity/partials/internalLink",
+      "implements": "part:@sanity/production-preview/resolve-production-url",
+      "path": "parts/resolvePreviewUrl"
+    },
+    {
+      "name": "part:kata/partials/internalLink",
       "path": "schemas/partials/internalLink"
+    },
+    {
+      "name": "part:kata/singletonStructureBuilder",
+      "path": "parts/singletonStructureBuilder"
+    },
+    {
+      "name": "part:kata/articlesStructureBuilder",
+      "path": "parts/articlesStructureBuilder"
+    },
+    {
+      "name": "part:kata/previewIFrame",
+      "path": "parts/previewIFrame"
     }
   ]
 }

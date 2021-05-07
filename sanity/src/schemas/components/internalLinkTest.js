@@ -1,11 +1,6 @@
 // import {linkText, linkStyle} from '../partials/links'
 // import {BiLink} from 'react-icons/bi'
-import config from 'config:kata'
-const allTypes = config.allTypes.map( (item) => {
-  return {
-    type: item
-  }
-})
+import kataConfig from 'config:kata'
 
 export default  {
   name: 'internalLinkTest',
@@ -15,7 +10,7 @@ export default  {
     {
       name: 'internalLink',
       type: 'reference',
-      to: allTypes
+      to: kataConfig.allTypes
     },
   ],
 }
