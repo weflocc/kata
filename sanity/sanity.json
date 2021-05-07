@@ -1,0 +1,16 @@
+{
+  "paths": {
+    "source": "./src",
+    "compiled": "./lib"
+  },
+  "parts": [    
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "schemas/components/internalLinkTest"
+    },
+    {
+      "name": "part:kata-sanity/partials/internalLink",
+      "path": "schemas/partials/internalLink"
+    }
+  ]
+}
