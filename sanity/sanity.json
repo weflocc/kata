@@ -25,6 +25,10 @@
       "path": "parts/variableOverrides.css"
     },
     {
+      "implements": "part:@sanity/base/brand-logo",
+      "path": "parts/Logo.js"
+    },
+    {
       "name": "part:kata/partials/internalLink",
       "path": "schemas/partials/internalLink"
     },
