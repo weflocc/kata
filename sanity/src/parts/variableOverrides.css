@@ -1,0 +1,19 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap'); */
+
+/*  variables that can be overridden: https://github.com/sanity-io/sanity/tree/next/packages/%40sanity/base/src/styles/variables */
+
+:global(.ArrayInputListItem_inner_2-by2) {background:#fff!important;}
+:global(.documentPanel_documentViewerContainer_37V9u) {background:#E5E5E5!important;}
+:global(*:not(:disabled) + .sc-hTZhsR) {background:#fff!important;}
+:global(.PortableTextInput_header_3gJZR) {background:#fff!important;}
+:global(*:not(:disabled) + .sc-jNMdTA) {background:#fff!important;}
+:global(.ImageInput_content_1-Z4t) {max-height: 200px; padding-bottom: 200px;}
+
+
+:root {
+  --brand-primary: #1D2426;
+  --component-bg: #ffffff;
+  /* --font-family-base: 'Open Sans', sans-serif; */
+}
+
+
