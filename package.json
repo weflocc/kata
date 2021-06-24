@@ -25,6 +25,7 @@
   "dependencies": {
     "@sanity/desk-tool": "^2.10.2",
     "get-youtube-id": "^1.0.1",
+    "hls.js": "^1.0.7",
     "lodash.camelcase": "^4.3.0",
     "react-icons": "^4.2.0",
     "react-youtube": "^7.13.1",
