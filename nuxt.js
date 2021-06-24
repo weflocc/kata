@@ -16,7 +16,6 @@ export default function () {
     './components/slices/team',
     './components/slices/testimonial',
     './components/slices/text',
-
     './components/utilities',
     // './components/utilities/serializers', // not actually needed, direcly imported in SanityEmbedContent
   ]
@@ -26,6 +25,7 @@ export default function () {
     ourDirs.forEach((dir) => {
       dirs.push({
         path: join(__dirname, dir),
+        global: true,
       })
     })
   })
