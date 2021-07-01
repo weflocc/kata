@@ -69,7 +69,7 @@ export default {
 
       .side-link {
         position: absolute;
-        left: calc(var(--r1_12) * -1);
+        left: -var(--r1_12);
         transform: translateX(100%);
         top: 0;
         bottom: 0;
