@@ -33,7 +33,6 @@ const thumbnails = {
       title: 'Item',
       type: 'object',
       fields: [
-        standardImage(),
         {
           name: 'title',
           title: 'Title',
@@ -51,6 +50,7 @@ const thumbnails = {
           type: 'reference',
           to: config.allTypes,
         },
+        standardImage(),
       ],
       preview: {
         select: {
@@ -82,7 +82,6 @@ const imageThumbnails = {
       title: 'Item',
       type: 'object',
       fields: [
-        standardImage(),
         {
           name: 'title',
           title: 'Title',
@@ -94,6 +93,7 @@ const imageThumbnails = {
           type: 'reference',
           to: config.allTypes,
         },
+        standardImage(),
       ],
       preview: {
         select: {
