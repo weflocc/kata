@@ -1,5 +1,5 @@
 import { standardImage } from '../partials/image'
-import { videoSrcset } from './videoSrcset'
+// import { videoSrcset } from './videoSrcset'
 const camelCase = require('lodash.camelcase')
 
 const media = (name = 'Media', required = true) => {
@@ -17,9 +17,9 @@ const media = (name = 'Media', required = true) => {
         type: 'mux.video',
       },
     ],
-    validation: required
-      ? (Rule) => Rule.required('Please select an image.')
-      : null,
+    // validation: required
+    //   ? (Rule) => Rule.required('Please select an image.')
+    //   : null,
   }
 }
 
