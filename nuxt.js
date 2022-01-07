@@ -17,7 +17,9 @@ export default function () {
     './components/slices/portfolio',
     './components/slices/statistics',
     './components/slices/team',
+    './components/slices/team/parts',
     './components/slices/testimonial',
+    './components/slices/testimonial/parts',
     './components/slices/text',
     './components/utilities',
     // './components/utilities/serializers', // not actually needed, directly imported in SanityEmbedContent

@@ -17,19 +17,12 @@
         ref="testimonials-4-serializer-carousel"
         class="w-full"
       >
-        <div
+        <Testimonial04Part
           v-for="item in testimonials"
           :key="item._key"
           class="pr-large testimonial-item"
-        >
-          <p
-            v-if="item.quote"
-            v-kata-html="item.quote"
-            class="heading-3 mb-large"
-          />
-          <p v-if="item.name" v-kata-html="item.name" class="label-1" />
-          <p v-if="item.job" v-kata-html="item.job" class="para-4 mt-1" />
-        </div>
+          :item="item"
+        />
       </VueSlickCarousel>
 
       <div
@@ -45,19 +38,12 @@
       </div>
     </div>
     <div v-else class="w-full">
-      <div
+      <Testimonial04Part
         v-for="item in testimonials"
         :key="item._key"
         class="pr-large testimonial-item"
-      >
-        <p
-          v-if="item.quote"
-          v-kata-html="item.quote"
-          class="heading-3 mb-large"
-        />
-        <p v-if="item.name" v-kata-html="item.name" class="label-1" />
-        <p v-if="item.job" v-kata-html="item.job" class="para-4 mt-1" />
-      </div>
+        :item="item"
+      />
     </div>
   </div>
 </template>
