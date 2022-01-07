@@ -1,2 +1,2 @@
-import { testimonial03 } from '../testimonial'
+import { testimonial03 } from './testimonial'
 export default testimonial03

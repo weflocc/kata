@@ -1,2 +1,2 @@
-import { portfolio01 } from '../portfolio'
+import { portfolio01 } from './portfolio'
 export default portfolio01

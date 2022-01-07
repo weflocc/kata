@@ -1,2 +1,2 @@
-import { feature07 } from '../feature'
+import { feature07 } from './feature'
 export default feature07

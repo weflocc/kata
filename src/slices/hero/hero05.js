@@ -1,2 +1,2 @@
-import { hero05 } from '../hero'
+import { hero05 } from './hero'
 export default hero05

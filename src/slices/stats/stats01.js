@@ -1,2 +1,2 @@
-import { stats01 } from '../stats'
+import { stats01 } from './stats'
 export default stats01

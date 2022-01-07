@@ -1,2 +1,2 @@
-import { text01 } from '../text'
+import { text01 } from './text'
 export default text01

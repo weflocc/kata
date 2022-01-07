@@ -1,2 +1,2 @@
-import { news03 } from '../news'
+import { news03 } from './news'
 export default news03

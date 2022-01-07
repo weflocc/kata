@@ -1,7 +1,4 @@
-import {
-  title,
-  list
-} from './timelineFields'
+import { title, list } from './timelineFields'
 import { links } from 'part:@weflocc/kata/partials/links'
 import { defaultOptions } from 'part:@weflocc/kata/partials/defaults'
 

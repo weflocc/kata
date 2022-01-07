@@ -1,4 +1,4 @@
-import { standardImage } from '../partials/image'
+import { standardImage } from '../../partials/image'
 import config from 'config:@weflocc/kata'
 import { BiListPlus } from 'react-icons/bi'
 
