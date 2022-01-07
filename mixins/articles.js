@@ -68,11 +68,7 @@ const searchArticles = {
     },
 
     articlesNotFeatured() {
-      if (
-        !this.showFeatured.showFeatured ||
-        !this.featured ||
-        !this.featured.length
-      ) {
+      if (!this.showFeatured || !this.featured || !this.featured.length) {
         return this.articles
       }
 

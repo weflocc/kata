@@ -71,9 +71,9 @@ import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 export default {
   components: { VueSlickCarousel },
   props: {
-    testimonials: {
-      type: Array,
-      required: true,
+    testimonial04: {
+      type: Object,
+      default: null,
     },
   },
   data() {
@@ -87,6 +87,11 @@ export default {
         // fade: true,
       },
     }
+  },
+  computed: {
+    testimonials() {
+      return this.testimonial04.testimonials
+    },
   },
   methods: {
     showNext() {

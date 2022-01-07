@@ -1,10 +1,10 @@
 <template>
-  <div v-if="link" class="space-x-small kata-block-links">
+  <div v-if="links" class="space-x-small kata-block-links">
     <KataLink
-      v-for="item in link"
+      v-for="item in links"
       v-bind="item"
       :key="item._key"
-      class="inline-block"
+      class="inline-block mb-small"
     />
   </div>
 </template>
@@ -12,7 +12,7 @@
 <script>
 export default {
   props: {
-    link: {
+    links: {
       type: Array,
       default: null,
     },

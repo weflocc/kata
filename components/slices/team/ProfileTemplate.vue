@@ -1,4 +1,5 @@
 <template>
+  <!-- need to find a better way to do this or put it, as its not a utility. -->
   <div class="md:flex">
     <div
       v-if="item.image"
