@@ -1,6 +1,7 @@
 import config from 'config:@weflocc/kata'
-import { BiLinkExternal, BiLink } from 'react-icons/bi'
-import { GoFileSymlinkFile } from 'react-icons/go'
+import { BiLinkExternal, BiLink, BiTable } from 'react-icons/bi'
+import { GoFileSymlinkFile, GoQuote } from 'react-icons/go'
+import { links } from 'part:@weflocc/kata/partials/links'
 import { standardImage } from 'part:@weflocc/kata/partials/image'
 const camelCase = require('lodash.camelcase')
 
@@ -23,7 +24,7 @@ const basicTextEditor = (name = 'Text Body', settings) => {
           ],
           annotations: [
             {
-              name: 'externalLink',
+              name: 'link',
               type: 'object',
               title: 'External link',
               blockEditor: {
@@ -98,7 +99,7 @@ const fullTextEditor = (name = 'Text Body', settings) => {
           ],
           annotations: [
             {
-              name: 'externalLink',
+              name: 'link',
               type: 'object',
               title: 'External link',
               blockEditor: {
@@ -115,6 +116,7 @@ const fullTextEditor = (name = 'Text Body', settings) => {
                   name: 'blank',
                   type: 'boolean',
                   layout: 'checkbox',
+                  initialValue: true,
                 },
               ],
             },
@@ -150,18 +152,6 @@ const fullTextEditor = (name = 'Text Body', settings) => {
                 },
               ],
             },
-            // {
-            //   name: 'link',
-            //   type: 'object',
-            //   title: 'Link',
-            //   fields: [
-            //     {
-            //       name: 'href',
-            //       title: 'URL',
-            //       type: 'url',
-            //     },
-            //   ],
-            // },
           ],
         },
         styles: [
@@ -195,11 +185,23 @@ const fullTextEditor = (name = 'Text Body', settings) => {
         type: 'accordion',
       },
       {
-        type: 'link',
         title: 'Buttons',
+        name: 'buttons',
+        type: 'object',
+        fields: [links()],
+        preview: {
+          prepare() {
+            return {
+              title: 'Buttons',
+              subtitle:
+                'Double click to view and edit the list of button links.',
+              media: BiLink,
+            }
+          },
+        },
       },
       {
-        title: 'Table Field',
+        title: 'Table',
         name: 'tableField',
         type: 'object',
         fields: [
@@ -208,9 +210,40 @@ const fullTextEditor = (name = 'Text Body', settings) => {
             type: 'table',
           },
         ],
+        preview: {
+          prepare() {
+            return {
+              title: 'Table',
+              subtitle: 'Double click to view and edit the table.',
+              media: BiTable,
+            }
+          },
+        },
       },
       {
-        type: 'testimonial04',
+        title: 'Testimonials',
+        name: 'testimonials',
+        type: 'object',
+        fields: [
+          {
+            name: 'testimonial04',
+            title: 'Testimonials',
+            type: 'testimonial04',
+            options: {
+              collapsible: false,
+            },
+          },
+        ],
+        preview: {
+          prepare() {
+            return {
+              title: 'Testimonials',
+              subtitle:
+                'Double click to view and edit the list of testimonials.',
+              media: GoQuote,
+            }
+          },
+        },
       },
     ],
   }

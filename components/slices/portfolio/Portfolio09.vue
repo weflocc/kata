@@ -17,7 +17,11 @@
         @mouseleave="!isTouch ? toggleTile(index) : null"
         @click="isTouch ? toggleTile(index) : null"
       >
-        <LinkSlot :link="item.link" class="relative block">
+        <component
+          :is="item.link ? 'n-link' : 'div'"
+          :to="item.link"
+          class="relative block"
+        >
           <KataImage
             v-if="item.image"
             :image="item.image"
@@ -40,7 +44,7 @@
               />
             </div>
           </div>
-        </LinkSlot>
+        </component>
       </div>
     </div>
   </div>

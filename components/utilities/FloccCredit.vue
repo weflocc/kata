@@ -1,5 +1,5 @@
 <template>
-  <a v-if="credit && credit.url" :href="credit.url" target="_blank">
+  <a v-if="credit && credit.url" href="https://flocc.co" target="_blank">
     {{ credit.linkText }}
   </a>
 </template>

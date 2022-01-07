@@ -30,14 +30,14 @@ export default {
         types: {
           youtube: Youtube,
           image: Image,
-          link: BlockLinks,
+          buttons: BlockLinks,
           tableField: TableField,
           accordion: Accordion,
-          testimonial04: Testimonial04,
+          testimonials: Testimonial04,
         },
         marks: {
           internalLink: InternalLink,
-          externalLink: ExternalLink,
+          link: ExternalLink,
           file: FileLink,
         },
       },

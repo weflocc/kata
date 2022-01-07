@@ -22,31 +22,11 @@
         }"
         class="fade-up"
       >
-        <div
+        <Testimonial01Part
           v-for="item in testimonials"
           :key="item._key"
-          class="md:px-r1/12 text-center"
-        >
-          <p
-            v-if="item.quote"
-            v-kata-html="item.quote"
-            class="heading-3 mb-large"
-          />
-          <KataSimpleImage
-            :image="item.image"
-            width="100"
-            height="100"
-            data-not-lazy
-            class="mx-auto mb-small rounded-full"
-          />
-          <p v-if="item.name" v-kata-html="item.name" class="label-1" />
-          <p v-if="item.job" v-kata-html="item.job" class="para-4 mt-1" />
-          <KataLinks
-            v-if="item.links && item.links.link"
-            :links="item.links.link"
-            class="mt-small"
-          />
-        </div>
+          :item="item"
+        />
       </VueSlickCarousel>
       <div
         v-if="testimonials.length > 1"
@@ -62,31 +42,11 @@
       </div>
     </div>
     <div v-else class="mx-r1/12 w-r10/12">
-      <div
+      <Testimonial01Part
         v-for="item in testimonials"
         :key="item._key"
-        class="md:px-r1/12 text-center"
-      >
-        <p
-          v-if="item.quote"
-          v-kata-html="item.quote"
-          class="heading-3 mb-large fade-up"
-        />
-        <KataSimpleImage
-          :image="item.image"
-          width="60"
-          height="60"
-          data-not-lazy
-          class="mx-auto mb-small rounded-full fade-up"
-        />
-        <p v-if="item.name" v-kata-html="item.name" class="label-1 fade-up" />
-        <p v-if="item.job" v-kata-html="item.job" class="para-4 mt-1 fade-up" />
-        <KataLinks
-          v-if="item.links && item.links.link"
-          :links="item.links.link"
-          class="mt-small fade-up"
-        />
-      </div>
+        :item="item"
+      />
     </div>
   </div>
 </template>

@@ -25,6 +25,15 @@ const text = {
   },
 }
 
+const text = {
+  props: {
+    text: {
+      type: String,
+      default: '',
+    },
+  },
+}
+
 const textBody = {
   props: {
     textBody: {
