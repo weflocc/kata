@@ -1,9 +1,9 @@
 {
   "allTypes": [{ "type": "page" }],
   "buttonTypes": [
-    { "type": "internalLink" },
-    { "type": "fileLink" },
-    { "type": "externalLink" }
+    { "title": "Internal Link", "value": "internal" },
+    { "title": "External Link", "value": "external" },
+    { "title": "File Link", "value": "file" }
   ],
   "allSlices": []
 }

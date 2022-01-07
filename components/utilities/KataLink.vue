@@ -1,44 +1,50 @@
 <template>
-  <nuxt-link v-if="internalLink && !isOnSamePage" :to="path" :class="linkStyle">
-    {{ text }}
+  <nuxt-link
+    v-if="linkType == 'internal' && (!isOnSamePage || !anchor)"
+    :to="path"
+    class="btn-internal"
+    :class="linkStyle"
+  >
+    {{ linkText }}
   </nuxt-link>
 
   <button
-    v-else-if="internalLink && isOnSamePage && anchor"
+    v-else-if="linkType == 'internal' && isOnSamePage && anchor"
     :class="linkStyle"
+    class="btn-anchor"
     @click="scrollToAnchor(anchor)"
   >
-    {{ text }}
-  </button>
-  <button
-    v-else-if="_type == 'anchor'"
-    :class="linkStyle"
-    @click="scrollTo(anchor)"
-  >
-    {{ text }}
+    {{ linkText }}
   </button>
 
   <a
-    v-else-if="fileLink && link"
+    v-else-if="linkType == 'file' && file"
     :href="link"
     :class="linkStyle"
     class="btn-file"
     target="_blank"
     download
   >
-    {{ text }}
+    {{ linkText }}
   </a>
 
-  <a v-else-if="url && link" :href="link" target="_blank" :class="linkStyle">
-    {{ text }}
+  <a
+    v-else-if="linkType == 'external' && link"
+    :href="url"
+    target="_blank"
+    class="btn-external"
+    :class="linkStyle"
+  >
+    {{ linkText }}
   </a>
 
   <nuxt-link
-    v-else-if="query && query != null"
+    v-else-if="linkType == 'lightbox' && query"
     :to="{ query: { lightbox: query } }"
     :class="linkStyle"
+    class="btn-lightbox"
   >
-    {{ text }}
+    {{ linkText }}
   </nuxt-link>
 </template>
 
@@ -53,6 +59,10 @@ export default {
       type: String,
       default: null,
     },
+    linkType: {
+      type: String,
+      default: null,
+    },
     internalLink: {
       type: Object,
       default: null,
@@ -61,7 +71,7 @@ export default {
       type: String,
       default: null,
     },
-    fileLink: {
+    file: {
       type: Object,
       default: null,
     },
@@ -73,53 +83,35 @@ export default {
       type: String,
       default: null,
     },
-    _type: {
-      type: String,
-      default: null,
-    },
   },
   computed: {
     link() {
-      if (this.url) {
-        return this.url
-      } else if (
-        this.internalLink ||
-        (this.fileLink && this.fileLink?.asset?._ref)
-      ) {
-        const ref = this.internalLink
-          ? this.internalLink._ref
-          : this.fileLink.asset._ref
-
-        return this.$store.getters['references/getLinkFromReference'](ref)
-      } else {
-        return null
+      let ref = ''
+      if (this.internalLink?._ref) {
+        ref = this.internalLink._ref
+      } else if (this.file && this.file?.asset?._ref) {
+        ref = this.file.asset._ref
       }
+      return ref
+        ? this.$store.getters['references/getLinkFromReference'](ref)
+        : '/'
     },
     isOnSamePage() {
       if (this.link?.path) {
         return this.link.path === this.$route.fullPath ? true : false
-      } else {
-        return false
       }
+      return false
     },
     path() {
-      let path = this.link ? this.link.path : null
-      if (this.internalLink && this.anchor) {
+      let path = this.link ? this.link.path : this.$route.fullPath
+      if (this.anchor) {
         path += this.anchor
       }
       return path
     },
-    text() {
-      if (this.linkText) {
-        return this.linkText
-      } else {
-        const text = this.link ? this.link.title : null
-        return text
-      }
-    },
   },
   methods: {
-    scrollTo(anchor) {
+    scrollToAnchor(anchor) {
       if (process.client) {
         if (anchor.includes('#')) anchor = anchor.replace('#', '')
         let el = document.getElementById(anchor)
@@ -127,23 +119,6 @@ export default {
         if (el && header) {
           window.scrollTo({
             top: el.offsetTop - header.offsetHeight,
-            behavior: 'smooth',
-          })
-        }
-      }
-    },
-    scrollToAnchor(anchor) {
-      if (process.client) {
-        console.log('whoosh')
-        anchor = anchor.toString()
-        if (anchor.includes('#')) {
-          anchor = anchor.replace('#', '')
-        }
-        let elem = document.getElementById(anchor, anchor.replace('#', ''))
-        if (elem) {
-          window.scrollBy({
-            top: elem.getBoundingClientRect().top - 150,
-            left: 0,
             behavior: 'smooth',
           })
         }

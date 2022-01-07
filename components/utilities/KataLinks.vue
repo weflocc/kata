@@ -1,10 +1,10 @@
 <template>
-  <div v-if="links.length" class="-mx-2 -mb-small kata-links">
+  <div v-if="links && links.length" class="kata-links space-x-small">
     <KataLink
       v-for="link in links"
       v-bind="link"
       :key="link._key"
-      class="mx-2 inline-block mb-small fade-up"
+      class="inline-block mb-small fade-up"
     />
   </div>
 </template>
