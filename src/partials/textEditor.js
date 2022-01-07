@@ -63,18 +63,6 @@ const basicTextEditor = (name = 'Text Body', settings) => {
                 },
               ],
             },
-            // {
-            //   name: 'link',
-            //   type: 'object',
-            //   title: 'Link',
-            //   fields: [
-            //     {
-            //       name: 'href',
-            //       title: 'URL',
-            //       type: 'url',
-            //     },
-            //   ],
-            // },
           ],
         },
       },

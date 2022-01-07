@@ -16,7 +16,7 @@
         v-kata-html="title"
         class="heading-1 mb-medium"
       />
-      <p v-if="text" v-kata-html="text" class="whitespace-pre-line" />
+      <SanityEmbedContent v-if="textBody" :blocks="textBody" />
       <KataLinks v-if="links" :links="links" class="mt-medium" />
     </div>
 
@@ -34,10 +34,10 @@
 </template>
 
 <script>
-import { superHeading, title, text, links, media } from '../shared'
+import { superHeading, title, textBody, links, media } from '../shared'
 
 export default {
-  mixins: [superHeading, title, text, links, media],
+  mixins: [superHeading, title, textBody, links, media],
 }
 </script>
 

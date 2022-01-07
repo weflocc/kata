@@ -2,13 +2,22 @@ import { title, text, superHeading } from './heroFields'
 import { links } from 'part:@weflocc/kata/partials/links'
 import { media } from 'part:@weflocc/kata/partials/media'
 import { defaultOptions } from 'part:@weflocc/kata/partials/defaults'
+import { basicTextEditor } from 'part:@weflocc/kata/partials/textEditor'
 
 const hero01 = {
   name: 'hero01',
   type: 'object',
   title: 'Hero #1',
   options: defaultOptions,
-  fields: [media(), superHeading, title, text, links()],
+  fields: [media(), superHeading, title, basicTextEditor, links()],
+}
+
+const hero02 = {
+    name: 'hero02',
+    type: 'object',
+    title: 'Hero #2',
+    options: defaultOptions,
+    fields: [media(), superHeading, title, links()],
 }
 
 const hero04 = {
@@ -33,14 +42,6 @@ const hero06 = {
   title: 'Hero #6',
   options: defaultOptions,
   fields: [media(), superHeading, title, text, links()],
-}
-
-const hero07 = {
-  name: 'hero07',
-  type: 'object',
-  title: 'Hero #7',
-  options: defaultOptions,
-  fields: [media(), superHeading, title, links()],
 }
 
 const hero09 = {
@@ -80,4 +81,4 @@ const hero11 = {
   ],
 }
 
-export { hero01, hero04, hero05, hero06, hero07, hero09, hero10, hero11 }
+export { hero01, hero02, hero04, hero05, hero06, hero09, hero10, hero11 }
