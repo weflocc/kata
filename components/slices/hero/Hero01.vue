@@ -3,7 +3,7 @@
     class="hero-1 slice flex-wrap md:flex-nowrap md:justify-between flex min-h-screen"
   >
     <div
-      class="md:py-slice-half md:w-1/2 px-r1/12 md:pr-large md:flex md:flex-col md:justify-center order-2 md:order-1 content"
+      class="md:py-slice-half md:w-r7/12 px-r1/12 md:pr-large md:flex md:flex-col md:justify-center order-2 md:order-1 content"
     >
       <h1
         v-if="superHeading"
@@ -21,7 +21,7 @@
     </div>
 
     <div
-      class="media-wrap mb-large md:mb-0 md:w-1/2 w-full relative order-1 md:order-2"
+      class="media-wrap mb-large md:mb-0 md:w-r5/12 w-full relative order-1 md:order-2"
     >
       <KataMedia
         :media="media"

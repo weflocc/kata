@@ -1,4 +1,18 @@
 <template>
+  <!-- clashes with nuxt lazy load, need to work out another route https://issueexplorer.com/issue/nuxt/image/358 -->
+  <!-- <NuxtImg
+    v-if="imgId"
+    provider="sanity"
+    :src="imgId"
+    :class="{ loaded: loaded }"
+    :width="maxWidth"
+    :height="maxWidth * ratio"
+    fit="crop"
+    class="kata-image"
+    :alt="alt"
+    loading="lazy"
+    @load="imgLoaded"
+  /> -->
   <img
     v-if="imageIsSet"
     :srcSet="srcSet"

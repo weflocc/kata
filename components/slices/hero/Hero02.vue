@@ -1,14 +1,6 @@
 <template>
   <div
-    class="
-      hero-7
-      slice
-      flex-wrap
-      md:flex-nowrap
-      md:justify-between
-      flex
-      min-h-screen
-    "
+    class="hero-2 slice flex-wrap md:flex-nowrap md:justify-between flex min-h-screen"
   >
     <div class="media-wrap mb-large md:mb-0 md:w-r5/12 w-full relative">
       <KataMedia
@@ -19,15 +11,7 @@
       />
     </div>
     <div
-      class="
-        body
-        md:py-slice-half
-        md:w-r7/12
-        px-r1/12
-        md:pl-large
-        md:flex md:flex-col
-        md:justify-center
-      "
+      class="body md:py-slice-half md:w-r7/12 px-r1/12 md:pl-large md:flex md:flex-col md:justify-center"
     >
       <h1
         v-if="superHeading"
@@ -55,7 +39,7 @@ export default {
 </script>
 
 <style lang="scss">
-.hero-7 .media-dots {
+.hero-2 .media-dots {
   bottom: var(--spacing-small);
   left: -25px;
   width: auto;
@@ -76,7 +60,8 @@ export default {
   }
 }
 @include md-down {
-  .hero-7 .media-wrap {
+  .hero-2 .media-wrap {
     height: 35vh;
   }
 }
+</style>
