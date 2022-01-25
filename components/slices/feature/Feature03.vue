@@ -42,8 +42,8 @@ export default {
   position: relative;
   background: black;
 
-  img {
-    opacity: 0.75 !important;
+  img.kata-image.lazyLoad.isLoaded {
+    opacity: 0.75;
   }
 
   &:before {

@@ -21,7 +21,7 @@
           <SocialMedia
             v-if="item.socials"
             :social-links="item.socials"
-            :size="20"
+            :size="15"
           />
         </div>
         <div>

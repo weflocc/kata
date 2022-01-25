@@ -15,12 +15,10 @@
         ref="testimonials-4-carousel"
         class="w-r8/12"
       >
-        <Testimonial04Part
-          v-for="item in testimonials"
-          :key="item._key"
-          class="pr-large testimonial-item"
-          :item="item"
-        />
+        <!-- div required here for vue slick to detect group -->
+        <div v-for="item in testimonials" :key="item._key" class="item">
+          <Testimonial04Part class="pr-large testimonial-item" :item="item" />
+        </div>
       </VueSlickCarousel>
 
       <div class="w-r2/12 flex justify-center items-center">

@@ -2,7 +2,7 @@
   <nav class="kata-menu">
     <ul class="kata-menu-list p-0">
       <li v-for="item in menu" :key="item._key" class="nav-link-wrap mb-0">
-        <div v-if="typeof item.link == 'object'">
+        <template v-if="typeof item.link == 'object'">
           <n-link
             v-if="item.link._ref && link(item.link._ref)"
             v-kata-html="
@@ -14,8 +14,8 @@
             class="nav-link inline-block"
             @click.native="clickFn"
           />
-        </div>
-        <div v-else>
+        </template>
+        <template v-else>
           <n-link
             v-if="item._ref && link(item._ref)"
             v-kata-html="
@@ -36,7 +36,7 @@
             class="nav-link inline-block"
             @click="clickFn"
           />
-        </div>
+        </template>
       </li>
     </ul>
   </nav>

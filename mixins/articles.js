@@ -200,16 +200,18 @@ const pagination = {
         return
       }
       this.resultCount = this.articles.length
+      this.existingQueries = this.$route.query
       if (!this.currentPage) {
         this.$router.push({
           path: this.$route.path,
-          query: { page: 1 },
+          // set the page and existing query params
+          query: { page: 1, ...this.existingQueries },
         })
       }
       if (this.currentPage >= this.totalPages) {
         this.$router.push({
           path: this.$route.path,
-          query: { page: this.totalPages },
+          query: { page: this.totalPages, ...this.existingQueries },
         })
       }
       var index = this.currentPage * this.itemsPerPage - this.itemsPerPage
@@ -219,20 +221,22 @@ const pagination = {
       if (!this.articles || this.articles.length != this.articles.length) {
         return
       }
-
+      this.existingQueries = this.$route.query
       this.resultCount = this.unfeaturedArticles.length
       if (!this.currentPage) {
         this.$router.push({
           path: this.$route.path,
-          query: { page: 1 },
+          query: { page: 1, ...this.existingQueries },
         })
       }
       if (this.currentPage >= this.totalPages) {
+        this.existingQueries.page = this.totalPages
         this.$router.push({
           path: this.$route.path,
-          query: { page: this.totalPages },
+          query: { page: this.totalPages, ...this.existingQueries },
         })
       }
+      console.log(this.$route.query)
       var index = this.currentPage * this.itemsPerPage - this.itemsPerPage
       return this.unfeaturedArticles.slice(index, index + this.itemsPerPage)
     },

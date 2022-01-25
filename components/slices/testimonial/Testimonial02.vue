@@ -18,11 +18,9 @@
           'w-r8/12': testimonials.length > 1,
         }"
       >
-        <Testimonial02Part
-          v-for="item in testimonials"
-          :key="item._key"
-          :item="item"
-        />
+        <div v-for="item in testimonials" :key="item._key">
+          <Testimonial02Part :item="item" />
+        </div>
       </VueSlickCarousel>
       <div
         v-if="testimonials.length > 1"

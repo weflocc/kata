@@ -5,7 +5,7 @@
       v-kata-html="title"
       class="heading-2 fade-up mb-medium text-center"
     />
-    <div class="flex justify-center items-start flex-wrap">
+    <div v-if="testimonials" class="flex justify-center items-start flex-wrap">
       <div
         v-for="item in testimonials"
         :key="item._key"

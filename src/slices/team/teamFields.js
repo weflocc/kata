@@ -89,27 +89,27 @@ const profiles = {
             {
               title: 'Twitter',
               name: 'twitter',
-              type: 'string',
+              type: 'url',
             },
             {
               title: 'Facebook',
               name: 'facebook',
-              type: 'string',
+              type: 'url',
             },
             {
               title: 'Instagram',
               name: 'instagram',
-              type: 'string',
+              type: 'url',
             },
             {
               title: 'Linked In',
               name: 'linkedIn',
-              type: 'string',
+              type: 'url',
             },
             {
               title: 'Youtube',
               name: 'youtube',
-              type: 'string',
+              type: 'url',
             },
           ],
         },

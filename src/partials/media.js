@@ -8,6 +8,8 @@ const media = (name = 'Media', required = true) => {
     title: name,
     type: 'array',
     editModal: 'popover',
+    description:
+      'Choose image or video media type. You can add multiple images to create a fading `slideshow`. If using a video, you can add a mobile video by adding a second video to the list below.',
     of: [
       standardImage(),
       // videoSrcset(),
@@ -16,7 +18,7 @@ const media = (name = 'Media', required = true) => {
         name: 'video',
         type: 'mux.video',
         description:
-          'We recommend you crop and compress your video here before uploading it: https://www.videosmaller.com/',
+          'We recommend you crop and compress your video here before uploading it: https://www.videosmaller.com/.',
       },
     ],
     // validation: required

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="slice call-to-action-1 w-r10/12 mx-r1/12 md:w-r7/12 md:mx-auto text-center"
+    class="slice cta-1 call-to-action-1 w-r10/12 mx-r1/12 md:w-r7/12 md:mx-auto text-center"
   >
     <h2 v-if="title" v-kata-html="title" class="heading-2 fade-up mb-medium" />
     <p

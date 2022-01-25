@@ -22,12 +22,9 @@
         }"
         class="fade-up"
       >
-        <Testimonial01Part
-          v-for="item in testimonials"
-          :key="item._key"
-          class="md:px-r1/12 text-center"
-          :item="item"
-        />
+        <div v-for="item in testimonials" :key="item._key">
+          <Testimonial01Part class="md:px-r1/12 text-center" :item="item" />
+        </div>
       </VueSlickCarousel>
       <div
         v-if="testimonials.length > 1"
