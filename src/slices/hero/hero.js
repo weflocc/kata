@@ -9,15 +9,15 @@ const hero01 = {
   type: 'object',
   title: 'Hero #1',
   options: defaultOptions,
-  fields: [media(), superHeading, title, basicTextEditor, links()],
+  fields: [media(), superHeading, title, basicTextEditor(), links()],
 }
 
 const hero02 = {
-    name: 'hero02',
-    type: 'object',
-    title: 'Hero #2',
-    options: defaultOptions,
-    fields: [media(), superHeading, title, links()],
+  name: 'hero02',
+  type: 'object',
+  title: 'Hero #2',
+  options: defaultOptions,
+  fields: [media(), superHeading, title, links()],
 }
 
 const hero04 = {
