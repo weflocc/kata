@@ -24,6 +24,7 @@
   "homepage": "https://github.com/weflocc/kata#readme",
   "dependencies": {
     "@sanity/desk-tool": "^2.10.2",
+    "@sanity/ui": "^0.37.2",
     "get-youtube-id": "^1.0.1",
     "hls.js": "^1.0.7",
     "lodash.camelcase": "^4.3.0",

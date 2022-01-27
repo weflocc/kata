@@ -78,6 +78,18 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
+      "path": "components/buttons"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "components/testimonials"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "components/tablePreview"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
       "path": "components/accordion"
     },
     {
@@ -211,10 +223,6 @@
     {
       "implements": "part:@sanity/base/schema-type",
       "path": "slices/hero/hero06"
-    },
-    {
-      "implements": "part:@sanity/base/schema-type",
-      "path": "slices/hero/hero07"
     },
     {
       "implements": "part:@sanity/base/schema-type",
