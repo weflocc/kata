@@ -1,8 +1,6 @@
 import config from 'config:@weflocc/kata'
 import { BiLinkExternal, BiLink, BiTable } from 'react-icons/bi'
-import { GoFileSymlinkFile, GoQuote } from 'react-icons/go'
-import { links } from 'part:@weflocc/kata/partials/links'
-import { standardImage } from 'part:@weflocc/kata/partials/image'
+import { GoFileSymlinkFile } from 'react-icons/go'
 const camelCase = require('lodash.camelcase')
 
 const basicTextEditor = (name = 'Text Body', settings) => {
@@ -181,65 +179,13 @@ const fullTextEditor = (name = 'Text Body', settings) => {
         type: 'accordion',
       },
       {
-        title: 'Buttons',
-        name: 'buttons',
-        type: 'object',
-        fields: [links()],
-        preview: {
-          prepare() {
-            return {
-              title: 'Buttons',
-              subtitle:
-                'Double click to view and edit the list of button links.',
-              media: BiLink,
-            }
-          },
-        },
+        type: 'buttons',
       },
       {
-        title: 'Table',
-        name: 'tableField',
-        type: 'object',
-        fields: [
-          {
-            name: 'table',
-            type: 'table',
-          },
-        ],
-        preview: {
-          prepare() {
-            return {
-              title: 'Table',
-              subtitle: 'Double click to view and edit the table.',
-              media: BiTable,
-            }
-          },
-        },
+        type: 'tablePreview',
       },
       {
-        title: 'Testimonials',
-        name: 'testimonials',
-        type: 'object',
-        fields: [
-          {
-            name: 'testimonial04',
-            title: 'Testimonials',
-            type: 'testimonial04',
-            options: {
-              collapsible: false,
-            },
-          },
-        ],
-        preview: {
-          prepare() {
-            return {
-              title: 'Testimonials',
-              subtitle:
-                'Double click to view and edit the list of testimonials.',
-              media: GoQuote,
-            }
-          },
-        },
+        type: 'testimonials',
       },
     ],
   }
