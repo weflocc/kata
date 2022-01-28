@@ -7,7 +7,6 @@ import InfoToolTip from './InfoTooltip'
 const AccordionPreview = ({ value }) => {
   const { accordions } = value
 
-  console.log(accordions)
   return (
     <InfoToolTip>
       <Container padding={3}>

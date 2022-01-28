@@ -21,7 +21,6 @@ const TableRow = (props) => {
 
 const TablePreview = ({ value }) => {
   const { table } = value
-  console.log(table)
   return (
     <InfoToolTip>
       <Container padding={3}>
