@@ -1,5 +1,6 @@
 import React from 'react'
-import { Flex, Grid, Card, Text } from '@sanity/ui'
+import { Container, Grid, Card, Text } from '@sanity/ui'
+import InfoToolTip from './InfoTooltip'
 
 const TableRow = (props) => {
   const { items, cols } = props
@@ -22,19 +23,21 @@ const TablePreview = ({ value }) => {
   const { table } = value
   console.log(table)
   return (
-    <Flex justify={'center'}>
-      <Grid columns={table.rows[0].cells.length} padding={3}>
-        {table.rows.map((element) => {
-          return (
-            <TableRow
-              cols={table.rows[0].cells.length}
-              items={element.cells}
-              key={element._key}
-            />
-          )
-        })}
-      </Grid>
-    </Flex>
+    <InfoToolTip>
+      <Container padding={3}>
+        <Grid columns={table.rows[0].cells.length}>
+          {table.rows.map((element) => {
+            return (
+              <TableRow
+                cols={table.rows[0].cells.length}
+                items={element.cells}
+                key={element._key}
+              />
+            )
+          })}
+        </Grid>
+      </Container>
+    </InfoToolTip>
   )
 }
 

@@ -3,6 +3,7 @@ import { Container, Inline, Button } from '@sanity/ui'
 import { BiLink, BiLinkExternal } from 'react-icons/bi'
 import { GoFileSymlinkFile } from 'react-icons/go'
 import { links } from 'part:@weflocc/kata/partials/links'
+import InfoToolTip from './InfoTooltip'
 
 // function linkType(type) {
 //     if type
@@ -18,23 +19,25 @@ const ButtonsPreview = ({ value }) => {
     file: GoFileSymlinkFile,
   }
   return (
-    <Container padding={3} style={{ textAlign: 'center' }}>
-      <Inline space={[3, 3, 4]}>
-        {Object.values(links).map((element) => {
-          if (element) {
-            return (
-              <Button
-                key={element._key}
-                padding={4}
-                mode="ghost"
-                icon={icons[element.linkType]}
-                text={element.linkText ? element.linkText : '...'}
-              />
-            )
-          }
-        })}
-      </Inline>
-    </Container>
+    <InfoToolTip>
+      <Container padding={3} style={{ textAlign: 'center' }}>
+        <Inline space={[3, 3, 4]}>
+          {Object.values(links).map((element) => {
+            if (element) {
+              return (
+                <Button
+                  key={element._key}
+                  padding={4}
+                  mode="ghost"
+                  icon={icons[element.linkType]}
+                  text={element.linkText ? element.linkText : '...'}
+                />
+              )
+            }
+          })}
+        </Inline>
+      </Container>
+    </InfoToolTip>
   )
 }
 
