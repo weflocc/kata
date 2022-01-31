@@ -1,4 +1,4 @@
-import { linkText, linkStyle } from 'part:@weflocc/kata/partials/links'
+import { linkText, linkStyle } from 'part:@weflocc/kata/partials/index'
 import { BiLinkExternal } from 'react-icons/bi'
 
 export default {

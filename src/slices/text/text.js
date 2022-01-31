@@ -1,9 +1,9 @@
 import { title, list, superHeading } from './textFields'
-import { basicTextEditor } from 'part:@weflocc/kata/partials/textEditor'
-import { media } from 'part:@weflocc/kata/partials/media'
-import { defaultOptions } from 'part:@weflocc/kata/partials/defaults'
-import { standardImage } from 'part:@weflocc/kata/partials/image'
-import { links } from 'part:@weflocc/kata/partials/links'
+import { basicTextEditor } from 'part:@weflocc/kata/partials/index'
+import { media } from 'part:@weflocc/kata/partials/index'
+import { defaultOptions } from 'part:@weflocc/kata/partials/index'
+import { standardImage } from 'part:@weflocc/kata/partials/index'
+import { links } from 'part:@weflocc/kata/partials/index'
 
 const text01 = {
   name: 'text01',

@@ -1,4 +1,4 @@
-import { linkText, linkStyle } from 'part:@weflocc/kata/partials/links'
+import { linkText, linkStyle } from 'part:@weflocc/kata/partials/index'
 import { GoFileSymlinkFile } from 'react-icons/go'
 
 export default {

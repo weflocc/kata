@@ -6,8 +6,8 @@ import {
   cite,
   testimonialsImage,
 } from './testimonialFields'
-import { defaultOptions } from 'part:@weflocc/kata/partials/defaults'
-import { links } from 'part:@weflocc/kata/partials/links'
+import { defaultOptions } from 'part:@weflocc/kata/partials/index'
+import { links } from 'part:@weflocc/kata/partials/index'
 
 const testimonial01 = {
   name: 'testimonial01',

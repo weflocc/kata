@@ -1,17 +1,18 @@
-const metaFieldset = {
+const metaFields = {
   name: 'meta',
   title: 'Meta',
   options: {
     collapsed: true,
     collapsible: true,
   },
-}
-
-const metaField = {
-  name: 'seoMeta',
-  type: 'seoMeta',
-  title: 'SEO & Meta',
-  fieldset: 'meta',
+  type: 'object',
+  fields: [
+    {
+      name: 'seoMeta',
+      type: 'seoMeta',
+      title: 'SEO & Meta',
+    },
+  ],
 }
 
 const title = {
@@ -88,8 +89,7 @@ const metaDescription = {
 }
 
 export {
-  metaFieldset,
-  metaField,
+  metaFields,
   title,
   slug,
   hiddenTitle,

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { BsEye, BsEyeSlash } from 'react-icons/bs'
 import { Card, Heading, Container } from '@sanity/ui'
-import { fullTextEditor } from 'part:@weflocc/kata/partials/textEditor'
+import { fullTextEditor } from 'part:@weflocc/kata/partials/index'
 import InfoToolTip from './InfoTooltip'
 
 const AccordionPreview = ({ value }) => {

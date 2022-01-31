@@ -2,7 +2,7 @@ import {
   hiddenTitle,
   sharingImage,
   schemaOrg,
-} from 'part:@weflocc/kata/partials/meta'
+} from 'part:@weflocc/kata/partials/index'
 
 export default {
   type: 'document',

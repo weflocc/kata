@@ -1,8 +1,8 @@
-import { title, text, superHeading } from './heroFields'
-import { links } from 'part:@weflocc/kata/partials/links'
-import { media } from 'part:@weflocc/kata/partials/media'
-import { defaultOptions } from 'part:@weflocc/kata/partials/defaults'
-import { basicTextEditor } from 'part:@weflocc/kata/partials/textEditor'
+import { title, text, superHeading } from '../shared'
+import { links } from 'part:@weflocc/kata/partials/index'
+import { media } from 'part:@weflocc/kata/partials/index'
+import { defaultOptions } from 'part:@weflocc/kata/partials/index'
+import { basicTextEditor } from 'part:@weflocc/kata/partials/index'
 
 const hero01 = {
   name: 'hero01',

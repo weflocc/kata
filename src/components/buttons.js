@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Inline, Button } from '@sanity/ui'
 import { BiLink, BiLinkExternal } from 'react-icons/bi'
 import { GoFileSymlinkFile } from 'react-icons/go'
-import { links } from 'part:@weflocc/kata/partials/links'
+import { links } from 'part:@weflocc/kata/partials/index'
 import InfoToolTip from './InfoTooltip'
 
 // function linkType(type) {
@@ -18,27 +18,37 @@ const ButtonsPreview = ({ value }) => {
     external: BiLinkExternal,
     file: GoFileSymlinkFile,
   }
-  return (
-    <InfoToolTip>
-      <Container padding={3} style={{ textAlign: 'center' }}>
-        <Inline space={[3, 3, 4]}>
-          {Object.values(links).map((element) => {
-            if (element) {
-              return (
-                <Button
-                  key={element._key}
-                  padding={4}
-                  mode="ghost"
-                  icon={icons[element.linkType]}
-                  text={element.linkText ? element.linkText : '...'}
-                />
-              )
-            }
-          })}
-        </Inline>
-      </Container>
-    </InfoToolTip>
-  )
+  if (links) {
+    return (
+      <InfoToolTip>
+        <Container padding={3} style={{ textAlign: 'center' }}>
+          <Inline space={[3, 3, 4]}>
+            {Object.values(links).map((element) => {
+              if (element) {
+                return (
+                  <Button
+                    key={element._key}
+                    padding={4}
+                    mode="ghost"
+                    icon={icons[element.linkType]}
+                    text={element.linkText ? element.linkText : '...'}
+                  />
+                )
+              }
+            })}
+          </Inline>
+        </Container>
+      </InfoToolTip>
+    )
+  } else {
+    return (
+      <InfoToolTip>
+        <Container padding={3} style={{ textAlign: 'center' }}>
+          <p>Double click to add a button</p>
+        </Container>
+      </InfoToolTip>
+    )
+  }
 }
 
 export default {

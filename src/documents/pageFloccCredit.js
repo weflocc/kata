@@ -1,5 +1,4 @@
-import { linkText } from 'part:@weflocc/kata/partials/links'
-import { hiddenTitle } from 'part:@weflocc/kata/partials/meta'
+import { hiddenTitle, linkText } from 'part:@weflocc/kata/partials/index'
 
 export default {
   type: 'document',

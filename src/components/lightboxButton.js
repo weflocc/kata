@@ -1,4 +1,4 @@
-import { linkText, linkStyle } from 'part:@weflocc/kata/partials/links'
+import { linkText, linkStyle } from 'part:@weflocc/kata/partials/index'
 import { BsFilePost } from 'react-icons/bs'
 
 export default {
@@ -10,6 +10,9 @@ export default {
       type: 'string',
       name: 'query',
       title: 'Query',
+      hidden: ({ currentUser }) => {
+        return currentUser.email != 'studio@flocc.co'
+      },
       description:
         'For developer use only. If you edit this, your lightbox will break.',
       // validation: (Rule) =>

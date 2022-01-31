@@ -1,5 +1,5 @@
 import { BiListPlus } from 'react-icons/bi'
-import { links } from 'part:@weflocc/kata/partials/links'
+import { links } from 'part:@weflocc/kata/partials/index'
 
 export default {
   type: 'object',

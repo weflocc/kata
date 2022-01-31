@@ -1,5 +1,4 @@
 import {
-  title,
   location,
   text,
   email,
@@ -10,14 +9,18 @@ import {
   thanks,
   openingTimes,
 } from './contactFields'
-import { defaultOptions } from 'part:@weflocc/kata/partials/defaults'
+import {
+  defaultOptions,
+  basicTextEditor,
+} from 'part:@weflocc/kata/partials/index'
+import { title } from '../shared'
 
 const contact01 = {
   name: 'contact01',
   type: 'object',
   title: 'Contact #1',
   options: defaultOptions,
-  fields: [title, text, address, email, telephone, thanks],
+  fields: [title, basicTextEditor(), address, email, telephone, thanks],
 }
 
 const contact02 = {
@@ -28,7 +31,7 @@ const contact02 = {
   fields: [
     title,
     location,
-    text,
+    basicTextEditor(),
     address,
     openingTimes,
     email,
@@ -43,7 +46,7 @@ const contact03 = {
   type: 'object',
   title: 'Contact #3',
   options: defaultOptions,
-  fields: [title, text, address, email, telephone],
+  fields: [title, basicTextEditor(), address, email, telephone],
 }
 
 export { contact01, contact02, contact03 }

@@ -1,5 +1,5 @@
 import config from 'config:@weflocc/kata'
-import { standardImage } from 'part:@weflocc/kata/partials/image'
+import { standardImage } from 'part:@weflocc/kata/partials/index'
 import { BiListPlus } from 'react-icons/bi'
 
 const title = {

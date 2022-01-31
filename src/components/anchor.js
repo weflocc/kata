@@ -1,5 +1,5 @@
 import config from 'config:@weflocc/kata'
-import { linkText, linkStyle } from 'part:@weflocc/kata/partials/links'
+import { linkText, linkStyle } from 'part:@weflocc/kata/partials/index'
 import { BiAnchor } from 'react-icons/bi'
 
 export default {

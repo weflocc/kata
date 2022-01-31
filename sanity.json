@@ -5,40 +5,8 @@
   },
   "parts": [
     {
-      "name": "part:@weflocc/kata/partials/defaults",
-      "path": "partials/defaults"
-    },
-    {
-      "name": "part:@weflocc/kata/partials/feedSelector",
-      "path": "partials/feedSelector"
-    },
-    {
-      "name": "part:@weflocc/kata/partials/globalSliceReference",
-      "path": "partials/globalSliceReference"
-    },
-    {
-      "name": "part:@weflocc/kata/partials/image",
-      "path": "partials/image"
-    },
-    {
-      "name": "part:@weflocc/kata/partials/links",
-      "path": "partials/links"
-    },
-    {
-      "name": "part:@weflocc/kata/partials/media",
-      "path": "partials/media"
-    },
-    {
-      "name": "part:@weflocc/kata/partials/meta",
-      "path": "partials/meta"
-    },
-    {
-      "name": "part:@weflocc/kata/partials/order",
-      "path": "partials/order"
-    },
-    {
-      "name": "part:@weflocc/kata/partials/textEditor",
-      "path": "partials/textEditor"
+      "name": "part:@weflocc/kata/partials/index",
+      "path": "partials/index"
     },
     {
       "implements": "part:@sanity/base/schema-type",

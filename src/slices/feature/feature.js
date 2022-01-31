@@ -1,23 +1,24 @@
+import { title, superHeading, text } from '../shared'
 import {
-  title,
-  superHeading,
   shortFeatures,
   features,
-  text,
   featureTabs,
   featureImageTabs,
   locations,
 } from './featureFields'
-import { standardImage } from 'part:@weflocc/kata/partials/image'
-import { links } from 'part:@weflocc/kata/partials/links'
-import { defaultOptions } from 'part:@weflocc/kata/partials/defaults'
+import {
+  standardImage,
+  links,
+  defaultOptions,
+  basicTextEditor,
+} from 'part:@weflocc/kata/partials/index'
 
 const feature01 = {
   name: 'feature01',
   type: 'object',
   title: 'Feature #1',
   options: defaultOptions,
-  fields: [superHeading, title, text, links(), standardImage()],
+  fields: [superHeading, title, basicTextEditor(), links(), standardImage()],
 }
 
 const feature02 = {
@@ -25,7 +26,7 @@ const feature02 = {
   type: 'object',
   title: 'Feature #2',
   options: defaultOptions,
-  fields: [title, text, shortFeatures, standardImage()],
+  fields: [title, basicTextEditor(), shortFeatures, standardImage()],
 }
 
 const feature03 = {
@@ -33,7 +34,7 @@ const feature03 = {
   type: 'object',
   title: 'Feature #3',
   options: defaultOptions,
-  fields: [title, text, links(), standardImage()],
+  fields: [title, basicTextEditor(), links(), standardImage()],
 }
 
 const feature04 = {
@@ -41,7 +42,7 @@ const feature04 = {
   type: 'object',
   title: 'Feature #4',
   options: defaultOptions,
-  fields: [title, text, links()],
+  fields: [title, basicTextEditor(), links()],
 }
 
 const feature05 = {
@@ -56,21 +57,21 @@ const feature06 = {
   type: 'object',
   title: 'Feature #6',
   options: defaultOptions,
-  fields: [title, text, links(), features],
+  fields: [title, basicTextEditor(), links(), features],
 }
 const feature07 = {
   name: 'feature07',
   type: 'object',
   title: 'Feature #7',
   options: defaultOptions,
-  fields: [title, text, features, links()],
+  fields: [title, basicTextEditor(), features, links()],
 }
 const feature08 = {
   name: 'feature08',
   type: 'object',
   title: 'Feature #8',
   options: defaultOptions,
-  fields: [title, text, standardImage()],
+  fields: [title, basicTextEditor(), standardImage()],
 }
 const feature09 = {
   name: 'feature09',

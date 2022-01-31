@@ -1,14 +1,18 @@
-import { links } from 'part:@weflocc/kata/partials/links'
-import { defaultOptions } from 'part:@weflocc/kata/partials/defaults'
-import { title, text, items } from './ctaFields'
-import { standardImage } from 'part:@weflocc/kata/partials/image'
+import { items } from './ctaFields'
+import {
+  standardImage,
+  defaultOptions,
+  links,
+  basicTextEditor,
+} from 'part:@weflocc/kata/partials/index'
+import { title } from '../shared'
 
 const cta01 = {
   name: 'cta01',
   type: 'object',
   title: 'Call To Action #01',
   options: defaultOptions,
-  fields: [title, text, links()],
+  fields: [title, basicTextEditor(), links()],
 }
 
 const cta02 = {
@@ -24,7 +28,7 @@ const cta05 = {
   type: 'object',
   title: 'Call To Action #05',
   options: defaultOptions,
-  fields: [title, text, standardImage(), links()],
+  fields: [title, basicTextEditor(), standardImage(), links()],
 }
 
 const cta08 = {

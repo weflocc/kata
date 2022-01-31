@@ -1,4 +1,4 @@
-import { standardImage } from 'part:@weflocc/kata/partials/image'
+import { standardImage } from 'part:@weflocc/kata/partials/index'
 import { BsFillChatQuoteFill } from 'react-icons/bs'
 
 const quote = {
