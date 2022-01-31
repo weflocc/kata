@@ -1,19 +1,9 @@
-export { defaultOptions } from './defaults'
-export { basicTextEditor, fullTextEditor } from './textEditor'
-export { links } from './links'
-export { feedSelector } from './feedSelector'
-export { globalSliceReference } from './globalSliceReference'
-export { media } from './media'
-export {
-  metaFields,
-  title,
-  slug,
-  hiddenTitle,
-  hiddenSlug,
-  schemaOrg,
-  sharingImage,
-  metaTitle,
-  metaDescription,
-} from './meta'
-export { order } from './order'
-export { standardImage } from './image'
+export * from './defaults'
+export * from './textEditor'
+export * from './links'
+export * from './feedSelector'
+export * from './globalSliceReference'
+export * from './media'
+export * from './meta'
+export * from './order'
+export * from './image'

@@ -54,7 +54,7 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
-      "path": "components/tablePreview"
+      "path": "components/tableField"
     },
     {
       "implements": "part:@sanity/base/schema-type",

@@ -37,7 +37,7 @@ export default {
         },
         marks: {
           internalLink: InternalLink,
-          link: ExternalLink,
+          span: ExternalLink,
           file: FileLink,
         },
       },

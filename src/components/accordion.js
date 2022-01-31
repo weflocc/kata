@@ -7,17 +7,33 @@ import InfoToolTip from './InfoTooltip'
 const AccordionPreview = ({ value }) => {
   const { accordions } = value
 
-  return (
-    <InfoToolTip>
-      <Container padding={3}>
-        {accordions.items.map((element) => (
-          <Card key={element._key} border marginTop={2} padding={4} radius={2}>
-            <Heading>{element.title}</Heading>
-          </Card>
-        ))}
-      </Container>
-    </InfoToolTip>
-  )
+  if (accordions) {
+    return (
+      <InfoToolTip>
+        <Container padding={3}>
+          {accordions.items.map((element) => (
+            <Card
+              key={element._key}
+              border
+              marginTop={2}
+              padding={4}
+              radius={2}
+            >
+              <Heading>{element.title}</Heading>
+            </Card>
+          ))}
+        </Container>
+      </InfoToolTip>
+    )
+  } else {
+    return (
+      <InfoToolTip>
+        <Container padding={3}>
+          <p>Double click to add</p>
+        </Container>
+      </InfoToolTip>
+    )
+  }
 }
 
 export default {

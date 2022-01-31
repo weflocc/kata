@@ -182,7 +182,7 @@ const fullTextEditor = (name = 'Text Body', settings) => {
         type: 'buttons',
       },
       {
-        type: 'tablePreview',
+        type: 'tableField',
       },
       {
         type: 'testimonials',

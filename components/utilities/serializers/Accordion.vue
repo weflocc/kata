@@ -1,6 +1,6 @@
 <template>
-  <div class="tabs">
-    <div v-for="(item, i) in items" :key="item._key" class="tab">
+  <div v-if="wrapper" class="tabs">
+    <div v-for="(item, i) in wrapper.items" :key="item._key" class="tab">
       <input :id="'chck' + i" type="checkbox" name="rd" />
       <label class="tab-label" :for="'chck' + i">{{ item.title }}</label>
       <div class="tab-content">
@@ -24,9 +24,13 @@ import TableField from './TableField.vue'
 
 export default {
   props: {
-    items: {
-      type: Array,
-      default: () => [],
+    // items: {
+    //   type: Array,
+    //   default: () => [],
+    // },
+    wrapper: {
+      type: Object,
+      default: null,
     },
   },
   data() {
@@ -40,7 +44,7 @@ export default {
         },
         marks: {
           internalLink: InternalLink,
-          externalLink: ExternalLink,
+          link: ExternalLink,
           file: FileLink,
         },
       },

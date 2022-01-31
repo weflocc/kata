@@ -21,20 +21,29 @@ const TableRow = (props) => {
 
 const TablePreview = ({ value }) => {
   const { table } = value
+  if (table && table.rows.length) {
+    return (
+      <InfoToolTip>
+        <Container padding={3}>
+          <Grid columns={table.rows[0].cells.length}>
+            {table.rows.map((element) => {
+              return (
+                <TableRow
+                  cols={table.rows[0].cells.length}
+                  items={element.cells}
+                  key={element._key}
+                />
+              )
+            })}
+          </Grid>
+        </Container>
+      </InfoToolTip>
+    )
+  }
   return (
     <InfoToolTip>
       <Container padding={3}>
-        <Grid columns={table.rows[0].cells.length}>
-          {table.rows.map((element) => {
-            return (
-              <TableRow
-                cols={table.rows[0].cells.length}
-                items={element.cells}
-                key={element._key}
-              />
-            )
-          })}
-        </Grid>
+        <p>Double click to add.</p>
       </Container>
     </InfoToolTip>
   )
@@ -42,7 +51,7 @@ const TablePreview = ({ value }) => {
 
 export default {
   title: 'Table',
-  name: 'tablePreview',
+  name: 'tableField',
   type: 'object',
   fields: [
     {
