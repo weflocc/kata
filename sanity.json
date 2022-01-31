@@ -10,27 +10,27 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
-      "path": "components/externalLink"
+      "path": "links/externalLink"
     },
     {
       "implements": "part:@sanity/base/schema-type",
-      "path": "components/fileLink"
+      "path": "links/fileLink"
     },
     {
       "implements": "part:@sanity/base/schema-type",
-      "path": "components/internalLink"
+      "path": "links/internalLink"
     },
     {
       "implements": "part:@sanity/base/schema-type",
-      "path": "components/lightboxButton"
+      "path": "links/lightboxButton"
     },
     {
       "implements": "part:@sanity/base/schema-type",
-      "path": "components/anchor"
+      "path": "links/anchor"
     },
     {
       "implements": "part:@sanity/base/schema-type",
-      "path": "components/link"
+      "path": "links/link"
     },
     {
       "implements": "part:@sanity/base/schema-type",
@@ -174,10 +174,6 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
-      "path": "slices/hero/hero02"
-    },
-    {
-      "implements": "part:@sanity/base/schema-type",
       "path": "slices/hero/hero04"
     },
     {
@@ -187,6 +183,10 @@
     {
       "implements": "part:@sanity/base/schema-type",
       "path": "slices/hero/hero06"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/hero/hero07"
     },
     {
       "implements": "part:@sanity/base/schema-type",

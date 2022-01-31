@@ -44,4 +44,4 @@ const statistics = {
   ],
 }
 
-export { title, statistics }
+export { statistics }
