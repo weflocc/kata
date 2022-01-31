@@ -1,14 +1,14 @@
 import {
-  title,
-  superHeading,
-  text,
   thumbnails,
   imageThumbnails,
   portfolio06Slides,
 } from './portfolioFields'
-import { defaultOptions } from 'part:@weflocc/kata/partials/index'
-import { links } from 'part:@weflocc/kata/partials/index'
-import { basicTextEditor } from 'part:@weflocc/kata/partials/index'
+import {
+  defaultOptions,
+  links,
+  basicTextEditor,
+} from 'part:@weflocc/kata/partials/index'
+import { title, superHeading, text } from '../shared'
 
 const portfolio01 = {
   name: 'portfolio01',

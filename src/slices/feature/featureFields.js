@@ -1,17 +1,11 @@
-import { standardImage } from 'part:@weflocc/kata/partials/index'
-import { basicTextEditor } from 'part:@weflocc/kata/partials/index'
+import {
+  basicTextEditor,
+  links,
+  standardImage,
+} from 'part:@weflocc/kata/partials/index'
 import { BiListPlus } from 'react-icons/bi'
 import config from 'config:@weflocc/kata'
-
-const title = {
-  name: 'title',
-  type: 'string',
-}
-const superHeading = {
-  title: 'Super Heading',
-  name: 'superHeading',
-  type: 'string',
-}
+import { title, text } from '../shared'
 
 const features = {
   title: 'Features',
@@ -28,27 +22,9 @@ const features = {
           name: 'icon',
           title: 'Icon',
         },
-        {
-          type: 'string',
-          name: 'title',
-          title: 'Title',
-        },
-        {
-          type: 'text',
-          name: 'text',
-          title: 'Text',
-          rows: 3,
-        },
-        {
-          type: 'reference',
-          name: 'link',
-          title: 'Link',
-          to: config.allTypes,
-          description: 'Optional',
-          options: {
-            disableNew: true, // we don't want people to be able to create new pages here!
-          },
-        },
+        title,
+        text,
+        links('links', 1),
       ],
       preview: {
         select: {
@@ -83,19 +59,8 @@ const shortFeatures = {
           name: 'icon',
           title: 'Icon',
         },
-        {
-          type: 'string',
-          name: 'title',
-          title: 'Title',
-        },
-        {
-          type: 'reference',
-          name: 'link',
-          title: 'Link',
-          to: config.allTypes,
-          description: 'Optional',
-          disableNew: true, // we don't want people to be able to create new pages here!
-        },
+        title,
+        links('links', 1),
       ],
       preview: {
         select: {
@@ -129,17 +94,9 @@ const featureImageTabs = {
           title: 'Tab Name',
         },
         standardImage(),
-        {
-          type: 'string',
-          name: 'title',
-          title: 'Title',
-        },
+        title,
         basicTextEditor(),
-        {
-          name: 'links',
-          type: 'link',
-          title: 'Buttons',
-        },
+        links('links', 1),
       ],
       preview: {
         select: {
@@ -180,14 +137,7 @@ const featureTabs = {
               type: 'object',
               title: 'Item',
               name: 'item',
-              fields: [
-                {
-                  type: 'string',
-                  name: 'title',
-                  title: 'Title',
-                },
-                basicTextEditor(),
-              ],
+              fields: [title, basicTextEditor()],
               preview: {
                 select: {
                   heading: 'title',
@@ -203,11 +153,7 @@ const featureTabs = {
             },
           ],
         },
-        {
-          name: 'links',
-          type: 'link',
-          title: 'Links',
-        },
+        links('links', 1),
       ],
       preview: {
         select: {
@@ -225,34 +171,6 @@ const featureTabs = {
   ],
 }
 
-const text = {
-  name: 'text',
-  title: 'Text',
-  type: 'text',
-  rows: 4,
-}
-
-const textBody = {
-  title: 'Text Body',
-  name: 'textBody',
-  type: 'array',
-  of: [
-    {
-      type: 'block',
-      styles: [],
-      lists: [],
-      marks: {
-        // Only allow these decorators
-        decorators: [
-          { title: 'Strong', value: 'strong' },
-          { title: 'Emphasis', value: 'em' },
-        ],
-        // annotations: []
-      },
-    },
-  ],
-}
-
 const locations = {
   title: 'Locations',
   name: 'locations',
@@ -263,11 +181,7 @@ const locations = {
       name: 'location',
       type: 'object',
       fields: [
-        {
-          title: 'Title',
-          name: 'title',
-          type: 'string',
-        },
+        title,
         {
           title: 'Location',
           name: 'location',
@@ -290,14 +204,4 @@ const locations = {
   ],
 }
 
-export {
-  superHeading,
-  title,
-  features,
-  text,
-  textBody,
-  shortFeatures,
-  featureImageTabs,
-  featureTabs,
-  locations,
-}
+export { features, shortFeatures, featureImageTabs, featureTabs, locations }

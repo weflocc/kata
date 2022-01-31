@@ -1,11 +1,24 @@
-import { items } from './ctaFields'
 import {
   standardImage,
   defaultOptions,
   links,
   basicTextEditor,
 } from 'part:@weflocc/kata/partials/index'
-import { title } from '../shared'
+import { title, text } from '../shared'
+
+const items = {
+  name: 'items',
+  title: 'Items',
+  type: 'array',
+  of: [
+    {
+      name: 'item',
+      title: 'Item',
+      type: 'object',
+      fields: [title, text, links()],
+    },
+  ],
+}
 
 const cta01 = {
   name: 'cta01',

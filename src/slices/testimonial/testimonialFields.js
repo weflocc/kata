@@ -1,5 +1,6 @@
-import { standardImage } from 'part:@weflocc/kata/partials/index'
+import { standardImage, links } from 'part:@weflocc/kata/partials/index'
 import { BsFillChatQuoteFill } from 'react-icons/bs'
+import { title, superHeading, text } from '../shared'
 
 const quote = {
   name: 'quote',
@@ -12,16 +13,6 @@ const cite = {
   type: 'string',
 }
 
-const superHeading = {
-  name: 'superHeading',
-  type: 'string',
-}
-
-const title = {
-  name: 'title',
-  type: 'string',
-}
-
 const name = {
   name: 'name',
   type: 'string',
@@ -30,12 +21,6 @@ const name = {
 const job = {
   name: 'job',
   type: 'string',
-}
-
-const links = {
-  name: 'links',
-  type: 'link',
-  title: 'Buttons',
 }
 
 const preview = {
@@ -87,7 +72,7 @@ const testimonialsImage = {
       name: 'item',
       title: 'Item',
       type: 'object',
-      fields: [standardImage(), quote, name, job, links],
+      fields: [standardImage(), quote, name, job, links('links', 1)],
       preview: preview,
     },
   ],

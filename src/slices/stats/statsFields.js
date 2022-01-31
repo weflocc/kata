@@ -1,10 +1,5 @@
 import { BiListPlus } from 'react-icons/bi'
 
-const title = {
-  name: 'title',
-  type: 'string',
-}
-
 const statistics = {
   title: 'Statistics',
   name: 'statistics',

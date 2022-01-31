@@ -1,9 +1,9 @@
 import { title, superHeading, text } from '../shared'
 import {
-  shortFeatures,
   features,
-  featureTabs,
+  shortFeatures,
   featureImageTabs,
+  featureTabs,
   locations,
 } from './featureFields'
 import {

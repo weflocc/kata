@@ -1,24 +1,7 @@
 import config from 'config:@weflocc/kata'
-import { standardImage } from 'part:@weflocc/kata/partials/index'
+import { standardImage, links } from 'part:@weflocc/kata/partials/index'
 import { BiListPlus } from 'react-icons/bi'
-
-const title = {
-  name: 'title',
-  type: 'string',
-  title: 'Title',
-}
-
-const superHeading = {
-  name: 'superHeading',
-  type: 'string',
-}
-
-const text = {
-  name: 'text',
-  type: 'text',
-  title: 'Text',
-  rows: 3,
-}
+import { title, superHeading, text } from '../shared'
 
 const thumbnails = {
   name: 'thumbnails',
@@ -32,29 +15,7 @@ const thumbnails = {
       name: 'item',
       title: 'Item',
       type: 'object',
-      fields: [
-        {
-          name: 'title',
-          title: 'Title',
-          type: 'string',
-        },
-        {
-          name: 'text',
-          title: 'Text',
-          type: 'text',
-          rows: 4,
-        },
-        {
-          name: 'link',
-          title: 'Link',
-          type: 'reference',
-          to: config.allTypes,
-          options: {
-            disableNew: true, // we don't want people to be able to create new pages here!
-          },
-        },
-        standardImage(),
-      ],
+      fields: [title, text, links('links', 1), standardImage()],
       preview: {
         select: {
           heading: 'title',
@@ -84,21 +45,7 @@ const imageThumbnails = {
       name: 'item',
       title: 'Item',
       type: 'object',
-      fields: [
-        {
-          name: 'title',
-          title: 'Title',
-          type: 'string',
-        },
-        {
-          name: 'link',
-          title: 'Link',
-          type: 'reference',
-          to: config.allTypes,
-          disableNew: true, // we don't want people to be able to create new pages here!
-        },
-        standardImage(),
-      ],
+      fields: [title, links('links', 1), standardImage()],
       preview: {
         select: {
           heading: 'title',

@@ -1,11 +1,6 @@
-import { standardImage } from '../../partials/image'
-import config from 'config:@weflocc/kata'
+import { standardImage, links } from 'part:@weflocc/kata/partials/index'
 import { BiListPlus } from 'react-icons/bi'
-
-const title = {
-  name: 'title',
-  type: 'string',
-}
+import { title, superHeading, text } from '../shared'
 
 const items = {
   title: 'Items',
@@ -16,34 +11,7 @@ const items = {
       type: 'object',
       title: 'Item',
       name: 'item',
-      fields: [
-        standardImage(),
-        {
-          type: 'string',
-          name: 'title',
-          title: 'Title',
-        },
-        {
-          type: 'string',
-          name: 'superHeader',
-          title: 'Super Header',
-        },
-        {
-          type: 'text',
-          name: 'text',
-          title: 'Text',
-          rows: 4,
-        },
-        {
-          type: 'reference',
-          name: 'link',
-          title: 'Link',
-          to: config.allTypes,
-          options: {
-            disableNew: true, // we don't want people to be able to create new pages here!
-          },
-        },
-      ],
+      fields: [standardImage(), title, superHeading, text, links()],
       preview: {
         select: {
           heading: 'title',
@@ -60,4 +28,4 @@ const items = {
   ],
 }
 
-export { title, items }
+export { items }

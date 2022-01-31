@@ -1,13 +1,11 @@
 import {
-  superHeading,
-  title,
   testimonials,
   quote,
   cite,
   testimonialsImage,
 } from './testimonialFields'
-import { defaultOptions } from 'part:@weflocc/kata/partials/index'
-import { links } from 'part:@weflocc/kata/partials/index'
+import { defaultOptions, links } from 'part:@weflocc/kata/partials/index'
+import { superHeading, title } from '../shared'
 
 const testimonial01 = {
   name: 'testimonial01',

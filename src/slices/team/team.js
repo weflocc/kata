@@ -1,5 +1,6 @@
-import { title, text, thumbnails, profiles } from './teamFields'
+import { thumbnails, profiles } from './teamFields'
 import { defaultOptions } from 'part:@weflocc/kata/partials/index'
+import { title, text } from '../shared'
 
 const team04 = {
   name: 'team04',

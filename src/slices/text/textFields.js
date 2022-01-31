@@ -1,33 +1,6 @@
-const title = {
-  name: 'title',
-  type: 'string',
-}
-
-const superHeading = {
-  name: 'superHeading',
-  type: 'string',
-}
-
-const textBody = {
-  title: 'textBody',
-  name: 'textBody',
-  type: 'array',
-  of: [
-    {
-      type: 'block',
-      styles: [],
-      lists: [],
-      marks: {
-        // Only allow these decorators
-        decorators: [
-          { title: 'Strong', value: 'strong' },
-          { title: 'Emphasis', value: 'em' },
-        ],
-        annotations: [],
-      },
-    },
-  ],
-}
+import { basicTextEditor } from 'part:@weflocc/kata/partials/index'
+import { BiListPlus } from 'react-icons/bi'
+import { title } from '../shared'
 
 const list = {
   title: 'List',
@@ -35,10 +8,23 @@ const list = {
   type: 'array',
   of: [
     {
-      type: 'listItem',
+      type: 'object',
       name: 'listItem',
+      fields: [title, basicTextEditor()],
+      preview: {
+        select: {
+          heading: 'title',
+        },
+        prepare(selection) {
+          const { heading } = selection
+          return {
+            title: heading || 'List item',
+            media: BiListPlus,
+          }
+        },
+      },
     },
   ],
 }
 
-export { title, textBody, list, superHeading }
+export { list }

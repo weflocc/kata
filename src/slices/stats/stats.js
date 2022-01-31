@@ -1,6 +1,6 @@
-import { title, statistics } from './statsFields'
-import { defaultOptions } from 'part:@weflocc/kata/partials/index'
-import { links } from 'part:@weflocc/kata/partials/index'
+import { statistics } from './statsFields'
+import { defaultOptions, links } from 'part:@weflocc/kata/partials/index'
+import { title } from '../shared'
 
 const stats01 = {
   name: 'stats01',

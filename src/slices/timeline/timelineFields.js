@@ -1,19 +1,6 @@
-import { standardImage } from 'part:@weflocc/kata/partials/index'
-import { basicTextEditor } from 'part:@weflocc/kata/partials/index'
 import { BiListPlus } from 'react-icons/bi'
 import config from 'config:@weflocc/kata'
-
-const title = {
-  name: 'title',
-  type: 'string',
-}
-
-const text = {
-  name: 'text',
-  title: 'Text',
-  type: 'text',
-  rows: 4,
-}
+import {title, text} from '../shared'
 
 const list = {
   title: 'List',
@@ -30,11 +17,7 @@ const list = {
           name: 'icon',
           title: 'Icon',
         },
-        {
-          type: 'string',
-          name: 'title',
-          title: 'Title',
-        },
+        title,
         {
           type: 'date',
           name: 'tickDate',
@@ -49,12 +32,7 @@ const list = {
           name: 'displayDate',
           title: 'Display Date',
         },
-        {
-          type: 'text',
-          name: 'text',
-          title: 'Text',
-          rows: 3,
-        },
+        text,
       ],
       preview: {
         select: {
@@ -73,4 +51,4 @@ const list = {
   ],
 }
 
-export { title, list, text }
+export { list }

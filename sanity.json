@@ -10,10 +10,6 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
-      "path": "components/listItem"
-    },
-    {
-      "implements": "part:@sanity/base/schema-type",
       "path": "components/externalLink"
     },
     {

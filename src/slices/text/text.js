@@ -1,9 +1,12 @@
-import { title, list, superHeading } from './textFields'
-import { basicTextEditor } from 'part:@weflocc/kata/partials/index'
-import { media } from 'part:@weflocc/kata/partials/index'
-import { defaultOptions } from 'part:@weflocc/kata/partials/index'
-import { standardImage } from 'part:@weflocc/kata/partials/index'
-import { links } from 'part:@weflocc/kata/partials/index'
+import { title, superHeading } from '../shared'
+import { list } from './textFields'
+import {
+  basicTextEditor,
+  media,
+  defaultOptions,
+  standardImage,
+  links,
+} from 'part:@weflocc/kata/partials/index'
 
 const text01 = {
   name: 'text01',

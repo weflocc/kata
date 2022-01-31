@@ -1,2 +1,23 @@
-import { featureList01 } from './featureList'
+import { defaultOptions } from 'part:@weflocc/kata/partials/index'
+
+const featureList01 = {
+  name: 'featureList01',
+  title: 'Feature List #1',
+  type: 'object',
+  options: defaultOptions,
+  fields: [
+    {
+      name: 'features',
+      type: 'array',
+      title: 'Features',
+      of: [
+        {
+          type: 'feature01',
+          name: 'feature01',
+        },
+      ],
+    },
+  ],
+}
+
 export default featureList01

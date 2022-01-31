@@ -1,8 +1,10 @@
 import { title, text, superHeading } from '../shared'
-import { links } from 'part:@weflocc/kata/partials/index'
-import { media } from 'part:@weflocc/kata/partials/index'
-import { defaultOptions } from 'part:@weflocc/kata/partials/index'
-import { basicTextEditor } from 'part:@weflocc/kata/partials/index'
+import {
+  links,
+  media,
+  defaultOptions,
+  basicTextEditor,
+} from 'part:@weflocc/kata/partials/index'
 
 const hero01 = {
   name: 'hero01',
@@ -10,14 +12,6 @@ const hero01 = {
   title: 'Hero #1',
   options: defaultOptions,
   fields: [media(), superHeading, title, basicTextEditor(), links()],
-}
-
-const hero02 = {
-  name: 'hero02',
-  type: 'object',
-  title: 'Hero #2',
-  options: defaultOptions,
-  fields: [media(), superHeading, title, links()],
 }
 
 const hero04 = {
@@ -33,7 +27,7 @@ const hero05 = {
   type: 'object',
   title: 'Hero #5',
   options: defaultOptions,
-  fields: [media(), superHeading, title, text, links()],
+  fields: [media(), superHeading, title, basicTextEditor(), links()],
 }
 
 const hero06 = {
@@ -41,7 +35,15 @@ const hero06 = {
   type: 'object',
   title: 'Hero #6',
   options: defaultOptions,
-  fields: [media(), superHeading, title, text, links()],
+  fields: [media(), superHeading, title, basicTextEditor(), links()],
+}
+
+const hero07 = {
+  name: 'hero07',
+  type: 'object',
+  title: 'Hero #7',
+  options: defaultOptions,
+  fields: [media(), superHeading, title, links()],
 }
 
 const hero09 = {
@@ -49,7 +51,7 @@ const hero09 = {
   type: 'object',
   title: 'Hero #9',
   options: defaultOptions,
-  fields: [media(), superHeading, title, text, links()],
+  fields: [media(), superHeading, title, basicTextEditor(), links()],
 }
 
 const hero10 = {
@@ -57,7 +59,7 @@ const hero10 = {
   type: 'object',
   title: 'Hero #10',
   options: defaultOptions,
-  fields: [media(), superHeading, title, text, links()],
+  fields: [media(), superHeading, title, basicTextEditor(), links()],
 }
 
 const hero11 = {
@@ -67,7 +69,7 @@ const hero11 = {
   options: defaultOptions,
   fields: [
     title,
-    text,
+    basicTextEditor(),
     links(),
     {
       name: 'sideLinkText',
@@ -81,4 +83,4 @@ const hero11 = {
   ],
 }
 
-export { hero01, hero02, hero04, hero05, hero06, hero09, hero10, hero11 }
+export { hero01, hero04, hero05, hero06, hero07, hero09, hero10, hero11 }

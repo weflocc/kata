@@ -1,6 +1,6 @@
-import { title, list } from './timelineFields'
-import { links } from 'part:@weflocc/kata/partials/index'
-import { defaultOptions } from 'part:@weflocc/kata/partials/index'
+import { list } from './timelineFields'
+import { title } from '../shared'
+import { defaultOptions, links } from 'part:@weflocc/kata/partials/index'
 
 const timeline01 = {
   name: 'timeline01',

@@ -1,5 +1,6 @@
-import { title, items } from './newsFields'
+import { items } from './newsFields'
 import { defaultOptions } from 'part:@weflocc/kata/partials/index'
+import {title} from '../shared'
 
 const news02 = {
   name: 'news02',

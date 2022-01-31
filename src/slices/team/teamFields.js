@@ -1,16 +1,6 @@
 import { BiListPlus } from 'react-icons/bi'
 import { standardImage } from 'part:@weflocc/kata/partials/index'
-
-const title = {
-  name: 'title',
-  type: 'string',
-}
-
-const text = {
-  name: 'text',
-  type: 'text',
-  rows: 3,
-}
+import { title, text } from '../shared'
 
 const thumbnails = {
   name: 'thumbnails',
@@ -24,20 +14,7 @@ const thumbnails = {
       name: 'item',
       title: 'Item',
       type: 'object',
-      fields: [
-        standardImage(),
-        {
-          name: 'title',
-          title: 'Title',
-          type: 'string',
-        },
-        {
-          name: 'text',
-          title: 'Text',
-          type: 'text',
-          rows: 3,
-        },
-      ],
+      fields: [standardImage(), title, text],
       preview: {
         select: {
           heading: 'title',
@@ -131,4 +108,4 @@ const profiles = {
   ],
 }
 
-export { title, text, thumbnails, profiles }
+export { thumbnails, profiles }

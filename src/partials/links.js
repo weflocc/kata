@@ -110,12 +110,13 @@ const singleLink = {
   },
 }
 
-const links = (name = 'Links') => {
+const links = (name = 'Links', max = '') => {
   return {
     name: camelCase(name),
     title: name,
     type: 'array',
     of: [singleLink],
+    validation: max ? (Rule) => Rule.max(max) : '',
   }
 }
 
