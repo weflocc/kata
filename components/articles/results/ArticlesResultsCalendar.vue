@@ -1,14 +1,14 @@
 <template>
   <div class="article-results-calendar">
     <client-only>
-      <FullCalendar :options="calendarOptions" />
+      <!-- <FullCalendar :options="calendarOptions" /> -->
     </client-only>
   </div>
 </template>
 
 <script>
-// COPY THIS FILE INTO YOUR PROJECT LOCALLY 
-// and uncomment the requirements below
+// COPY THIS FILE INTO YOUR PROJECT LOCALLY
+// and uncomment the requirements below and FullCalendar in the template above
 
 // articles require startDate and endDate fields
 // install the following packages
@@ -23,7 +23,7 @@
 
 export default {
   components: {
-    FullCalendar, // make the <FullCalendar> tag available
+    // FullCalendar, // make the <FullCalendar> tag available
   },
   props: {
     articles: {

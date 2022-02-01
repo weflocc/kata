@@ -61,6 +61,7 @@
 </template>
 
 <script>
+// Copy into your local repository and uncomment the relevant lines!
 // yarn add vue-instantsearch
 // yarn add algoliasearch
 import SearchIcon from '~/assets/svgs/search.svg?inline'
@@ -76,11 +77,11 @@ import SearchIcon from '~/assets/svgs/search.svg?inline'
 
 export default {
   components: {
-    AisInstantSearch,
-    AisStateResults,
-    AisHits,
-    AisHighlight,
-    AisSearchBox,
+    // AisInstantSearch,
+    // AisStateResults,
+    // AisHits,
+    // AisHighlight,
+    // AisSearchBox,
     SearchIcon,
   },
   props: {

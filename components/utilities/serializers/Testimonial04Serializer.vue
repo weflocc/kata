@@ -1,6 +1,11 @@
 <template>
   <div class="slice testimonials-4-serializer py-slice-half">
-    <div v-if="testimonials && testimonials.length > 1" class="fade-up">
+    <div
+      v-if="
+        testimonials && testimonials != undefined && testimonials.length > 1
+      "
+      class="fade-up"
+    >
       <div
         class="absolute left-0 top-0 bottom-0 my-auto flex justify-center items-center btn-left"
       >
@@ -76,7 +81,7 @@ export default {
   },
   computed: {
     testimonials() {
-      return this.testimonial04.testimonials
+      return this.testimonial04?.testimonials
     },
   },
   methods: {
