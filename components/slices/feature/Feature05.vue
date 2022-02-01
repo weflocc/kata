@@ -9,7 +9,7 @@
       />
     </div>
     <ul
-      v-if="list"
+      v-if="list && list != null"
       class="flex flex-wrap -mx-medium"
       :class="'length-' + list.length"
     >
@@ -55,13 +55,18 @@ export default {
   },
   computed: {
     width() {
-      let length = this.features.length
-      if (length % 4 == 0) {
-        return 'w-full sm:w-1/2 md:w-1/4'
-      } else if (length % 3 == 0 || length % 6 == 0 || length % 5 == 0) {
-        return 'w-full sm:w-1/2 md:w-1/3'
+      if (this.list?.length) {
+        let length = this.list.length
+        if (length % 4 == 0 && this.max >= 4) {
+          return 'sm:w-1/2 md:w-1/4'
+        } else if (
+          (length % 3 == 0 || length % 6 == 0 || length % 5 == 0) &&
+          this.max >= 3
+        ) {
+          return 'sm:w-1/2 md:w-1/3'
+        }
       }
-      return 'w-full sm:w-1/2'
+      return 'sm:w-1/2'
     },
   },
 }

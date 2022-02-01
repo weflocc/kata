@@ -1,5 +1,5 @@
 <template>
-  <div class="feature-list-01">
+  <div v-if="list && list != null" class="feature-list-01">
     <Feature01
       v-for="(feature, i) in list"
       :key="feature._key"

@@ -4,7 +4,10 @@
       <h2 v-if="title" v-kata-html="title" class="heading-2 fade-up" />
       <p v-if="text" v-kata-html="text" class="mt-medium fade-up" />
     </div>
-    <div v-if="list" class="flex flex-wrap sm:-mr-medium sm:content-start">
+    <div
+      v-if="list && list != null"
+      class="flex flex-wrap sm:-mr-medium sm:content-start"
+    >
       <div
         v-for="(item, index) in list"
         :key="item.title"
@@ -64,13 +67,15 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      for (let index = 0; index < this.list.length; index++) {
-        const element = this.$refs.items[index]
-        element.classList.remove('active')
-        if (process.client && element.querySelector('.title')) {
-          let height = element.querySelector('.title').clientHeight
-          element.querySelector('.overlay').style.paddingTop =
-            height + 100 + 'px'
+      if (this.list?.length) {
+        for (let index = 0; index < this.list.length; index++) {
+          const element = this.$refs.items[index]
+          element.classList.remove('active')
+          if (process.client && element.querySelector('.title')) {
+            let height = element.querySelector('.title').clientHeight
+            element.querySelector('.overlay').style.paddingTop =
+              height + 100 + 'px'
+          }
         }
       }
     })

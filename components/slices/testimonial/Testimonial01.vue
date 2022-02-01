@@ -3,7 +3,10 @@
     <div class="mx-r1/12 w-r10/12 text-center mb-medium">
       <h2 v-if="title" v-kata-html="title" class="label-1 fade-up" />
     </div>
-    <div v-if="list.length > 1" class="flex">
+    <div
+      v-if="list && list != undefined && list != null && list.length > 1"
+      class="flex"
+    >
       <div class="w-r2/12 flex justify-center items-center">
         <button
           class="carousel-nav prev focus:outline-none"
@@ -39,7 +42,7 @@
         </button>
       </div>
     </div>
-    <div v-else class="mx-r1/12 w-r10/12">
+    <div v-else-if="list && list != undefined" class="mx-r1/12 w-r10/12">
       <Testimonial01Part
         v-for="item in list"
         :key="item._key"

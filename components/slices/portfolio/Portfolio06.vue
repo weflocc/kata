@@ -16,7 +16,7 @@
         <span></span>
       </button>
     </div>
-    <div v-if="list" class="md:w-r6/12 md:pr-large">
+    <div v-if="list && list != null" class="md:w-r6/12 md:pr-large">
       <VueSlickCarousel
         v-bind="settings"
         ref="portfolio-6-carousel"

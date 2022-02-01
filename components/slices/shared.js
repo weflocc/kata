@@ -79,6 +79,15 @@ const list = {
   },
 }
 
+const articles = {
+  props: {
+    articles: {
+      type: Array,
+      required: true,
+    },
+  },
+}
+
 export {
   title,
   superHeading,
@@ -89,4 +98,5 @@ export {
   media,
   image,
   list,
+  articles,
 }

@@ -3,7 +3,10 @@
     <div v-if="title" class="w-r10/12 mx-r1/12 text-center title">
       <h2 v-kata-html="title" class="heading-2 mb-large fade-up" />
     </div>
-    <div v-if="list && list.length > 0" class="slider relative fade-up">
+    <div
+      v-if="list && list != null && list.length > 0"
+      class="slider relative fade-up"
+    >
       <VueSlickCarousel
         v-bind="settings"
         ref="portfolio-10-slider"

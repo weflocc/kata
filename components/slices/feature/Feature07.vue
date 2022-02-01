@@ -50,14 +50,16 @@ export default {
   },
   computed: {
     width() {
-      let length = this.features.length
-      if (length % 4 == 0 && this.max >= 4) {
-        return 'sm:w-1/2 md:w-1/4'
-      } else if (
-        (length % 3 == 0 || length % 6 == 0 || length % 5 == 0) &&
-        this.max >= 3
-      ) {
-        return 'sm:w-1/2 md:w-1/3'
+      if (this.list?.length) {
+        let length = this.list.length
+        if (length % 4 == 0 && this.max >= 4) {
+          return 'sm:w-1/2 md:w-1/4'
+        } else if (
+          (length % 3 == 0 || length % 6 == 0 || length % 5 == 0) &&
+          this.max >= 3
+        ) {
+          return 'sm:w-1/2 md:w-1/3'
+        }
       }
       return 'sm:w-1/2'
     },

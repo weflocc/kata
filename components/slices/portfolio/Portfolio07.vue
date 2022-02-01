@@ -6,7 +6,7 @@
       </div>
     </div>
     <div
-      v-if="list && list.length"
+      v-if="list && list != null && list.length"
       class="w-r10/12 mx-r1/12 grid grid-cols-2 gap-small"
     >
       <div

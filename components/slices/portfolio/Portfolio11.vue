@@ -1,6 +1,6 @@
 <template>
   <div class="portfolio-11 slice relative sm:flex fade-up">
-    <div v-if="list.length" class="bg-primary sm:w-1/3 articles-list">
+    <div v-if="list && list.length" class="bg-primary sm:w-1/3 articles-list">
       <ul class="p-medium">
         <li
           v-for="item in list"
@@ -22,7 +22,7 @@
     </div>
     <div class="sm:w-2/3">
       <GMap
-        v-if="list.length"
+        v-if="list != null && list.length"
         ref="gMap"
         language="en"
         :center="centre"

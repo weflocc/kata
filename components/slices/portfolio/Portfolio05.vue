@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="list && list != undefined && list.length > 0"
+    v-if="list && list != undefined && list != null && list.length > 0"
     class="slice portfolio-5 md:flex mx-r1/12 w-r10/12 md:mx-0 md:ml-r1/12 md:w-r11/12 overflow-x-hidden"
   >
     <div class="md:w-r2/12 mb-large fade-up">

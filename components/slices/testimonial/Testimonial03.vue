@@ -5,7 +5,10 @@
       v-kata-html="title"
       class="heading-2 fade-up mb-medium text-center"
     />
-    <div v-if="list" class="flex justify-center items-start flex-wrap">
+    <div
+      v-if="list && list != undefined"
+      class="flex justify-center items-start flex-wrap"
+    >
       <div
         v-for="item in list"
         :key="item._key"

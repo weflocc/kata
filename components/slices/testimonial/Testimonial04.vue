@@ -34,7 +34,10 @@
         </button>
       </div>
     </div>
-    <div v-else class="w-r8/12 mx-r2/12 single-testimonial">
+    <div
+      v-else-if="list && list != undefined"
+      class="w-r8/12 mx-r2/12 single-testimonial"
+    >
       <Testimonial04Part
         v-for="item in list"
         :key="item._key"

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="articles && articles.length" class="news-3 slice">
+  <div v-if="list && list != null && list.length" class="news-3 slice">
     <h2
       v-if="title"
       v-kata-html="title"
@@ -16,11 +16,7 @@
             <span></span>
           </button>
         </template>
-        <div
-          v-for="item in articles"
-          :key="item._id"
-          class="px-small slide-item"
-        >
+        <div v-for="item in list" :key="item._id" class="px-small slide-item">
           <slot name="tease" :item="item" class="fade-up">
             <ArticlesTeaseWithImage
               :item-id="item._id"
@@ -48,16 +44,12 @@ import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 // optional style for arrows & dots
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
-import { title } from '../shared'
+import { title, list } from '../shared'
 
 export default {
   components: { VueSlickCarousel },
-  mixins: [title],
+  mixins: [title, list],
   props: {
-    articles: {
-      type: Array,
-      default: null,
-    },
     settings: {
       type: Object,
       default: () => ({

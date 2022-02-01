@@ -1,5 +1,5 @@
 <template>
-  <div v-if="list" class="slice feature-10 relative">
+  <div v-if="list && list != null" class="slice feature-10 relative">
     <GMap
       v-if="list.length"
       ref="gMap"
@@ -98,13 +98,15 @@ export default {
     mapLoaded(e) {
       let context = this
       var bounds = new google.maps.LatLngBounds()
-      for (let index = 0; index < this.locations.length; index++) {
-        const element = this.locations[index]
-        let pos = new google.maps.LatLng(
-          element.location.lat,
-          element.location.lng
-        )
-        bounds.extend(pos)
+      if (this.list?.length) {
+        for (let index = 0; index < this.list.length; index++) {
+          const element = this.list[index]
+          let pos = new google.maps.LatLng(
+            element.location.lat,
+            element.location.lng
+          )
+          bounds.extend(pos)
+        }
       }
       this.$refs.gMap.map.fitBounds(bounds)
       this.infoWindow = new google.maps.InfoWindow({

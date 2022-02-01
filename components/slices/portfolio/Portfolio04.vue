@@ -4,7 +4,7 @@
       <h2 v-if="title" class="mb-medium fade-up">{{ title }}</h2>
     </div>
     <div
-      v-if="list && list.length"
+      v-if="list && list != null && list.length"
       class="mb-large flex flex-wrap justify-evenly -mx-small"
     >
       <div

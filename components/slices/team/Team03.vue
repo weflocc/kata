@@ -4,7 +4,7 @@
       <h2 v-if="title" v-kata-html="title" class="fade-up" />
       <p v-if="text" v-kata-html="text" class="mt-medium fade-up" />
     </div>
-    <div v-if="list && list.length > 1" class="flex">
+    <div v-if="list && list != null && list.length > 1" class="flex">
       <VueSlickCarousel
         v-bind="settings"
         ref="team-3-carousel"
@@ -18,7 +18,10 @@
         </div>
       </VueSlickCarousel>
     </div>
-    <div v-if="list.length > 1" class="flex justify-center mt-small">
+    <div
+      v-if="list && (list != null) & (list.length > 1)"
+      class="flex justify-center mt-small"
+    >
       <button
         class="carousel-nav prev focus:outline-none mx-1"
         title="Previous Slide"
@@ -34,7 +37,7 @@
         <span></span>
       </button>
     </div>
-    <div v-else class="mx-r1/12 w-r10/12">
+    <div v-else-if="list && list != null" class="mx-r1/12 w-r10/12">
       <div v-for="item in list" :key="item._key" class="pr-large">
         <ProfileTemplate :item="item" />
       </div>

@@ -1,6 +1,9 @@
 <template>
-  <div class="slice testimonials-2">
-    <div v-if="list && list != undefined && list.length" class="flex">
+  <div
+    v-if="list && list != null && list != undefined"
+    class="slice testimonials-2"
+  >
+    <div v-if="list.length > 1" class="flex">
       <div class="w-r2/12 flex justify-center items-center">
         <button
           class="carousel-nav prev focus:outline-none"
