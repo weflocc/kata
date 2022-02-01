@@ -24,17 +24,21 @@
         v-kata-html="title"
         class="heading-1 mt-medium"
       />
-      <p v-if="text" v-kata-html="text" class="whitespace-pre-line mt-medium" />
+      <SanityEmbedContent
+        v-if="textBody"
+        :blocks="textBody"
+        class="mt-medium"
+      />
       <KataLinks v-if="links" :links="links" class="links mt-medium" />
     </div>
   </div>
 </template>
 
 <script>
-import { superHeading, title, text, links, media } from '../shared'
+import { superHeading, title, textBody, links, media } from '../shared'
 
 export default {
-  mixins: [superHeading, title, text, links, media],
+  mixins: [superHeading, title, textBody, links, media],
 }
 </script>
 

@@ -11,10 +11,10 @@
           <h2 v-if="title" v-kata-html="title" class="heading-1 text-white" />
         </div>
         <h1 v-else v-kata-html="title" class="heading-1 text-white" />
-        <p
-          v-if="text"
-          v-kata-html="text"
-          class="text-white mt-medium whitespace-pre-line"
+        <SanityEmbedContent
+          v-if="textBody"
+          :blocks="textBody"
+          class="text-white mt-medium"
         />
         <KataLinks v-if="links" :links="links" class="mt-medium w-full" />
       </div>
@@ -33,10 +33,10 @@
 </template>
 
 <script>
-import { title, superHeading, text, links, media } from '../shared'
+import { title, superHeading, textBody, links, media } from '../shared'
 
 export default {
-  mixins: [title, superHeading, text, links, media],
+  mixins: [title, superHeading, textBody, links, media],
   data() {
     return {
       ratio: 16 / 9,

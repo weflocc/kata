@@ -10,10 +10,10 @@
       class="w-r10/12 mx-r1/12 md:w-r6/12 md:mx-r3/12 h-screen flex flex-col justify-center text-center z-1 text"
     >
       <h1 v-kata-html="title" class="heading-1 text-white mb-medium" />
-      <p
-        v-if="text"
-        v-kata-html="text"
-        class="text-center text-white mb-medium whitespace-pre-line"
+      <SanityEmbedContent
+        v-if="textBody"
+        :blocks="textBody"
+        class="text-center text-white mb-medium"
       />
       <KataLinks v-if="links" :links="links" class="text-center" />
     </div>
@@ -21,10 +21,10 @@
 </template>
 
 <script>
-import { title, text, links, media } from '../shared'
+import { title, textBody, links, media } from '../shared'
 
 export default {
-  mixins: [title, text, links, media],
+  mixins: [title, textBody, links, media],
   data() {
     return {
       ratio: 16 / 9,

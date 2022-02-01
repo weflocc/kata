@@ -22,10 +22,10 @@
         />
       </div>
       <div class="md:w-1/2">
-        <p
-          v-if="text"
-          v-kata-html="text"
-          class="mb-medium whitespace-pre-line"
+        <SanityEmbedContent
+          v-if="textBody"
+          :blocks="textBody"
+          class="mb-medium"
         />
         <KataLinks v-if="links" :links="links" />
       </div>
@@ -34,9 +34,9 @@
 </template>
 
 <script>
-import { superHeading, title, text, links, media } from '../shared'
+import { superHeading, title, textBody, links, media } from '../shared'
 export default {
-  mixins: [superHeading, title, text, links, media],
+  mixins: [superHeading, title, textBody, links, media],
   props: {
     ratio: {
       type: Number,

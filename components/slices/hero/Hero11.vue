@@ -6,7 +6,7 @@
         <a href="#main" class="side-link">{{ sideLinkText }}</a>
       </div>
       <div class="right">
-        <p v-if="text" v-kata-html="text" />
+        <SanityEmbedContent v-if="textBody" :blocks="textBody" />
         <KataLinks v-if="links" :links="links" class="mt-medium" />
       </div>
     </div>
@@ -24,10 +24,10 @@
 </template>
 
 <script>
-import { title, text, links, media } from '../shared'
+import { title, textBody, links, media } from '../shared'
 
 export default {
-  mixins: [title, text, links, media],
+  mixins: [title, textBody, links, media],
   props: {
     sideLinkText: {
       type: String,
