@@ -19,7 +19,7 @@
         />
       </div>
       <h2 v-else v-kata-html="title" class="heading-2 mb-medium fade-up" />
-      <p v-if="text" v-kata-html="text" class="fade-up whitespace-pre-line" />
+      <SanityEmbedContent v-if="textBody" :blocks="textBody" class="fade-up" />
       <KataLinks v-if="links" :links="links" class="fade-up mt-large" />
     </div>
     <div class="md:w-1/2 order-1 md:order-2 mb-large md:mb-0 image">
@@ -36,10 +36,10 @@
 </template>
 
 <script>
-import { superHeading, title, text, links, image } from '../shared'
+import { superHeading, title, textBody, links, image } from '../shared'
 
 export default {
-  mixins: [superHeading, title, text, links, image],
+  mixins: [superHeading, title, textBody, links, image],
   props: {
     reversed: {
       type: Boolean,

@@ -2,9 +2,9 @@
   <div class="slice feature-5 w-r10/12 mx-r1/12">
     <div v-if="title || text" class="mb-large">
       <h2 v-kata-html="title" class="fade-up heading-2" />
-      <p
-        v-if="text"
-        v-kata-html="text"
+      <SanityEmbedContent
+        v-if="textBody"
+        :blocks="textBody"
         class="mt-medium fade-up lg:pr-r1/12 lg:pr-r2/12"
       />
     </div>
@@ -44,9 +44,9 @@
 </template>
 
 <script>
-import { title, text, links, list } from '../shared'
+import { title, textBody, links, list } from '../shared'
 export default {
-  mixins: [title, text, links, list],
+  mixins: [title, textBody, links, list],
   props: {
     autoNumber: {
       type: Boolean,

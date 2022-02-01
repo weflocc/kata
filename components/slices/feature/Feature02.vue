@@ -4,7 +4,11 @@
   >
     <div class="md:w-r5/12 md:ml-r1/12 md:mr-large order-2 md:order-1 body">
       <h2 v-if="title" v-kata-html="title" class="mb-large fade-up" />
-      <p v-if="text" v-kata-html="text" class="mb-large fade-up" />
+      <SanityEmbedContent
+        v-if="textBody"
+        :blocks="textBody"
+        class="fade-up mb-large"
+      />
       <ul v-if="list">
         <li
           v-for="(item, index) in list"
@@ -46,9 +50,9 @@
 </template>
 
 <script>
-import { title, text, links, image, list } from '../shared'
+import { title, textBody, links, image, list } from '../shared'
 export default {
-  mixins: [title, text, links, image, list],
+  mixins: [title, textBody, links, image, list],
   props: {
     ratio: {
       type: Number,

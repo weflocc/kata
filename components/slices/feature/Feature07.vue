@@ -2,7 +2,11 @@
   <div class="slice feature-7 w-r10/12 mx-r1/12 text-center">
     <div v-if="title || text" class="mb-large">
       <h2 v-kata-html="title" class="fade-up heading-2" />
-      <p v-if="text" v-kata-html="text" class="mt-medium fade-up lg:px-r1/12" />
+      <SanityEmbedContent
+        v-if="textBody"
+        :blocks="textBody"
+        class="mt-medium fade-up lg:px-r1/12"
+      />
     </div>
     <ul
       v-if="list"
@@ -39,9 +43,9 @@
 </template>
 
 <script>
-import { title, text, links, list } from '../shared'
+import { title, textBody, links, list } from '../shared'
 export default {
-  mixins: [title, text, links, list],
+  mixins: [title, textBody, links, list],
   props: {
     max: {
       type: Number,

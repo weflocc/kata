@@ -4,15 +4,15 @@
       <h2 v-if="title" v-kata-html="title" class="mb-large fade-up" />
     </div>
     <div class="sm:w-1/2 mb-large sm:mb-0 fade-up">
-      <p v-if="text" v-kata-html="text" class="whitespace-pre-line" />
-      <KataLinks v-if="links" :links="links" class="mt-medium" />
+      <SanityEmbedContent v-if="textBody" :blocks="textBody" class="fade-up" />
+      <KataLinks v-if="links" :links="links" class="mt-medium fade-up" />
     </div>
   </div>
 </template>
 
 <script>
-import { title, text, links } from '../shared'
+import { title, textBody, links } from '../shared'
 export default {
-  mixins: [title, text, links],
+  mixins: [title, textBody, links],
 }
 </script>

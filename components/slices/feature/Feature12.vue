@@ -9,8 +9,12 @@
     <div
       class="w-full md:w-r6/12 min-h-screen flex flex-col justify-end items-start z-1 p-r1/12 text-white"
     >
-      <h2 v-kata-html="title" class="heading-2 mb-medium" />
-      <p v-if="text" v-kata-html="text" class="mb-medium" />
+      <h2 v-kata-html="title" class="heading-2 mb-medium fade-up" />
+      <SanityEmbedContent
+        v-if="textBody"
+        :blocks="textBody"
+        class="fade-up mb-medium"
+      />
       <ul v-if="list">
         <li
           v-for="(item, index) in list"
@@ -40,10 +44,10 @@
 </template>
 
 <script>
-import { title, text, links, image, list } from '../shared'
+import { title, textBody, links, image, list } from '../shared'
 
 export default {
-  mixins: [title, text, links, image, list],
+  mixins: [title, textBody, links, image, list],
 }
 </script>
 

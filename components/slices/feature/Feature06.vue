@@ -6,10 +6,10 @@
         v-kata-html="title"
         class="mb-medium fade-up heading-2"
       />
-      <p
-        v-if="text"
-        v-kata-html="text"
-        class="mb-medium fade-up whitespace-pre-line"
+      <SanityEmbedContent
+        v-if="textBody"
+        :blocks="textBody"
+        class="mb-medium fade-up"
       />
       <KataLinks v-if="links" :links="links" class="fade-up" />
     </div>
@@ -42,8 +42,8 @@
 </template>
 
 <script>
-import { title, links, text, list } from '../shared'
+import { title, links, textBody, list } from '../shared'
 export default {
-  mixins: [title, links, text, list],
+  mixins: [title, links, textBody, list],
 }
 </script>

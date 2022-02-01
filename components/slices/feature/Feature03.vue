@@ -10,17 +10,21 @@
       class="w-r10/12 md:w-r8/12 lg:w-r6/12 h-screen flex flex-col justify-end items-start z-1 p-r1/12 md:pr-0 content"
     >
       <h2 v-kata-html="title" class="heading-2 text-white mb-medium fade-up" />
-      <p v-if="text" v-kata-html="text" class="text-white mb-medium fade-up" />
+      <SanityEmbedContent
+        v-if="textBody"
+        :blocks="textBody"
+        class="text-white mb-medium fade-up"
+      />
       <KataLinks v-if="links" :links="links" class="fade-up" />
     </div>
   </div>
 </template>
 
 <script>
-import { title, text, links, image } from '../shared'
+import { title, textBody, links, image } from '../shared'
 
 export default {
-  mixins: [title, text, links, image],
+  mixins: [title, textBody, links, image],
   data() {
     return {
       ratio: 16 / 9,

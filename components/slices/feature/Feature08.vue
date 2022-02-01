@@ -8,7 +8,11 @@
         <h2 v-kata-html="title" class="heading-2 fade-up" />
       </div>
       <div class="sm:w-r4/12">
-        <p v-if="text" v-kata-html="text" class="fade-up whitespace-pre-line" />
+        <SanityEmbedContent
+          v-if="textBody"
+          :blocks="textBody"
+          class="fade-up"
+        />
       </div>
     </div>
     <KataImage
@@ -28,10 +32,10 @@
 </template>
 
 <script>
-import { title, text, image } from '../shared'
+import { title, textBody, image } from '../shared'
 
 export default {
-  mixins: [title, text, image],
+  mixins: [title, textBody, image],
   props: {
     isContained: {
       type: Boolean,
