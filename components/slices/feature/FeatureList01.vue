@@ -1,7 +1,7 @@
 <template>
   <div class="feature-list-01">
     <Feature01
-      v-for="(feature, i) in features"
+      v-for="(feature, i) in list"
       :key="feature._key"
       v-bind="feature"
       :reversed="i % 2 == 0"
@@ -11,12 +11,8 @@
 </template>
 
 <script>
+import { list } from '../shared'
 export default {
-  props: {
-    features: {
-      type: Array,
-      required: true,
-    },
-  },
+  mixins: [list],
 }
 </script>

@@ -2,16 +2,16 @@ import { standardImage, links } from 'part:@weflocc/kata/partials/index'
 import { BiListPlus } from 'react-icons/bi'
 import { title, superHeading, text } from '../shared'
 
-const items = {
-  title: 'Items',
-  name: 'items',
+const list = {
+  title: 'List',
+  name: 'list',
   type: 'array',
   of: [
     {
       type: 'object',
       title: 'Item',
       name: 'item',
-      fields: [standardImage(), title, superHeading, text, links()],
+      fields: [title, superHeading, text, links('Links', 1), standardImage()],
       preview: {
         select: {
           heading: 'title',
@@ -28,4 +28,4 @@ const items = {
   ],
 }
 
-export { items }
+export { list }

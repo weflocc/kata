@@ -3,7 +3,7 @@
     <h2 v-if="title" v-kata-html="title" class="mb-large text-center" />
     <component
       :is="link(item._id) ? 'n-link' : 'div'"
-      v-for="(item, i) in items"
+      v-for="(item, i) in list"
       :key="item._ref"
       :to="item._id ? link(item._id) : ''"
       class="item md:flex md:items-center mb-slice md:mb-slice-half md:space-x-medium block"
@@ -34,15 +34,9 @@
 </template>
 
 <script>
-import { title } from '../shared'
+import { title, list } from '../shared'
 export default {
-  mixins: [title],
-  props: {
-    items: {
-      type: Array,
-      default: null,
-    },
-  },
+  mixins: [title, list],
   methods: {
     link(id) {
       const link = this.$store.getters['references/getLinkFromReference'](id)

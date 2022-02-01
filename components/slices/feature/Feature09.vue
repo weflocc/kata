@@ -7,7 +7,7 @@
       tag="div"
     >
       <div
-        v-for="(item, i) in featureTabs"
+        v-for="(item, i) in list"
         :key="item._key"
         class="inline-block transition-all duration-500 mb-small w-full sm:w-auto"
       >
@@ -31,7 +31,7 @@
       @leave="leave"
     >
       <div
-        v-for="(item, i) in featureTabs"
+        v-for="(item, i) in list"
         v-show="i == currentTab"
         :key="item._key"
         class="sm:flex flex-wrap list-fade-item sm:-mx-small"
@@ -73,14 +73,10 @@
 //     },
 //   },
 
-import { title } from '../shared'
+import { title, list } from '../shared'
 export default {
-  mixins: [title],
+  mixins: [title, list],
   props: {
-    featureTabs: {
-      type: Array,
-      required: true,
-    },
     initialTab: {
       type: Number,
       default: 0,

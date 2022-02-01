@@ -58,16 +58,10 @@ import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 // optional style for arrows & dots
 // import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
-import { title, text, links } from '../shared'
+import { title, text, links, list } from '../shared'
 export default {
   components: { VueSlickCarousel },
-  mixins: [title, text, links],
-  props: {
-    list: {
-      type: Array,
-      default: null,
-    },
-  },
+  mixins: [title, text, links, list],
   data() {
     return {
       settings: {

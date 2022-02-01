@@ -6,11 +6,11 @@
       </div>
     </div>
     <div
-      v-if="imageThumbnails && imageThumbnails.length"
+      v-if="list && list.length"
       class="w-r10/12 mx-r1/12 grid grid-cols-2 gap-small"
     >
       <div
-        v-for="(item, index) in imageThumbnails"
+        v-for="(item, index) in list"
         :key="item._key"
         class="relative item"
         :class="thumbnailClass(index + 1)"
@@ -32,23 +32,17 @@
 </template>
 
 <script>
-import { title } from '../shared'
+import { title, list } from '../shared'
 export default {
-  mixins: [title],
-  props: {
-    imageThumbnails: {
-      type: Array,
-      required: true,
-    },
-  },
+  mixins: [title, list],
   data() {
     return {
       portrait: [],
     }
   },
   mounted() {
-    if (this.imageThumbnails?.length) {
-      for (let x = 0; x < this.imageThumbnails.length; x++) {
+    if (this.list?.length) {
+      for (let x = 0; x < this.list.length; x++) {
         this.portrait.push(4 * x - 2)
         this.portrait.push(4 * x - 1)
       }

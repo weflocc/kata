@@ -9,12 +9,12 @@
       />
     </div>
     <ul
-      v-if="features"
+      v-if="list"
       class="flex flex-wrap -mx-medium"
-      :class="'length-' + features.length"
+      :class="'length-' + list.length"
     >
       <li
-        v-for="(item, index) in features"
+        v-for="(item, index) in list"
         :key="item._key"
         class="mb-large fade-up px-medium item"
         :class="width"
@@ -44,14 +44,10 @@
 </template>
 
 <script>
-import { title, text, links } from '../shared'
+import { title, text, links, list } from '../shared'
 export default {
-  mixins: [title, text, links],
+  mixins: [title, text, links, list],
   props: {
-    features: {
-      type: Array,
-      default: null,
-    },
     autoNumber: {
       type: Boolean,
       default: false,

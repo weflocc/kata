@@ -3,9 +3,12 @@
     <div class="mb-large text-center">
       <h2 v-if="title" class="mb-medium fade-up">{{ title }}</h2>
     </div>
-    <div class="mb-large flex flex-wrap justify-evenly -mx-small">
+    <div
+      v-if="list && list.length"
+      class="mb-large flex flex-wrap justify-evenly -mx-small"
+    >
       <div
-        v-for="item in thumbnails"
+        v-for="item in list"
         :key="item._key"
         class="px-small md:w-1/3 flex-grow fade-up thumbnail"
       >
@@ -36,15 +39,9 @@
 </template>
 
 <script>
-import { title, links } from '../shared'
+import { title, links, list } from '../shared'
 export default {
-  mixins: [title, links],
-  props: {
-    thumbnails: {
-      type: Array,
-      default: null,
-    },
-  },
+  mixins: [title, links, list],
   data() {
     return {
       settings: {

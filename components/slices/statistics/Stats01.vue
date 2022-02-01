@@ -4,7 +4,7 @@
 
     <div class="flex flex-wrap -mx-medium">
       <div
-        v-for="item in statistics"
+        v-for="item in list"
         :key="item._key"
         class="stat flex-grow w-full sm:w-1/2 md:w-1/4 mb-medium md:mb-0 px-medium"
       >
@@ -22,14 +22,8 @@
 </template>
 
 <script>
-import { title, links } from '../shared'
+import { title, links, list } from '../shared'
 export default {
-  mixins: [title, links],
-  props: {
-    statistics: {
-      type: Array,
-      required: true,
-    },
-  },
+  mixins: [title, links, list],
 }
 </script>

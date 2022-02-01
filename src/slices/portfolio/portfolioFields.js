@@ -1,10 +1,10 @@
 import config from 'config:@weflocc/kata'
 import { standardImage, links } from 'part:@weflocc/kata/partials/index'
 import { BiListPlus } from 'react-icons/bi'
-import { title, superHeading, text } from '../shared'
+import { title, text } from '../shared'
 
 const thumbnails = {
-  name: 'thumbnails',
+  name: 'list',
   title: 'Thumbnails',
   type: 'array',
   options: {
@@ -34,7 +34,7 @@ const thumbnails = {
 }
 
 const imageThumbnails = {
-  name: 'imageThumbnails',
+  name: 'list',
   title: 'Thumbnails',
   type: 'array',
   options: {
@@ -64,7 +64,7 @@ const imageThumbnails = {
 }
 
 const portfolio06Slides = {
-  name: 'imageThumbnails',
+  name: 'list',
   title: 'Thumbnails',
   type: 'array',
   options: {
@@ -73,11 +73,4 @@ const portfolio06Slides = {
   of: [standardImage()],
 }
 
-export {
-  title,
-  superHeading,
-  text,
-  thumbnails,
-  imageThumbnails,
-  portfolio06Slides,
-}
+export { thumbnails, imageThumbnails, portfolio06Slides }

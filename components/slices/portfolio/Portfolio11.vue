@@ -1,9 +1,9 @@
 <template>
   <div class="portfolio-11 slice relative sm:flex fade-up">
-    <div v-if="articles.length" class="bg-primary sm:w-1/3 articles-list">
+    <div v-if="list.length" class="bg-primary sm:w-1/3 articles-list">
       <ul class="p-medium">
         <li
-          v-for="item in articles"
+          v-for="item in list"
           :key="item.slug"
           class="mb-large list-item font-bold inline-block sm:block cursor-pointer transition-all hover:text-secondary"
           :class="{
@@ -22,7 +22,7 @@
     </div>
     <div class="sm:w-2/3">
       <GMap
-        v-if="articles.length"
+        v-if="list.length"
         ref="gMap"
         language="en"
         :center="centre"
@@ -31,7 +31,7 @@
         @loaded="mapLoaded"
       >
         <GMapMarker
-          v-for="article in articles"
+          v-for="article in list"
           :key="article.title"
           ref="marker"
           :position="{ lat: article.location.lat, lng: article.location.lng }"
@@ -89,13 +89,11 @@
 // import mapStyle from '~/components/site/map-style'
 // import mapPin from '~/assets/svgs/pin.svg'
 // import mapPinSelected from '~/assets/svgs/pin-selected.svg'
+import { list } from '../shared'
 
 export default {
+  mixins: [list],
   props: {
-    articles: {
-      type: Array,
-      required: true,
-    },
     zoom: {
       type: Number,
       default: 4,
@@ -146,8 +144,8 @@ export default {
     mapLoaded(e) {
       let context = this
       var bounds = new google.maps.LatLngBounds()
-      for (let index = 0; index < this.articles.length; index++) {
-        const element = this.articles[index]
+      for (let index = 0; index < this.list.length; index++) {
+        const element = this.list[index]
         let pos = new google.maps.LatLng(
           element.location.lat,
           element.location.lng

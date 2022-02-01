@@ -2,7 +2,7 @@ import { BiListPlus } from 'react-icons/bi'
 
 const statistics = {
   title: 'Statistics',
-  name: 'statistics',
+  name: 'list',
   type: 'array',
   of: [
     {

@@ -1,7 +1,7 @@
 <template>
-  <div v-if="locations" class="slice feature-10 relative">
+  <div v-if="list" class="slice feature-10 relative">
     <GMap
-      v-if="locations.length"
+      v-if="list.length"
       ref="gMap"
       language="en"
       :center="centre"
@@ -10,7 +10,7 @@
       @loaded="mapLoaded"
     >
       <GMapMarker
-        v-for="item in locations"
+        v-for="item in list"
         :key="item.title"
         ref="marker"
         :position="{ lat: item.location.lat, lng: item.location.lng }"
@@ -51,12 +51,10 @@
 //      key: 'AIzaSyDqa_gfKjehO6LI6vCIG1gOjhd3TiUE7ew',
 //    },
 // ],
+import { list } from '../shared'
 export default {
+  mixins: [list],
   props: {
-    locations: {
-      type: Array,
-      required: true,
-    },
     zoom: {
       type: Number,
       default: 4,

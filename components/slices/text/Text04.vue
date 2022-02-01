@@ -55,14 +55,10 @@
 </template>
 
 <script>
-import { superHeading, title, image } from '../shared'
+import { superHeading, title, image, list } from '../shared'
 export default {
-  mixins: [superHeading, title, image],
+  mixins: [superHeading, title, image, list],
   props: {
-    list: {
-      type: Array,
-      default: null,
-    },
     isH1: {
       type: Boolean,
       default: false,

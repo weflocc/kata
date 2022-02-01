@@ -6,7 +6,7 @@
       tag="div"
     >
       <div
-        v-for="(item, i) in featureTabs"
+        v-for="(item, i) in list"
         :key="item._key"
         class="inline-block transition-all duration-500"
       >
@@ -32,7 +32,7 @@
       @leave="leave"
     >
       <div
-        v-for="(item, i) in featureTabs"
+        v-for="(item, i) in list"
         v-show="i == currentTab"
         :key="item._key"
         class="flex flex-col sm:flex-row list-fade-item"
@@ -58,13 +58,9 @@
 </template>
 
 <script>
+import { list } from '../shared'
 export default {
-  props: {
-    featureTabs: {
-      type: Array,
-      required: true,
-    },
-  },
+  mixins: [list],
   data() {
     return {
       currentTab: 0,

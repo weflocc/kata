@@ -16,13 +16,13 @@
         <span></span>
       </button>
     </div>
-    <div v-if="imageThumbnails" class="md:w-r6/12 md:pr-large">
+    <div v-if="list" class="md:w-r6/12 md:pr-large">
       <VueSlickCarousel
         v-bind="settings"
         ref="portfolio-6-carousel"
         class="w-full"
       >
-        <div v-for="item in imageThumbnails" :key="item._key">
+        <div v-for="item in list" :key="item._key">
           <KataImage
             v-if="item"
             :image="item"
@@ -51,26 +51,11 @@ import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 // optional style for arrows & dots
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 
+import { title, textBody, list, links } from '../shared'
+
 export default {
   components: { VueSlickCarousel },
-  props: {
-    title: {
-      type: String,
-      default: null,
-    },
-    textBody: {
-      type: Array,
-      default: null,
-    },
-    imageThumbnails: {
-      type: Array,
-      required: true,
-    },
-    links: {
-      type: Array,
-      default: null,
-    },
-  },
+  mixins: [title, textBody, list, links],
   data() {
     return {
       settings: {

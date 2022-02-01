@@ -5,12 +5,12 @@
       <p v-if="text" v-kata-html="text" class="mt-medium fade-up lg:px-r1/12" />
     </div>
     <ul
-      v-if="features"
+      v-if="list"
       class="flex justify-center items-start flex-wrap -mx-medium -mb-large"
-      :class="'length-' + features.length"
+      :class="'length-' + list.length"
     >
       <li
-        v-for="(item, index) in features"
+        v-for="(item, index) in list"
         :key="item._key"
         class="mb-large fade-up px-medium item"
         :class="width"
@@ -39,14 +39,10 @@
 </template>
 
 <script>
-import { title, text, links } from '../shared'
+import { title, text, links, list } from '../shared'
 export default {
-  mixins: [title, text, links],
+  mixins: [title, text, links, list],
   props: {
-    features: {
-      type: Array,
-      required: true,
-    },
     max: {
       type: Number,
       default: 4,

@@ -4,12 +4,9 @@
       <h2 v-if="title" v-kata-html="title" class="heading-2 fade-up" />
       <p v-if="text" v-kata-html="text" class="mt-medium fade-up" />
     </div>
-    <div
-      v-if="thumbnails"
-      class="flex flex-wrap sm:-mr-medium sm:content-start"
-    >
+    <div v-if="list" class="flex flex-wrap sm:-mr-medium sm:content-start">
       <div
-        v-for="(item, index) in thumbnails"
+        v-for="(item, index) in list"
         :key="item.title"
         ref="items"
         class="item md:w-1/3 sm:w-1/2 sm:pr-medium mb-medium fade-up"
@@ -51,14 +48,10 @@
 </template>
 
 <script>
-import { title, text } from '../shared'
+import { title, text, list } from '../shared'
 export default {
-  mixins: [title, text],
+  mixins: [title, text, list],
   props: {
-    thumbnails: {
-      type: Array,
-      required: true,
-    },
     autoNumber: {
       type: Boolean,
       default: true,
@@ -71,7 +64,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      for (let index = 0; index < this.thumbnails.length; index++) {
+      for (let index = 0; index < this.list.length; index++) {
         const element = this.$refs.items[index]
         element.classList.remove('active')
         if (process.client && element.querySelector('.title')) {

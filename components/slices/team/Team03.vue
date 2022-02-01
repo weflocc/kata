@@ -4,21 +4,21 @@
       <h2 v-if="title" v-kata-html="title" class="fade-up" />
       <p v-if="text" v-kata-html="text" class="mt-medium fade-up" />
     </div>
-    <div v-if="profiles && profiles.length > 1" class="flex">
+    <div v-if="list && list.length > 1" class="flex">
       <VueSlickCarousel
         v-bind="settings"
         ref="team-3-carousel"
         :class="{
-          'mx-r1/12 w-r10/12': profiles.length == 1,
-          'mx-r1/12 w-r9/12': profiles.length > 1,
+          'mx-r1/12 w-r10/12': list.length == 1,
+          'mx-r1/12 w-r9/12': list.length > 1,
         }"
       >
-        <div v-for="item in profiles" :key="item._key" class="pr-large">
+        <div v-for="item in list" :key="item._key" class="pr-large">
           <ProfileTemplate :item="item" />
         </div>
       </VueSlickCarousel>
     </div>
-    <div v-if="profiles.length > 1" class="flex justify-center mt-small">
+    <div v-if="list.length > 1" class="flex justify-center mt-small">
       <button
         class="carousel-nav prev focus:outline-none mx-1"
         title="Previous Slide"
@@ -35,7 +35,7 @@
       </button>
     </div>
     <div v-else class="mx-r1/12 w-r10/12">
-      <div v-for="item in profiles" :key="item._key" class="pr-large">
+      <div v-for="item in list" :key="item._key" class="pr-large">
         <ProfileTemplate :item="item" />
       </div>
     </div>
@@ -47,23 +47,11 @@ import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 // optional style for arrows & dots
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+import { title, text, list } from '../shared'
 
 export default {
   components: { VueSlickCarousel },
-  props: {
-    title: {
-      type: String,
-      default: '',
-    },
-    text: {
-      type: String,
-      default: '',
-    },
-    profiles: {
-      type: Array,
-      required: true,
-    },
-  },
+  mixins: [title, text, list],
   data() {
     return {
       settings: {

@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="thumbnails && thumbnails.length > 0"
+    v-if="list && list != undefined && list.length > 0"
     class="slice portfolio-5 md:flex mx-r1/12 w-r10/12 md:mx-0 md:ml-r1/12 md:w-r11/12 overflow-x-hidden"
   >
     <div class="md:w-r2/12 mb-large fade-up">
@@ -26,7 +26,7 @@
         ref="portfolio-5-carousel"
         class="w-full"
       >
-        <div v-for="item in thumbnails" :key="item._key" class="slide">
+        <div v-for="item in list" :key="item._key" class="slide">
           <div class="portfolio-5-image mb-medium">
             <KataImage
               :image="item.image"
@@ -53,17 +53,11 @@ import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 // optional style for arrows & dots
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
-import { title } from '../shared'
+import { title, list } from '../shared'
 
 export default {
   components: { VueSlickCarousel },
-  mixins: [title],
-  props: {
-    thumbnails: {
-      type: Array,
-      required: true,
-    },
-  },
+  mixins: [title, list],
   data() {
     return {
       settings: {

@@ -5,7 +5,7 @@ import { title, superHeading, text } from '../shared'
 const quote = {
   name: 'quote',
   type: 'text',
-  rows: 3,
+  rows: 5,
 }
 
 const cite = {
@@ -44,7 +44,8 @@ const preview = {
 }
 
 const testimonials = {
-  name: 'testimonials',
+  name: 'list',
+  title: 'Testimonials',
   type: 'array',
   options: {
     collapsable: true,
@@ -61,7 +62,7 @@ const testimonials = {
 }
 
 const testimonialsImage = {
-  name: 'testimonials',
+  name: 'list',
   title: 'Testimonials',
   type: 'array',
   options: {
@@ -72,7 +73,7 @@ const testimonialsImage = {
       name: 'item',
       title: 'Item',
       type: 'object',
-      fields: [standardImage(), quote, name, job, links('links', 1)],
+      fields: [quote, name, job, links('Links', 1), standardImage()],
       preview: preview,
     },
   ],

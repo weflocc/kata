@@ -6,7 +6,7 @@
     </div>
     <div class="team-list">
       <ul :class="ulClass">
-        <li v-for="item in thumbnails" :key="item._id" class="fade-up">
+        <li v-for="item in list" :key="item._id" class="fade-up">
           <slot name="tease" :item="item">
             <KataImage
               :image="item.image"
@@ -27,17 +27,13 @@
 </template>
 
 <script>
-import { title, text } from '../shared'
+import { title, text, list } from '../shared'
 export default {
-  mixins: [title, text],
+  mixins: [title, text, list],
   props: {
     cols: {
       type: Number,
       default: 4,
-    },
-    thumbnails: {
-      default: null,
-      type: Array,
     },
   },
   computed: {

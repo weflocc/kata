@@ -1,6 +1,6 @@
-import { items } from './newsFields'
+import { list } from './newsFields'
 import { defaultOptions } from 'part:@weflocc/kata/partials/index'
-import {title} from '../shared'
+import { title } from '../shared'
 
 const news02 = {
   name: 'news02',
@@ -23,7 +23,7 @@ const news05 = {
   type: 'object',
   title: 'News #5',
   options: defaultOptions,
-  fields: [title, items],
+  fields: [title, list],
 }
 
 export { news02, news03, news05 }

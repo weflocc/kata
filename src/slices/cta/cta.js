@@ -6,9 +6,9 @@ import {
 } from 'part:@weflocc/kata/partials/index'
 import { title, text } from '../shared'
 
-const items = {
-  name: 'items',
-  title: 'Items',
+const list = {
+  name: 'list',
+  title: 'List',
   type: 'array',
   of: [
     {
@@ -33,7 +33,7 @@ const cta02 = {
   type: 'object',
   title: 'Call To Action #02',
   options: defaultOptions,
-  fields: [title, items],
+  fields: [title, list],
 }
 
 const cta05 = {

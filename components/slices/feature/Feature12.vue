@@ -11,9 +11,9 @@
     >
       <h2 v-kata-html="title" class="heading-2 mb-medium" />
       <p v-if="text" v-kata-html="text" class="mb-medium" />
-      <ul v-if="shortFeatures">
+      <ul v-if="list">
         <li
-          v-for="(item, index) in shortFeatures"
+          v-for="(item, index) in list"
           :key="item.title ? item.title : index"
           class="mb-small fade-up item flex items-center"
         >
@@ -40,16 +40,10 @@
 </template>
 
 <script>
-import { title, text, links, image } from '../shared'
+import { title, text, links, image, list } from '../shared'
 
 export default {
-  mixins: [title, text, links, image],
-  props: {
-    shortFeatures: {
-      type: Array,
-      default: null,
-    },
-  },
+  mixins: [title, text, links, image, list],
 }
 </script>
 

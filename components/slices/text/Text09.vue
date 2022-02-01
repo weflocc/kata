@@ -16,15 +16,9 @@
 </template>
 
 <script>
-import { superHeading, title } from '../shared'
+import { superHeading, title, list } from '../shared'
 export default {
-  mixins: [superHeading, title],
-  props: {
-    list: {
-      type: Array,
-      default: null,
-    },
-  },
+  mixins: [superHeading, title, list],
   data() {
     return {
       loading: true,

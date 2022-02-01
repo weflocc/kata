@@ -3,7 +3,7 @@
     <div v-if="title" class="w-r10/12 mx-r1/12 text-center title">
       <h2 v-kata-html="title" class="heading-2 mb-large fade-up" />
     </div>
-    <div v-if="articles && articles.length > 0" class="slider relative fade-up">
+    <div v-if="list && list.length > 0" class="slider relative fade-up">
       <VueSlickCarousel
         v-bind="settings"
         ref="portfolio-10-slider"
@@ -18,9 +18,9 @@
           </button>
         </template>
 
-        <div v-for="(item, i) in articles" :key="item._id" class="px-small">
+        <div v-for="(item, i) in list" :key="item._id" class="px-small">
           <slot name="tease" :item="item" :index="i + 1">
-            <ArticlesTeaseParagraphOverlay v-bind="item" :index="i + 1" />
+            <listTeaseParagraphOverlay v-bind="item" :index="i + 1" />
           </slot>
         </div>
 
@@ -43,17 +43,11 @@ import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 // optional style for arrows & dots
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
-import { title } from '../shared'
+import { title, list } from '../shared'
 
 export default {
   components: { VueSlickCarousel },
-  mixins: [title],
-  props: {
-    articles: {
-      default: null,
-      type: Array,
-    },
-  },
+  mixins: [title, list],
   data() {
     return {
       settings: {

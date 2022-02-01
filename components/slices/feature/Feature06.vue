@@ -14,9 +14,9 @@
       <KataLinks v-if="links" :links="links" class="fade-up" />
     </div>
     <div class="w-full md:w-r3/12 right">
-      <ul v-if="features">
+      <ul v-if="list">
         <li
-          v-for="(item, index) in features"
+          v-for="(item, index) in list"
           :key="item.title ? item.title : index"
           class="mb-large fade-up item flex items-start"
         >
@@ -42,14 +42,8 @@
 </template>
 
 <script>
-import { title, links, text } from '../shared'
+import { title, links, text, list } from '../shared'
 export default {
-  mixins: [title, links, text],
-  props: {
-    features: {
-      type: Array,
-      required: true,
-    },
-  },
+  mixins: [title, links, text, list],
 }
 </script>

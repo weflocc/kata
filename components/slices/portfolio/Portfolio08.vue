@@ -1,12 +1,12 @@
 <template>
-  <div v-if="feed" class="portfolio-8 slice w-r10/12 mx-r1/12">
+  <div v-if="list" class="portfolio-8 slice w-r10/12 mx-r1/12">
     <div class="mb-large">
       <h2 v-if="title" v-kata-html="title" />
       <p v-if="text" v-kata-html="text" class="mt-medium" />
     </div>
     <transition-group :class="ulClass" tag="ul" name="fade" mode="out-in">
       <li
-        v-for="(item, i) in feed"
+        v-for="(item, i) in list"
         :key="item._id || i"
         class="mb-medium relative"
       >
@@ -24,9 +24,9 @@
 </template>
 
 <script>
-import { title, text } from '../shared'
+import { title, text, list } from '../shared'
 export default {
-  mixins: [title, text],
+  mixins: [title, text, list],
   props: {
     cols: {
       type: Number,
@@ -39,10 +39,6 @@ export default {
     mobileCols: {
       type: Number,
       default: 1,
-    },
-    feed: {
-      default: null,
-      type: Array,
     },
   },
   computed: {

@@ -5,9 +5,9 @@
     <div class="md:w-r5/12 md:ml-r1/12 md:mr-large order-2 md:order-1 body">
       <h2 v-if="title" v-kata-html="title" class="mb-large fade-up" />
       <p v-if="text" v-kata-html="text" class="mb-large fade-up" />
-      <ul v-if="shortFeatures">
+      <ul v-if="list">
         <li
-          v-for="(item, index) in shortFeatures"
+          v-for="(item, index) in list"
           :key="item.title ? item.title : index"
           class="mb-small fade-up item flex items-center fade-up"
         >
@@ -46,14 +46,10 @@
 </template>
 
 <script>
-import { title, text, links, image } from '../shared'
+import { title, text, links, image, list } from '../shared'
 export default {
-  mixins: [title, text, links, image],
+  mixins: [title, text, links, image, list],
   props: {
-    shortFeatures: {
-      type: Array,
-      default: null,
-    },
     ratio: {
       type: Number,
       default: 685 / 514,

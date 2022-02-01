@@ -5,9 +5,9 @@
       v-kata-html="title"
       class="heading-2 fade-up mb-medium text-center"
     />
-    <div v-if="testimonials" class="flex justify-center items-start flex-wrap">
+    <div v-if="list" class="flex justify-center items-start flex-wrap">
       <div
-        v-for="item in testimonials"
+        v-for="item in list"
         :key="item._key"
         class="w-full md:w-1/2 md:px-6 md:py-3 pb-large"
       >
@@ -20,14 +20,8 @@
 </template>
 
 <script>
-import { links, title, text } from '../shared'
+import { links, title, text, list } from '../shared'
 export default {
-  mixins: [links, title, text],
-  props: {
-    testimonials: {
-      type: Array,
-      required: true,
-    },
-  },
+  mixins: [links, title, text, list],
 }
 </script>

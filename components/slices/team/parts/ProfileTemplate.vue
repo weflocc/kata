@@ -1,6 +1,5 @@
 <template>
-  <!-- need to find a better way to do this or put it, as its not a utility. -->
-  <div class="md:flex">
+  <div class="md:flex" v-if="item">
     <div
       v-if="item.image"
       class="w-full md:w-1/3 md:pr-medium mb-medium md:mb-0"
@@ -42,7 +41,7 @@ export default {
   props: {
     item: {
       type: Object,
-      default: () => {},
+      default: null,
     },
   },
 }

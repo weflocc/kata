@@ -9,7 +9,7 @@ import { title, text } from '../shared'
 
 const features = {
   title: 'Features',
-  name: 'features',
+  name: 'list',
   type: 'array',
   of: [
     {
@@ -45,8 +45,8 @@ const features = {
 }
 
 const shortFeatures = {
-  title: 'Short Features',
-  name: 'shortFeatures',
+  title: 'Features',
+  name: 'list',
   type: 'array',
   of: [
     {
@@ -79,8 +79,8 @@ const shortFeatures = {
 }
 
 const featureImageTabs = {
-  title: 'Feature Tabs',
-  name: 'featureTabs',
+  title: 'Tabs',
+  name: 'list',
   type: 'array',
   of: [
     {
@@ -115,8 +115,8 @@ const featureImageTabs = {
 }
 
 const featureTabs = {
-  title: 'Feature Tabs',
-  name: 'featureTabs',
+  title: 'Tabs',
+  name: 'list',
   type: 'array',
   of: [
     {
@@ -173,7 +173,7 @@ const featureTabs = {
 
 const locations = {
   title: 'Locations',
-  name: 'locations',
+  name: 'list',
   type: 'array',
   of: [
     {

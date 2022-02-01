@@ -7,7 +7,7 @@ const featureList01 = {
   options: defaultOptions,
   fields: [
     {
-      name: 'features',
+      name: 'list',
       type: 'array',
       title: 'Features',
       of: [

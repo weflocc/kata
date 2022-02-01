@@ -3,7 +3,7 @@ import { standardImage } from 'part:@weflocc/kata/partials/index'
 import { title, text } from '../shared'
 
 const thumbnails = {
-  name: 'thumbnails',
+  name: 'list',
   title: 'Thumbnails',
   type: 'array',
   options: {
@@ -33,7 +33,7 @@ const thumbnails = {
 }
 
 const profiles = {
-  name: 'profiles',
+  name: 'list',
   title: 'Profiles',
   type: 'array',
   options: {

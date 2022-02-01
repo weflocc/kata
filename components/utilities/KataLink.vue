@@ -1,6 +1,6 @@
 <template>
   <nuxt-link
-    v-if="linkType == 'internal' && (!isOnSamePage || !anchor)"
+    v-if="linkType == 'internal' && (!isOnSamePage || !anchor) && path"
     :to="path"
     class="btn-internal"
     :class="linkStyle"

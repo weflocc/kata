@@ -2,11 +2,11 @@
   <div class="slice call-to-action-2 w-r10/12 mx-r1/12 text-center">
     <h2 v-if="title" v-kata-html="title" class="heading-2 fade-up mb-medium" />
     <div
-      v-if="items"
+      v-if="list"
       class="md:flex w-full justify-evenly sm:px-r1/12 xl:px-r2/12"
     >
       <div
-        v-for="item in items"
+        v-for="item in list"
         :key="item._key"
         class="md:px-medium mb-medium md:mb-0"
       >
@@ -31,14 +31,8 @@
 </template>
 
 <script>
-import { links, title, text } from '../shared'
+import { links, title, text, list } from '../shared'
 export default {
-  mixins: [links, title, text],
-  props: {
-    items: {
-      type: Array,
-      default: null,
-    },
-  },
+  mixins: [links, title, text, list],
 }
 </script>

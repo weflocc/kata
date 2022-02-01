@@ -1,14 +1,10 @@
 <template>
-  <Portfolio04 :thumbnails="thumbnails" />
+  <Portfolio04 :list="list" />
 </template>
 
 <script>
+import { list } from '../shared'
 export default {
-  props: {
-    thumbnails: {
-      type: Array,
-      required: true,
-    },
-  },
+  mixins: [list],
 }
 </script>
