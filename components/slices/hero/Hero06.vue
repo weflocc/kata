@@ -3,6 +3,7 @@
     <KataMedia
       :media="media"
       :ratio="ratio"
+      :no-crop="noCrop"
       :max-width="2500"
       class="hero-animation border-animate"
     />
@@ -34,9 +35,9 @@
 </template>
 
 <script>
-import { superHeading, title, textBody, links, media } from '../shared'
+import { superHeading, title, textBody, links, media, noCrop } from '../shared'
 export default {
-  mixins: [superHeading, title, textBody, links, media],
+  mixins: [superHeading, title, textBody, links, media, noCrop],
   props: {
     ratio: {
       type: Number,

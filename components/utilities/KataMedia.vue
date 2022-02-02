@@ -1,23 +1,34 @@
 <template>
-  <div v-if="image || video" class="media-image">
+  <div v-if="media.mediaType" class="media">
     <KataImage
-      v-if="image"
-      :image="image"
+      v-if="media.mediaType == 'image' && media.image && !noCrop"
+      :image="media.image"
       :sizes="sizes"
       :ratio="ratio"
       :max-width="maxWidth"
       class="h-full w-full object-cover"
     />
+    <KataImage02
+      v-if="media.mediaType == 'image' && media.image && noCrop"
+      :image="media.image"
+      :sizes="sizes"
+      :max-width="maxWidth"
+      class="max-w-full"
+    />
     <KataVideo
-      v-else-if="videoSrc"
-      :video="videoSrc"
+      v-else-if="media.mediaType == 'video' && media.video && noCrop"
+      :video="media.video"
       class="h-full w-full object-cover"
-      loop
-    ></KataVideo>
-  </div>
-  <div v-else-if="slides && slides.length" class="media-slider">
+    />
+    <KataVideoEmbed
+      v-else-if="media.mediaType == 'embed' && media.embedUrl && noCrop"
+      :url="media.embedUrl"
+      class="w-full"
+      data-not-lazy
+    />
     <KataCssSlider
-      :images="slides"
+      v-else-if="media.mediaType == 'slideshow' && media.slideshow && noCrop"
+      :images="media.slideshow"
       class="w-full h-full"
       :sizes="sizes"
       :ratio="ratio"
@@ -30,8 +41,8 @@
 export default {
   props: {
     media: {
-      type: Array,
-      default: () => [],
+      type: Object,
+      default: () => {},
     },
     ratio: {
       type: Number,
@@ -45,59 +56,12 @@ export default {
       type: String,
       default: '100vw',
     },
+    noCrop: {
+      type: Boolean,
+      default: false,
+    },
   },
   data: () => ({ isMobile: false }),
-  computed: {
-    image() {
-      if (
-        this.media &&
-        this.media.length === 1 &&
-        this.media[0]._type == 'image'
-      ) {
-        return this.media[0]
-      } else {
-        return null
-      }
-    },
-    videoSrc() {
-      if (this.isMobile && this.mobileVideo) {
-        return this.mobileVideo
-      } else {
-        return this.video
-      }
-    },
-    video() {
-      if (
-        this.media &&
-        this.media.length > 0 &&
-        this.media[0]._type == 'video'
-      ) {
-        return this.media[0]
-      } else {
-        return null
-      }
-    },
-    mobileVideo() {
-      if (
-        this.media &&
-        this.media.length > 1 &&
-        this.media[1]._type == 'video'
-      ) {
-        return this.media[1]
-      } else {
-        return null
-      }
-    },
-    slides() {
-      let slides = []
-      // only return images for now
-      if (this.media && this.media.length > 1) {
-        slides = this.media.filter((item) => item._type == 'image')
-      }
-
-      return slides
-    },
-  },
   mounted() {
     if (process.client && window.matchMedia('(max-width: 500px)').matches) {
       this.isMobile = true

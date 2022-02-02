@@ -1,6 +1,7 @@
 import {
   basicTextEditor,
   links,
+  media,
   standardImage,
 } from 'part:@weflocc/kata/partials/index'
 import { BiListPlus } from 'react-icons/bi'
@@ -44,38 +45,41 @@ const features = {
   ],
 }
 
-const shortFeatures = {
-  title: 'Features',
-  name: 'list',
-  type: 'array',
-  of: [
-    {
-      type: 'object',
-      title: 'Feature',
-      name: 'feature',
-      fields: [
-        {
-          type: 'image',
-          name: 'icon',
-          title: 'Icon',
-        },
-        title,
-        links('links', 1),
-      ],
-      preview: {
-        select: {
-          heading: 'title',
-        },
-        prepare(selection) {
-          const { heading } = selection
-          return {
-            title: heading,
-            media: BiListPlus,
-          }
+const shortFeatures = (vars) => {
+  // let title = vars.title ? vars.title : 'Icon'
+  return {
+    title: 'Features',
+    name: 'list',
+    type: 'array',
+    of: [
+      {
+        type: 'object',
+        title: 'Feature',
+        name: 'feature',
+        fields: [
+          {
+            type: 'image',
+            name: 'image',
+            title: 'Image or Icon',
+          },
+          title,
+          links('links', 1),
+        ],
+        preview: {
+          select: {
+            heading: 'title',
+          },
+          prepare(selection) {
+            const { heading } = selection
+            return {
+              title: heading,
+              media: BiListPlus,
+            }
+          },
         },
       },
-    },
-  ],
+    ],
+  }
 }
 
 const featureImageTabs = {
@@ -93,7 +97,7 @@ const featureImageTabs = {
           name: 'tabName',
           title: 'Tab Name',
         },
-        standardImage(),
+        media(),
         title,
         basicTextEditor(),
         links('links', 1),

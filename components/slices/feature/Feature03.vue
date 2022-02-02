@@ -1,9 +1,10 @@
 <template>
   <div class="slice feature-3 stack-children">
-    <KataImage
-      :image="image"
+    <KataMedia
+      :media="media"
       :ratio="ratio"
       :max-width="3000"
+      :no-crop="noCrop"
       class="h-screen w-full object-cover"
     />
     <div
@@ -21,10 +22,10 @@
 </template>
 
 <script>
-import { title, textBody, links, image } from '../shared'
+import { title, textBody, links, media, noCrop } from '../shared'
 
 export default {
-  mixins: [title, textBody, links, image],
+  mixins: [title, textBody, links, media, noCrop],
   data() {
     return {
       ratio: 16 / 9,

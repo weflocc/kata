@@ -43,11 +43,12 @@
           <KataLinks v-if="item.links" :links="item.links" />
         </div>
         <div class="sm:w-1/2 order-1 sm:order-2 mb-large sm:mb-0">
-          <KataImage
-            v-if="item.standardImage.image"
-            :image="item.standardImage.image"
+          <KataMedia
+            v-if="item.media"
+            :media="item.media"
             :ratio="685 / 514"
             :max-width="1500"
+            :no-crop="noCrop"
             sizes="(max-width: 500px) 100vw, 45vw"
             class="h-full w-full object-cover"
           />
@@ -58,9 +59,9 @@
 </template>
 
 <script>
-import { list } from '../shared'
+import { list, noCrop } from '../shared'
 export default {
-  mixins: [list],
+  mixins: [list, noCrop],
   data() {
     return {
       currentTab: 0,

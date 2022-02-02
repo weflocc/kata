@@ -17,17 +17,22 @@
         class="pull-out w-r11/12 sm:w-r8/12 lg:w-r6/12 p-screen-border"
       ></p>
       <div class="media-wrap hero-animation border-animate">
-        <KataMedia v-if="media" :media="media" :max-width="2000" />
+        <KataMedia
+          v-if="media"
+          :media="media"
+          :max-width="2000"
+          :no-crop="noCrop"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { title, textBody, links, media } from '../shared'
+import { title, textBody, links, media, noCrop } from '../shared'
 
 export default {
-  mixins: [title, textBody, links, media],
+  mixins: [title, textBody, links, media, noCrop],
   props: {
     sideLinkText: {
       type: String,

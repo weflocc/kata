@@ -1,29 +1,71 @@
 import { standardImage } from '../partials/image'
 // import { videoSrcset } from './videoSrcset'
 const camelCase = require('lodash.camelcase')
+import { BsFillImageFill } from 'react-icons/bs'
 
-const media = (name = 'Media', required = true) => {
+const media = (name = 'Media', required = false) => {
   return {
     name: camelCase(name),
     title: name,
-    type: 'array',
-    editModal: 'popover',
-    description:
-      'Choose image or video media type. You can add multiple images to create a fading `slideshow`. If using a video, you can add a mobile video by adding a second video to the list below.',
-    of: [
-      standardImage(),
-      // videoSrcset(),
+    type: 'object',
+    fields: [
+      {
+        type: 'string',
+        name: 'mediaType',
+        title: 'Media Type',
+        initialValue: { value: 'image' },
+        validation: (Rule) => Rule.required(),
+        options: {
+          list: [
+            { title: 'Image', value: 'image' },
+            { title: 'Video', value: 'video' },
+            { title: 'Embed Video', value: 'embed' },
+            { title: 'Image Slideshow', value: 'slideshow' },
+          ],
+        },
+      },
+      standardImage('Image', {
+        hidden: ({ parent }) => parent.mediaType != 'image',
+      }),
       {
         title: 'Video file',
         name: 'video',
         type: 'mux.video',
         description:
           'We recommend you crop and compress your video here before uploading it: https://www.videosmaller.com/.',
+        hidden: ({ parent }) => parent.mediaType != 'video',
+      },
+      {
+        title: 'Embed Video',
+        name: 'embedUrl',
+        type: 'url',
+        description: 'Please paste in your video url here.',
+        hidden: ({ parent }) => parent.mediaType != 'embed',
+      },
+      {
+        title: 'Image Slideshow',
+        name: 'slideshow',
+        type: 'array',
+        of: [standardImage()],
+        hidden: ({ parent }) => parent.mediaType != 'slideshow',
+        preview: {
+          select: {
+            image: 'image',
+          },
+          prepare(selection) {
+            const { image } = selection
+            let icon = BsFillImageFill
+            return {
+              title: 'Image',
+              media: image || icon,
+            }
+          },
+        },
       },
     ],
-    // validation: required
-    //   ? (Rule) => Rule.required('Please select an image.')
-    //   : null,
+    validation: required
+      ? (Rule) => Rule.required('Please select an media item.')
+      : null,
   }
 }
 

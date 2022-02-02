@@ -3,6 +3,7 @@
     <KataMedia
       :media="media"
       :ratio="ratio"
+      :no-crop="noCrop"
       :max-width="2500"
       class="h-screen w-full object-cover"
     />
@@ -21,10 +22,10 @@
 </template>
 
 <script>
-import { title, textBody, links, media } from '../shared'
+import { title, textBody, links, media, noCrop } from '../shared'
 
 export default {
-  mixins: [title, textBody, links, media],
+  mixins: [title, textBody, links, media, noCrop],
   data() {
     return {
       ratio: 16 / 9,

@@ -15,27 +15,22 @@
         />
       </div>
     </div>
-    <KataImage
-      v-if="ratio && image"
+    <KataMedia
+      v-if="media"
       :ratio="ratio"
+      :no-crop="ratio ? false : true"
       :image="image"
       :max-width="3000"
       class="w-full h-auto"
-    />
-    <KataImage02
-      v-else-if="image"
-      :image="image"
-      :max-width="3000"
-      class="h-auto w-full"
     />
   </div>
 </template>
 
 <script>
-import { title, textBody, image } from '../shared'
+import { title, textBody, media } from '../shared'
 
 export default {
-  mixins: [title, textBody, image],
+  mixins: [title, textBody, media],
   props: {
     isContained: {
       type: Boolean,

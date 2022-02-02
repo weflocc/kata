@@ -26,6 +26,7 @@
         :media="media"
         :ratio="ratio"
         :max-width="3000"
+        :no-crop="noCrop"
         class="w-full h-full"
       />
     </div>
@@ -33,10 +34,10 @@
 </template>
 
 <script>
-import { title, superHeading, textBody, links, media } from '../shared'
+import { title, superHeading, textBody, links, media, noCrop } from '../shared'
 
 export default {
-  mixins: [title, superHeading, textBody, links, media],
+  mixins: [title, superHeading, textBody, links, media, noCrop],
   data() {
     return {
       ratio: 16 / 9,

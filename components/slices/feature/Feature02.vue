@@ -38,10 +38,11 @@
       <KataLinks v-if="links" :links="links" class="fade-up" />
     </div>
     <div class="md:w-1/2 order-1 md:order-2 mb-large md:mb-0 md:relative image">
-      <KataImage
-        :image="image"
+      <KataMedia
+        :media="media"
         :ratio="ratio"
         :max-width="1500"
+        :no-crop="noCrop"
         sizes="(max-width:699px) 90vw, (max-width:1439px) 50vw, 50vw"
         class="md:h-full md:w-full md:absolute md:top-0 md:left-0 md:object-cover md:bottom-0 md:m-auto"
       />
@@ -50,9 +51,9 @@
 </template>
 
 <script>
-import { title, textBody, links, image, list } from '../shared'
+import { title, textBody, links, media, list, noCrop } from '../shared'
 export default {
-  mixins: [title, textBody, links, image, list],
+  mixins: [title, textBody, links, media, list, noCrop],
   props: {
     ratio: {
       type: Number,

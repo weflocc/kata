@@ -46,7 +46,7 @@ const links = {
 const media = {
   props: {
     media: {
-      type: Array,
+      type: Object,
       default: null,
     },
   },
@@ -88,6 +88,15 @@ const articles = {
   },
 }
 
+const noCrop = {
+  props: {
+    noCrop: {
+      type: Boolean,
+      default: false,
+    },
+  },
+}
+
 export {
   title,
   superHeading,
@@ -99,4 +108,5 @@ export {
   image,
   list,
   articles,
+  noCrop,
 }

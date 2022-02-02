@@ -8,6 +8,7 @@ import {
 } from './featureFields'
 import {
   standardImage,
+  media,
   links,
   defaultOptions,
   basicTextEditor,
@@ -18,7 +19,7 @@ const feature01 = {
   type: 'object',
   title: 'Feature #1',
   options: defaultOptions,
-  fields: [superHeading, title, basicTextEditor(), links(), standardImage()],
+  fields: [superHeading, title, basicTextEditor(), links(), media()],
 }
 
 const feature02 = {
@@ -26,7 +27,7 @@ const feature02 = {
   type: 'object',
   title: 'Feature #2',
   options: defaultOptions,
-  fields: [title, basicTextEditor(), shortFeatures, standardImage()],
+  fields: [title, basicTextEditor(), shortFeatures(), media()],
 }
 
 const feature03 = {
@@ -34,7 +35,7 @@ const feature03 = {
   type: 'object',
   title: 'Feature #3',
   options: defaultOptions,
-  fields: [title, basicTextEditor(), links(), standardImage()],
+  fields: [title, basicTextEditor(), links(), media()],
 }
 
 const feature04 = {
@@ -71,7 +72,7 @@ const feature08 = {
   type: 'object',
   title: 'Feature #8',
   options: defaultOptions,
-  fields: [title, basicTextEditor(), standardImage()],
+  fields: [title, basicTextEditor(), media()],
 }
 const feature09 = {
   name: 'feature09',
@@ -99,7 +100,7 @@ const feature12 = {
   type: 'object',
   title: 'Feature #12',
   options: defaultOptions,
-  fields: [title, text, shortFeatures, links(), standardImage()],
+  fields: [title, text, shortFeatures(), links(), media()],
 }
 
 export {

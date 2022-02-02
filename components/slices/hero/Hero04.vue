@@ -9,6 +9,7 @@
     <div class="w-r10/12 mx-r1/12 text-center z-1 mb-slice">
       <KataMedia
         :media="media"
+        :no-crop="noCrop"
         :ratio="3 / 1"
         :max-width="3000"
         class="w-full"
@@ -18,9 +19,9 @@
 </template>
 
 <script>
-import { title, media } from '../shared'
+import { title, media, noCrop } from '../shared'
 
 export default {
-  mixins: [title, media],
+  mixins: [title, media, noCrop],
 }
 </script>

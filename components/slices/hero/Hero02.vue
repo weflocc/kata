@@ -5,6 +5,7 @@
     <div class="media-wrap mb-large md:mb-0 md:w-r5/12 w-full relative">
       <KataMedia
         :media="media"
+        :no-crop="noCrop"
         :ratio="1"
         :max-width="2000"
         class="h-full w-full object-cover"
@@ -35,10 +36,10 @@
 </template>
 
 <script>
-import { superHeading, title, textBody, links, media } from '../shared'
+import { superHeading, title, textBody, links, media, noCrop } from '../shared'
 
 export default {
-  mixins: [superHeading, title, textBody, links, media],
+  mixins: [superHeading, title, textBody, links, media, noCrop],
 }
 </script>
 

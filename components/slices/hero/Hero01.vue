@@ -1,6 +1,7 @@
 <template>
   <div
     class="hero-1 slice flex-wrap md:flex-nowrap md:justify-between flex min-h-screen"
+    :class="{ 'md:items-center': media.mediaType == 'embed' || noCrop }"
   >
     <div
       class="md:py-slice-half md:w-r7/12 px-r1/12 md:pr-large md:flex md:flex-col md:justify-center order-2 md:order-1 content"
@@ -28,16 +29,17 @@
         :ratio="1"
         :max-width="2000"
         class="h-full w-full object-cover"
+        :no-crop="noCrop"
       />
     </div>
   </div>
 </template>
 
 <script>
-import { superHeading, title, textBody, links, media } from '../shared'
+import { superHeading, title, textBody, links, media, noCrop } from '../shared'
 
 export default {
-  mixins: [superHeading, title, textBody, links, media],
+  mixins: [superHeading, title, textBody, links, media, noCrop],
 }
 </script>
 
