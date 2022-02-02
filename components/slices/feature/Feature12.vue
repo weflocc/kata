@@ -23,8 +23,8 @@
           class="mb-small fade-up item flex items-center"
         >
           <component
-            :is="item.link ? 'nuxt-link' : 'div'"
-            :to="item.link ? getLink(item.link._ref) : '/'"
+            :is="getLinkComponent(item.singleLink)"
+          :to="getSingleLink(item.singleLink)"
             class="flex items-center hover:text-primary transition-all duration-500"
           >
             <KataSimpleImage

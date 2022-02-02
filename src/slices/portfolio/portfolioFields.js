@@ -1,5 +1,5 @@
 import config from 'config:@weflocc/kata'
-import { standardImage, links } from 'part:@weflocc/kata/partials/index'
+import { standardImage, links, basicSingleLink } from 'part:@weflocc/kata/partials/index'
 import { BiListPlus } from 'react-icons/bi'
 import { title, text } from '../shared'
 
@@ -15,7 +15,7 @@ const thumbnails = {
       name: 'item',
       title: 'Item',
       type: 'object',
-      fields: [title, text, links('links', 1), standardImage()],
+      fields: [title, text, basicSingleLink, standardImage()],
       preview: {
         select: {
           heading: 'title',
@@ -45,7 +45,7 @@ const imageThumbnails = {
       name: 'item',
       title: 'Item',
       type: 'object',
-      fields: [title, links('links', 1), standardImage()],
+      fields: [title, basicSingleLink, standardImage()],
       preview: {
         select: {
           heading: 'title',

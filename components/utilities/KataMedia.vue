@@ -15,6 +15,7 @@
       :max-width="maxWidth"
       class="max-w-full"
     />
+    <!-- TODO: readd mobile video/image -->
     <KataVideo
       v-else-if="media.mediaType == 'video' && media.video && noCrop"
       :video="media.video"

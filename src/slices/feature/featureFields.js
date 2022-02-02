@@ -2,6 +2,7 @@ import {
   basicTextEditor,
   links,
   media,
+  basicSingleLink,
   standardImage,
 } from 'part:@weflocc/kata/partials/index'
 import { BiListPlus } from 'react-icons/bi'
@@ -25,7 +26,7 @@ const features = {
         },
         title,
         text,
-        links('links', 1),
+        basicSingleLink,
       ],
       preview: {
         select: {
@@ -63,7 +64,7 @@ const shortFeatures = (vars) => {
             title: 'Image or Icon',
           },
           title,
-          links('links', 1),
+          basicSingleLink,
         ],
         preview: {
           select: {
@@ -100,7 +101,7 @@ const featureImageTabs = {
         media(),
         title,
         basicTextEditor(),
-        links('links', 1),
+        basicSingleLink,
       ],
       preview: {
         select: {
@@ -157,7 +158,7 @@ const featureTabs = {
             },
           ],
         },
-        links('links', 1),
+        basicSingleLink,
       ],
       preview: {
         select: {

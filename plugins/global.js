@@ -8,6 +8,27 @@ if (!Vue.__globalMixin__ || Vue.__globalMixin__ == undefined) {
         const link = this.$store.getters['references/getLinkFromReference'](ref)
         return link ? link.path : '/'
       },
+      getSingleLink(obj) {
+        if (obj.linkType == 'internal' || obj.linkType == 'file')
+        {
+          let ref = obj.linkType == 'internal' ? obj?.internalLink?._ref : obj?.file?._ref
+          const link = this.$store.getters['references/getLinkFromReference'](ref)
+          return link ? link.path : '/'
+        } else if (obj.linkType == 'external') {
+          return obj.url
+        } else {
+          return null
+        }
+      },
+      getLinkComponent(obj) {
+        if (obj.linkType == 'internal' && obj.internalLink) {
+            return 'n-link'
+        } else if ((obj.linkType == 'external' && obj.url) || (obj.linkType == 'file' && obj.file)) {
+            return 'a'
+        } else {
+          return 'div'
+        }
+      }
     },
   })
 }

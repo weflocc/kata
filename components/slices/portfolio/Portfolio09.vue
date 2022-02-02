@@ -18,8 +18,8 @@
         @click="isTouch ? toggleTile(index) : null"
       >
         <component
-          :is="item.link ? 'n-link' : 'div'"
-          :to="item.link"
+          :is="getLinkComponent(item.singleLink)"
+          :to="getSingleLink(item.singleLink)"
           class="relative block"
         >
           <KataImage

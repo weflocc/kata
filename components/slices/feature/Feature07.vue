@@ -20,8 +20,8 @@
         :class="width"
       >
         <component
-          :is="item.link ? 'nuxt-link' : 'div'"
-          :to="item.link ? getLink(item.link._ref) : null"
+          :is="getLinkComponent(item.singleLink)"
+          :to="getSingleLink(item.singleLink)"
         >
           <KataSimpleImage
             v-if="item.icon && item.icon.asset && item.icon.asset._ref"

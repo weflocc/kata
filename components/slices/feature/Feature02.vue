@@ -16,8 +16,8 @@
           class="mb-small fade-up item flex items-center fade-up"
         >
           <component
-            :is="item.link ? 'nuxt-link' : 'div'"
-            :to="item.link"
+            :is="getLinkComponent(item.singleLink)"
+            :to="getSingleLink(item.singleLink)"
             class="flex items-center"
             :class="{
               'hover:text-primary transition-all duration-500': item.link,

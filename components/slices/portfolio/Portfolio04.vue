@@ -14,8 +14,8 @@
       >
         <slot name="tease" :item="item">
           <component
-            :is="item.link ? 'nuxt-link' : 'div'"
-            :to="item.link ? getLink(item.link._ref) : ''"
+            :is="getLinkComponent(item.singleLink)"
+          :to="getSingleLink(item.singleLink)"
           >
             <KataImage
               :image="item.image"

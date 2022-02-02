@@ -1,4 +1,4 @@
-import { standardImage } from '../partials/image'
+import { standardImage, defaultOptions } from 'part:@weflocc/kata/partials/index'
 // import { videoSrcset } from './videoSrcset'
 const camelCase = require('lodash.camelcase')
 import { BsFillImageFill } from 'react-icons/bs'
@@ -8,12 +8,13 @@ const media = (name = 'Media', required = false) => {
     name: camelCase(name),
     title: name,
     type: 'object',
+    options: defaultOptions,
     fields: [
       {
         type: 'string',
         name: 'mediaType',
         title: 'Media Type',
-        initialValue: { value: 'image' },
+        initialValue: 'image',
         validation: (Rule) => Rule.required(),
         options: {
           list: [
