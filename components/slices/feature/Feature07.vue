@@ -22,6 +22,10 @@
         <component
           :is="getLinkComponent(item.singleLink)"
           :to="getSingleLink(item.singleLink)"
+          :href="getSingleLink(item.singleLink)"
+          :target="
+            getLinkComponent(item.singleLink) == 'a' ? '_blank' : '_self'
+          "
         >
           <KataSimpleImage
             v-if="item.icon && item.icon.asset && item.icon.asset._ref"

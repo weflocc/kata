@@ -15,7 +15,11 @@
         <slot name="tease" :item="item">
           <component
             :is="getLinkComponent(item.singleLink)"
-          :to="getSingleLink(item.singleLink)"
+            :to="getSingleLink(item.singleLink)"
+            :href="getSingleLink(item.singleLink)"
+            :target="
+              getLinkComponent(item.singleLink) == 'a' ? '_blank' : '_self'
+            "
           >
             <KataImage
               :image="item.image"
