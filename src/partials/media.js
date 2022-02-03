@@ -1,4 +1,7 @@
-import { standardImage, defaultOptions } from 'part:@weflocc/kata/partials/index'
+import {
+  standardImage,
+  defaultOptions,
+} from 'part:@weflocc/kata/partials/index'
 // import { videoSrcset } from './videoSrcset'
 const camelCase = require('lodash.camelcase')
 import { BsFillImageFill } from 'react-icons/bs'
@@ -26,7 +29,8 @@ const media = (name = 'Media', required = false) => {
         },
       },
       standardImage('Image', {
-        hidden: ({ parent }) => parent.mediaType != 'image',
+        hidden: ({ parent }) =>
+          parent.mediaType != 'image' || parent.mediaType == '',
       }),
       {
         title: 'Video file',
@@ -34,21 +38,24 @@ const media = (name = 'Media', required = false) => {
         type: 'mux.video',
         description:
           'We recommend you crop and compress your video here before uploading it: https://www.videosmaller.com/.',
-        hidden: ({ parent }) => parent.mediaType != 'video',
+        hidden: ({ parent }) =>
+          parent.mediaType != 'video' || parent.mediaType == '',
       },
       {
         title: 'Embed Video',
         name: 'embedUrl',
         type: 'url',
         description: 'Please paste in your video url here.',
-        hidden: ({ parent }) => parent.mediaType != 'embed',
+        hidden: ({ parent }) =>
+          parent.mediaType != 'embed' || parent.mediaType == '',
       },
       {
         title: 'Image Slideshow',
         name: 'slideshow',
         type: 'array',
         of: [standardImage()],
-        hidden: ({ parent }) => parent.mediaType != 'slideshow',
+        hidden: ({ parent }) =>
+          parent.mediaType != 'slideshow' || parent.mediaType == '',
         preview: {
           select: {
             image: 'image',

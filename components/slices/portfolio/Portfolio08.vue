@@ -5,11 +5,7 @@
       <p v-if="text" v-kata-html="text" class="mt-medium" />
     </div>
     <transition-group :class="ulClass" tag="ul" name="fade" mode="out-in">
-      <li
-        v-for="(item, i) in list"
-        :key="item._id || i"
-        class="mb-medium relative"
-      >
+      <li v-for="(item, i) in list" :key="item._id || i" class="relative">
         <slot name="tease" :item="item">
           <ArticlesTeaseWithImage
             :item-id="item._id"

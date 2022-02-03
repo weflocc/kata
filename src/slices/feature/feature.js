@@ -13,6 +13,7 @@ import {
   defaultOptions,
   basicTextEditor,
 } from 'part:@weflocc/kata/partials/index'
+import { BiListPlus } from 'react-icons/bi'
 
 const feature01 = {
   name: 'feature01',
@@ -20,6 +21,20 @@ const feature01 = {
   title: 'Feature #1',
   options: defaultOptions,
   fields: [superHeading, title, basicTextEditor(), links(), media()],
+  preview: {
+    select: {
+      superHeading: 'superHeading',
+      heading: 'title',
+    },
+    prepare(selection) {
+      const { superHeading, heading } = selection
+      return {
+        title: superHeading || heading,
+        subtitle: superHeading ? heading : '',
+        media: BiListPlus,
+      }
+    },
+  },
 }
 
 const feature02 = {

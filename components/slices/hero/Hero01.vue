@@ -1,7 +1,9 @@
 <template>
   <div
     class="hero-1 slice flex-wrap md:flex-nowrap md:justify-between flex min-h-screen"
-    :class="{ 'md:items-center': media.mediaType == 'embed' || noCrop }"
+    :class="{
+      'md:items-center': (media && media.mediaType == 'embed') || noCrop,
+    }"
   >
     <div
       class="md:py-slice-half md:w-r7/12 px-r1/12 md:pr-large md:flex md:flex-col md:justify-center order-2 md:order-1 content"
@@ -25,6 +27,7 @@
       class="media-wrap mb-large md:mb-0 md:w-r5/12 w-full relative order-1 md:order-2"
     >
       <KataMedia
+        v-if="media"
         :media="media"
         :ratio="1"
         :max-width="2000"
