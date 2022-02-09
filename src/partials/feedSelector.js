@@ -1,4 +1,4 @@
-import { defaultOptions } from 'part:@weflocc/kata/partials/index'
+import { defaultOptions, links } from 'part:@weflocc/kata/partials/index'
 
 const feedSelector = ({
   field,
@@ -13,6 +13,7 @@ const feedSelector = ({
   filter,
   filterParams,
   hidden,
+  showLinks,
 }) => {
   // Defaults
   selectedTitle = selectedTitle || 'Choose manually'
@@ -25,13 +26,14 @@ const feedSelector = ({
   filter = filter || false
   filterParams = filterParams || false
   hidden = hidden || false
+  showLinks = showLinks || false
 
   let options = {}
   if (filter) {
     options.filter = filter
   }
   if (filterParams) {
-    options.filter = filterParams
+    options.filterParams = filterParams
   }
 
   const selected = {
@@ -89,8 +91,12 @@ const feedSelector = ({
 
   if (categoryType) {
     fields.push(categories)
-  } else if (!noShowAll) {
+  }
+  if (!noShowAll) {
     fields.push(show)
+  }
+  if (showLinks) {
+    fields.push(links())
   }
 
   return {
