@@ -1,13 +1,17 @@
 <template>
   <component
-    :is="link ? 'nuxt-link' : 'div'"
-    :to="link"
+    :is="singleLink ? getLinkComponent(singleLink) : link ? 'n-link' : 'div'"
+    :to="singleLink ? getSingleLink(singleLink) : link"
+    :href="singleLink ? getSingleLink(singleLink) : link"
+    :target="
+      singleLink && getLinkComponent(singleLink) == 'a' ? '_blank' : '_self'
+    "
     class="tease-image-overlay"
   >
-    <KataMedia
-      v-if="media"
-      :media="media"
-      :ratio="16 / 9"
+    <KataImage
+      v-if="image"
+      :image="image"
+      :ratio="ratio"
       :max-width="650"
       sizes="(max-width:699px) 90vw,(max-width:1439px) 50vw,33vw"
       class="bg-img"
@@ -16,30 +20,29 @@
       {{ title }}
       <DraftLabel v-if="itemId" :id="itemId" />
     </h3>
-    <div class="overlay flex flex-col justify-center items-center">
-      <p class="btn-primary text-center">Find out more</p>
-    </div>
   </component>
 </template>
 
 <script>
+import { image, title, text } from '../../slices/shared'
 export default {
+  mixins: [image, title, text],
   props: {
-    media: {
-      type: Array,
-      default: null,
-    },
     itemId: {
       type: String,
       default: '',
     },
     link: {
       type: String,
-      required: true,
+      default: '',
     },
-    title: {
-      type: String,
-      required: true,
+    singleLink: {
+      type: Object,
+      default: null,
+    },
+    ratio: {
+      type: Number,
+      default: 4 / 3,
     },
   },
 }
@@ -52,7 +55,7 @@ export default {
 
   .bg-img {
     border-radius: 15px;
-    opacity: 0.9 !important;
+    opacity: 0.7 !important;
     z-index: 2;
     position: relative;
   }
@@ -78,36 +81,10 @@ export default {
     display: block;
     border-radius: 15px;
   }
-
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: $tertiary;
-    color: white;
-    border-radius: 15px;
-    padding: 5%;
-    text-align: center;
-    transition: 0.7s ease;
-    opacity: 0;
-    z-index: 3;
-
-    img {
-      width: 50%;
-      height: auto;
-    }
-
-    .btn-primary {
-      background: $tertiary;
-    }
-  }
-
-  &:hover {
-    .overlay {
-      opacity: 1;
-    }
+}
+a.tease-image-overlay:hover {
+  .bg-img {
+    opacity: 0.2 !important;
   }
 }
 </style>
