@@ -3,16 +3,16 @@
     <div class="md:flex md:items-center">
       <div
         v-if="item.image"
-        class="w-1/2 md:w-1/3 md:pr-medium mb-medium md:mb-0"
+        class="w-1/2 md:w-1/3 md:pr-medium mb-medium md:mb-0 image"
       >
         <KataImage
           :image="item.image"
           :max-width="500"
-          :ratio="251 / 285"
+          :ratio="ratio"
           data-not-lazy
         />
       </div>
-      <div :class="{ 'md:w-2/3 md:pl-medium': item.image }">
+      <div class="text" :class="{ 'md:w-2/3 md:pl-medium': item.image }">
         <p
           v-if="item.quote"
           v-kata-html="item.quote"
@@ -36,6 +36,10 @@ export default {
     item: {
       type: Object,
       default: null,
+    },
+    ratio: {
+      type: Number,
+      default: 251 / 285,
     },
   },
 }

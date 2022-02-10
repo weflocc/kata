@@ -22,7 +22,7 @@
         }"
       >
         <div v-for="item in list" :key="item._key">
-          <Testimonial02Part :item="item" />
+          <Testimonial02Part :item="item" :ratio="ratio" />
         </div>
       </VueSlickCarousel>
       <div
@@ -39,7 +39,12 @@
       </div>
     </div>
     <div v-else class="mx-r1/12 w-r10/12">
-      <Testimonial02Part v-for="item in list" :key="item._key" :item="item" />
+      <Testimonial02Part
+        v-for="item in list"
+        :key="item._key"
+        :item="item"
+        :ratio="ratio"
+      />
     </div>
   </div>
 </template>
@@ -54,17 +59,21 @@ import { list } from '../shared'
 export default {
   components: { VueSlickCarousel },
   mixins: [list],
-  data() {
-    return {
-      settings: {
+  props: {
+    ratio: {
+      type: Number,
+      default: 251 / 285,
+    },
+    settings: {
+      type: Object,
+      default: () => ({
         arrows: false,
         dots: false,
         slidesToShow: 1,
         infinite: true,
         centerMode: false,
-        // fade: true,
-      },
-    }
+      }),
+    },
   },
   methods: {
     showNext() {

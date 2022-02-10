@@ -8,7 +8,7 @@
     <SanityEmbedContent
       v-if="textBody"
       :blocks="textBody"
-      class="fade-up mb-medium sm:px-r1/12 xl:px-r2/12"
+      class="fade-up mb-medium sm:px-r1/12 xl:px-r1/12"
     />
     <KataLinks v-if="links" :links="links" class="fade-up" />
   </div>
