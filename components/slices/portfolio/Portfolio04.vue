@@ -15,6 +15,7 @@
         <slot name="tease" :item="item">
           <component
             :is="getLinkComponent(item.singleLink)"
+            class="thumbnail-inner"
             :to="getSingleLink(item.singleLink)"
             :href="getSingleLink(item.singleLink)"
             :target="

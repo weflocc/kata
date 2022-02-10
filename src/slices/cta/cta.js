@@ -44,6 +44,35 @@ const cta05 = {
   fields: [title, basicTextEditor(), standardImage(), links()],
 }
 
+const cta07 = {
+  name: 'cta07',
+  type: 'object',
+  title: 'Call To Action #07',
+  fields: [
+    title,
+    basicTextEditor(),
+    {
+      name: 'list',
+      title: 'Logos',
+      type: 'array',
+      of: [standardImage()],
+      preview: {
+        select: {
+          image: 'image',
+        },
+        prepare(selection) {
+          const { image } = selection
+          return {
+            title: 'Logo',
+            media: image,
+          }
+        },
+      },
+    },
+    links(),
+  ],
+}
+
 const cta08 = {
   name: 'cta08',
   type: 'object',
@@ -52,4 +81,4 @@ const cta08 = {
   fields: [links()],
 }
 
-export { cta01, cta02, cta05, cta08 }
+export { cta01, cta02, cta05, cta07, cta08 }
