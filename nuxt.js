@@ -22,6 +22,7 @@ export default function () {
     './components/slices/testimonial/parts',
     './components/slices/text',
     './components/utilities',
+    './components/utilities/menus',
     // './components/utilities/serializers', // not actually needed, directly imported in SanityEmbedContent
   ]
 
@@ -44,5 +45,4 @@ export default function () {
   pluginFiles.forEach((item) => {
     this.addPlugin(path.resolve(__dirname, item))
   })
-  
 }

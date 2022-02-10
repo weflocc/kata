@@ -25,8 +25,7 @@ const title = {
 const hiddenTitle = {
   name: 'title',
   type: 'string',
-  description:
-    'This title will show in menus, and when you reference this document',
+  description: 'Only studio@flocc.co can see this',
   hidden: ({ currentUser }) => {
     return currentUser.email != 'studio@flocc.co'
   },
@@ -52,7 +51,7 @@ const hiddenSlug = {
     source: 'title',
     maxLength: 96,
   },
-  description: 'Only flocc studio can see this.',
+  description: 'Only studio@flocc.co can see this',
   validation: (Rule) =>
     Rule.required('A slug is required before you can publish.'),
   hidden: ({ currentUser }) => {

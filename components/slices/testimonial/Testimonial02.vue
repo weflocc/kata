@@ -3,6 +3,11 @@
     v-if="list && list != null && list != undefined"
     class="slice testimonials-2"
   >
+    <h2
+      v-if="title"
+      v-kata-html="title"
+      class="mb-large w-r10/12 mx-auto text-center"
+    />
     <div v-if="list.length > 1" class="flex">
       <div class="w-r2/12 flex justify-center items-center">
         <button
@@ -55,10 +60,10 @@ import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 // optional style for arrows & dots
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 
-import { list } from '../shared'
+import { title, list } from '../shared'
 export default {
   components: { VueSlickCarousel },
-  mixins: [list],
+  mixins: [title, list],
   props: {
     ratio: {
       type: Number,
