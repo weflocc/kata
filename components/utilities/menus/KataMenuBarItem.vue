@@ -11,6 +11,7 @@
     <component
       :is="getLinkComponent(singleLink)"
       class="nav-link inline-block"
+      :class="{ 'cursor-pointer': list && list.length && !isMobile }"
       :to="getSingleLink(singleLink)"
       :href="getSingleLink(singleLink)"
       :target="getLinkComponent(singleLink) == 'a' ? '_blank' : '_self'"

@@ -2,7 +2,9 @@
   <div id="menu-panel" class="menu-panel">
     <div class="menu-inner">
       <nav class="kata-menu">
-        <ul class="kata-menu-list p-0">
+        <ul
+          class="kata-menu-list p-0 md:flex md:items-center md:justify-end space-x-small"
+        >
           <KataMenuBarItem
             v-for="item in menu"
             :key="item._key"
