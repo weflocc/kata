@@ -1,12 +1,12 @@
 <template>
   <div
-    class="hero-1 slice flex-wrap md:flex-nowrap md:justify-between flex min-h-screen"
+    class="hero-1 slice flex-wrap landscape:flex-nowrap landscape:justify-between flex min-h-screen"
     :class="{
-      'md:items-center': (media && media.mediaType == 'embed') || noCrop,
+      'landscape:items-center': (media && media.mediaType == 'embed') || noCrop,
     }"
   >
     <div
-      class="md:py-slice-half md:w-r7/12 px-r1/12 md:pr-large md:flex md:flex-col md:justify-center order-2 md:order-1 content"
+      class="landscape:py-slice-half landscape:w-r7/12 px-r1/12 landscape:pr-large landscape:flex landscape:flex-col landscape:justify-center order-2 landscape:order-1 content"
     >
       <h1
         v-if="superHeading"
@@ -24,7 +24,7 @@
     </div>
 
     <div
-      class="media-wrap mb-large md:mb-0 md:w-r5/12 w-full relative order-1 md:order-2"
+      class="media-wrap mb-large landscape:mb-0 landscape:w-r5/12 w-full relative order-1 landscape:order-2"
     >
       <KataMedia
         v-if="media"
