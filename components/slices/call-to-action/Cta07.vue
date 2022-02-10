@@ -1,11 +1,17 @@
 <template>
-  <div class="slice cta-7 w-r8/12 mx-auto text-center">
-    <h2 v-if="title" v-kata-html="title" class="heading-2 mb-medium fade-up" />
-    <SanityEmbedContent
-      v-if="textBody"
-      :blocks="textBody"
-      class="mb-medium fade-up"
-    />
+  <div class="slice cta-7 w-r10/12 mx-auto text-center">
+    <div class="title-wrap lg:px-r1/12">
+      <h2
+        v-if="title"
+        v-kata-html="title"
+        class="heading-2 mb-medium fade-up"
+      />
+      <SanityEmbedContent
+        v-if="textBody"
+        :blocks="textBody"
+        class="mb-medium fade-up"
+      />
+    </div>
 
     <div
       v-if="list && list.length > 0"
@@ -35,5 +41,6 @@ export default {
 <style lang="scss" scoped>
 .cta-7 .list {
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  place-items: center;
 }
 </style>
