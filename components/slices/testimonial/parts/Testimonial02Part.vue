@@ -5,10 +5,18 @@
         v-if="item.image"
         class="w-1/2 md:w-1/3 md:pr-medium mb-medium md:mb-0 image"
       >
+        <!-- can pass in ratio = null to display icon/logo instead -->
         <KataImage
+          v-if="ratio"
           :image="item.image"
           :max-width="500"
           :ratio="ratio"
+          data-not-lazy
+        />
+        <KataSimpleImage
+          v-else
+          :image="item.image"
+          :max-width="500"
           data-not-lazy
         />
       </div>

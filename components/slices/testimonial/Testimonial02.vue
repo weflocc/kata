@@ -8,7 +8,7 @@
       v-kata-html="title"
       class="mb-large w-r10/12 mx-auto text-center"
     />
-    <div v-if="list.length > 1" class="flex">
+    <div v-if="list.length > 1" class="flex list-wrap">
       <div class="w-r2/12 flex justify-center items-center">
         <button
           class="carousel-nav prev focus:outline-none"
