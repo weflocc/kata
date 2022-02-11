@@ -4,22 +4,18 @@
       class="sm:flex mb-large"
       :class="{ 'w-r10/12 mx-r1/12': !isContained }"
     >
-      <div class="sm:w-r6/12 mr-large">
+      <div :class="{ 'sm:w-r6/12 mr-large': title && textBody }">
         <h2 v-kata-html="title" class="heading-2 fade-up" />
       </div>
-      <div class="sm:w-r4/12">
-        <SanityEmbedContent
-          v-if="textBody"
-          :blocks="textBody"
-          class="fade-up"
-        />
+      <div v-if="textBody" :class="{ 'sm:w-r4/12': title && textBody }">
+        <SanityEmbedContent :blocks="textBody" class="fade-up" />
       </div>
     </div>
     <KataMedia
       v-if="media"
+      :media="media"
       :ratio="ratio"
       :no-crop="ratio ? false : true"
-      :image="image"
       :max-width="3000"
       class="w-full h-auto"
     />
