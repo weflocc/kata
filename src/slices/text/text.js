@@ -69,7 +69,7 @@ const text08 = {
   type: 'object',
   title: 'Text #8',
   options: defaultOptions,
-  fields: [title, basicTextEditor()],
+  fields: [title, basicTextEditor(), links()],
 }
 
 const text09 = {
