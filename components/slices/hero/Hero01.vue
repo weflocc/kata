@@ -6,7 +6,7 @@
     }"
   >
     <div
-      class="landscape:py-slice-half landscape:w-r7/12 px-r1/12 landscape:pr-large landscape:flex landscape:flex-col landscape:justify-center order-2 landscape:order-1 content"
+      class="landscape:py-slice-half landscape:w-r7/12 px-r1/12 landscape:pr-large landscape:flex landscape:flex-col landscape:justify-center order-2 landscape:order-1 content mb-large landscape:mb-0"
     >
       <h1
         v-if="superHeading"
@@ -31,7 +31,7 @@
         :media="media"
         :ratio="1"
         :max-width="2000"
-        class="h-full w-full object-cover"
+        class="h-full w-full"
         :no-crop="noCrop"
       />
     </div>
@@ -47,24 +47,33 @@ export default {
 </script>
 
 <style lang="scss">
-.hero-1 .media-dots {
-  bottom: var(--spacing-small);
-  left: -25px;
-  width: auto;
+.hero-1 {
+  .media-dots {
+    bottom: var(--spacing-small);
+    left: -25px;
+    width: auto;
 
-  li {
-    display: block;
+    li {
+      display: block;
 
-    button {
-      &::before {
-        color: $primary !important;
-        font-size: 10px;
+      button {
+        &::before {
+          color: $primary !important;
+          font-size: 10px;
+        }
       }
+    }
+
+    @include md-down {
+      left: 0;
     }
   }
 
-  @include md-down {
-    left: 0;
+  .media-wrap {
+    img,
+    video {
+      @apply object-cover h-full w-full;
+    }
   }
 }
 @include md-down {

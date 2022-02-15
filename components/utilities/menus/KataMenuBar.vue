@@ -3,7 +3,7 @@
     <div class="menu-inner">
       <nav class="kata-menu">
         <ul
-          class="kata-menu-list p-0 md:flex md:items-center md:justify-end space-x-small"
+          class="kata-menu-list p-0 lg:flex lg:items-center lg:justify-end lg:space-x-small"
         >
           <KataMenuBarItem
             v-for="item in menu"
@@ -14,7 +14,7 @@
         </ul>
       </nav>
       <slot>
-        <div class="menu-footer mt-large md:hidden">
+        <div class="menu-footer mt-large lg:hidden">
           <SocialMedia />
         </div>
       </slot>
@@ -69,9 +69,9 @@ export default {
 </style>
 
 <style lang="scss" scoped>
-@include md-down {
+@include lg-down {
   .menu-panel {
-    @apply flex justify-center items-center px-r1/12 pt-header-height fixed top-0 left-0 bg-secondary;
+    @apply flex justify-start items-center px-r1/12 pt-header-height fixed top-0 left-0 bg-secondary;
     opacity: 0;
     pointer-events: none;
     width: 100vw;
