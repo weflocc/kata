@@ -26,4 +26,12 @@ const news05 = {
   fields: [title, list],
 }
 
-export { news02, news03, news05 }
+const news06 = {
+  name: 'news06',
+  type: 'object',
+  title: 'News #6',
+  options: defaultOptions,
+  fields: [title],
+}
+
+export { news02, news03, news05, news06 }

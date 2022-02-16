@@ -2,6 +2,7 @@
   <transition-group
     v-if="articles && articles.length > 0"
     :class="ulClass"
+    class="articles-results-grid"
     tag="ul"
     name="fade"
     mode="out-in"

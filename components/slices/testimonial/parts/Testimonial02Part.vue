@@ -1,5 +1,5 @@
 <template>
-  <div class="pr-large">
+  <div class="testimonial-2-part">
     <div class="md:flex md:items-center">
       <div
         v-if="item.image"
