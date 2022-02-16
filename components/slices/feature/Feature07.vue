@@ -32,6 +32,8 @@
             :image="item.icon"
             class="mb-small mx-auto object-contain"
             :class="item.link ? 'has-link' : null"
+            width="50"
+            height="50"
           />
           <h3
             v-if="item.title"
@@ -77,7 +79,7 @@ export default {
 
 <style lang="scss">
 .feature-7 .item img {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
 }
 </style>
