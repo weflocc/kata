@@ -87,7 +87,7 @@ const getData = async ($sanity, query, store, route, vars = {}) => {
 
     // under SSR, the preview mode bool in vuex store is not yet defined, hence check the query string.
     let filterDrafts = ` && !(_id in path('drafts.**'))`
-    if (query.preview || store.state.preview?.active) {
+    if (query.preview || (store.state.preview && store.state.preview.active)) {
       console.log('preview mode')
       filterDrafts = ''
     }
