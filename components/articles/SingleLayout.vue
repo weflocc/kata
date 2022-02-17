@@ -17,13 +17,21 @@
           :ratio="2 / 1"
           :max-width="2000"
           :loader="true"
+          :no-crop="noCrop"
         />
         <KataImage
-          v-else-if="c.image"
+          v-else-if="c.image && !noCrop"
           :image="c.image"
           :ratio="2 / 1"
           :max-width="2000"
           :loader="true"
+        />
+        <KataImage02
+          v-else-if="c.image && noCrop"
+          :image="c.image"
+          :sizes="sizes"
+          :max-width="maxWidth"
+          class="max-w-full mx-auto"
         />
       </div>
     </div>
@@ -72,6 +80,10 @@ export default {
     backText: {
       type: String,
       default: 'Back',
+    },
+    noCrop: {
+      type: Boolean,
+      default: false,
     },
   },
 }
