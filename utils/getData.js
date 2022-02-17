@@ -3,18 +3,33 @@ import { removeBothSlashes } from './functions'
 const camelCase = require('lodash.camelcase')
 
 const getData = async ($sanity, query, store, route, vars = {}) => {
-  let path =
-    vars?.path || route.params?.slug || route.params?.pathMatch || route.path
+  let path = ''
+  let globals = []
+  let customProjections = []
+  let feedSelectors = []
+  let client = null
+  let type = ''
+  if (vars) {
+    path = vars.path
+    globals = vars.globals
+    customProjections = vars.customProjections
+    feedSelectors = vars.feedSelectors
+    client = vars.client
+    type = vars.type
+  }
+
+  if (route) {
+    if (path == '' || !path.length) {
+      path = route.params
+        ? route.params.slug || route.params.pathMatch
+        : route.path
+    }
+    if (type == '' || !type.length) {
+      type = store.getters['references/getTypeFromFullPath'](route.fullPath)
+    }
+  }
+
   path = removeBothSlashes(path)
-
-  const globals = vars?.globals || []
-  const customProjections = vars?.customProjections || []
-  const feedSelectors = vars?.feedSelectors || []
-  const client = vars?.client || null
-
-  const type =
-    vars?.type ||
-    store.getters['references/getTypeFromFullPath'](route.fullPath)
 
   const pathQuery = path ? `&& slug.current == '${path}'` : ''
 
