@@ -1,5 +1,5 @@
 import { groq } from '@nuxtjs/sanity'
-import { removeBothSlashes } from '~/utils/functions'
+import { removeBothSlashes } from './functions'
 const camelCase = require('lodash.camelcase')
 
 const getData = async ($sanity, query, store, route, vars = {}) => {
