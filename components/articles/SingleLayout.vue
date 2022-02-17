@@ -7,10 +7,10 @@
       <nuxt-link :to="indexPath">{{ backText }}</nuxt-link>
     </div>
     <div class="simple-hero mb-large">
-      <div class="md:w-r8/12 md:mx-r2/12 w-r10/12 mx-r1/12 mb-large">
+      <div class="md:w-r8/12 md:mx-r2/12 w-r10/12 mx-auto mb-large">
         <h1 v-kata-html="c.title" class="text-center" />
       </div>
-      <div class="sm:w-r10/12 sm:mx-r1/12 px-screen-border sm:px-0 w-full">
+      <div class="sm:w-r10/12 sm:mx-auto px-screen-border sm:px-0 w-full">
         <KataMedia
           v-if="c.media"
           :media="c.media"
@@ -28,7 +28,7 @@
       </div>
     </div>
 
-    <div class="main-content mb-slice md:w-r6/12 md:mx-r3/12 w-r10/12 mx-r1/12">
+    <div class="main-content mb-slice md:w-r6/12 md:mx-r3/12 w-r10/12 mx-auto">
       <div
         v-if="c.date || c.location || c.startDate"
         class="sm:flex justify-between sm:flex-wrap mb-large"

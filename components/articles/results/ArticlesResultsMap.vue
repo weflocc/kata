@@ -3,7 +3,7 @@
     v-if="articles && articles.length > 0 && loaded"
     class="articles-layout-map relative sm:flex"
   >
-    <div class="block sm:hidden mx-r1/12 mb-slice-half">
+    <div class="block sm:hidden mx-auto mb-slice-half">
       <button
         :class="mobileView == 'List' ? 'border-secondary' : 'border-white'"
         class="font-bold mr-small border-b-2 hover:text-secondary focus:border-b-2 focus:outline-none focus:border-secondary"

@@ -1,6 +1,9 @@
 <template>
   <div class="slice feature-8" :class="{ 'w-r10/12 mx-auto': isContained }">
-    <div class="sm:flex mb-large" :class="{ 'w-r10/12 mx-auto': !isContained }">
+    <div
+      class="sm:flex mb-large feature-8-inner"
+      :class="{ 'w-r10/12 mx-auto': !isContained }"
+    >
       <div :class="{ 'sm:w-r6/12 mr-large': title && textBody }">
         <h2 v-kata-html="title" class="heading-2 fade-up" />
       </div>
