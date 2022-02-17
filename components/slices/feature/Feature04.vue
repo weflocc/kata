@@ -1,5 +1,5 @@
 <template>
-  <div class="slice feature-4 w-r10/12 mx-r1/12 sm:flex">
+  <div class="slice feature-4 w-r10/12 mx-auto sm:flex">
     <div class="sm:w-1/2 sm:mr-large">
       <h2 v-if="title" v-kata-html="title" class="mb-large fade-up" />
     </div>

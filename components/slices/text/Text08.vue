@@ -1,5 +1,5 @@
 <template>
-  <div class="slice text-8 mx-r1/12 w-r10/12 lg:w-r8/12 lg:mx-r2/12">
+  <div class="slice text-8 mx-auto w-r10/12 lg:w-r8/12 lg:mx-r2/12">
     <h2 v-if="title" v-kata-html="title" class="mb-medium fade-up heading-3" />
     <SanityEmbedContent
       v-if="textBody"

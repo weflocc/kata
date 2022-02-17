@@ -7,7 +7,7 @@
     }"
   >
     <div
-      class="w-r10/12 mx-r1/12 md:w-r6/12 md:ml-r1/12 md:mr-large order-2 md:order-1 md:py-slice body"
+      class="w-r10/12 mx-auto md:w-r6/12 md:ml-r1/12 md:mr-large order-2 md:order-1 md:py-slice body"
     >
       <h2 v-if="title" v-kata-html="title" class="mb-large heading-2 fade-up" />
       <SanityEmbedContent v-if="textBody" :blocks="textBody" class="fade-up" />

@@ -9,7 +9,7 @@
       />
     </div>
     <div
-      class="mx-r1/12 w-r10/12 md:w-2/3 md:ml-large py-medium md:mr-0 md:pr-r1/12 body"
+      class="mx-auto w-r10/12 md:w-2/3 md:ml-large py-medium md:mr-0 md:pr-r1/12 body"
     >
       <div v-if="superHeading" class="heading-wrap">
         <template v-if="isH1">

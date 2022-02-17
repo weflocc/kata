@@ -5,14 +5,15 @@
       :key="feature._key"
       v-bind="feature"
       :reversed="i % 2 == 0"
+      :no-crop="noCrop"
       class="mb-large slice-animation"
     />
   </div>
 </template>
 
 <script>
-import { list } from '../shared'
+import { list, noCrop } from '../shared'
 export default {
-  mixins: [list],
+  mixins: [list, noCrop],
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="hero-11 slice">
-    <div class="top mb-slice-half w-r10/12 mx-r1/12">
+    <div class="top mb-slice-half w-r10/12 mx-auto">
       <div class="left mb-large md:mb-0">
         <h1 v-if="title" v-kata-html="title" />
         <a href="#main" class="side-link">{{ sideLinkText }}</a>

@@ -1,5 +1,5 @@
 <template>
-  <div class="slice call-to-action-8 w-r10/12 mx-r1/12 text-center fade-up">
+  <div class="slice call-to-action-8 w-r10/12 mx-auto text-center fade-up">
     <KataLinks v-if="links" :links="links" />
   </div>
 </template>

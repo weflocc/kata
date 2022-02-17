@@ -1,5 +1,5 @@
 <template>
-  <div class="slice feature-6 w-r10/12 mx-r1/12 md:flex md:justify-between">
+  <div class="slice feature-6 w-r10/12 mx-auto md:flex md:justify-between">
     <div class="w-full md:w-r5/12 mb-large md:mb-0 md:mr-r2/12 left">
       <h2
         v-if="title"

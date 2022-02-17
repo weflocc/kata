@@ -1,5 +1,5 @@
 <template>
-  <div class="portfolio-9 w-r10/12 mx-r1/12">
+  <div class="portfolio-9 w-r10/12 mx-auto">
     <div class="mb-large text-center">
       <h2 v-if="title" v-kata-html="title" class="heading-2 fade-up" />
       <p v-if="text" v-kata-html="text" class="mt-medium fade-up" />

@@ -1,5 +1,5 @@
 <template>
-  <div class="slice portfolio-6 md:flex md:mx-r1/12 md:w-r10/12">
+  <div class="slice portfolio-6 md:flex md:mx-auto md:w-r10/12">
     <div class="slider-nav">
       <button
         class="carousel-nav prev focus:outline-none mb-medium"

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="slice feature-1 w-r10/12 mx-r1/12 flex flex-col"
+    class="slice feature-1 w-r10/12 mx-auto flex flex-col"
     :class="{
       'md:flex-row-reverse reversed': reversed,
       'md:flex-row ': !reversed,

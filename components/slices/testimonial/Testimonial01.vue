@@ -1,6 +1,6 @@
 <template>
   <div class="slice testimonials-1">
-    <div class="mx-r1/12 w-r10/12 text-center mb-medium">
+    <div class="mx-auto w-r10/12 text-center mb-medium">
       <h2 v-if="title" v-kata-html="title" class="label-1 fade-up" />
     </div>
     <div
@@ -20,7 +20,7 @@
         v-bind="settings"
         ref="testimonials-1-carousel"
         :class="{
-          'mx-r1/12 w-r10/12': list.length == 1,
+          'mx-auto w-r10/12': list.length == 1,
           'w-r8/12': list.length > 1,
         }"
         class="fade-up"
@@ -42,7 +42,7 @@
         </button>
       </div>
     </div>
-    <div v-else-if="list && list != undefined" class="mx-r1/12 w-r10/12">
+    <div v-else-if="list && list != undefined" class="mx-auto w-r10/12">
       <Testimonial01Part
         v-for="item in list"
         :key="item._key"

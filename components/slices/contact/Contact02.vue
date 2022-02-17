@@ -14,7 +14,7 @@
         />
       </GMap>
     </div>
-    <div class="w-r10/12 md:w-r5/12 mx-r1/12 md:py-slice-half body">
+    <div class="w-r10/12 md:w-r5/12 mx-auto md:py-slice-half body">
       <h1
         v-if="isH1 && title"
         v-kata-html="title"

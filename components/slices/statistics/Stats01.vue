@@ -1,5 +1,5 @@
 <template>
-  <div class="slice stats-1 w-r10/12 mx-r1/12">
+  <div class="slice stats-1 w-r10/12 mx-auto">
     <h2 v-if="title" v-kata-html="title" class="heading-2 fade-up mb-medium" />
 
     <div class="flex flex-wrap -mx-medium">

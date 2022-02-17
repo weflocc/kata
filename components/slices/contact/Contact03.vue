@@ -1,5 +1,5 @@
 <template>
-  <div class="slice contact-3 md:flex mx-r1/12 w-r10/12">
+  <div class="slice contact-3 md:flex mx-auto w-r10/12">
     <div class="mb-large md:mb-0 md:w-1/2 md:pr-r1/12 title">
       <h1
         v-if="isH1 && title"

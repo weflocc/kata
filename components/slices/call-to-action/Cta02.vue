@@ -1,5 +1,5 @@
 <template>
-  <div class="slice call-to-action-2 w-r10/12 mx-r1/12 text-center">
+  <div class="slice call-to-action-2 w-r10/12 mx-auto text-center">
     <h2 v-if="title" v-kata-html="title" class="heading-2 fade-up mb-medium" />
     <div
       v-if="list"

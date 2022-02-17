@@ -22,7 +22,7 @@
         v-bind="settings"
         ref="testimonials-2-carousel"
         :class="{
-          'mx-r1/12 w-r10/12': list.length == 1,
+          'mx-auto w-r10/12': list.length == 1,
           'w-r8/12': list.length > 1,
         }"
       >
@@ -43,7 +43,7 @@
         </button>
       </div>
     </div>
-    <div v-else class="mx-r1/12 w-r10/12">
+    <div v-else class="mx-auto w-r10/12">
       <Testimonial02Part
         v-for="item in list"
         :key="item._key"

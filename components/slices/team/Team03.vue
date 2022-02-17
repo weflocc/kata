@@ -1,6 +1,6 @@
 <template>
   <div class="slice team-3">
-    <div class="heading mb-large w-r10/12 mx-r1/12 text-center">
+    <div class="heading mb-large w-r10/12 mx-auto text-center">
       <h2 v-if="title" v-kata-html="title" class="fade-up" />
       <p v-if="text" v-kata-html="text" class="mt-medium fade-up" />
     </div>
@@ -9,8 +9,8 @@
         v-bind="settings"
         ref="team-3-carousel"
         :class="{
-          'mx-r1/12 w-r10/12': list.length == 1,
-          'mx-r1/12 w-r9/12': list.length > 1,
+          'mx-auto w-r10/12': list.length == 1,
+          'mx-auto w-r9/12': list.length > 1,
         }"
       >
         <div v-for="item in list" :key="item._key" class="pr-large">
@@ -37,7 +37,7 @@
         <span></span>
       </button>
     </div>
-    <div v-else-if="list && list != null" class="mx-r1/12 w-r10/12">
+    <div v-else-if="list && list != null" class="mx-auto w-r10/12">
       <div v-for="item in list" :key="item._key" class="pr-large">
         <ProfileTemplate :item="item" />
       </div>

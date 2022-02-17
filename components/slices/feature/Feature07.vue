@@ -1,5 +1,5 @@
 <template>
-  <div class="slice feature-7 w-r10/12 mx-r1/12 text-center">
+  <div class="slice feature-7 w-r10/12 mx-auto text-center">
     <div v-if="title || text" class="mb-large">
       <h2 v-kata-html="title" class="fade-up heading-2" />
       <SanityEmbedContent

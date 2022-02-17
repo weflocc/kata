@@ -1,6 +1,6 @@
 <template>
   <div class="slice timeline-1 text-center">
-    <div v-if="title || text" class="mb-large w-r10/12 mx-r1/12">
+    <div v-if="title || text" class="mb-large w-r10/12 mx-auto">
       <h2 v-kata-html="title" class="fade-up heading-2" />
       <!-- <p v-if="text" v-kata-html="text" class="mt-medium fade-up" /> -->
     </div>
