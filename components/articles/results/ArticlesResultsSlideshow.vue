@@ -7,16 +7,16 @@
         <li
           v-for="(item, i) in articles"
           :key="i"
-          class="border-primary border-l-2 flex-grow border-opacity-25 mb-0 transition-all duration-500"
-          :class="{ 'border-opacity-100': i == activeArticle }"
+          class="border-primary border-l-2 flex-grow border-opacity-25 mb-0 transition-default featured-item"
+          :class="{ 'border-opacity-100 active': i == activeArticle }"
           @mouseover="activeArticle = i"
         >
-          <p v-if="i == 0" class="label-2 pl-small opacity-30 featured-label">
-            Featured
-          </p>
+          <slot name="superHeading" :item="item" :i="i">
+            <p class="label-2 pl-small opacity-30 featured-label">Featured</p>
+          </slot>
           <nuxt-link
             :to="getLink(item._id)"
-            class="mb-small inline-block pl-small hover:text-primary transition-all duration-500"
+            class="mb-small inline-block pl-small hover:text-primary transition-default"
             :class="[i == activeArticle ? 'opacity-90' : 'opacity-30']"
           >
             <h3 class="heading-3 my-small">
