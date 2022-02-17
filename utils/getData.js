@@ -19,12 +19,12 @@ const getData = async ($sanity, query, store, route, vars = {}) => {
   }
 
   if (route) {
-    if (path == '' || !path.length) {
+    if (path == '' || !path) {
       path = route.params
         ? route.params.slug || route.params.pathMatch
         : route.path
     }
-    if (type == '' || !type.length) {
+    if (type == '' || !type) {
       type = store.getters['references/getTypeFromFullPath'](route.fullPath)
     }
   }
@@ -35,20 +35,20 @@ const getData = async ($sanity, query, store, route, vars = {}) => {
 
   let projection = ``
 
-  if (globals.length) {
+  if (globals && globals.length) {
     globals.forEach((element) => {
       let globalElement = camelCase(element)
       projection += `${globalElement}->,`
     })
   }
 
-  if (customProjections.length) {
+  if (customProjections && customProjections.length) {
     customProjections.forEach((element) => {
       projection += `${element},`
     })
   }
 
-  if (feedSelectors.length) {
+  if (feedSelectors && feedSelectors.length) {
     feedSelectors.forEach((element) => {
       let sort = element.sort ? element.sort : '| order(_createdAt desc)'
 
