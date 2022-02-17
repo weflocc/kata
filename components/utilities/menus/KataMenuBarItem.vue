@@ -5,8 +5,8 @@
     :class="{
       'has-children relative': list && list.length > 0,
     }"
-    @mouseover="list && list.length && !isMobile ? openChild(item, i) : null"
-    @mouseleave="list && list.length && !isMobile ? closeChild(item, i) : null"
+    @mouseover="list && list.length && !isMobile ? openChild() : null"
+    @mouseleave="list && list.length && !isMobile ? closeChild() : null"
   >
     <component
       :is="getLinkComponent(singleLink)"
