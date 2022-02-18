@@ -1,6 +1,6 @@
 @@ -0,0 +1,34 @@
 <template>
-  <div v-if="item" class="md:px-r1/12 text-center">
+  <div v-if="item" class="md:px-r2/24 text-center">
     <p
       v-if="item.quote"
       v-kata-html="item.quote"

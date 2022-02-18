@@ -8,7 +8,7 @@
       class="h-screen w-full object-cover"
     />
     <div
-      class="w-r10/12 mx-auto md:w-r6/12 md:mx-r3/12 h-screen flex flex-col justify-center text-center z-1 text"
+      class="w-r24/24 mx-auto md:w-r12/24 md:mx-r6/24 h-screen flex flex-col justify-center text-center z-1 text"
     >
       <h1 v-kata-html="title" class="heading-1 text-white mb-medium" />
       <SanityEmbedContent

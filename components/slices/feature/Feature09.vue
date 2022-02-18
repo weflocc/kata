@@ -1,5 +1,5 @@
 <template>
-  <div class="slice feature-9 w-r10/12 mx-auto fade-up">
+  <div class="slice feature-9 w-r24/24 mx-auto fade-up">
     <h2 v-if="title" v-kata-html="title" class="text-center mb-large" />
     <transition-group
       name="fade-list"

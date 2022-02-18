@@ -1,11 +1,11 @@
 <template>
-  <div class="slice feature-5 w-r10/12 mx-auto">
+  <div class="slice feature-5 w-r24/24 mx-auto">
     <div v-if="title || text" class="mb-large">
       <h2 v-kata-html="title" class="fade-up heading-2" />
       <SanityEmbedContent
         v-if="textBody"
         :blocks="textBody"
-        class="mt-medium fade-up lg:pr-r1/12 lg:pr-r2/12"
+        class="mt-medium fade-up lg:pr-r2/24 lg:pr-r2/12"
       />
     </div>
     <ul

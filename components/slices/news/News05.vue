@@ -1,5 +1,5 @@
 <template>
-  <div class="news-5 slice w-r10/12 mx-auto">
+  <div class="news-5 slice w-r24/24 mx-auto">
     <h2 v-if="title" v-kata-html="title" class="mb-large text-center" />
     <component
       :is="link(item._id) ? 'n-link' : 'div'"

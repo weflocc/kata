@@ -1,7 +1,7 @@
 <template>
   <div
     id="menu-panel"
-    class="menu-panel flex justify-center items-center px-r1/12 pt-header-height"
+    class="menu-panel flex justify-center items-center px-r2/24 pt-header-height"
   >
     <div class="menu-inner">
       <nav class="kata-menu">

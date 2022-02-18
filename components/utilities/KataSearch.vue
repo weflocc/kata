@@ -13,7 +13,7 @@
           v-if="searchClient"
           :search-client="searchClient"
           :index-name="indexName"
-          class="w-r10/12 mx-auto"
+          class="w-r24/24 mx-auto"
         >
           <AisSearchBox
             :show-loading-indicator="true"

@@ -1,6 +1,6 @@
 <template>
   <div class="hero-11 slice">
-    <div class="top mb-slice-half w-r10/12 mx-auto">
+    <div class="top mb-slice-half w-r24/24 mx-auto">
       <div class="left mb-large md:mb-0">
         <h1 v-if="title" v-kata-html="title" />
         <a href="#main" class="side-link">{{ sideLinkText }}</a>
@@ -14,7 +14,7 @@
       <p
         v-if="subtitle"
         v-kata-html="subtitle"
-        class="pull-out w-r11/12 sm:w-r8/12 lg:w-r6/12 p-screen-border"
+        class="pull-out w-r22/24 sm:w-r16/24 lg:w-r12/24 p-screen-border"
       ></p>
       <div class="media-wrap hero-animation border-animate">
         <KataMedia

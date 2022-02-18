@@ -7,13 +7,13 @@
     }"
   >
     <div
-      class="w-r10/12 mx-auto md:w-r6/12 md:ml-r1/12 md:mr-large order-2 md:order-1 md:py-slice body"
+      class="w-r24/24 mx-auto md:w-r12/24 md:ml-r2/24 md:mr-large order-2 md:order-1 md:py-slice body"
     >
       <h2 v-if="title" v-kata-html="title" class="mb-large heading-2 fade-up" />
       <SanityEmbedContent v-if="textBody" :blocks="textBody" class="fade-up" />
     </div>
     <div
-      class="md:w-r5/12 order-1 md:order-2 mb-large md:mb-0 md:relative image"
+      class="md:w-r10/24 order-1 md:order-2 mb-large md:mb-0 md:relative image"
     >
       <KataImage
         :image="image"

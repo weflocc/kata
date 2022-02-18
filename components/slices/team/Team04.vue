@@ -1,5 +1,5 @@
 <template>
-  <div class="team-4 slice w-r10/12 mx-auto">
+  <div class="team-4 slice w-r24/24 mx-auto">
     <div class="heading mb-large">
       <h2 v-if="title" v-kata-html="title" class="fade-up" />
       <p v-if="text" v-kata-html="text" class="mt-medium fade-up" />

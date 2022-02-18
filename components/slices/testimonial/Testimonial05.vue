@@ -1,6 +1,6 @@
 <template>
   <div
-    class="slice testimonials-5 w-r10/12 mx-auto lg:w-r8/12 lg:mx-r2/12 text-center"
+    class="slice testimonials-5 w-r24/24 mx-auto lg:w-r16/24 lg:mx-r2/12 text-center"
   >
     <p v-if="quote" v-kata-html="quote" class="heading-3 mb-large fade-up" />
     <p v-if="cite" v-kata-html="cite" class="label-1 fade-up" />

@@ -2,7 +2,7 @@
   <div
     class="hero-2 slice flex-wrap md:flex-nowrap md:justify-between flex min-h-screen"
   >
-    <div class="media-wrap mb-large md:mb-0 md:w-r5/12 w-full relative">
+    <div class="media-wrap mb-large md:mb-0 md:w-r10/24 w-full relative">
       <KataMedia
         :media="media"
         :no-crop="noCrop"
@@ -12,7 +12,7 @@
       />
     </div>
     <div
-      class="body md:py-slice-half md:w-r7/12 px-r1/12 md:pl-large md:flex md:flex-col md:justify-center"
+      class="body md:py-slice-half md:w-r14/24 px-r2/24 md:pl-large md:flex md:flex-col md:justify-center"
     >
       <h1
         v-if="superHeading"

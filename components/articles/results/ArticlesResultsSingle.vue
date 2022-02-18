@@ -14,7 +14,7 @@
         </transition>
       </div>
       <div
-        class="md:w-1/2 px-r1/12 md:pl-large py-slice-half md:flex md:items-center"
+        class="md:w-1/2 px-r2/24 md:pl-large py-slice-half md:flex md:items-center"
       >
         <nuxt-link :to="getLink(item._id)" class="block text-center">
           <p

@@ -1,6 +1,6 @@
 <template>
-  <div class="slice cta-7 w-r10/12 mx-auto text-center">
-    <div class="title-wrap lg:px-r1/12">
+  <div class="slice cta-7 w-r24/24 mx-auto text-center">
+    <div class="title-wrap lg:px-r2/24">
       <h2
         v-if="title"
         v-kata-html="title"

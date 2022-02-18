@@ -1,12 +1,12 @@
 <template>
   <div class="slice hero-4">
     <div
-      class="w-r10/12 mx-auto md:w-r6/12 md:mx-r3/12 flex flex-col justify-center text-center z-1"
+      class="w-r24/24 mx-auto md:w-r12/24 md:mx-r6/24 flex flex-col justify-center text-center z-1"
     >
       <h1 v-kata-html="title" class="heading-1 mb-slice-half" />
     </div>
 
-    <div class="w-r10/12 mx-auto text-center z-1 mb-slice">
+    <div class="w-r24/24 mx-auto text-center z-1 mb-slice">
       <KataMedia
         :media="media"
         :no-crop="noCrop"

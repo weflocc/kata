@@ -1,13 +1,13 @@
 <template>
   <div class="slice testimonials-1">
-    <div class="mx-auto w-r10/12 text-center mb-medium">
+    <div class="mx-auto w-r24/24 text-center mb-medium">
       <h2 v-if="title" v-kata-html="title" class="label-1 fade-up" />
     </div>
     <div
       v-if="list && list != undefined && list != null && list.length > 1"
       class="flex"
     >
-      <div class="w-r2/12 flex justify-center items-center">
+      <div class="w-r4/24 flex justify-center items-center">
         <button
           class="carousel-nav prev focus:outline-none"
           title="Previous Slide"
@@ -20,18 +20,18 @@
         v-bind="settings"
         ref="testimonials-1-carousel"
         :class="{
-          'mx-auto w-r10/12': list.length == 1,
-          'w-r8/12': list.length > 1,
+          'mx-auto w-r24/24': list.length == 1,
+          'w-r16/24': list.length > 1,
         }"
         class="fade-up"
       >
         <div v-for="item in list" :key="item._key">
-          <Testimonial01Part class="md:px-r1/12 text-center" :item="item" />
+          <Testimonial01Part class="md:px-r2/24 text-center" :item="item" />
         </div>
       </VueSlickCarousel>
       <div
         v-if="list.length > 1"
-        class="w-r2/12 flex justify-center items-center"
+        class="w-r4/24 flex justify-center items-center"
       >
         <button
           class="carousel-nav next focus:outline-none"
@@ -42,11 +42,11 @@
         </button>
       </div>
     </div>
-    <div v-else-if="list && list != undefined" class="mx-auto w-r10/12">
+    <div v-else-if="list && list != undefined" class="mx-auto w-r24/24">
       <Testimonial01Part
         v-for="item in list"
         :key="item._key"
-        class="md:px-r1/12 text-center"
+        class="md:px-r2/24 text-center"
         :item="item"
       />
     </div>

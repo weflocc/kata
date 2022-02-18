@@ -4,7 +4,7 @@
       v-if="list && list != undefined && list.length > 1"
       class="flex fade-up"
     >
-      <div class="w-r2/12 flex justify-center items-center">
+      <div class="w-r4/24 flex justify-center items-center">
         <button
           class="carousel-nav prev focus:outline-none"
           title="Previous Slide"
@@ -16,7 +16,7 @@
       <VueSlickCarousel
         v-bind="settings"
         ref="testimonials-4-carousel"
-        class="w-r8/12"
+        class="w-r16/24"
       >
         <!-- div required here for vue slick to detect group -->
         <div v-for="item in list" :key="item._key" class="item">
@@ -24,7 +24,7 @@
         </div>
       </VueSlickCarousel>
 
-      <div class="w-r2/12 flex justify-center items-center">
+      <div class="w-r4/24 flex justify-center items-center">
         <button
           class="carousel-nav next focus:outline-none"
           title="Next Slide"
@@ -36,7 +36,7 @@
     </div>
     <div
       v-else-if="list && list != undefined"
-      class="w-r8/12 mx-r2/12 single-testimonial"
+      class="w-r16/24 mx-r2/12 single-testimonial"
     >
       <Testimonial04Part
         v-for="item in list"

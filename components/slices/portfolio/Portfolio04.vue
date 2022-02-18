@@ -1,5 +1,5 @@
 <template>
-  <div class="slice portfolio-4 mx-auto w-r10/12">
+  <div class="slice portfolio-4 mx-auto w-r24/24">
     <div class="mb-large text-center">
       <h2 v-if="title" class="mb-medium fade-up">{{ title }}</h2>
     </div>

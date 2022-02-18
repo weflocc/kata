@@ -1,8 +1,8 @@
 <template>
   <div
-    class="slice feature-2 flex flex-col md:flex-row relative justify-start px-r1/12 md:px-0"
+    class="slice feature-2 flex flex-col md:flex-row relative justify-start px-r2/24 md:px-0"
   >
-    <div class="md:w-r5/12 md:ml-r1/12 md:mr-large order-2 md:order-1 body">
+    <div class="md:w-r10/24 md:ml-r2/24 md:mr-large order-2 md:order-1 body">
       <h2 v-if="title" v-kata-html="title" class="mb-large fade-up" />
       <SanityEmbedContent
         v-if="textBody"

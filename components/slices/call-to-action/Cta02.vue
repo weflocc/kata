@@ -1,9 +1,9 @@
 <template>
-  <div class="slice call-to-action-2 w-r10/12 mx-auto text-center">
+  <div class="slice call-to-action-2 w-r24/24 mx-auto text-center">
     <h2 v-if="title" v-kata-html="title" class="heading-2 fade-up mb-medium" />
     <div
       v-if="list"
-      class="md:flex w-full justify-evenly sm:px-r1/12 xl:px-r2/12"
+      class="md:flex w-full justify-evenly sm:px-r2/24 xl:px-r2/12"
     >
       <div
         v-for="item in list"

@@ -10,7 +10,7 @@
       <slot name="tease" :item="item" v-if="i != 0">
         <NuxtLink
           :to="getLink(item._id) ? getLink(item._id) : ''"
-          :class="{ 'large-thumb': i == 0, 'px-r1/12 block md:px-0': i != 0 }"
+          :class="{ 'large-thumb': i == 0, 'px-r2/24 block md:px-0': i != 0 }"
         >
           <KataImage
             :image="item.image"

@@ -1,6 +1,6 @@
 <template>
   <div v-if="location" class="slice contact-2 md:flex">
-    <div class="w-full md:w-r5/12 mb-large md:mb-0 map">
+    <div class="w-full md:w-r10/24 mb-large md:mb-0 map">
       <GMap
         ref="gMap"
         language="en"
@@ -14,7 +14,7 @@
         />
       </GMap>
     </div>
-    <div class="w-r10/12 md:w-r5/12 mx-auto md:py-slice-half body">
+    <div class="w-r24/24 md:w-r10/24 mx-auto md:py-slice-half body">
       <h1
         v-if="isH1 && title"
         v-kata-html="title"

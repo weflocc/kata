@@ -1,9 +1,9 @@
 <template>
-  <div class="slice text-7 sm:flex px-r1/12">
-    <div class="sm:w-r3/12 heading mb-medium sm:mb-0">
+  <div class="slice text-7 sm:flex px-r2/24">
+    <div class="sm:w-r6/24 heading mb-medium sm:mb-0">
       <h2 v-if="title" v-kata-html="title" class="heading-1 fade-up" />
     </div>
-    <div class="sm:w-r7/12 content sm:pl-r1/12" v-if="list">
+    <div v-if="list" class="sm:w-r14/24 content sm:pl-r2/24">
       <div
         v-for="item in list"
         :key="item.title"

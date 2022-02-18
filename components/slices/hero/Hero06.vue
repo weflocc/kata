@@ -8,7 +8,7 @@
       class="hero-animation border-animate"
     />
 
-    <div class="mt-large mx-auto w-r10/12 md:flex md:justify-between text">
+    <div class="mt-large mx-auto w-r24/24 md:flex md:justify-between text">
       <div class="md:w-1/2 md:pr-large">
         <h1
           v-if="superHeading"

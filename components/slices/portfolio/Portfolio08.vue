@@ -1,5 +1,5 @@
 <template>
-  <div v-if="list && list != null" class="portfolio-8 slice w-r10/12 mx-auto">
+  <div v-if="list && list != null" class="portfolio-8 slice w-r24/24 mx-auto">
     <div class="mb-large">
       <h2 v-if="title" v-kata-html="title" />
       <p v-if="text" v-kata-html="text" class="mt-medium" />

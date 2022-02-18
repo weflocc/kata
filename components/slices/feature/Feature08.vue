@@ -1,13 +1,13 @@
 <template>
-  <div class="slice feature-8" :class="{ 'w-r10/12 mx-auto': isContained }">
+  <div class="slice feature-8" :class="{ 'w-r24/24 mx-auto': isContained }">
     <div
       class="sm:flex mb-large feature-8-inner"
-      :class="{ 'w-r10/12 mx-auto': !isContained }"
+      :class="{ 'w-r24/24 mx-auto': !isContained }"
     >
-      <div :class="{ 'sm:w-r6/12 mr-large': title && textBody }">
+      <div :class="{ 'sm:w-r12/24 mr-large': title && textBody }">
         <h2 v-kata-html="title" class="heading-2 fade-up" />
       </div>
-      <div v-if="textBody" :class="{ 'sm:w-r4/12': title && textBody }">
+      <div v-if="textBody" :class="{ 'sm:w-r8/24': title && textBody }">
         <SanityEmbedContent :blocks="textBody" class="fade-up" />
       </div>
     </div>

@@ -1,7 +1,7 @@
 <template>
   <div class="slice hero-10">
     <div
-      class="w-r10/12 lg:w-r9/12 xl:w-r7/12 px-r1/12 relative z-1 content-wrap"
+      class="w-r24/24 lg:w-r18/24 xl:w-r14/24 px-r2/24 relative z-1 content-wrap"
     >
       <div
         class="flex-col flex items-start justify-end w-full h-full min-h-screen py-slice-half content"

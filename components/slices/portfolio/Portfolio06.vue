@@ -1,5 +1,5 @@
 <template>
-  <div class="slice portfolio-6 md:flex md:mx-auto md:w-r10/12">
+  <div class="slice portfolio-6 md:flex md:mx-auto md:w-r24/24">
     <div class="slider-nav">
       <button
         class="carousel-nav prev focus:outline-none mb-medium"
@@ -16,7 +16,7 @@
         <span></span>
       </button>
     </div>
-    <div v-if="list && list != null" class="md:w-r6/12 md:pr-large">
+    <div v-if="list && list != null" class="md:w-r12/24 md:pr-large">
       <VueSlickCarousel
         v-bind="settings"
         ref="portfolio-6-carousel"
@@ -33,7 +33,7 @@
         </div>
       </VueSlickCarousel>
     </div>
-    <div class="md:w-r4/12">
+    <div class="md:w-r8/24">
       <h2 v-if="title" v-kata-html="title" class="mb-medium heading-3" />
       <SanityEmbedContent
         v-if="textBody"

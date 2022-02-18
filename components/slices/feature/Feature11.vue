@@ -1,5 +1,5 @@
 <template>
-  <div class="slice feature-11 w-r10/12 mx-auto">
+  <div class="slice feature-11 w-r24/24 mx-auto">
     <transition-group
       name="fade-list"
       class="flex -mx-small mb-medium flex-wrap fade-up"

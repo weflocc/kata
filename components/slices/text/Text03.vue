@@ -1,9 +1,9 @@
 <template>
-  <div class="slice text-1 md:flex mx-auto w-r10/12">
-    <div class="mb-large md:mb-0 md:w-r4/12 md:pr-r1/12 title">
+  <div class="slice text-1 md:flex mx-auto w-r24/24">
+    <div class="mb-large md:mb-0 md:w-r8/24 md:pr-r2/24 title">
       <h2 v-if="title" v-kata-html="title" class="heading-3 fade-up" />
     </div>
-    <div class="md:w-r6/12 columns-2 body">
+    <div class="md:w-r12/24 columns-2 body">
       <SanityEmbedContent v-if="textBody" :blocks="textBody" class="fade-up" />
     </div>
   </div>

@@ -3,7 +3,7 @@
     <VueSlickCarousel
       v-if="articles"
       v-bind="settings"
-      class="article-results-slider pl-r1/12"
+      class="article-results-slider pl-r2/24"
     >
       <template #prevArrow="arrowOption">
         <button

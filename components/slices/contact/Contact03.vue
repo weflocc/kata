@@ -1,6 +1,6 @@
 <template>
-  <div class="slice contact-3 md:flex mx-auto w-r10/12">
-    <div class="mb-large md:mb-0 md:w-1/2 md:pr-r1/12 title">
+  <div class="slice contact-3 md:flex mx-auto w-r24/24">
+    <div class="mb-large md:mb-0 md:w-1/2 md:pr-r2/24 title">
       <h1
         v-if="isH1 && title"
         v-kata-html="title"

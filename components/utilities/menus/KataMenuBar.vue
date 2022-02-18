@@ -71,7 +71,7 @@ export default {
 <style lang="scss" scoped>
 @include lg-down {
   .menu-panel {
-    @apply flex justify-start items-center px-r1/12 pt-header-height fixed top-0 left-0 bg-secondary;
+    @apply flex justify-start items-center px-r2/24 pt-header-height fixed top-0 left-0 bg-secondary;
     opacity: 0;
     pointer-events: none;
     width: 100vw;

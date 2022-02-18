@@ -1,5 +1,5 @@
 <template>
-  <div class="slice testimonial-3 w-r10/12 mx-auto">
+  <div class="slice testimonial-3 w-r24/24 mx-auto">
     <h2
       v-if="title"
       v-kata-html="title"

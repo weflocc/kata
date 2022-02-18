@@ -6,10 +6,10 @@
     <h2
       v-if="title"
       v-kata-html="title"
-      class="mb-large w-r10/12 mx-auto text-center"
+      class="mb-large w-r24/24 mx-auto text-center"
     />
     <div v-if="list.length > 1" class="flex list-wrap">
-      <div class="w-r2/12 flex justify-center items-center">
+      <div class="w-r4/24 flex justify-center items-center">
         <button
           class="carousel-nav prev focus:outline-none"
           title="Previous Slide"
@@ -22,8 +22,8 @@
         v-bind="settings"
         ref="testimonials-2-carousel"
         :class="{
-          'mx-auto w-r10/12': list.length == 1,
-          'w-r8/12': list.length > 1,
+          'mx-auto w-r24/24': list.length == 1,
+          'w-r16/24': list.length > 1,
         }"
       >
         <div v-for="item in list" :key="item._key">
@@ -32,7 +32,7 @@
       </VueSlickCarousel>
       <div
         v-if="list.length > 1"
-        class="w-r2/12 flex justify-center items-center"
+        class="w-r4/24 flex justify-center items-center"
       >
         <button
           class="carousel-nav next focus:outline-none"
@@ -43,7 +43,7 @@
         </button>
       </div>
     </div>
-    <div v-else class="mx-auto w-r10/12">
+    <div v-else class="mx-auto w-r24/24">
       <Testimonial02Part
         v-for="item in list"
         :key="item._key"

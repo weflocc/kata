@@ -7,7 +7,7 @@
     </div>
     <div
       v-if="list && list != null && list.length"
-      class="w-r10/12 mx-auto grid grid-cols-2 gap-small"
+      class="w-r24/24 mx-auto grid grid-cols-2 gap-small"
     >
       <div
         v-for="(item, index) in list"

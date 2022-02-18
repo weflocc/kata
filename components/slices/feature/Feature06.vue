@@ -1,6 +1,6 @@
 <template>
-  <div class="slice feature-6 w-r10/12 mx-auto md:flex md:justify-between">
-    <div class="w-full md:w-r5/12 mb-large md:mb-0 md:mr-r2/12 left">
+  <div class="slice feature-6 w-r24/24 mx-auto md:flex md:justify-between">
+    <div class="w-full md:w-r10/24 mb-large md:mb-0 md:mr-r2/12 left">
       <h2
         v-if="title"
         v-kata-html="title"
@@ -13,7 +13,7 @@
       />
       <KataLinks v-if="links" :links="links" class="fade-up" />
     </div>
-    <div class="w-full md:w-r3/12 right">
+    <div class="w-full md:w-r6/24 right">
       <ul v-if="list">
         <li
           v-for="(item, index) in list"

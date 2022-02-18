@@ -1,6 +1,6 @@
 <template>
   <div class="portfolio-10 slice">
-    <div v-if="title" class="w-r10/12 mx-auto text-center title">
+    <div v-if="title" class="w-r24/24 mx-auto text-center title">
       <h2 v-kata-html="title" class="heading-2 mb-large fade-up" />
     </div>
     <div
