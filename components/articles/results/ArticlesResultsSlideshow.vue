@@ -1,5 +1,5 @@
 <template>
-  <div class="article-results-slideshow">
+  <div class="article-results-slideshow w-r24/24 mx-auto">
     <div class="md:flex">
       <ul
         class="md:w-1/2 md:pr-medium flex flex-col justify-between items-start"
