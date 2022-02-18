@@ -6,7 +6,7 @@
     }"
   >
     <div
-      class="landscape:py-slice-half landscape:w-r14/24 px-r2/24 landscape:pr-large landscape:flex landscape:flex-col landscape:justify-center order-2 landscape:order-1 content mb-large landscape:mb-0"
+      class="landscape:py-slice-half landscape:w-r14/24 px-container-margin landscape:pr-r2/24 landscape:flex landscape:flex-col landscape:justify-center order-2 landscape:order-1 content mb-large landscape:mb-0"
     >
       <h1
         v-if="superHeading"
@@ -24,7 +24,7 @@
     </div>
 
     <div
-      class="media-wrap mb-large landscape:mb-0 landscape:w-r10/24 w-full relative order-1 landscape:order-2"
+      class="media-wrap mb-large landscape:mb-0 landscape:w-r12/24-container-margin relative order-1 landscape:order-2"
     >
       <KataMedia
         v-if="media"
