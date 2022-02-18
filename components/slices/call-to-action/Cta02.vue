@@ -3,7 +3,7 @@
     <h2 v-if="title" v-kata-html="title" class="heading-2 fade-up mb-medium" />
     <div
       v-if="list"
-      class="md:flex w-full justify-evenly sm:px-r2/24 xl:px-r2/12"
+      class="md:flex w-full justify-evenly sm:px-r2/24 lg:px-r2/12"
     >
       <div
         v-for="item in list"

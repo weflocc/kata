@@ -1,7 +1,7 @@
 <template>
   <div class="news-6 slice w-r24/24 mx-auto md:flex relative md:items-start">
     <div
-      class="left md:w-r14/24 xl:w-1/2 md:pr-small md:sticky mb-large md:mb-0"
+      class="left md:w-r14/24 lg:w-1/2 md:pr-small md:sticky mb-large md:mb-0"
     >
       <h2
         v-if="title"
@@ -19,10 +19,10 @@
         />
       </slot>
     </div>
-    <div class="right md:w-r6/24 xl:w-1/2 md:pt-[9%]">
+    <div class="right md:w-r6/24 lg:w-1/2 md:pt-[9%]">
       <div
         v-if="list && list.length"
-        class="list grid-cols-2 md:grid-cols-1 xl:grid-cols-2 gap-medium md:gap-small grid"
+        class="list grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-medium md:gap-small grid"
       >
         <template v-for="item in list">
           <slot name="tease" :item="item" class="fade-up">

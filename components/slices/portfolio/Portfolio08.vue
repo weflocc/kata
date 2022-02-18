@@ -42,7 +42,7 @@ export default {
       let classes = 'w-full grid gap-medium'
       switch (this.cols) {
         case 4:
-          classes += ' lg:grid-cols-3 xl:grid-cols-4'
+          classes += ' lg:grid-cols-3'
           break
         case 2:
           classes += ' lg:grid-cols-2'
