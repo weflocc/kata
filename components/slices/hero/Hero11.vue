@@ -14,7 +14,7 @@
       <p
         v-if="subtitle"
         v-kata-html="subtitle"
-        class="pull-out w-r22/24 sm:w-r16/24 lg:w-r12/24 p-screen-border"
+        class="pull-out w-r22/24 sm:w-r16/24 lg:w-r12/24 p-small"
       ></p>
       <div class="media-wrap hero-animation border-animate">
         <KataMedia
