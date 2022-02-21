@@ -1,5 +1,5 @@
 <template>
-  <div v-if="media.mediaType" class="media">
+  <div v-if="media && media.mediaType" class="media">
     <KataImage
       v-if="media.mediaType == 'image' && media.image && !noCrop"
       :image="media.image"
