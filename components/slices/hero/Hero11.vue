@@ -1,5 +1,5 @@
 <template>
-  <div class="hero-11 slice">
+  <div class="hero-11 slice relative">
     <div class="top mb-slice-half w-r24/24 mx-auto">
       <div class="left mb-large md:mb-0">
         <h1 v-if="title" v-kata-html="title" />
@@ -59,7 +59,7 @@ export default {
       align-items: center;
 
       .left {
-        position: relative;
+        // position: relative;
         padding-right: 15px;
         padding-left: 5%;
       }
@@ -74,9 +74,9 @@ export default {
 
       .side-link {
         position: absolute;
-        left: calc(var(--r1_12) * -1);
+        left: calc(var(--container-margin) * -1);
         transform: translateX(100%);
-        top: 0;
+        top: calc(var(--header-height) + 20%);
         bottom: 0;
         writing-mode: vertical-lr;
         text-decoration: none;
@@ -84,9 +84,10 @@ export default {
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        transition: height 0.7s ease;
+        transition: height 0.7s ease, max-height 0.7s ease;
         overflow: visible;
         height: 100%;
+        max-height: 200px;
         z-index: 2;
 
         &:after {
@@ -100,7 +101,7 @@ export default {
         }
 
         &:hover {
-          height: 30vh;
+          max-height: 300px;
         }
       }
     }

@@ -1,5 +1,5 @@
 <template>
-  <div class="slice text-7 sm:flex px-r2/24">
+  <div class="slice text-7 sm:flex mx-auto w-r24/24">
     <div class="sm:w-r6/24 heading mb-medium sm:mb-0">
       <h2 v-if="title" v-kata-html="title" class="heading-1 fade-up" />
     </div>
