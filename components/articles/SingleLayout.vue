@@ -2,7 +2,7 @@
   <div>
     <div
       v-if="indexPath && backText"
-      class="back-btn mt-small mb-large mx-screen-border"
+      class="back-btn mt-small mb-large mx-container-margin"
     >
       <nuxt-link :to="indexPath">{{ backText }}</nuxt-link>
     </div>
@@ -10,7 +10,7 @@
       <div class="md:w-r16/24 md:mx-r2/12 w-r24/24 mx-auto mb-large">
         <h1 v-kata-html="c.title" class="text-center" />
       </div>
-      <div class="sm:w-r24/24 sm:mx-auto px-screen-border sm:px-0 w-full">
+      <div class="sm:w-r24/24 sm:mx-auto px-container-margin sm:px-0 w-full">
         <KataMedia
           v-if="c.media"
           :media="c.media"
@@ -29,8 +29,7 @@
         <KataImage02
           v-else-if="c.image && noCrop"
           :image="c.image"
-          :sizes="sizes"
-          :max-width="maxWidth"
+          :max-width="2000"
           class="max-w-full mx-auto"
         />
       </div>
@@ -57,7 +56,7 @@
 
     <div
       v-if="indexPath && backText"
-      class="text-center px-screen-border mb-slice-half"
+      class="text-center px-container-margin mb-slice-half"
     >
       <div class="back-btn">
         <nuxt-link :to="indexPath">{{ backText }}</nuxt-link>

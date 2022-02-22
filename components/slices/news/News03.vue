@@ -101,10 +101,10 @@ export default {
     z-index: 50;
 
     &.prev {
-      left: var(--screen-border-size);
+      left: var(--container-margin-size);
     }
     &.next {
-      right: var(--screen-border-size);
+      right: var(--container-margin-size);
     }
   }
 }

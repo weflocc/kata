@@ -1,7 +1,7 @@
 <template>
   <transition-group
     v-if="articles"
-    class="w-full grid gap-medium five-featured-grid md:pr-screen-border"
+    class="w-full grid gap-medium five-featured-grid md:pr-container-margin"
     tag="ul"
     name="fade"
     mode="out-in"
