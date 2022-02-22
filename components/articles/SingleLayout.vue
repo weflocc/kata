@@ -35,7 +35,7 @@
       </div>
     </div>
 
-    <div class="main-content mb-slice md:w-r12/24 md:mx-r6/24 w-r24/24 mx-auto">
+    <div class="main-content mb-slice md:w-r16/24 lg:w-r14/24 w-r24/24 mx-auto">
       <div
         v-if="c.date || c.location || c.startDate"
         class="sm:flex justify-between sm:flex-wrap mb-large"
