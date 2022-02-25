@@ -80,6 +80,28 @@ const text09 = {
   fields: [title, list],
 }
 
+const text10 = {
+  name: 'text10',
+  type: 'object',
+  title: 'Text #10',
+  options: defaultOptions,
+  fields: [
+    title,
+    {
+      name: 'list',
+      title: 'Items',
+      type: 'array',
+      of: [
+        {
+          name: 'item',
+          type: 'object',
+          fields: [title, basicTextEditor()],
+        },
+      ],
+    },
+  ],
+}
+
 export {
   text01,
   text02,
@@ -90,4 +112,5 @@ export {
   text07,
   text08,
   text09,
+  text10,
 }

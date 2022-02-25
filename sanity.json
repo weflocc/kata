@@ -322,6 +322,10 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
+      "path": "slices/text/text10"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
       "path": "slices/timeline/timeline01"
     }
   ]
