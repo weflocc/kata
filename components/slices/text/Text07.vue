@@ -14,9 +14,9 @@
           v-kata-html="item.title"
           class="label-1 w-1/2 sm:w-1/3 fade-up"
         />
-        <p
-          v-if="item.text"
-          v-kata-html="item.text"
+        <SanityEmbedContent
+          v-if="item.textBody"
+          :blocks="item.textBody"
           class="w-1/2 sm:w-2/3 mt-0 para-1 fade-up"
         />
       </div>

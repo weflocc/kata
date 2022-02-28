@@ -1,5 +1,9 @@
 import config from 'config:@weflocc/kata'
-import { standardImage, links, basicSingleLink } from 'part:@weflocc/kata/partials/index'
+import {
+  standardImage,
+  links,
+  basicSingleLink,
+} from 'part:@weflocc/kata/partials/index'
 import { BiListPlus } from 'react-icons/bi'
 import { title, text } from '../shared'
 

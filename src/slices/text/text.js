@@ -1,5 +1,5 @@
 import { title, superHeading } from '../shared'
-import { list } from './textFields'
+import { list, simpleList } from './textFields'
 import {
   basicTextEditor,
   media,
@@ -61,7 +61,7 @@ const text07 = {
   type: 'object',
   title: 'Text #7',
   options: defaultOptions,
-  fields: [title, list],
+  fields: [title, simpleList],
 }
 
 const text08 = {
