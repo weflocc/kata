@@ -3,7 +3,7 @@ import {
   links,
   media,
   basicSingleLink,
-  standardImage,
+  liteTextEditor,
 } from 'part:@weflocc/kata/partials/index'
 import { BiListPlus } from 'react-icons/bi'
 import config from 'config:@weflocc/kata'
@@ -25,7 +25,7 @@ const features = {
           title: 'Icon',
         },
         title,
-        text,
+        liteTextEditor(),
         basicSingleLink,
       ],
       preview: {

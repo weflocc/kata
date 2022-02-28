@@ -40,7 +40,12 @@
             v-kata-html="item.title"
             class="label-1 mb-small"
           />
-          <p v-if="item.text" v-kata-html="item.text" class="para-2" />
+          <!-- <p v-if="item.text" v-kata-html="item.text" class="para-2" /> -->
+          <SanityEmbedContent
+            v-if="item.textBody"
+            :blocks="item.textBody"
+            class="para-2"
+          />
         </component>
       </li>
     </ul>

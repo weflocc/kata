@@ -191,4 +191,28 @@ const fullTextEditor = (name = 'Text Body', settings) => {
   }
 }
 
-export { basicTextEditor, fullTextEditor }
+const liteTextEditor = (name = 'Text Body', settings) => {
+  return {
+    title: name,
+    name: camelCase(name),
+    type: 'array',
+    ...settings,
+    of: [
+      {
+        type: 'block',
+        lists: [],
+        styles: [],
+        marks: {
+          decorators: [
+            { title: 'Strong', value: 'strong' },
+            { title: 'Emphasis', value: 'em' },
+            { title: 'Underline', value: 'underline' },
+          ],
+          annotations: [],
+        },
+      },
+    ],
+  }
+}
+
+export { basicTextEditor, fullTextEditor, liteTextEditor }
