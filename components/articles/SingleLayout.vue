@@ -2,7 +2,7 @@
   <div>
     <div
       v-if="indexPath && backText"
-      class="back-btn mt-small mb-large mx-container-margin"
+      class="back-btn mt-small mb-large mx-container-margin w-r24/24"
     >
       <nuxt-link :to="indexPath">{{ backText }}</nuxt-link>
     </div>
