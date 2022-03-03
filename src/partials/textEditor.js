@@ -173,6 +173,9 @@ const fullTextEditor = (name = 'Text Body', settings) => {
         ],
       },
       {
+        type: 'mediaPreview',
+      },
+      {
         type: 'youtube',
       },
       {

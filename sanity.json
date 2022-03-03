@@ -58,6 +58,10 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
+      "path": "components/mediaPreview"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
       "path": "documents/globalSlices"
     },
     {

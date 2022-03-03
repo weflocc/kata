@@ -16,6 +16,7 @@ import ExternalLink from './serializers/ExternalLink.vue'
 import TableField from './serializers/TableField.vue'
 import Accordion from './serializers/Accordion.vue'
 import Testimonial04 from './serializers/Testimonial04Serializer.vue'
+import KataMediaSerializer from './serializers/KataMediaSerializer.vue'
 
 export default {
   props: {
@@ -34,6 +35,7 @@ export default {
           tableField: TableField,
           accordion: Accordion,
           testimonials: Testimonial04,
+          mediaPreview: KataMediaSerializer,
         },
         marks: {
           internalLink: InternalLink,

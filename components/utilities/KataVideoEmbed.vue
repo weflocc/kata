@@ -42,7 +42,8 @@ export default {
   },
   computed: {
     source() {
-      if (this.url.includes('youtube')) {
+      console.log('Test')
+      if (this.url.includes('youtu.be')) {
         return 'youtube'
       } else if (this.url.includes('vimeo')) {
         return 'vimeo'
