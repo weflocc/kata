@@ -37,7 +37,7 @@
 
     <div class="main-content mb-slice md:w-r16/24 lg:w-r14/24 w-r24/24 mx-auto">
       <div
-        v-if="c.date || c.location || c.startDate"
+        v-if="c.date || c.location || c.startDate || c.author"
         class="sm:flex justify-between sm:flex-wrap mb-large"
       >
         <p v-if="c.startDate" class="font-bold sm:mr-small">
@@ -47,6 +47,10 @@
         <p v-if="c.date" class="font-bold sm:mr-small">
           {{ c.date | formatDate }}
         </p>
+        <span v-if="c.author" class="w-full mt-1">
+          By
+          <strong>{{ c.author }}</strong>
+        </span>
         <p v-if="c.location" class="font-bold">Location: {{ c.location }}</p>
       </div>
       <SanityEmbedContent v-if="c.textBody" :blocks="c.textBody" />
