@@ -10,6 +10,7 @@
             :key="item._key"
             v-bind="item"
             :is-mobile="isMobile"
+            :click-fn="clickFn"
           />
         </ul>
       </nav>
@@ -32,7 +33,7 @@ export default {
     clickFn: {
       type: Function,
       default: () => {
-        // console.log('no click function available')
+        console.log('No click function provided')
       },
     },
   },

@@ -53,13 +53,9 @@ export default {
 <style lang="scss" scoped>
 .youtube-wrap {
   width: 100%;
-  position: relative;
-  padding-top: 56%;
+  aspect-ratio: 16 / 9;
 
   iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
   }

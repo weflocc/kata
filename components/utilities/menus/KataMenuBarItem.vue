@@ -15,7 +15,7 @@
       :to="getSingleLink(singleLink)"
       :href="getSingleLink(singleLink)"
       :target="getLinkComponent(singleLink) == 'a' ? '_blank' : '_self'"
-      @click.native="clickFn"
+      @click.native="onClick"
       v-html="title ? title : linkTitle(singleLink).title"
     />
 
@@ -28,7 +28,12 @@
     ></button>
 
     <ul v-if="list && list.length" ref="childMenu" class="child-menu">
-      <KataMenuBarItem v-for="child in list" :key="child._key" v-bind="child" />
+      <KataMenuBarItem
+        v-for="child in list"
+        :key="child._key"
+        v-bind="child"
+        :click-fn="clickFn"
+      />
     </ul>
   </li>
 </template>
@@ -61,10 +66,8 @@ export default {
       }
     },
     closeChild() {
-      if (this.list && this.list.length > 0) {
-        let dropdown = this.$refs.childMenu
-        if (dropdown) dropdown.classList.remove('open')
-      }
+      let dropdown = this.$refs.childMenu
+      if (dropdown) dropdown.classList.remove('open')
     },
     toggleChild() {
       if (this.list && this.list.length > 0) {
@@ -85,6 +88,14 @@ export default {
         left: 0,
         behavior: 'smooth',
       })
+    },
+    onClick() {
+      if (process.client) {
+        // can't find ref here? close open dropdown panel
+        let dropdown = document.querySelector('.child-menu.open')
+        if (dropdown) dropdown.classList.remove('open')
+      }
+      this.clickFn()
     },
     linkTitle(item) {
       if (item?.internalLink?._ref) {
