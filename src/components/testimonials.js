@@ -4,7 +4,7 @@ import InfoToolTip from './InfoTooltip'
 
 const TestimonialsPreview = ({ value }) => {
   const { testimonialsParent } = value
-  const testimonials = testimonialsParent.testimonials
+  const testimonials = testimonialsParent?.list
 
   if (testimonials) {
     return (

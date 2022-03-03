@@ -81,7 +81,7 @@ export default {
   },
   computed: {
     testimonials() {
-      return this.testimonial04?.testimonials
+      return this.testimonial04?.list
     },
   },
   methods: {
