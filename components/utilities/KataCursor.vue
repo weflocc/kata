@@ -61,7 +61,9 @@ export default {
     setLinks() {
       if (process.client && !this.isTouchDevice()) {
         let cursor = this.$refs.cursor
-        let links = document.querySelectorAll('a, button, input[type=submit]')
+        let links = document.querySelectorAll(
+          'a, button, input, textarea, select'
+        )
         if (cursor && links) {
           for (let index = 0; index < links.length; index++) {
             const element = links[index]
