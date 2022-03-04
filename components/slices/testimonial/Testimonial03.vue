@@ -12,7 +12,7 @@
       <div
         v-for="item in list"
         :key="item._key"
-        class="w-full md:w-1/2 md:px-6 md:py-3 pb-large"
+        class="w-full md:w-1/2 md:px-6 md:py-3 pb-large fade-up"
       >
         <p v-if="item.quote" v-kata-html="item.quote" />
         <p v-if="item.name" v-kata-html="item.name" class="label-1 mb-0" />

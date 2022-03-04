@@ -1,8 +1,8 @@
 <template>
   <div v-if="list && list != null" class="portfolio-8 slice w-r24/24 mx-auto">
     <div class="mb-large">
-      <h2 v-if="title" v-kata-html="title" />
-      <p v-if="text" v-kata-html="text" class="mt-medium" />
+      <h2 v-if="title" v-kata-html="title" class="fade-up" />
+      <p v-if="text" v-kata-html="text" class="mt-medium fade-up" />
     </div>
     <transition-group :class="ulClass" tag="ul" name="fade" mode="out-in">
       <li v-for="(item, i) in list" :key="item._id || i" class="relative">
@@ -12,6 +12,7 @@
             :link="getLink(item._id)"
             :title="item.title"
             :image="item.image"
+            class="fade-up"
           />
         </slot>
       </li>

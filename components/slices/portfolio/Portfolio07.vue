@@ -2,7 +2,7 @@
   <div class="slice portfolio-7 relative slice-animation">
     <div v-if="title" class="heading pointer-events-none">
       <div class="heading-inner">
-        <h2 v-kata-html="title" class="text-tertiary heading-1" />
+        <h2 v-kata-html="title" class="text-tertiary heading-1 fade-up" />
       </div>
     </div>
     <div
@@ -12,7 +12,7 @@
       <div
         v-for="(item, index) in list"
         :key="item._key"
-        class="relative item"
+        class="relative item fade-up"
         :class="thumbnailClass(index + 1)"
       >
         <KataImage

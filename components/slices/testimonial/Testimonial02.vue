@@ -6,7 +6,7 @@
     <h2
       v-if="title"
       v-kata-html="title"
-      class="mb-large w-r24/24 mx-auto text-center"
+      class="mb-large w-r24/24 mx-auto text-center fade-up"
     />
     <div v-if="list.length > 1" class="flex list-wrap">
       <div class="w-r4/24 flex justify-center items-center nav-btn-prev">
@@ -21,6 +21,7 @@
       <VueSlickCarousel
         v-bind="settings"
         ref="testimonials-2-carousel"
+        class="fade-up"
         :class="{
           'mx-auto w-r24/24': list.length == 1,
           'w-r16/24': list.length > 1,

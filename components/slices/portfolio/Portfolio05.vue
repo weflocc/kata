@@ -4,7 +4,11 @@
     class="slice portfolio-5 md:flex mx-auto w-r24/24 md:mx-0 md:ml-r2/24 md:w-r22/24 overflow-x-hidden"
   >
     <div class="md:w-r4/24 mb-large fade-up">
-      <h2 v-if="title" v-kata-html="title" class="mb-medium heading-3" />
+      <h2
+        v-if="title"
+        v-kata-html="title"
+        class="mb-medium heading-3 fade-up"
+      />
       <button
         class="carousel-nav prev focus:outline-none mr-small"
         title="Previous Slide"
