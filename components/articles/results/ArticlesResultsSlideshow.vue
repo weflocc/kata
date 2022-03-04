@@ -56,7 +56,6 @@
         >
           <KataImage
             v-if="item.image"
-            data-not-lazy
             :image="item.image"
             :ratio="4 / 3"
             class="h-full object-cover w-full"
@@ -140,15 +139,14 @@ export default {
   .slide-image {
     @apply absolute top-0 left-small right-0 h-full;
     transition: opacity 1s ease-in;
-    z-index: 1;
+    z-index: 2;
     opacity: 0;
     overflow: hidden;
     max-width: calc(100% - var(--spacing-small));
 
     &.active {
-      z-index: 5;
+      z-index: 3;
       width: 100%;
-      transition: 0;
       opacity: 1;
     }
 
