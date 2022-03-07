@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="single-layout">
     <div
       v-if="indexPath && backText"
       class="back-btn mt-small mb-large mx-container-margin w-r24/24"
@@ -11,34 +11,36 @@
         <h1 v-kata-html="c.title" class="text-center" />
       </div>
       <div class="sm:w-r24/24 sm:mx-auto px-container-margin sm:px-0 w-full">
-        <KataMedia
-          v-if="c.media"
-          :media="c.media"
-          :ratio="2 / 1"
-          :max-width="2000"
-          :loader="true"
-          :no-crop="noCrop"
-        />
-        <KataImage
-          v-else-if="c.image && !noCrop"
-          :image="c.image"
-          :ratio="2 / 1"
-          :max-width="2000"
-          :loader="true"
-        />
-        <KataImage02
-          v-else-if="c.image && noCrop"
-          :image="c.image"
-          :max-width="2000"
-          class="max-w-full mx-auto"
-        />
+        <div class="image-wrapper overflow-hidden">
+          <KataMedia
+            v-if="c.media"
+            :media="c.media"
+            :ratio="2 / 1"
+            :max-width="2000"
+            :loader="true"
+            :no-crop="noCrop"
+          />
+          <KataImage
+            v-else-if="c.image && !noCrop"
+            :image="c.image"
+            :ratio="2 / 1"
+            :max-width="2000"
+            :loader="true"
+          />
+          <KataImage02
+            v-else-if="c.image && noCrop"
+            :image="c.image"
+            :max-width="2000"
+            class="max-w-full mx-auto"
+          />
+        </div>
       </div>
     </div>
 
     <div class="main-content mb-slice md:w-r16/24 lg:w-r14/24 w-r24/24 mx-auto">
       <div
         v-if="c.date || c.location || c.startDate || c.author"
-        class="sm:flex justify-between sm:flex-wrap mb-large"
+        class="sm:flex justify-between sm:flex-wrap mb-large article-info"
       >
         <p v-if="c.startDate" class="font-bold sm:mr-small">
           {{ c.startDate | formatDate }}
