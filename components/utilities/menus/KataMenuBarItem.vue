@@ -9,13 +9,21 @@
     @mouseleave="list && list.length && !isMobile ? closeChild() : null"
   >
     <component
-      :is="getLinkComponent(singleLink)"
-      class="nav-link inline-block"
-      :class="{ 'cursor-pointer': list && list.length && !isMobile }"
+      :is="
+        getLinkComponent(singleLink) == 'div'
+          ? 'button'
+          : getLinkComponent(singleLink)
+      "
+      class="nav-link inline-block lg:pointer-events-all"
+      :class="{
+        'cursor-pointer': list && list.length && !isMobile,
+        'is-button btn-large': showAsButton,
+      }"
       :to="getSingleLink(singleLink)"
       :href="getSingleLink(singleLink)"
       :target="getLinkComponent(singleLink) == 'a' ? '_blank' : '_self'"
-      @click.native="onClick"
+      @click.native="getLinkComponent(singleLink) == 'a' ? onClick() : ''"
+      @click="getLinkComponent(singleLink) != 'a' ? toggleChild() : ''"
       v-html="title ? title : linkTitle(singleLink).title"
     />
 
