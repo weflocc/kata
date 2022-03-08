@@ -39,7 +39,7 @@
       </div>
     </div>
 
-    <div class="main-content mb-slice md:w-r16/24 lg:w-r14/24 w-r24/24 mx-auto">
+    <div class="main-content mb-large md:w-r18/24 lg:w-r14/24 w-r24/24 mx-auto">
       <slot name="postInfo">
         <div
           v-if="c.date || c.location || c.startDate || c.author"
