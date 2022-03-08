@@ -10,7 +10,9 @@
       <div class="md:w-r16/24 md:mx-r2/12 w-r24/24 mx-auto mb-large">
         <h1 v-kata-html="c.title" class="text-center" />
       </div>
-      <div class="sm:w-r24/24 sm:mx-auto px-container-margin sm:px-0 w-full">
+      <div
+        class="hero-image sm:w-r24/24 sm:mx-auto px-container-margin sm:px-0 w-full"
+      >
         <div class="image-wrapper overflow-hidden">
           <KataMedia
             v-if="c.media"
@@ -106,7 +108,8 @@ export default {
     > .kata-block-links,
     > .media,
     > .kata-table,
-    > .kata-accordions {
+    > .kata-accordions,
+    > .testimonials-4-serializer {
       @apply md:w-r18/24 lg:w-r14/24 w-r24/24 mx-auto;
     }
   }

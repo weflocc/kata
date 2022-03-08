@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="slice testimonials-4-serializer py-slice-half md:w-r20/24 lg:w-r18/24 w-r24/24 mx-auto"
-  >
+  <div class="slice testimonials-4-serializer py-slice-half">
     <div
       v-if="
         testimonials && testimonials != undefined && testimonials.length > 1
