@@ -40,23 +40,25 @@
     </div>
 
     <div class="main-content mb-slice md:w-r16/24 lg:w-r14/24 w-r24/24 mx-auto">
-      <div
-        v-if="c.date || c.location || c.startDate || c.author"
-        class="sm:flex justify-between sm:flex-wrap mb-large article-info"
-      >
-        <p v-if="c.startDate" class="font-bold sm:mr-small">
-          {{ c.startDate | formatDate }}
-          <template v-if="c.endDate">- {{ c.endDate | formatDate }}</template>
-        </p>
-        <p v-if="c.date" class="font-bold sm:mr-small">
-          {{ c.date | formatDate }}
-        </p>
-        <span v-if="c.author" class="w-full mt-1">
-          By
-          <strong>{{ c.author }}</strong>
-        </span>
-        <p v-if="c.location" class="font-bold">Location: {{ c.location }}</p>
-      </div>
+      <slot name="postInfo">
+        <div
+          v-if="c.date || c.location || c.startDate || c.author"
+          class="sm:flex justify-between sm:flex-wrap mb-large article-info"
+        >
+          <p v-if="c.startDate" class="font-bold sm:mr-small">
+            {{ c.startDate | formatDate }}
+            <template v-if="c.endDate">- {{ c.endDate | formatDate }}</template>
+          </p>
+          <p v-if="c.date" class="font-bold sm:mr-small">
+            {{ c.date | formatDate }}
+          </p>
+          <span v-if="c.author" class="w-full mt-1">
+            By
+            <strong>{{ c.author }}</strong>
+          </span>
+          <p v-if="c.location" class="font-bold">Location: {{ c.location }}</p>
+        </div>
+      </slot>
     </div>
 
     <div class="single-layout-content">
@@ -65,7 +67,7 @@
 
     <div
       v-if="indexPath && backText"
-      class="text-center px-container-margin mb-slice-half"
+      class="text-center px-container-margin my-slice-half"
     >
       <div class="back-btn">
         <nuxt-link :to="indexPath">{{ backText }}</nuxt-link>
