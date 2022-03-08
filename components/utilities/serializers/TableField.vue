@@ -1,5 +1,5 @@
 <template>
-  <table class="table-auto">
+  <table class="kata-table table-auto">
     <thead>
       <tr>
         <th v-for="cell in header.cells" :key="cell">{{ cell }}</th>

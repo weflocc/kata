@@ -154,30 +154,30 @@ const fullTextEditor = (name = 'Text Body', settings) => {
           { title: 'Subheading', value: 'h3' },
         ],
       },
-      {
-        title: 'Image',
-        name: 'image',
-        type: 'image',
-        options: {
-          hotspot: true,
-        },
-        fields: [
-          {
-            name: 'caption',
-            type: 'string',
-            title: 'Caption',
-            options: {
-              isHighlighted: true, // <-- make this field easily accessible
-            },
-          },
-        ],
-      },
+      // {
+      //   title: 'Image',
+      //   name: 'image',
+      //   type: 'image',
+      //   options: {
+      //     hotspot: true,
+      //   },
+      //   fields: [
+      //     {
+      //       name: 'caption',
+      //       type: 'string',
+      //       title: 'Caption',
+      //       options: {
+      //         isHighlighted: true, // <-- make this field easily accessible
+      //       },
+      //     },
+      //   ],
+      // },
       {
         type: 'mediaPreview',
       },
-      {
-        type: 'youtube',
-      },
+      // {
+      //   type: 'youtube',
+      // },
       {
         type: 'accordion',
       },

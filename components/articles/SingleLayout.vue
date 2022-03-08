@@ -55,9 +55,10 @@
         </span>
         <p v-if="c.location" class="font-bold">Location: {{ c.location }}</p>
       </div>
+    </div>
+
+    <div class="single-layout-content">
       <SanityEmbedContent v-if="c.textBody" :blocks="c.textBody" />
-      <!-- allowing for older versions -->
-      <SanityEmbedContent v-else-if="c.body" :blocks="c.body" />
     </div>
 
     <div
@@ -93,6 +94,24 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+.single-layout-content {
+  > .embed-content-wrap {
+    > h2,
+    > h3,
+    > p,
+    > ul,
+    > ol,
+    > .kata-block-links,
+    > .media,
+    > .kata-table,
+    > .kata-accordions {
+      @apply md:w-r18/24 lg:w-r14/24 w-r24/24 mx-auto;
+    }
+  }
+}
+</style>
 
 <style lang="scss" scoped>
 .back-btn a {

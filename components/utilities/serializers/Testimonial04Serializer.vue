@@ -1,5 +1,7 @@
 <template>
-  <div class="slice testimonials-4-serializer py-slice-half">
+  <div
+    class="slice testimonials-4-serializer py-slice-half md:w-r20/24 lg:w-r18/24 w-r24/24 mx-auto"
+  >
     <div
       v-if="
         testimonials && testimonials != undefined && testimonials.length > 1
@@ -20,7 +22,7 @@
       <VueSlickCarousel
         v-bind="settings"
         ref="testimonials-4-serializer-carousel"
-        class="w-full"
+        class="w-full mx-auto"
       >
         <Testimonial04Part
           v-for="item in testimonials"
@@ -42,7 +44,7 @@
         </button>
       </div>
     </div>
-    <div v-else class="w-full">
+    <div v-else class="w-full mx-auto">
       <Testimonial04Part
         v-for="item in testimonials"
         :key="item._key"

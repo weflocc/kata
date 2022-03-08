@@ -1,5 +1,5 @@
 <template>
-  <div v-if="wrapper" class="tabs">
+  <div v-if="wrapper" class="kata-accordions tabs">
     <div v-for="(item, i) in wrapper.items" :key="item._key" class="tab">
       <input :id="'chck' + i" type="checkbox" name="rd" />
       <label class="tab-label" :for="'chck' + i">{{ item.title }}</label>
