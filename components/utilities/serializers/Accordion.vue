@@ -13,7 +13,6 @@
 <script>
 // This duplicates SanityEmbedContent but does not include Accordion as a type
 // This avoids a never-ending-loop of <SanityEmbedontent> and <Accordion> components
-
 import Youtube from './Youtube.vue'
 import Image from './SanityImage.vue'
 import BlockLinks from './BlockLinks.vue'

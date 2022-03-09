@@ -26,10 +26,11 @@
         v-kata-html="feature.title"
         class="heading-2 mb-medium fade-up"
       />
-      <SanityEmbedContent
+      <SanityContent
         v-if="feature.textBody"
         :blocks="feature.textBody"
-        class="fade-up"
+        :serializers="serializers"
+        class="embed-content-wrap feature-1-content"
       />
       <KataLinks
         v-if="feature.links"
@@ -52,6 +53,16 @@
 </template>
 
 <script>
+// This duplicates SanityEmbedContent but does not include feature01 as a type
+// This avoids a never-ending-loop of <SanityEmbedContent> and <feature01> components
+import Youtube from './Youtube.vue'
+import Image from './SanityImage.vue'
+import BlockLinks from './BlockLinks.vue'
+import FileLink from './FileLink.vue'
+import InternalLink from './InternalLink.vue'
+import ExternalLink from './ExternalLink.vue'
+import TableField from './TableField.vue'
+
 export default {
   props: {
     feature: {
@@ -70,6 +81,26 @@ export default {
       type: Boolean,
       default: false,
     },
+  },
+  data() {
+    return {
+      serializers: {
+        types: {
+          youtube: Youtube,
+          image: Image,
+          link: BlockLinks,
+          tableField: TableField,
+        },
+        marks: {
+          internalLink: InternalLink,
+          link: ExternalLink,
+          file: FileLink,
+        },
+      },
+    }
+  },
+  mounted() {
+    console.log('feature01', this.feature)
   },
 }
 </script>
