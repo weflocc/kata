@@ -72,125 +72,110 @@ const basicTextEditor = (name = 'Text Body', settings) => {
   }
 }
 
-const fullTextEditor = (name = 'Text Body', settings) => {
+const fullTextEditor = (name = 'Text Body', settings, includes) => {
+  let customEditor = [
+    {
+      type: 'block',
+      marks: {
+        decorators: [
+          { title: 'Strong', value: 'strong' },
+          { title: 'Emphasis', value: 'em' },
+          { title: 'Underline', value: 'underline' },
+        ],
+        annotations: [
+          {
+            name: 'link',
+            type: 'object',
+            title: 'External link',
+            blockEditor: {
+              icon: BiLinkExternal,
+            },
+            fields: [
+              {
+                name: 'href',
+                type: 'url',
+                title: 'URL',
+                validation: (Rule) =>
+                  Rule.uri({
+                    scheme: ['http', 'https', 'mailto', 'tel', 'sms'],
+                  }),
+              },
+              {
+                title: 'Open in new tab',
+                name: 'blank',
+                type: 'boolean',
+                layout: 'checkbox',
+                initialValue: true,
+              },
+            ],
+          },
+          {
+            name: 'internalLink',
+            type: 'object',
+            title: 'Internal link',
+            blockEditor: {
+              icon: BiLink,
+            },
+            fields: [
+              {
+                name: 'reference',
+                type: 'reference',
+                title: 'Reference',
+                to: config.allTypes,
+              },
+            ],
+          },
+          {
+            name: 'file',
+            type: 'object',
+            title: 'File',
+            blockEditor: {
+              icon: GoFileSymlinkFile,
+            },
+            fields: [
+              {
+                name: 'file',
+                type: 'file',
+                title: 'File',
+                to: config.allTypes,
+              },
+            ],
+          },
+        ],
+      },
+      styles: [
+        { title: 'Normal', value: 'normal' },
+        { title: 'Heading', value: 'h2' },
+        { title: 'Subheading', value: 'h3' },
+      ],
+    },
+    {
+      type: 'mediaPreview',
+    },
+    {
+      type: 'accordion',
+    },
+    {
+      type: 'buttons',
+    },
+    {
+      type: 'tableField',
+    },
+    {
+      type: 'testimonials',
+    },
+  ]
+  if (includes && (includes.feature01 || includes.textAndImage)) {
+    customEditor.push({
+      type: 'textAndImage',
+    })
+  }
   return {
     title: name,
     name: camelCase(name),
     type: 'array',
     ...settings,
-    of: [
-      {
-        type: 'block',
-        marks: {
-          decorators: [
-            { title: 'Strong', value: 'strong' },
-            { title: 'Emphasis', value: 'em' },
-            { title: 'Underline', value: 'underline' },
-          ],
-          annotations: [
-            {
-              name: 'link',
-              type: 'object',
-              title: 'External link',
-              blockEditor: {
-                icon: BiLinkExternal,
-              },
-              fields: [
-                {
-                  name: 'href',
-                  type: 'url',
-                  title: 'URL',
-                  validation: (Rule) =>
-                    Rule.uri({
-                      scheme: ['http', 'https', 'mailto', 'tel', 'sms'],
-                    }),
-                },
-                {
-                  title: 'Open in new tab',
-                  name: 'blank',
-                  type: 'boolean',
-                  layout: 'checkbox',
-                  initialValue: true,
-                },
-              ],
-            },
-            {
-              name: 'internalLink',
-              type: 'object',
-              title: 'Internal link',
-              blockEditor: {
-                icon: BiLink,
-              },
-              fields: [
-                {
-                  name: 'reference',
-                  type: 'reference',
-                  title: 'Reference',
-                  to: config.allTypes,
-                },
-              ],
-            },
-            {
-              name: 'file',
-              type: 'object',
-              title: 'File',
-              blockEditor: {
-                icon: GoFileSymlinkFile,
-              },
-              fields: [
-                {
-                  name: 'file',
-                  type: 'file',
-                  title: 'File',
-                  to: config.allTypes,
-                },
-              ],
-            },
-          ],
-        },
-        styles: [
-          { title: 'Normal', value: 'normal' },
-          { title: 'Heading', value: 'h2' },
-          { title: 'Subheading', value: 'h3' },
-        ],
-      },
-      // {
-      //   title: 'Image',
-      //   name: 'image',
-      //   type: 'image',
-      //   options: {
-      //     hotspot: true,
-      //   },
-      //   fields: [
-      //     {
-      //       name: 'caption',
-      //       type: 'string',
-      //       title: 'Caption',
-      //       options: {
-      //         isHighlighted: true, // <-- make this field easily accessible
-      //       },
-      //     },
-      //   ],
-      // },
-      {
-        type: 'mediaPreview',
-      },
-      // {
-      //   type: 'youtube',
-      // },
-      {
-        type: 'accordion',
-      },
-      {
-        type: 'buttons',
-      },
-      {
-        type: 'tableField',
-      },
-      {
-        type: 'testimonials',
-      },
-    ],
+    of: customEditor,
   }
 }
 

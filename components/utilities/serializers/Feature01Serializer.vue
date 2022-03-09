@@ -26,10 +26,10 @@
         v-kata-html="feature.title"
         class="heading-2 mb-medium fade-up"
       />
+      <!-- Use sanity content to prevent infinite loop of re-including feature01Seralizer again -->
       <SanityContent
         v-if="feature.textBody"
         :blocks="feature.textBody"
-        :serializers="serializers"
         class="embed-content-wrap feature-1-content"
       />
       <KataLinks
@@ -53,16 +53,6 @@
 </template>
 
 <script>
-// This duplicates SanityEmbedContent but does not include feature01 as a type
-// This avoids a never-ending-loop of <SanityEmbedContent> and <feature01> components
-import Youtube from './Youtube.vue'
-import Image from './SanityImage.vue'
-import BlockLinks from './BlockLinks.vue'
-import FileLink from './FileLink.vue'
-import InternalLink from './InternalLink.vue'
-import ExternalLink from './ExternalLink.vue'
-import TableField from './TableField.vue'
-
 export default {
   props: {
     feature: {
@@ -82,23 +72,21 @@ export default {
       default: false,
     },
   },
-  data() {
-    return {
-      serializers: {
-        types: {
-          youtube: Youtube,
-          image: Image,
-          link: BlockLinks,
-          tableField: TableField,
-        },
-        marks: {
-          internalLink: InternalLink,
-          link: ExternalLink,
-          file: FileLink,
-        },
-      },
-    }
-  },
+  // data() {
+  //   return {
+  //     serializers: {
+  //       types: {
+  //         image: Image,
+  //         link: BlockLinks,
+  //       },
+  //       marks: {
+  //         internalLink: InternalLink,
+  //         link: ExternalLink,
+  //         file: FileLink,
+  //       },
+  //     },
+  //   }
+  // },
   mounted() {
     console.log('feature01', this.feature)
   },
