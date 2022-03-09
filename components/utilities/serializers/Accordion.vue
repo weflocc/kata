@@ -71,38 +71,41 @@ input {
 }
 /* Accordion styles */
 .tabs {
-  // border-radius: 8px;
   overflow: hidden;
-  // box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
 }
 .tab {
   width: 100%;
-  color: white;
   overflow: hidden;
+  @apply relative mb-small block;
+  border-bottom: 1px solid currentColor;
+  overflow: hidden;
+
   &-label {
-    display: flex;
-    justify-content: space-between;
-    padding: 1em;
-    background: $primary;
-    font-weight: bold;
+    @apply relative block mb-small;
+    padding-right: 40px;
     cursor: pointer;
+    transition: 0.5s ease;
+
     /* Icon */
-    &:hover {
-      background: darken($primary, 10%);
-    }
     &::after {
-      content: '\276F';
-      width: 1em;
-      height: 1em;
-      text-align: center;
-      transition: all 0.35s;
+      content: '';
+      @apply absolute top-0 bottom-0 my-auto right-[6px];
+      border-style: solid;
+      border-width: 2px 2px 0 0;
+      border-color: currentColor;
+      display: inline-block;
+      height: 12px;
+      width: 12px;
+      transform: rotate(135deg);
+      transition: transform 0.5s ease;
+    }
+    &:hover {
+      color: $primary;
     }
   }
   &-content {
     max-height: 0;
-    padding: 0 1em;
-    color: #333;
-    background: white;
+    padding: 0;
     transition: all 0.35s;
   }
   &-close {
@@ -110,25 +113,20 @@ input {
     justify-content: flex-end;
     padding: 1em;
     font-size: 0.75em;
-    background: $primary;
     cursor: pointer;
-    &:hover {
-      background: darken($primary, 10%);
-    }
   }
 }
 
 // :checked
 input:checked {
   + .tab-label {
-    background: darken($primary, 10%);
     &::after {
-      transform: rotate(90deg);
+      transform: rotate(-45deg);
     }
   }
   ~ .tab-content {
     max-height: 100%;
-    padding: 1em;
+    padding: 1rem 0;
   }
 }
 </style>

@@ -72,6 +72,9 @@ export default {
   p + .youtube-wrap,
   h2 + .youtube-wrap,
   h3 + .youtube-wrap,
+  p + .kata-accordions,
+  h2 + .kata-accordions,
+  h3 + .kata-accordions,
   p + .kata-block-links,
   h2 + .kata-block-links,
   h3 + .kata-block-links {
