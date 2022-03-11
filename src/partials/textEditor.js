@@ -12,7 +12,10 @@ const basicTextEditor = (name = 'Text Body', settings) => {
     of: [
       {
         type: 'block',
-        lists: [{ title: 'Bullet', value: 'bullet' }],
+        lists: [
+          { title: 'Bullet', value: 'bullet' },
+          { title: 'Numbered', value: 'number' },
+        ],
         styles: [],
         marks: {
           decorators: [
@@ -76,6 +79,10 @@ const fullTextEditor = (name = 'Text Body', settings, includes) => {
   let customEditor = [
     {
       type: 'block',
+      lists: [
+        { title: 'Bullet', value: 'bullet' },
+        { title: 'Numbered', value: 'number' },
+      ],
       marks: {
         decorators: [
           { title: 'Strong', value: 'strong' },
