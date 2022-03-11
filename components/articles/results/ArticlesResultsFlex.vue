@@ -36,7 +36,7 @@
       </slot>
     </li>
   </transition-group>
-  <p v-else>No results found, try changing your filters</p>
+  <p v-else class="no-results">No results found, try changing your filters</p>
 </template>
 
 <script>

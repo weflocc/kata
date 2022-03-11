@@ -18,7 +18,7 @@
       </slot>
     </li>
   </transition-group>
-  <p v-else>No results found</p>
+  <p v-else class="no-results">No results found</p>
 </template>
 
 <script>

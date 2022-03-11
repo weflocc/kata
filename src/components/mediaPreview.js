@@ -17,7 +17,17 @@ export default {
   name: 'mediaPreview',
   title: 'Media',
   type: 'object',
-  fields: [media()],
+  fields: [
+    {
+      type: 'boolean',
+      name: 'noCrop',
+      title: 'Disable automatic scaling and cropping of this image?',
+      description:
+        'This only applies if you select image or image slideshow from the options below.',
+      initialValue: false,
+    },
+    media(),
+  ],
   preview: {
     select: {
       media: 'media',

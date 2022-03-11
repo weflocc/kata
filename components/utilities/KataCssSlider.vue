@@ -3,7 +3,8 @@
     <div
       ref="css-slider"
       class="css-slider"
-      :class="{ 'two-slides': images.length == 2 }"
+      :class="{ 'two-slides': images.length == 2, 'no-crop': noCrop }"
+      :style="'min-height:' + minHeight"
     >
       <div
         v-for="(item, i) in images"
@@ -15,12 +16,20 @@
         }"
       >
         <KataImage
-          v-if="item"
+          v-if="item && !noCrop"
           data-not-lazy
           :image="item"
           :ratio="ratio"
           :max-width="maxWidth"
           class="h-full max-h-screen object-cover w-full"
+          :sizes="sizes"
+        />
+        <KataImage02
+          v-else-if="item && noCrop"
+          data-not-lazy
+          :image="item"
+          :max-width="maxWidth"
+          class="max-h-screen object-contain w-full"
           :sizes="sizes"
         />
       </div>
@@ -39,6 +48,10 @@ export default {
       type: Number,
       default: 4 / 3,
     },
+    noCrop: {
+      type: Boolean,
+      default: false,
+    },
     maxWidth: {
       type: Number,
       default: 2000,
@@ -53,9 +66,25 @@ export default {
       loading: true,
       animate: false,
       sliderindex: 1,
+      minHeight: '300px',
     }
   },
   mounted() {
+    if (process.client) {
+      let height = 0
+      let slider = this.$refs['css-slider']
+      let images = slider.getElementsByTagName('img')
+      if (images) {
+        images.forEach((element) => {
+          let h = element.clientHeight
+          console.log(element.clientHeight)
+          if (h > height) {
+            height = h
+          }
+        })
+        this.minHeight = height + 'px'
+      }
+    }
     setInterval(() => {
       this.animate = true
       if (this.sliderindex < this.images.length) {
@@ -89,20 +118,30 @@ export default {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    min-height: 50vh;
 
     img {
       max-height: calc(100vh - var(--header-height));
-      object-fit: cover;
-      height: 100%;
-      min-height: 100%;
       object-position: center center;
     }
-    @include lg-up {
-      min-height: 70vh;
+
+    &.no-crop {
+      min-height: 56vw;
       img {
+        width: full;
+        height: auto;
+      }
+    }
+
+    &:not(.no-crop) {
+      min-height: 50vh;
+      img {
+        height: 100%;
         min-height: 100%;
       }
+    }
+
+    @include lg-up {
+      min-height: 70vh;
     }
 
     .slide-image {
@@ -128,12 +167,6 @@ export default {
         width: 100%;
         transition: 0;
         opacity: 1;
-      }
-
-      img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
       }
     }
 

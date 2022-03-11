@@ -28,11 +28,12 @@
       data-not-lazy
     />
     <KataCssSlider
-      v-else-if="media.mediaType == 'slideshow' && media.slideshow && noCrop"
+      v-else-if="media.mediaType == 'slideshow' && media.slideshow"
       :images="media.slideshow"
       class="w-full h-full"
       :sizes="sizes"
       :ratio="ratio"
+      :no-crop="noCrop"
       :max-width="maxWidth"
     />
   </div>
