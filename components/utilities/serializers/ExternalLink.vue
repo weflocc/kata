@@ -1,5 +1,5 @@
 <template>
-  <a :href="href" :target="target ? '_blank' : '_self'">
+  <a :href="href" :target="blank ? '_blank' : '_self'">
     <slot></slot>
   </a>
 </template>
@@ -8,7 +8,7 @@
 export default {
   props: {
     href: { type: String, default: null },
-    target: { type: Boolean, default: true },
+    blank: { type: Boolean, default: true },
   },
 }
 </script>
