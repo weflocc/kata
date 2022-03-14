@@ -5,7 +5,7 @@
       :class="{ active: visible }"
       @click="open"
     >
-      <h3 v-if="title" v-kata-html="title" />
+      <h3 v-if="title" v-kata-html="title" class="label-1" />
       <div class="plus" :class="{ open: visible }"></div>
     </div>
 

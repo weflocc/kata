@@ -1,26 +1,17 @@
 <template>
-  <div class="slice text-10 relative justify-start mx-auto w-r20/24">
-    <h2 v-if="title" class="text-center mb-large">{{ title }}</h2>
-    <div v-if="list" class="mx-auto">
-      <ArticlesTeaseAccordion
-        v-for="item in list"
-        :key="item._key"
-        :title="item.title"
-        :body="item.textBody"
-      />
+  <div class="slice text-10 mx-auto w-r24/24 md:w-r20/24">
+    <h2 v-if="title" v-kata-html="title" class="text-center mb-large" />
+    <div v-if="list" class="accordion-list">
+      <AccordionSlot v-for="item in list" :key="item._key" :title="item.title">
+        <SanityEmbedContent v-if="item.textBody" :blocks="item.textBody" />
+      </AccordionSlot>
     </div>
   </div>
 </template>
 
 <script>
-import { title } from '../shared'
+import { title, list } from '../shared'
 export default {
-  mixins: [title],
-  props: {
-    list: {
-      type: Array,
-      default: () => [],
-    },
-  },
+  mixins: [title, list],
 }
 </script>
