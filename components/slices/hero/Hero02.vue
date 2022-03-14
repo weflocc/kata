@@ -28,13 +28,9 @@
       <h2
         v-if="title && superHeading"
         v-kata-html="title"
-        class="heading-1 mt-medium"
+        class="heading-1 mb-medium"
       />
-      <SanityEmbedContent
-        v-if="textBody"
-        :blocks="textBody"
-        class="mt-medium"
-      />
+      <SanityEmbedContent v-if="textBody" :blocks="textBody" />
       <KataLinks v-if="links" :links="links" class="links mt-medium" />
     </div>
   </div>
