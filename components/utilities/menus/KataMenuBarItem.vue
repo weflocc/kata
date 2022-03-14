@@ -22,7 +22,7 @@
       :to="getSingleLink(singleLink)"
       :href="getSingleLink(singleLink)"
       :target="getLinkComponent(singleLink) == 'a' ? '_blank' : '_self'"
-      @click.native="getLinkComponent(singleLink) == 'a' ? onClick() : ''"
+      @click.native="getLinkComponent(singleLink) != 'div' ? onClick() : ''"
       @click="getLinkComponent(singleLink) != 'a' ? toggleChild() : ''"
       v-html="title ? title : linkTitle(singleLink).title"
     />
@@ -40,7 +40,7 @@
         v-for="child in list"
         :key="child._key"
         v-bind="child"
-        :click-fn="clickFn"
+        @clickFn="clickFn"
       />
     </ul>
   </li>
@@ -58,12 +58,6 @@ export default {
     singleLink: {
       type: Object,
       default: null,
-    },
-    clickFn: {
-      type: Function,
-      default: () => {
-        // console.log('no click function available')
-      },
     },
   },
   methods: {
@@ -103,7 +97,7 @@ export default {
         let dropdown = document.querySelector('.child-menu.open')
         if (dropdown) dropdown.classList.remove('open')
       }
-      this.clickFn()
+      this.$emit('clickFn')
     },
     linkTitle(item) {
       if (item?.internalLink?._ref) {

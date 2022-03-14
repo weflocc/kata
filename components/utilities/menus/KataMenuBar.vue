@@ -10,7 +10,7 @@
             :key="item._key"
             v-bind="item"
             :is-mobile="isMobile"
-            :click-fn="clickFn"
+            @clickFn="clickFn"
           />
         </ul>
       </nav>
@@ -30,12 +30,6 @@ export default {
       type: Array,
       required: true,
     },
-    clickFn: {
-      type: Function,
-      default: () => {
-        console.log('No click function provided')
-      },
-    },
   },
   data: () => ({
     isMobile: false,
@@ -54,6 +48,9 @@ export default {
   methods: {
     mq() {
       this.isMobile = window.matchMedia('(max-width: 899px)').matches
+    },
+    clickFn() {
+      this.$emit('clickFn')
     },
   },
 }
