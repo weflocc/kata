@@ -77,7 +77,7 @@ export default {
       if (images) {
         images.forEach((element) => {
           let h = element.clientHeight
-          console.log(element.clientHeight)
+          // console.log('css slider height', element.clientHeight)
           if (h > height) {
             height = h
           }
