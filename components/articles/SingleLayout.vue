@@ -9,6 +9,7 @@
     <div class="simple-hero mb-large">
       <div class="md:w-r16/24 md:mx-r2/12 w-r24/24 mx-auto mb-large">
         <h1 v-kata-html="c.title" class="text-center" />
+        <slot name="belowTitle"></slot>
       </div>
       <div
         class="hero-image sm:w-r24/24 sm:mx-auto px-container-margin sm:px-0 w-full"
