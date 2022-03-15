@@ -1,7 +1,7 @@
 <template>
   <div class="single-layout">
     <div
-      v-if="indexPath && backText"
+      v-if="indexPath && backText && !noTopBack"
       class="back-btn mt-small mb-large mx-container-margin w-r24/24"
     >
       <nuxt-link :to="indexPath">{{ backText }}</nuxt-link>
@@ -66,7 +66,7 @@
     </div>
 
     <div
-      v-if="indexPath && backText"
+      v-if="indexPath && backText && !noBottomBack"
       class="text-center px-container-margin my-slice-half"
     >
       <div class="back-btn">
@@ -92,6 +92,14 @@ export default {
       default: 'Back',
     },
     noCrop: {
+      type: Boolean,
+      default: false,
+    },
+    noBottomBack: {
+      type: Boolean,
+      default: false,
+    },
+    noTopBack: {
       type: Boolean,
       default: false,
     },
