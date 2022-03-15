@@ -57,7 +57,7 @@
           <KataImage
             v-if="item.image"
             :image="item.image"
-            :ratio="4 / 3"
+            :ratio="ratio"
             class="h-full object-cover w-full"
             :sizes="sizes"
           />
@@ -89,6 +89,10 @@ export default {
     sizes: {
       type: String,
       default: '',
+    },
+    ratio: {
+      type: Number,
+      default: 4 / 3,
     },
   },
   data() {
