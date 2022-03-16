@@ -1,4 +1,5 @@
 <template>
+  <!-- add class cursor-trigger to any elements you want to make the cursor have a hover effect on -->
   <div id="cursor" ref="cursor" />
 </template>
 
@@ -62,7 +63,7 @@ export default {
       if (process.client && !this.isTouchDevice()) {
         let cursor = this.$refs.cursor
         let links = document.querySelectorAll(
-          'a, button, input, textarea, select'
+          'a, button, input, textarea, select, .cursor-trigger'
         )
         if (cursor && links) {
           for (let index = 0; index < links.length; index++) {
