@@ -34,10 +34,6 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
-      "path": "components/seoMeta"
-    },
-    {
-      "implements": "part:@sanity/base/schema-type",
       "path": "components/youtube"
     },
     {

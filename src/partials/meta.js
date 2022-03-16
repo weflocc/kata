@@ -1,20 +1,3 @@
-const metaFields = {
-  name: 'meta',
-  title: 'Meta',
-  options: {
-    collapsed: true,
-    collapsible: true,
-  },
-  type: 'object',
-  fields: [
-    {
-      name: 'seoMeta',
-      type: 'seoMeta',
-      title: 'SEO & Meta',
-    },
-  ],
-}
-
 const title = {
   name: 'title',
   title: 'Title',
@@ -87,8 +70,27 @@ const metaDescription = {
   rows: 3,
 }
 
+const metaFields = {
+  name: 'meta',
+  title: 'SEO & Meta',
+  options: {
+    collapsed: true,
+    collapsible: true,
+  },
+  type: 'object',
+  fields: [
+    {
+      type: 'string',
+      name: 'metaTitle',
+      title: 'Prepend Meta Title',
+    },
+    metaDescription,
+    sharingImage,
+    schemaOrg,
+  ],
+}
+
 export {
-  metaFields,
   title,
   slug,
   hiddenTitle,
@@ -97,4 +99,5 @@ export {
   sharingImage,
   metaTitle,
   metaDescription,
+  metaFields,
 }

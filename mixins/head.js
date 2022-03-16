@@ -8,45 +8,45 @@ export default {
     }
 
     if (this.c) {
-      if (this.c.seoMeta && this.c.seoMeta.htmlTitle) {
-        head.title = this.c.seoMeta.htmlTitle
+      if (this.c.meta && this.c.meta.metaTitle) {
+        head.title = this.c.meta.metaTitle
       } else {
         head.title = this.c.title
       }
 
       head.meta = []
-      if (this.c.seoMeta && this.c.seoMeta.metaDescription) {
+      if (this.c.meta && this.c.meta.metaDescription) {
         head.meta.push(
           {
             hid: 'description',
             name: 'description',
-            content: this.c.seoMeta.metaDescription
-              ? this.c.seoMeta.metaDescription
+            content: this.c.meta.metaDescription
+              ? this.c.meta.metaDescription
               : undefined,
           },
           {
             hid: 'twitter:description',
             name: 'twitter:description',
-            content: this.c.seoMeta.metaDescription
-              ? this.c.seoMeta.metaDescription
+            content: this.c.meta.metaDescription
+              ? this.c.meta.metaDescription
               : undefined,
           },
           {
             hid: 'og:description',
             property: 'og:description',
-            content: this.c.seoMeta.metaDescription
-              ? this.c.seoMeta.metaDescription
+            content: this.c.meta.metaDescription
+              ? this.c.meta.metaDescription
               : undefined,
           }
         )
       }
 
-      if (this.c.seoMeta && this.c.seoMeta.socialImage) {
+      if (this.c.meta && this.c.meta.socialImage) {
         head.meta.push(
           {
             hid: 'twitter:image',
             name: 'twitter:image',
-            content: this.$imgUrl(this.c.seoMeta.socialImage).url(),
+            content: this.$imgUrl(this.c.meta.socialImage).url(),
           },
           {
             hid: 'twitter:image:alt',
@@ -56,12 +56,12 @@ export default {
           {
             hid: 'og:image',
             property: 'og:image',
-            content: this.$imgUrl(this.c.seoMeta.socialImage).url(),
+            content: this.$imgUrl(this.c.meta.socialImage).url(),
           },
           {
             hid: 'og:image:secure_url',
             property: 'og:image:secure_url',
-            content: this.$imgUrl(this.c.seoMeta.socialImage).url(),
+            content: this.$imgUrl(this.c.meta.socialImage).url(),
           },
           {
             hid: 'twitter:title',
@@ -71,7 +71,7 @@ export default {
           {
             hid: 'twitter:image',
             name: 'twitter:image',
-            content: this.$imgUrl(this.c.seoMeta.socialImage).url(),
+            content: this.$imgUrl(this.c.meta.socialImage).url(),
           },
           {
             hid: 'twitter:image:alt',
@@ -86,12 +86,12 @@ export default {
           {
             hid: 'og:image',
             property: 'og:image',
-            content: this.$imgUrl(this.c.seoMeta.socialImage).url(),
+            content: this.$imgUrl(this.c.meta.socialImage).url(),
           },
           {
             hid: 'og:image:secure_url',
             property: 'og:image:secure_url',
-            content: this.$imgUrl(this.c.seoMeta.socialImage).url(),
+            content: this.$imgUrl(this.c.meta.socialImage).url(),
           },
           {
             hid: 'og:image:alt',
@@ -101,12 +101,12 @@ export default {
         )
       }
 
-      if (this.c.seoMeta && this.c.seoMeta.schemaOrg) {
+      if (this.c.meta && this.c.meta.schemaOrg) {
         // https://mhagemann.medium.com/how-to-add-structured-json-ld-data-to-nuxt-js-8bb5f7c8a2d
         head.__dangerouslyDisableSanitizers = ['script']
         head.script = [
           {
-            innerHTML: this.c.seoMeta.schemaOrg,
+            innerHTML: this.c.meta.schemaOrg,
             type: 'application/ld+json',
           },
         ]
