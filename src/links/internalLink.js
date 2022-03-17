@@ -21,6 +21,8 @@ export default {
       name: 'anchor',
       type: 'string',
       title: 'Anchor link or Query string',
+      instructions:
+        'Please set internal link to the page you want to anchor on, even if that is the same page as you are currently on.',
     },
   ],
   preview: {

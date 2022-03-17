@@ -4,7 +4,7 @@
       v-for="link in links"
       v-bind="link"
       :key="link._key"
-      class="inline-block mb-small fade-up mr-small"
+      class="inline-block mb-small fade-up kata-link mr-small"
     />
   </div>
 </template>
@@ -19,3 +19,9 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.kata-link:first-child:last-child {
+  margin-right: 0;
+}
+</style>
