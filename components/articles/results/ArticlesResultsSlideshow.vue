@@ -55,8 +55,8 @@
           }"
         >
           <KataImage
-            v-if="item.image"
-            :image="item.image"
+            v-if="item.thumbnailImage || item.image"
+            :image="item.thumbnailImage || item.image"
             :ratio="ratio"
             class="h-full object-cover w-full"
             :sizes="sizes"
