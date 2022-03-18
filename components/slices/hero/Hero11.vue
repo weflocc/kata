@@ -3,7 +3,9 @@
     <div class="top mb-slice-half w-r24/24 mx-auto">
       <div class="left mb-large md:mb-0">
         <h1 v-if="title" v-kata-html="title" />
-        <a href="#main" class="side-link">{{ sideLinkText }}</a>
+        <a v-if="sideLinkText" href="#main" class="side-link">
+          {{ sideLinkText }}
+        </a>
       </div>
       <div class="right">
         <SanityEmbedContent v-if="textBody" :blocks="textBody" />
