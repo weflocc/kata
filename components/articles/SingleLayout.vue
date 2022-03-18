@@ -65,7 +65,7 @@
     <div class="single-layout-content">
       <SanityEmbedContent v-if="c.textBody" :blocks="c.textBody" />
     </div>
-
+    <slot name="post-appendage"></slot>
     <div
       v-if="indexPath && backText && !noBottomBack"
       class="text-center px-container-margin my-slice-half"
