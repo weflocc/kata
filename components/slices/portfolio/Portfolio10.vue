@@ -101,7 +101,7 @@ export default {
   position: relative;
 
   .portfolio-10-slider {
-    padding-left: calc(var(--r1_12) - var(--spacing-small));
+    padding-left: calc(var(--r2_24) - var(--spacing-small));
   }
   .carousel-nav {
     position: absolute;

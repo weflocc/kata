@@ -37,7 +37,9 @@
           <div v-else class="background bg-primary" />
           <div class="overlay">
             <div class="title">
-              <p v-if="autoNumber" class="heading-1">{{ '0' + (index + 1) }}</p>
+              <p v-if="autoNumber" class="heading-1">
+                {{ titlePrefix + (index + 1) }}
+              </p>
               <h3 v-if="item.title" v-kata-html="item.title" class="label-1" />
             </div>
             <div class="body">
@@ -62,6 +64,10 @@ export default {
     autoNumber: {
       type: Boolean,
       default: true,
+    },
+    titlePrefix: {
+      type: String,
+      default: '0',
     },
   },
   data() {
