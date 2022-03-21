@@ -61,7 +61,9 @@
 </template>
 
 <script>
-// Copy into your local repository and uncomment the relevant lines!
+// follow instructions here: https://made-agency.atlassian.net/wiki/spaces/madedev/pages/1843429417/Add+Algolia+search+to+a+site
+// Copy this file into your local repository and uncomment the relevant lines!
+
 // yarn add vue-instantsearch
 // yarn add algoliasearch
 import SearchIcon from '~/assets/svgs/search.svg?inline'
@@ -86,17 +88,17 @@ export default {
   },
   props: {
     crawlerId: {
-      // found here - make sure you are on the right project https://www.algolia.com/apps/LB6R4RK6YE/api-keys/all
+      // found here - make sure you are on the right project https://www.algolia.com/apps/LB6R4RK6YE/api-keys/all (login with netlify)
       type: String,
       required: true,
     },
     adminApiKey: {
-      // found here - make sure you are on the right project https://www.algolia.com/apps/LB6R4RK6YE/api-keys/all
+      // found here - make sure you are on the right project https://www.algolia.com/apps/LB6R4RK6YE/api-keys/all (login with netlify)
       type: String,
       required: true,
     },
     indexName: {
-      // index name from https://www.algolia.com/apps/LB6R4RK6YE/explorer/browse indices
+      // index name from https://crawler.algolia.com/admin/crawlers/?sort=status&order=ASC&limit=20 indices (login with netlify)
       type: String,
       required: true,
     },
@@ -133,17 +135,15 @@ export default {
 .search-wrap {
   width: 30px;
   height: 30px;
+  @apply flex items-center justify-center;
+
+  svg path {
+    fill: currentColor;
+  }
 }
 
 .search-lightbox {
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  left: 0;
-  top: 0;
+  @apply flex justify-start items-start fixed w-full h-full left-0 top-0;
   z-index: 1000;
   background: rgba($primary, 0.98);
   transition: 1s ease;

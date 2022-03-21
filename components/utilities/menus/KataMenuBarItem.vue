@@ -17,7 +17,6 @@
       class="nav-link inline-block lg:pointer-events-all"
       :class="{
         'cursor-pointer': list && list.length && !isMobile,
-        'is-button btn-large': showAsButton,
       }"
       :to="getSingleLink(singleLink)"
       :href="getSingleLink(singleLink)"
