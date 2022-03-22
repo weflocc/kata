@@ -130,7 +130,7 @@ export default {
       @apply w-r24/24 mx-auto;
     }
   }
-  .content-blocks .block {
+  .content-blocks .block:not(.textAndImage) {
     @apply md:w-r18/24 lg:w-r14/24 w-r24/24 mx-auto;
   }
 }

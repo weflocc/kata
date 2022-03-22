@@ -1,24 +1,31 @@
 <template>
-  <table class="kata-table table-auto">
-    <thead>
-      <tr>
-        <th v-for="cell in header.cells" :key="cell">{{ cell }}</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="row in body" :key="row._key">
-        <td v-for="cell in row.cells" :key="cell" v-kata-html="cell" />
-      </tr>
-    </tbody>
-  </table>
+  <div class="kata-table-wrap">
+    <h2 v-if="title" v-kata-html="title" class="label-1 mb-small" />
+    <table class="kata-table table-auto w-full">
+      <thead>
+        <tr>
+          <th v-for="cell in header.cells" :key="cell">{{ cell }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="row in body" :key="row._key">
+          <td v-for="cell in row.cells" :key="cell" v-kata-html="cell" />
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
 
 <script>
 export default {
   props: {
+    title: {
+      type: String,
+      default: '',
+    },
     table: {
       type: Object,
-      default: () => {},
+      default: null,
     },
   },
   computed: {
@@ -46,9 +53,8 @@ th {
   border-left: 1px solid #cbcbcb; /*  inner column border */
   border-width: 0 0 0 1px;
   font-size: inherit;
-  margin: 0;
   overflow: visible; /* to make ths where the title is really long work */
-  @apply p-small;
+  @apply p-small m-0;
 }
 
 td:first-child,

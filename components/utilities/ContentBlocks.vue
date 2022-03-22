@@ -1,6 +1,11 @@
 <template>
   <div v-if="blocks" class="content-blocks">
-    <div v-for="item in blocks" :key="item._key" class="block mb-slice-half" :class="item._type">
+    <div
+      v-for="item in blocks"
+      :key="item._key"
+      class="block mb-slice-half"
+      :class="item._type"
+    >
       <component :is="getType(item)" v-bind="bindData(item)" />
     </div>
   </div>
@@ -27,14 +32,13 @@ export default {
   },
   methods: {
     getType(item) {
-      console.log(item)
       switch (item._type) {
         case 'paragraph':
           return 'SanityEmbedContent'
         case 'buttons':
           return 'BlockLinks'
-        // case 'table':
-        //   return 'TableField'
+        case 'table':
+          return 'TableField'
         case 'accordion':
           return 'AccordionBlock'
         case 'testimonial04':
@@ -51,7 +55,7 @@ export default {
       if (item._type == 'paragraph') {
         return { blocks: item.textBody }
       } else if (item._type == 'media') {
-        return { media: item }
+        return { media: item, noCrop: true }
       } else {
         return item
       }
@@ -66,7 +70,7 @@ export default {
     @apply w-r24/24 mx-auto;
   }
   .feature-1 {
-width: 100%;
+    width: 100%;
   }
 }
 </style>
