@@ -11,6 +11,7 @@ import BlockLinks from './serializers/BlockLinks.vue'
 import FileLink from './serializers/FileLink.vue'
 import InternalLink from './serializers/InternalLink.vue'
 import ExternalLink from './serializers/ExternalLink.vue'
+import AnchorLink from './serializers/AnchorLink.vue'
 import TableField from './serializers/TableField.vue'
 import Accordion from './serializers/Accordion.vue'
 import Testimonial04 from './serializers/Testimonial04Serializer.vue'
@@ -39,6 +40,7 @@ export default {
           internalLink: InternalLink,
           link: ExternalLink,
           file: FileLink,
+          anchor: AnchorLink,
         },
       },
     }

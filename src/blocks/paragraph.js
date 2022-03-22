@@ -1,5 +1,5 @@
 import config from 'config:@weflocc/kata'
-import { BiLinkExternal, BiLink, BiParagraph } from 'react-icons/bi'
+import { BiLinkExternal, BiLink, BiParagraph, BiAnchor } from 'react-icons/bi'
 import { GoFileSymlinkFile } from 'react-icons/go'
 
 const paragraph = {
@@ -80,6 +80,23 @@ const paragraph = {
                     type: 'file',
                     title: 'File',
                     to: config.allTypes,
+                  },
+                ],
+              },
+              {
+                name: 'anchor',
+                type: 'object',
+                title: 'Anchor link',
+                blockEditor: {
+                  icon: BiAnchor,
+                },
+                fields: [
+                  {
+                    type: 'string',
+                    name: 'anchor',
+                    title: 'Anchor',
+                    description:
+                      "An anchor is the id of a section on this page. On a page builder, each block has the id 'block-1', 'block-2', etc",
                   },
                 ],
               },

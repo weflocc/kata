@@ -1,5 +1,5 @@
 import config from 'config:@weflocc/kata'
-import { BiLinkExternal, BiLink, BiTable } from 'react-icons/bi'
+import { BiLinkExternal, BiLink, BiAnchor } from 'react-icons/bi'
 import { GoFileSymlinkFile } from 'react-icons/go'
 const camelCase = require('lodash.camelcase')
 
@@ -145,6 +145,23 @@ const fullTextEditor = (name = 'Text Body', includes, settings) => {
                 type: 'file',
                 title: 'File',
                 to: config.allTypes,
+              },
+            ],
+          },
+          {
+            name: 'anchor',
+            type: 'object',
+            title: 'Anchor link',
+            blockEditor: {
+              icon: BiAnchor,
+            },
+            fields: [
+              {
+                type: 'string',
+                name: 'anchor',
+                title: 'Anchor',
+                description:
+                  'Without the #. An anchor is the id of a section on this page.',
               },
             ],
           },
