@@ -1,7 +1,8 @@
 <template>
   <div v-if="blocks" class="content-blocks">
     <div
-      v-for="item in blocks"
+      v-for="(item, i) in blocks"
+      :id="'block-' + (i + 1)"
       :key="item._key"
       class="block mb-slice-half"
       :class="item._type"
