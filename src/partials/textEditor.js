@@ -75,7 +75,7 @@ const basicTextEditor = (name = 'Text Body', settings) => {
   }
 }
 
-const fullTextEditor = (name = 'Text Body', settings, includes) => {
+const fullTextEditor = (name = 'Text Body', includes, settings) => {
   let customEditor = [
     {
       type: 'block',

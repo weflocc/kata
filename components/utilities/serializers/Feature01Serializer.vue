@@ -1,6 +1,7 @@
 <template>
   <div
-    class="slice feature-1 feature-1-serializer w-r24/24 mx-auto flex flex-col"
+    v-if="feature"
+    class="slice feature-1 feature-1-serializer flex flex-col w-full"
     :class="{
       'md:flex-row-reverse reversed': reversed,
       'md:flex-row ': !reversed,
@@ -71,24 +72,6 @@ export default {
       type: Boolean,
       default: false,
     },
-  },
-  // data() {
-  //   return {
-  //     serializers: {
-  //       types: {
-  //         image: Image,
-  //         link: BlockLinks,
-  //       },
-  //       marks: {
-  //         internalLink: InternalLink,
-  //         link: ExternalLink,
-  //         file: FileLink,
-  //       },
-  //     },
-  //   }
-  // },
-  mounted() {
-    console.log('feature01', this.feature)
   },
 }
 </script>

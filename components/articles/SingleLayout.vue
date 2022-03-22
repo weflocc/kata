@@ -63,7 +63,10 @@
     </div>
 
     <div class="single-layout-content">
+      <!-- For basic blogs -->
       <SanityEmbedContent v-if="c.textBody" :blocks="c.textBody" />
+      <!-- Complex pages should be page builder -->
+      <ContentBlocks v-if="c.contentBlocks" :blocks="c.contentBlocks" />
     </div>
     <slot name="post-appendage"></slot>
     <div
@@ -123,6 +126,12 @@ export default {
     > .testimonials-4-serializer {
       @apply md:w-r18/24 lg:w-r14/24 w-r24/24 mx-auto;
     }
+    > .feature-1-serializer {
+      @apply w-r24/24 mx-auto;
+    }
+  }
+  .content-blocks .block {
+    @apply md:w-r18/24 lg:w-r14/24 w-r24/24 mx-auto;
   }
 }
 </style>

@@ -6,6 +6,7 @@ import {
 } from './testimonialFields'
 import { defaultOptions, links } from 'part:@weflocc/kata/partials/index'
 import { superHeading, title } from '../shared'
+import { BiChat } from 'react-icons/bi'
 
 const testimonial01 = {
   name: 'testimonial01',
@@ -13,6 +14,14 @@ const testimonial01 = {
   title: 'Testimonial #1',
   options: defaultOptions,
   fields: [title, testimonialsImage],
+  preview: {
+    prepare() {
+      return {
+        title: 'Testimonials',
+        media: BiChat,
+      }
+    },
+  },
 }
 
 const testimonial02 = {
@@ -21,6 +30,14 @@ const testimonial02 = {
   title: 'Testimonial #2',
   options: defaultOptions,
   fields: [testimonialsImage],
+  preview: {
+    prepare() {
+      return {
+        title: 'Testimonials',
+        media: BiChat,
+      }
+    },
+  },
 }
 
 const testimonial03 = {
@@ -29,6 +46,14 @@ const testimonial03 = {
   title: 'Testimonial #3',
   options: defaultOptions,
   fields: [title, testimonials],
+  preview: {
+    prepare() {
+      return {
+        title: 'Testimonials',
+        media: BiChat,
+      }
+    },
+  },
 }
 
 const testimonial04 = {
@@ -37,6 +62,14 @@ const testimonial04 = {
   title: 'Testimonial #4',
   options: defaultOptions,
   fields: [testimonials],
+  preview: {
+    prepare() {
+      return {
+        title: 'Testimonials',
+        media: BiChat,
+      }
+    },
+  },
 }
 
 const testimonial05 = {
@@ -45,6 +78,14 @@ const testimonial05 = {
   title: 'Testimonial #5',
   options: defaultOptions,
   fields: [quote, cite, links()],
+  preview: {
+    prepare() {
+      return {
+        title: 'Testimonials',
+        media: BiChat,
+      }
+    },
+  },
 }
 
 export {

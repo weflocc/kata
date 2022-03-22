@@ -7,8 +7,6 @@
 </template>
 
 <script>
-import Youtube from './serializers/Youtube.vue'
-import Image from './serializers/SanityImage.vue'
 import BlockLinks from './serializers/BlockLinks.vue'
 import FileLink from './serializers/FileLink.vue'
 import InternalLink from './serializers/InternalLink.vue'
@@ -30,8 +28,6 @@ export default {
     return {
       serializers: {
         types: {
-          youtube: Youtube,
-          image: Image,
           buttons: BlockLinks,
           tableField: TableField,
           accordion: Accordion,
