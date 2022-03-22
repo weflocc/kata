@@ -160,22 +160,30 @@ const fullTextEditor = (name = 'Text Body', settings, includes) => {
       type: 'mediaPreview',
     },
     {
-      type: 'accordion',
-    },
-    {
       type: 'buttons',
     },
-    {
-      type: 'tableField',
-    },
-    {
-      type: 'testimonials',
-    },
   ]
-  if (includes && (includes.feature01 || includes.textAndImage)) {
-    customEditor.push({
-      type: 'textAndImage',
-    })
+  if (includes) {
+    if (includes.feature01 || includes.textAndImage) {
+      customEditor.push({
+        type: 'textAndImage',
+      })
+    }
+    if (includes.accordion || includes.dropdown) {
+      customEditor.push({
+        type: 'accordion',
+      })
+    }
+    if (includes.tableField || includes.table) {
+      customEditor.push({
+        type: 'tableField',
+      })
+    }
+    if (includes.testimonials || includes.quotes) {
+      customEditor.push({
+        type: 'testimonials',
+      })
+    }
   }
   return {
     title: name,
