@@ -7,7 +7,7 @@
       class="block mb-slice-half"
       :class="item._type"
     >
-      <component :is="getType(item)" v-bind="bindData(item)" />
+      <component :is="getType(item)" v-bind="bindData(item)" class="fade-up" />
     </div>
   </div>
 </template>
