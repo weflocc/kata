@@ -123,7 +123,8 @@ export default {
     > .media,
     > .kata-table,
     > .kata-accordions,
-    > .testimonials-4-serializer {
+    > .testimonials-4-serializer,
+    > .standout-text {
       @apply md:w-r18/24 lg:w-r14/24 w-r24/24 mx-auto;
     }
     > .feature-1-serializer {

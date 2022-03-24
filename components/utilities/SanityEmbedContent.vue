@@ -17,6 +17,7 @@ import Accordion from './serializers/Accordion.vue'
 import Testimonial04 from './serializers/Testimonial04Serializer.vue'
 import KataMediaSerializer from './serializers/KataMediaSerializer.vue'
 import Feature01Serializer from './serializers/Feature01Serializer.vue'
+import StandoutText from './serializers/StandoutText.vue'
 
 export default {
   props: {
@@ -35,6 +36,7 @@ export default {
           testimonials: Testimonial04,
           mediaPreview: KataMediaSerializer,
           textAndImage: Feature01Serializer,
+          standoutText: StandoutText,
         },
         marks: {
           internalLink: InternalLink,

@@ -1,6 +1,7 @@
 import config from 'config:@weflocc/kata'
 import { BiLinkExternal, BiLink, BiAnchor } from 'react-icons/bi'
 import { GoFileSymlinkFile } from 'react-icons/go'
+import { standoutText } from '../components/standoutText'
 const camelCase = require('lodash.camelcase')
 
 const basicTextEditor = (name = 'Text Body', settings) => {
@@ -200,6 +201,9 @@ const fullTextEditor = (name = 'Text Body', includes, settings) => {
       customEditor.push({
         type: 'testimonials',
       })
+    }
+    if (includes.standoutText) {
+      customEditor.push(standoutText)
     }
   }
   return {
