@@ -1,14 +1,14 @@
 <template>
   <div class="article-results-single">
-    <div class="md:flex md:justify-between">
+    <div v-if="item" class="md:flex md:justify-between">
       <div class="md:w-1/2 image">
         <transition name="fade" mode="out-in">
           <KataImage
-            v-if="articles[activeArticle] && articles[activeArticle].image"
-            :image="articles[activeArticle].image"
+            v-if="item.thumbnailImage || item.image"
+            :image="item.thumbnailImage || item.image"
             sizes="50vw"
             :max-width="1000"
-            :ratio="4 / 3"
+            :ratio="ratio"
             class="h-full w-full object-cover"
           />
         </transition>
@@ -16,25 +16,36 @@
       <div
         class="md:w-1/2 px-r2/24 md:pl-large py-slice-half md:flex md:items-center"
       >
-        <nuxt-link :to="getLink(item._id)" class="block text-center">
-          <p
-            v-if="item[categoryField] && item[categoryField].length"
-            class="label-2 mb-small"
-          >
-            <span v-for="(tag, x) in item[categoryField]" :key="tag._key">
-              {{
-                $store.getters['references/getFieldByRef']({
-                  field: 'title',
-                  ref: tag._ref,
-                })
-              }}
-              <span v-if="x != item[categoryField].length - 1">,</span>
-            </span>
-          </p>
-          <p v-else class="label-2 mb-small">Featured</p>
+        <nuxt-link
+          :to="getLink(item._id)"
+          class="block w-full"
+          :title="item.title"
+        >
+          <slot name="aboveTitle" :item="item">
+            <p
+              v-if="
+                categoryField &&
+                item[categoryField] &&
+                item[categoryField].length
+              "
+              class="label-2 mb-small"
+            >
+              <span v-for="(tag, x) in item[categoryField]" :key="tag._key">
+                {{
+                  $store.getters['references/getFieldByRef']({
+                    field: 'title',
+                    ref: tag._ref,
+                  })
+                }}
+                <span v-if="x != item[categoryField].length - 1">,</span>
+              </span>
+            </p>
+            <p v-else class="label-2 mb-small">Featured</p>
+          </slot>
           <h3 class="heading-3">
             {{ item.title }}
           </h3>
+          <slot name="belowTitle" :item="item"></slot>
           <p class="btn-secondary read-more-btn mt-medium inline-block">
             Read More
           </p>
@@ -51,45 +62,21 @@ export default {
       type: Array,
       required: true,
     },
-    interval: {
-      type: Number,
-      default: 5000,
-    },
     categoryField: {
       type: String,
       default: 'category',
     },
-  },
-  data() {
-    return {
-      activeArticle: 0,
-      timer: null,
-    }
+    ratio: {
+      type: Number,
+      default: 4 / 3,
+    },
   },
   computed: {
-    imgSrc() {
-      return this.articles[this.activeArticle].image
-    },
     item() {
-      return this.articles[this.activeArticle]
+      return this.articles ? this.articles[0] : null
     },
-  },
-  mounted() {
-    this.timer = setInterval(() => {
-      this.next()
-    }, this.interval)
-  },
-  beforeDestroy() {
-    clearInterval(this.timer)
   },
   methods: {
-    next() {
-      if (this.activeArticle + 1 < this.articles.length) {
-        this.activeArticle += 1
-      } else {
-        this.activeArticle = 0
-      }
-    },
     getLink(ref) {
       const link = this.$store.getters['references/getLinkFromReference'](ref)
       return link ? link.path : '/'
