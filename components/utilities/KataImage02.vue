@@ -6,8 +6,8 @@
     :sizes="sizes"
     :class="{ loaded: loaded }"
     :width="maxWidth"
-    height="auto"
-    class="kata-image"
+    :height="maxWidth"
+    class="kata-image h-auto"
     :alt="alt"
     @load="loaded = true"
   />
