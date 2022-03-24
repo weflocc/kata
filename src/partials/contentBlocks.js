@@ -1,5 +1,6 @@
 const camelCase = require('lodash.camelcase')
 import { BiLink } from 'react-icons/bi'
+import { BsCardText } from 'react-icons/bs'
 import { media, links } from './index'
 import { accordion } from '../blocks/accordion'
 import { paragraph } from '../blocks/paragraph'
@@ -49,6 +50,39 @@ const contentBlocks = (name = 'Content Blocks', includes) => {
         name: 'testimonial04',
         title: 'Testimonials',
         type: 'testimonial04',
+      })
+
+    if (includes.standoutText)
+      customEditor.push({
+        name: 'standoutText',
+        type: 'object',
+        fields: [
+          {
+            type: 'text',
+            name: 'text',
+            title: 'Standout text',
+          },
+          {
+            name: 'cite',
+            title: 'Cite',
+            type: 'string',
+            instructions: 'Underneath the standout text',
+          },
+        ],
+        preview: {
+          select: {
+            text: 'text',
+            cite: 'cite',
+          },
+          prepare(selection) {
+            const { text, cite } = selection
+            return {
+              title: text,
+              subtitle: cite,
+              media: BsCardText,
+            }
+          },
+        },
       })
   }
   return {

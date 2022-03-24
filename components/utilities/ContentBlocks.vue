@@ -48,6 +48,8 @@ export default {
           return 'KataMedia'
         case 'textAndImage':
           return 'Feature01Serializer'
+        case 'standoutText':
+          return 'StandoutText'
         default:
           return 'div'
       }
