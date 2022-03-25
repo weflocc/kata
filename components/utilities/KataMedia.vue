@@ -7,6 +7,7 @@
       :ratio="ratio"
       :max-width="maxWidth"
       class="h-full w-full object-cover"
+      :show-loader="showLoader"
     />
     <KataImage02
       v-if="media.mediaType == 'image' && media.image && noCrop"
@@ -14,6 +15,7 @@
       :sizes="sizes"
       :max-width="maxWidth"
       class="max-w-full"
+      :show-loader="showLoader"
     />
     <!-- TODO: readd mobile video/image -->
     <KataVideo
@@ -58,6 +60,10 @@ export default {
       default: '100vw',
     },
     noCrop: {
+      type: Boolean,
+      default: false,
+    },
+    showLoader: {
       type: Boolean,
       default: false,
     },

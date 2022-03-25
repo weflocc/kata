@@ -13,12 +13,25 @@
     loading="lazy"
     @load="imgLoaded"
   /> -->
+  <div v-if="showLoader" class="image-with-loader" :class="{ loaded: loaded }">
+    <img
+      v-if="imageIsSet"
+      :srcSet="srcSet"
+      :src="src"
+      :sizes="sizes"
+      :class="{ loaded: loaded }"
+      :width="maxWidth"
+      :height="maxWidth * ratio"
+      class="kata-image"
+      :alt="alt"
+      @load="imgLoaded"
+    />
+  </div>
   <img
-    v-if="imageIsSet"
+    v-else-if="imageIsSet"
     :srcSet="srcSet"
     :src="src"
     :sizes="sizes"
-    :class="{ loaded: loaded }"
     :width="maxWidth"
     :height="maxWidth * ratio"
     class="kata-image"
@@ -34,7 +47,7 @@ export default {
       // required: true,
       default: () => {},
     },
-    loader: {
+    showLoader: {
       type: Boolean,
       default: false,
     },
@@ -53,11 +66,7 @@ export default {
       default: '100vw',
     },
   },
-  data() {
-    return {
-      loaded: false,
-    }
-  },
+  data: () => ({ loaded: false }),
   computed: {
     imageIsSet() {
       return this.image?.asset?._ref
@@ -116,6 +125,9 @@ export default {
     },
   },
   methods: {
+    imgLoaded() {
+      this.loaded = true
+    },
     increment(maxWidth) {
       const fiths = Math.floor(maxWidth / 5)
       let increment = fiths > 200 ? 200 : fiths
@@ -135,6 +147,22 @@ img.kata-image.lazyLoad {
   opacity: 0;
   &.isLoaded {
     opacity: 1;
+  }
+}
+.image-with-loader {
+  position: relative;
+
+  &:after {
+    content: '';
+    @apply bg-white w-full h-full left-0 top-header-height fixed transition-default;
+    pointer-events: none;
+    opacity: 1;
+  }
+
+  &.loaded {
+    &:after {
+      opacity: 0;
+    }
   }
 }
 </style>

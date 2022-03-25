@@ -20,7 +20,7 @@
             :media="c.media"
             :ratio="2 / 1"
             :max-width="2000"
-            :loader="true"
+            :show-loader="true"
             :no-crop="noCrop"
           />
           <KataImage
@@ -28,12 +28,13 @@
             :image="c.image"
             :ratio="2 / 1"
             :max-width="2000"
-            :loader="true"
+            :show-loader="true"
           />
           <KataImage02
             v-else-if="c.image && noCrop"
             :image="c.image"
             :max-width="2000"
+            :show-loader="true"
             class="max-w-full mx-auto"
           />
         </div>
