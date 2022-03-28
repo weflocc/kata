@@ -1,10 +1,12 @@
 <template>
-  <div class="slice testimonials-4">
+  <div class="slice testimonials-4 w-full md:w-r24/24 mx-auto">
     <div
       v-if="list && list != undefined && list.length > 1"
       class="flex fade-up"
     >
-      <div class="w-r4/24 flex justify-center items-center">
+      <div
+        class="w-r4/24 flex justify-center items-center nav-wrap absolute left-0 top-0 bottom-0 my-auto md:relative"
+      >
         <button
           class="carousel-nav prev focus:outline-none"
           title="Previous Slide"
@@ -16,15 +18,21 @@
       <VueSlickCarousel
         v-bind="settings"
         ref="testimonials-4-carousel"
-        class="w-r16/24"
+        class="flex-grow w-full md:w-r16/24 mx-auto"
       >
         <!-- div required here for vue slick to detect group -->
-        <div v-for="item in list" :key="item._key" class="item">
-          <Testimonial04Part class="pr-large testimonial-item" :item="item" />
+        <div
+          v-for="item in list"
+          :key="item._key"
+          class="item px-r4/24 md:px-0"
+        >
+          <Testimonial04Part class="testimonial-item" :item="item" />
         </div>
       </VueSlickCarousel>
 
-      <div class="w-r4/24 flex justify-center items-center">
+      <div
+        class="w-r4/24 flex justify-center items-center nav-wrap absolute right-0 top-0 bottom-0 my-auto md:relative"
+      >
         <button
           class="carousel-nav next focus:outline-none"
           title="Next Slide"
@@ -41,7 +49,7 @@
       <Testimonial04Part
         v-for="item in list"
         :key="item._key"
-        class="pr-large testimonial-item"
+        class="testimonial-item"
         :item="item"
       />
     </div>
