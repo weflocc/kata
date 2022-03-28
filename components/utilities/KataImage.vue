@@ -154,7 +154,8 @@ img.kata-image.lazyLoad {
 
   &:after {
     content: '';
-    @apply bg-white w-full h-full left-0 top-header-height fixed transition-default;
+    @apply bg-white w-full h-full left-0 top-header-height fixed;
+    transition: 0.5s ease;
     pointer-events: none;
     opacity: 1;
   }
