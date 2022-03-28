@@ -7,6 +7,7 @@
       class="heading-3 mb-large fade-up"
     />
     <KataSimpleImage
+      v-if="item.image"
       :image="item.image"
       width="100"
       height="100"
