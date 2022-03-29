@@ -1,10 +1,14 @@
 <template>
-  <div class="slice text-4 md:flex w-full md:items-center">
+  <div
+    class="slice text-4 md:flex w-full"
+    :class="{ 'md:items-center': noCrop }"
+  >
     <div class="w-full md:w-1/3 mb-large sm:mb-0 image">
       <KataImage
         :image="image"
         :ratio="ratio"
         :max-width="900"
+        :no-crop="noCrop"
         class="h-full w-full object-cover"
       />
     </div>
@@ -60,9 +64,9 @@
 </template>
 
 <script>
-import { superHeading, title, image, list } from '../shared'
+import { superHeading, title, image, list, noCrop } from '../shared'
 export default {
-  mixins: [superHeading, title, image, list],
+  mixins: [superHeading, title, image, list, noCrop],
   props: {
     isH1: {
       type: Boolean,
