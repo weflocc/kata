@@ -48,6 +48,11 @@
         >
           <p v-if="item.title" v-kata-html="item.title" class="label-1" />
           <p v-if="item.text" v-kata-html="item.text" class="para-2" />
+          <SanityContent
+            v-if="item.textBody"
+            :blocks="item.textBody"
+            class="para-2 mt-small"
+          />
         </div>
       </div>
     </div>
