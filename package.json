@@ -1,6 +1,6 @@
 {
   "name": "@weflocc/kata",
-  "version": "2.0.542",
+  "version": "2.0.543",
   "description": "Core dependencies for kata sites",
   "main": "index.js",
   "scripts": {
