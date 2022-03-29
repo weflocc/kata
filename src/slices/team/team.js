@@ -1,5 +1,5 @@
 import { thumbnails, profiles, people } from './teamFields'
-import { defaultOptions } from 'part:@weflocc/kata/partials/index'
+import { defaultOptions, links } from 'part:@weflocc/kata/partials/index'
 import { title, text } from '../shared'
 
 const team01 = {
@@ -7,7 +7,7 @@ const team01 = {
   type: 'object',
   title: 'Team #4',
   options: defaultOptions,
-  fields: [title, text, people],
+  fields: [title, text, people, links()],
 }
 
 const team03 = {
