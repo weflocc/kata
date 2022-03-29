@@ -61,6 +61,7 @@ const feedSelector = ({
     ],
   }
 
+  // add this on the page vue file, so clients can't control
   // const max = {
   //   name: 'max',
   //   title: 'Maximum number of articles to display',
@@ -85,16 +86,26 @@ const feedSelector = ({
     fields.push(title)
   }
 
+  if (!noShowAll) {
+    fields.push(show)
+  }
+
   if (selected) {
+    if (!noShowAll) {
+      // hide if display all is selected
+      selected.hidden = ({ parent }) => parent?.show
+    }
     fields.push(selected)
   }
 
   if (categoryType) {
+    if (!noShowAll) {
+      // hide if display all is selected
+      categories.hidden = ({ parent }) => parent?.show
+    }
     fields.push(categories)
   }
-  if (!noShowAll) {
-    fields.push(show)
-  }
+
   if (showLinks) {
     fields.push(links())
   }
