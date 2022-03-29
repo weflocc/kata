@@ -6,10 +6,10 @@
       <div
         class="flex-col flex items-start justify-end w-full h-full min-h-screen py-slice-half content"
       >
-        <div v-if="superHeading">
+        <template v-if="superHeading">
           <h1 v-kata-html="superHeading" class="label-1 text-white mb-medium" />
           <h2 v-if="title" v-kata-html="title" class="heading-1 text-white" />
-        </div>
+        </template>
         <h1 v-else v-kata-html="title" class="heading-1 text-white" />
         <SanityEmbedContent
           v-if="textBody"
