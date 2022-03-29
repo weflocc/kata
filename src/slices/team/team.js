@@ -1,13 +1,13 @@
-import { thumbnails, profiles } from './teamFields'
+import { thumbnails, profiles, people } from './teamFields'
 import { defaultOptions } from 'part:@weflocc/kata/partials/index'
 import { title, text } from '../shared'
 
-const team04 = {
-  name: 'team04',
+const team01 = {
+  name: 'team01',
   type: 'object',
   title: 'Team #4',
   options: defaultOptions,
-  fields: [title, text, thumbnails],
+  fields: [title, text, people],
 }
 
 const team03 = {
@@ -17,4 +17,12 @@ const team03 = {
   fields: [title, text, profiles],
 }
 
-export { team03, team04 }
+const team04 = {
+  name: 'team04',
+  type: 'object',
+  title: 'Team #4',
+  options: defaultOptions,
+  fields: [title, text, thumbnails],
+}
+
+export { team01, team03, team04 }

@@ -1,5 +1,9 @@
 import { BiListPlus } from 'react-icons/bi'
-import { standardImage } from 'part:@weflocc/kata/partials/index'
+import {
+  standardImage,
+  liteTextEditor,
+  basicSingleLink,
+} from 'part:@weflocc/kata/partials/index'
 import { title, text } from '../shared'
 
 const thumbnails = {
@@ -15,6 +19,49 @@ const thumbnails = {
       title: 'Item',
       type: 'object',
       fields: [standardImage(), title, text],
+      preview: {
+        select: {
+          heading: 'title',
+          image: 'image',
+        },
+        prepare(selection) {
+          const { heading, image } = selection
+          return {
+            title: heading,
+            media: image || BiListPlus,
+          }
+        },
+      },
+    },
+  ],
+}
+
+const people = {
+  name: 'list',
+  title: 'People',
+  type: 'array',
+  options: {
+    collapsable: true,
+  },
+  of: [
+    {
+      name: 'item',
+      title: 'Item',
+      type: 'object',
+      fields: [
+        standardImage(),
+        {
+          name: 'title',
+          type: 'string',
+          title: 'Name',
+        },
+        {
+          name: 'job',
+          type: 'string',
+        },
+        liteTextEditor(),
+        basicSingleLink,
+      ],
       preview: {
         select: {
           heading: 'title',
@@ -108,4 +155,4 @@ const profiles = {
   ],
 }
 
-export { thumbnails, profiles }
+export { thumbnails, profiles, people }
