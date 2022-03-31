@@ -1,5 +1,6 @@
 <template>
   <div class="slice testimonials-4 w-full md:w-r24/24 mx-auto">
+    <slot name="decoration-top"></slot>
     <div
       v-if="list && list != undefined && list.length > 1"
       class="flex fade-up"
@@ -53,6 +54,7 @@
         :item="item"
       />
     </div>
+    <slot name="decoration-bottom"></slot>
   </div>
 </template>
 
