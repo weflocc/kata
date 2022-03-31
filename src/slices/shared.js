@@ -15,4 +15,11 @@ const text = {
   rows: 3,
 }
 
-export { title, text, superHeading }
+const longerText = {
+  name: 'text',
+  title: 'Text',
+  type: 'text',
+  rows: 7,
+}
+
+export { title, superHeading, text, longerText }

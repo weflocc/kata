@@ -5,7 +5,7 @@ import {
   basicSingleLink,
 } from 'part:@weflocc/kata/partials/index'
 import { BiListPlus } from 'react-icons/bi'
-import { title, text } from '../shared'
+import { title, text, longerText } from '../shared'
 
 const thumbnails = {
   name: 'list',
@@ -19,7 +19,7 @@ const thumbnails = {
       name: 'item',
       title: 'Item',
       type: 'object',
-      fields: [title, text, basicSingleLink, standardImage()],
+      fields: [title, longerText, basicSingleLink, standardImage()],
       preview: {
         select: {
           heading: 'title',

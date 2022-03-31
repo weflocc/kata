@@ -44,7 +44,7 @@
     </div>
     <div
       v-else-if="list && list != undefined"
-      class="w-r16/24 mx-r2/12 single-testimonial"
+      class="w-r24/24 md:w-r16/24 mx-auto single-testimonial"
     >
       <Testimonial04Part
         v-for="item in list"
