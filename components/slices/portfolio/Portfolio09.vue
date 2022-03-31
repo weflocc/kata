@@ -12,7 +12,7 @@
         v-for="(item, index) in list"
         :key="item.title"
         ref="items"
-        class="item md:w-1/3 sm:w-1/2 sm:pr-medium mb-medium fade-up"
+        class="item w-full md:w-1/3 sm:w-1/2 sm:pr-medium mb-medium fade-up"
         @mouseenter="!isTouch ? toggleTile(index) : null"
         @mouseleave="!isTouch ? toggleTile(index) : null"
         @click="isTouch ? toggleTile(index) : null"
@@ -140,11 +140,11 @@ export default {
     }
   }
 
-  .item {
-    @media (max-width: 1150px) {
-      width: 50%;
-    }
-  }
+  // .item {
+  //   @media (max-width: 1150px) {
+  //     width: 50%;
+  //   }
+  // }
 
   .item .block {
     background: black;
