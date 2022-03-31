@@ -1,9 +1,9 @@
 <template>
   <div
-    class="slice text-4 md:flex w-full"
+    class="slice text-4 md:flex items-stretch md:mr-container-margin"
     :class="{ 'md:items-center': noCrop }"
   >
-    <div class="w-full md:w-1/3 mb-large sm:mb-0 image">
+    <div class="w-full md:w-r8/24 md:min-w-r8/24 mb-large sm:mb-0 image">
       <KataImage
         :image="image"
         :ratio="ratio"
@@ -13,7 +13,7 @@
       />
     </div>
     <div
-      class="mx-auto w-r24/24 md:w-2/3 md:ml-large py-medium md:mr-0 md:pr-r2/24 body"
+      class="mx-auto w-r24/24 md:w-r16/24 md:ml-r2/24 xl:w-r18/24 py-medium md:mr-0 body"
     >
       <div v-if="superHeading" class="heading-wrap">
         <template v-if="isH1">
