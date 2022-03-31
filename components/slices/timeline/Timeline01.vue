@@ -4,11 +4,14 @@
       <h2 v-kata-html="title" class="fade-up heading-2" />
       <!-- <p v-if="text" v-kata-html="text" class="mt-medium fade-up" /> -->
     </div>
-    <VueSlickCarousel v-if="list" v-bind="settings" class="news-3-slider">
+    <VueSlickCarousel v-if="list" v-bind="settings" class="timeline-1-slider">
       <template #prevArrow="arrowOption">
         <button
           class="carousel-nav prev focus:outline-none mb-medium"
           title="Previous Slide"
+          :style="
+            height > 0 ? `top: calc(${height}px + var(--spacing-small))` : ''
+          "
         >
           <span></span>
         </button>
@@ -18,18 +21,23 @@
         :key="item.title ? item.title : index"
         class="fade-up item"
       >
-        <KataSimpleImage
-          v-if="item.icon && item.icon._ref"
-          :image="item.icon"
-          width="50"
-          height="50"
-          class="mb-small mx-auto"
-        />
-        <h3
-          v-if="item.title"
-          v-kata-html="item.title"
-          class="label-1 mb-small px-medium"
-        />
+        <div
+          class="top-wrap mb-small"
+          :style="height > 0 ? `min-height: ${height}px` : ''"
+        >
+          <KataSimpleImage
+            v-if="item.icon && item.icon._ref"
+            :image="item.icon"
+            width="50"
+            height="50"
+            class="mb-small mx-auto"
+          />
+          <h3
+            v-if="item.title"
+            v-kata-html="item.title"
+            class="label-1 mb-small px-medium"
+          />
+        </div>
         <div
           class="checkbox mb-small w-full relative"
           :class="{ checked: isChecked(item.tickDate) }"
@@ -44,7 +52,13 @@
         <p v-if="item.text" v-kata-html="item.text" class="para-2 px-medium" />
       </div>
       <template #nextArrow="arrowOption">
-        <button class="carousel-nav next focus:outline-none" title="Next Slide">
+        <button
+          class="carousel-nav next focus:outline-none"
+          title="Next Slide"
+          :style="
+            height > 0 ? `top: calc(${height}px + var(--spacing-small))` : ''
+          "
+        >
           <span></span>
         </button>
       </template>
@@ -64,10 +78,12 @@ export default {
   mixins: [title, text, links, list],
   data() {
     return {
+      height: 0,
       settings: {
         arrows: true,
         dots: false,
         slidesToShow: 3,
+        initialSlide: 1,
         centerMode: true,
         infinite: true,
         responsive: [
@@ -82,13 +98,42 @@ export default {
             settings: {
               slidesToShow: 1,
               autoplaySpeed: 3000,
+              initialSlide: 0,
             },
           },
         ],
       },
     }
   },
+  mounted() {
+    this.setMinHeight()
+  },
+  created() {
+    if (process.client) {
+      window.addEventListener('resize', this.setMinHeight)
+    }
+  },
+  destroyed() {
+    if (process.client) {
+      window.removeEventListener('resize', this.setMinHeight)
+    }
+  },
   methods: {
+    setMinHeight() {
+      if (process.client) {
+        let titles = document.querySelectorAll('.timeline-1 .item .top-wrap')
+        if (titles) {
+          let newHeight = 0
+          titles.forEach((elem) => {
+            let height = elem.clientHeight
+            if (height > newHeight) {
+              newHeight = height
+            }
+          })
+          this.height = newHeight
+        }
+      }
+    },
     isChecked(date) {
       let today = new Date()
       let thisDate = new Date(date)
@@ -102,19 +147,36 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .timeline-1 {
   .slick-track {
     display: flex;
-    align-items: center;
+    // // align-items: center;
 
-    .slick-slide > div {
-      height: 100%;
-    }
+    // .slick-slide {
+    //   height: unset;
+    // }
+
+    // .slick-slide > div,
+    // .item {
+    //   height: 100%;
+    // }
+
+    // .item {
+    //   display: flex;
+    //   flex-direction: column;
+    //   justify-content: center;
+    // }
   }
+}
+</style>
+
+<style lang="scss" scoped>
+.timeline-1 {
   .carousel-nav {
     position: absolute;
     z-index: 50;
+    transform: translateY(0); //override of slick css
 
     &.prev {
       left: var(--container-margin);
