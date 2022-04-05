@@ -63,7 +63,7 @@ export default {
       if (process.client && !this.isTouchDevice()) {
         let cursor = this.$refs.cursor
         let links = document.querySelectorAll(
-          'a, button, input, textarea, select, .cursor-trigger'
+          'a, button, input, textarea, .cursor-trigger'
         )
         if (cursor && links) {
           for (let index = 0; index < links.length; index++) {
