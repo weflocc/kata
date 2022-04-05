@@ -1,13 +1,13 @@
 @@ -0,0 +1,34 @@
 <template>
-  <div v-if="item" class="md:px-r2/24 text-center">
+  <div v-if="item" class="text-center">
     <p
       v-if="item.quote"
       v-kata-html="item.quote"
       class="heading-3 mb-large fade-up"
     />
     <KataSimpleImage
-      v-if="item.image"
+      v-if="item.image && item.image != undefined"
       :image="item.image"
       width="100"
       height="100"

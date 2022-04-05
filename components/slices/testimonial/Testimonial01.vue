@@ -20,13 +20,13 @@
         v-bind="settings"
         ref="testimonials-1-carousel"
         :class="{
-          'mx-auto w-r24/24': list.length == 1,
+          'w-r24/24': list.length == 1,
           'w-r16/24': list.length > 1,
         }"
-        class="fade-up"
+        class="fade-up mx-auto"
       >
         <div v-for="item in list" :key="item._key">
-          <Testimonial01Part class="md:px-r2/24 text-center" :item="item" />
+          <Testimonial01Part class="text-center" :item="item" />
         </div>
       </VueSlickCarousel>
       <div
@@ -46,7 +46,7 @@
       <Testimonial01Part
         v-for="item in list"
         :key="item._key"
-        class="md:px-r2/24 text-center"
+        class="text-center"
         :item="item"
       />
     </div>
