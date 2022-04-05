@@ -36,6 +36,10 @@
         </template>
       </VueSlickCarousel>
     </div>
+
+    <div v-if="links" class="text-center">
+      <KataLinks :links="links" />
+    </div>
   </div>
 </template>
 
@@ -44,11 +48,11 @@ import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 // optional style for arrows & dots
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
-import { title, list } from '../shared'
+import { title, list, links } from '../shared'
 
 export default {
   components: { VueSlickCarousel },
-  mixins: [title, list],
+  mixins: [title, list, links],
   props: {
     settings: {
       type: Object,

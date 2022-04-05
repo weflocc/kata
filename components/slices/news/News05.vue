@@ -30,13 +30,17 @@
         />
       </div>
     </component>
+
+    <div v-if="links" class="text-center">
+      <KataLinks :links="links" />
+    </div>
   </div>
 </template>
 
 <script>
-import { title, list } from '../shared'
+import { title, list, links } from '../shared'
 export default {
-  mixins: [title, list],
+  mixins: [title, list, links],
   methods: {
     link(id) {
       const link = this.$store.getters['references/getLinkFromReference'](id)
