@@ -19,21 +19,24 @@
     />
     <!-- TODO: readd mobile video/image -->
     <KataVideo
-      v-else-if="media.mediaType == 'video' && media.video && noCrop"
+      v-else-if="media.mediaType == 'video' && media.video"
       :video="media.video"
+      :no-crop="noCrop"
       class="h-full w-full object-cover"
     />
     <KataVideoEmbed
-      v-else-if="media.mediaType == 'embed' && media.embedUrl && noCrop"
+      v-else-if="media.mediaType == 'embed' && media.embedUrl"
       :url="media.embedUrl"
       class="w-full"
+      :no-crop="noCrop"
       data-not-lazy
     />
     <KataCssSlider
-      v-else-if="media.mediaType == 'slideshow' && media.slideshow && noCrop"
+      v-else-if="media.mediaType == 'slideshow' && media.slideshow"
       :images="media.slideshow"
       class="w-full h-full"
       :sizes="sizes"
+      :no-crop="noCrop"
       :ratio="ratio"
       :max-width="maxWidth"
     />
