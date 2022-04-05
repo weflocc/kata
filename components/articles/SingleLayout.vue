@@ -69,7 +69,7 @@
       <!-- Complex pages should be page builder -->
       <ContentBlocks v-if="c.contentBlocks" :blocks="c.contentBlocks" />
     </div>
-    <slot name="post-appendage"></slot>
+    <slot name="post-content"></slot>
     <div
       v-if="indexPath && backText && !noBottomBack"
       class="text-center px-container-margin my-slice-half"
