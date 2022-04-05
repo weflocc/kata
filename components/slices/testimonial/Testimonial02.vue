@@ -9,7 +9,7 @@
       class="mb-large w-r24/24 mx-auto text-center fade-up"
     />
     <div v-if="list.length > 1" class="flex list-wrap">
-      <div class="w-r4/24 flex justify-center items-center nav-btn-prev">
+      <div class="w-full flex justify-center items-center nav-btn-prev">
         <button
           class="carousel-nav prev focus:outline-none"
           title="Previous Slide"
@@ -33,7 +33,7 @@
       </VueSlickCarousel>
       <div
         v-if="list.length > 1"
-        class="w-r4/24 flex justify-center items-center nav-btn-next"
+        class="w-full flex justify-center items-center nav-btn-next"
       >
         <button
           class="carousel-nav next focus:outline-none"

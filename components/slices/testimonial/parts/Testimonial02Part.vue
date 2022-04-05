@@ -28,11 +28,7 @@
         />
         <p v-if="item.name" v-kata-html="item.name" class="label-1" />
         <p v-if="item.job" v-kata-html="item.job" class="para-4 mt-1" />
-        <KataLinks
-          v-if="item.links && item.links.link"
-          :links="item.links.link"
-          class="mt-small"
-        />
+        <KataLinks v-if="item.links" :links="item.links" class="mt-small" />
       </div>
     </div>
   </div>
