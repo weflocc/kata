@@ -34,6 +34,11 @@
               class="label-1 mb-[5px]"
             />
             <p v-if="item.text" v-kata-html="item.text" class="para-2" />
+            <SanityEmbedContent
+              v-if="item.textBody"
+              :blocks="item.textBody"
+              class="para-2"
+            />
           </div>
         </li>
       </ul>
