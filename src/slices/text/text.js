@@ -85,21 +85,7 @@ const text10 = {
   type: 'object',
   title: 'Text #10',
   options: defaultOptions,
-  fields: [
-    title,
-    {
-      name: 'list',
-      title: 'Items',
-      type: 'array',
-      of: [
-        {
-          name: 'item',
-          type: 'object',
-          fields: [title, basicTextEditor()],
-        },
-      ],
-    },
-  ],
+  fields: [title, list],
 }
 
 export {
