@@ -31,7 +31,7 @@
       </div>
     </component>
 
-    <div v-if="links" class="text-center">
+    <div v-if="links" class="text-center mt-large">
       <KataLinks :links="links" />
     </div>
   </div>
