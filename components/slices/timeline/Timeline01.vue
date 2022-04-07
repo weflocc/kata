@@ -26,7 +26,7 @@
           :style="height > 0 ? `min-height: ${height}px` : ''"
         >
           <KataSimpleImage
-            v-if="item.icon && item.icon._ref"
+            v-if="item.icon && item.icon.asset._ref"
             :image="item.icon"
             width="50"
             height="50"
