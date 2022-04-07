@@ -26,6 +26,11 @@
         class="mb-medium heading-2 fade-up"
       />
       <p v-if="text" v-kata-html="text" class="mb-medium fade-up" />
+      <SanityEmbedContent
+        v-if="textBody"
+        :blocks="textBody"
+        class="fade-up mb-medium"
+      />
       <ul class="columns fade-up">
         <li v-if="address" class="mb-medium item">
           <p class="label-1">Address</p>
@@ -67,9 +72,9 @@
 //      key: 'AIzaSyDqa_gfKjehO6LI6vCIG1gOjhd3TiUE7ew',
 //    },
 // ],
-import { title, text } from '../shared'
+import { title, text, textBody } from '../shared'
 export default {
-  mixins: [title, text],
+  mixins: [title, text, textBody],
   props: {
     location: {
       type: Object,

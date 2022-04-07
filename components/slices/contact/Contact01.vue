@@ -8,6 +8,11 @@
       />
       <h2 v-else-if="title" v-kata-html="title" class="mb-medium" />
       <p v-if="text" v-kata-html="text" class="mb-medium" />
+      <SanityEmbedContent
+        v-if="textBody"
+        :blocks="textBody"
+        class="mb-medium"
+      />
       <div class="columns fade-up">
         <div v-if="address" class="mb-medium">
           <p class="label-1">Address</p>
@@ -105,9 +110,9 @@
 </template>
 
 <script>
-import { title, text } from '../shared'
+import { title, text, textBody } from '../shared'
 export default {
-  mixins: [title, text],
+  mixins: [title, text, textBody],
   props: {
     isH1: {
       type: Boolean,
