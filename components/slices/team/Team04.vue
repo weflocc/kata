@@ -8,11 +8,7 @@
       <ul :class="ulClass">
         <li v-for="item in list" :key="item._id" class="fade-up">
           <slot name="tease" :item="item">
-            <KataImage
-              :image="item.image"
-              class="mb-small"
-              :ratio="255 / 340"
-            />
+            <KataImage :image="item.image" class="mb-small" :ratio="ratio" />
             <h3
               v-if="item.title"
               v-kata-html="item.title"
@@ -34,6 +30,10 @@ export default {
     cols: {
       type: Number,
       default: 4,
+    },
+    ratio: {
+      type: Number,
+      default: 255 / 340,
     },
   },
   computed: {
