@@ -1,6 +1,6 @@
 <template>
   <div class="slice feature-6 w-r24/24 mx-auto md:flex md:justify-between">
-    <div class="w-full md:w-r10/24 mb-large md:mb-0 md:mr-r2/12 left">
+    <div class="w-full md:w-r12/24 mb-large md:mb-0 md:mr-r2/12 left">
       <h2
         v-if="title"
         v-kata-html="title"
@@ -13,31 +13,31 @@
       />
       <KataLinks v-if="links" :links="links" class="fade-up" />
     </div>
-    <div class="w-full md:w-r6/24 right">
+    <div class="w-full md:w-r10/24 right">
       <ul v-if="list">
         <li
           v-for="(item, index) in list"
           :key="item.title ? item.title : index"
-          class="mb-large fade-up item flex items-start"
+          class="mb-medium fade-up item flex items-center"
         >
           <KataSimpleImage
             v-if="item.icon"
             :image="item.icon"
             width="50"
             height="50"
-            class="mb-small mx-auto"
+            class="mb-small md:mb-0 mx-auto"
           />
           <div class="pl-small">
-            <h3
-              v-if="item.title"
-              v-kata-html="item.title"
-              class="label-1 mb-[5px]"
+            <h3 v-if="item.title" v-kata-html="item.title" class="label-1" />
+            <p
+              v-if="item.text"
+              v-kata-html="item.text"
+              class="para-2 mt-[5px]"
             />
-            <p v-if="item.text" v-kata-html="item.text" class="para-2" />
             <SanityEmbedContent
               v-if="item.textBody"
               :blocks="item.textBody"
-              class="para-2"
+              class="para-2 mt-[5px]"
             />
           </div>
         </li>
