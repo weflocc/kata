@@ -3,19 +3,46 @@
     id="menu-panel"
     class="menu-panel flex justify-center items-center px-r2/24 pt-header-height"
   >
-    <div class="menu-inner">
-      <nav class="kata-menu">
-        <ul class="kata-menu-list p-0">
-          <KataMenuPanelItem
-            v-for="item in menu"
-            :key="item._key"
-            ref="list"
-            :click-fn="clickFn"
-            v-bind="item"
-            class="top-level"
-          />
-        </ul>
-      </nav>
+    <div
+      class="menu-inner"
+      :class="{
+        'w-full': secondaryMenu && menu,
+      }"
+    >
+      <div
+        class="menus-wrapper"
+        :class="{
+          'two-menus md:flex md:justify-between': secondaryMenu && menu,
+        }"
+      >
+        <nav class="kata-menu">
+          <ul class="kata-menu-list p-0">
+            <KataMenuPanelItem
+              v-for="item in menu"
+              :key="item._key"
+              ref="list"
+              :click-fn="clickFn"
+              v-bind="item"
+              class="top-level"
+            />
+          </ul>
+        </nav>
+        <nav
+          v-if="secondaryMenu"
+          class="kata-secondary-menu md:w-1/2 md:pl-medium mt-large md:mt-0"
+        >
+          <ul class="kata-menu-list p-0">
+            <KataMenuPanelItem
+              v-for="item in secondaryMenu"
+              :key="item._key"
+              ref="list"
+              :click-fn="clickFn"
+              v-bind="item"
+              class="top-level"
+            />
+          </ul>
+        </nav>
+      </div>
       <slot>
         <div class="menu-footer mt-large">
           <SocialMedia />
@@ -31,6 +58,10 @@ export default {
     menu: {
       type: Array,
       required: true,
+    },
+    secondaryMenu: {
+      type: Array,
+      default: null,
     },
     clickFn: {
       type: Function,

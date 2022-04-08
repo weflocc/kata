@@ -1,7 +1,6 @@
-import { hiddenTitle } from '../partials/meta'
 import config from 'config:@weflocc/kata'
 import { RiMenuAddLine } from 'react-icons/ri'
-import { basicSingleLink } from 'part:@weflocc/kata/partials/index'
+import { basicSingleLink, hiddenTitle } from 'part:@weflocc/kata/partials/index'
 
 export default {
   type: 'document',

@@ -1,13 +1,13 @@
-import { hiddenTitle } from '../partials/meta'
 import config from 'config:@weflocc/kata'
 import { RiMenuAddLine } from 'react-icons/ri'
+import { basicSingleLink, hiddenTitle } from 'part:@weflocc/kata/partials/index'
 
 export default {
   type: 'document',
   name: 'pageTwoMenus',
-  title: 'Menu',
+  title: 'Menus',
   initialValue: {
-    title: 'Menu',
+    title: 'Menus',
   },
   fields: [
     hiddenTitle,
@@ -22,55 +22,37 @@ export default {
           name: 'menuItem',
           fields: [
             {
-              title: 'Custom Title',
-              name: 'noLinkJustTitle',
-              description:
-                'You can use this instead of choosing a link, to make a menu item that is just a parent, not a link to something.',
               type: 'string',
+              name: 'title',
+              title: 'Custom link text',
             },
-            {
-              title: 'Link',
-              name: 'link',
-              type: 'reference',
-              to: config.allTypes,
-              options: {
-                disableNew: true, // we don't want people to be able to create new pages here!
-              },
-            },
+            basicSingleLink,
             {
               title: 'Children',
-              name: 'children',
+              name: 'list',
               type: 'array',
               of: [
                 {
                   type: 'object',
                   title: 'Menu Item',
-                  name: 'menu',
+                  name: 'menuItem',
                   fields: [
                     {
-                      title: 'Custom Title (optional)',
-                      name: 'customTitle',
                       type: 'string',
+                      name: 'title',
+                      title: 'Custom link text',
                     },
-                    {
-                      title: 'Link',
-                      name: 'link',
-                      type: 'reference',
-                      to: config.allTypes,
-                      options: {
-                        disableNew: true, // we don't want people to be able to create new pages here!
-                      },
-                    },
+                    basicSingleLink,
                   ],
                   preview: {
                     select: {
-                      title: 'customTitle',
-                      link: 'link.title',
+                      linkTitle: 'singleLink.internalLink.title',
+                      title: 'title',
                     },
                     prepare(selection) {
-                      const { title, link } = selection
+                      const { title, linkTitle } = selection
                       return {
-                        title: title || link || 'Unknown',
+                        title: title || linkTitle || 'Unknown',
                         media: RiMenuAddLine,
                       }
                     },
@@ -81,13 +63,13 @@ export default {
           ],
           preview: {
             select: {
-              title: 'link.title',
-              noLinkJustTitle: 'noLinkJustTitle',
+              linkTitle: 'singleLink.internalLink.title',
+              title: 'title',
             },
             prepare(selection) {
-              const { title, noLinkJustTitle } = selection
+              const { title, linkTitle } = selection
               return {
-                title: title || noLinkJustTitle || 'Unknown',
+                title: title || linkTitle || 'Unknown',
                 media: RiMenuAddLine,
               }
             },
@@ -106,55 +88,37 @@ export default {
           name: 'menuItem',
           fields: [
             {
-              title: 'Custom Title',
-              name: 'noLinkJustTitle',
-              description:
-                'You can use this instead of choosing a link, to make a menu item that is just a parent, not a link to something.',
               type: 'string',
+              name: 'title',
+              title: 'Custom link text',
             },
-            {
-              title: 'Link',
-              name: 'link',
-              type: 'reference',
-              to: config.allTypes,
-              options: {
-                disableNew: true, // we don't want people to be able to create new pages here!
-              },
-            },
+            basicSingleLink,
             {
               title: 'Children',
-              name: 'children',
+              name: 'list',
               type: 'array',
               of: [
                 {
                   type: 'object',
                   title: 'Menu Item',
-                  name: 'menu',
+                  name: 'menuItem',
                   fields: [
                     {
-                      title: 'Custom Title (optional)',
-                      name: 'customTitle',
                       type: 'string',
+                      name: 'title',
+                      title: 'Custom link text',
                     },
-                    {
-                      title: 'Link',
-                      name: 'link',
-                      type: 'reference',
-                      to: config.allTypes,
-                      options: {
-                        disableNew: true, // we don't want people to be able to create new pages here!
-                      },
-                    },
+                    basicSingleLink,
                   ],
                   preview: {
                     select: {
-                      title: 'customTitle',
-                      link: 'link.title',
+                      linkTitle: 'singleLink.internalLink.title',
+                      title: 'title',
                     },
                     prepare(selection) {
-                      const { title, link } = selection
+                      const { title, linkTitle } = selection
                       return {
-                        title: title || link || 'Unknown',
+                        title: title || linkTitle || 'Unknown',
                         media: RiMenuAddLine,
                       }
                     },
@@ -165,13 +129,13 @@ export default {
           ],
           preview: {
             select: {
-              title: 'link.title',
-              noLinkJustTitle: 'noLinkJustTitle',
+              linkTitle: 'singleLink.internalLink.title',
+              title: 'title',
             },
             prepare(selection) {
-              const { title, noLinkJustTitle } = selection
+              const { title, linkTitle } = selection
               return {
-                title: title || noLinkJustTitle || 'Unknown',
+                title: title || linkTitle || 'Unknown',
                 media: RiMenuAddLine,
               }
             },
