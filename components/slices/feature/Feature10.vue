@@ -15,7 +15,7 @@
         ref="marker"
         :position="{ lat: item.location.lat, lng: item.location.lng }"
         :options="{
-          icon: item.title === currentitem ? pins.selected : pins.notSelected,
+          icon: item.title === currentItem ? pins.selected : pins.notSelected,
         }"
         @mouseover="
           (e) => {
@@ -80,8 +80,8 @@ export default {
   },
   data() {
     return {
-      currentitem: {},
-      activeitem: {},
+      currentItem: {},
+      activeItem: {},
       pins: {
         selected: this.mapPinSelected,
         notSelected: this.mapPin,
@@ -93,12 +93,12 @@ export default {
   },
   methods: {
     setCurrent(item) {
-      this.currentitem = item
+      this.currentItem = item
     },
     mapLoaded(e) {
       let context = this
-      var bounds = new google.maps.LatLngBounds()
-      if (this.list?.length) {
+      if (this.list && this.list.length > 1) {
+        var bounds = new google.maps.LatLngBounds()
         for (let index = 0; index < this.list.length; index++) {
           const element = this.list[index]
           let pos = new google.maps.LatLng(
@@ -107,8 +107,13 @@ export default {
           )
           bounds.extend(pos)
         }
+        this.$refs.gMap.map.fitBounds(bounds)
+      } else if (this.list && this.list.length) {
+        let elem = this.list[0]
+        var pt = new google.maps.LatLng(elem.location.lat, elem.location.lng)
+        this.$refs.gMap.map.setCenter(pt)
+        this.$refs.gMap.map.setZoom(15)
       }
-      this.$refs.gMap.map.fitBounds(bounds)
       this.infoWindow = new google.maps.InfoWindow({
         content: context.$refs.infoWindow,
         position: context.centre,
