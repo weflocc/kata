@@ -58,6 +58,10 @@ export default {
       type: Object,
       default: null,
     },
+    clickFn: {
+      type: Function,
+      default: () => {},
+    },
   },
   methods: {
     openChild() {
