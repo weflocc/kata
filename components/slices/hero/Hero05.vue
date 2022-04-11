@@ -10,7 +10,21 @@
     <div
       class="w-r24/24 mx-auto md:w-r12/24 h-screen flex flex-col justify-center text-center z-1 text"
     >
-      <h1 v-kata-html="title" class="heading-1 text-white mb-medium" />
+      <h1
+        v-if="superHeading && title"
+        v-kata-html="superHeading"
+        class="super-heading text-white mb-medium"
+      />
+      <h1
+        v-else-if="title"
+        v-kata-html="title"
+        class="heading-1 text-white mb-medium"
+      />
+      <h2
+        v-if="superHeading && title"
+        v-kata-html="title"
+        class="heading-1 text-white mb-medium"
+      />
       <SanityEmbedContent
         v-if="textBody"
         :blocks="textBody"
@@ -22,10 +36,10 @@
 </template>
 
 <script>
-import { title, textBody, links, media, noCrop } from '../shared'
+import { title, superHeading, textBody, links, media, noCrop } from '../shared'
 
 export default {
-  mixins: [title, textBody, links, media, noCrop],
+  mixins: [title, superHeading, textBody, links, media, noCrop],
   data() {
     return {
       ratio: 16 / 9,
