@@ -3,7 +3,7 @@
     <div class="sm:w-r6/24 heading mb-medium sm:mb-0">
       <h2 v-if="title" v-kata-html="title" class="heading-1 fade-up" />
     </div>
-    <div v-if="list" class="sm:w-r14/24 content sm:pl-r2/24">
+    <div v-if="list" class="sm:w-r18/24 content sm:pl-r2/24">
       <div
         v-for="item in list"
         :key="item.title"
