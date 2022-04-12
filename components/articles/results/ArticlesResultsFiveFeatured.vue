@@ -7,7 +7,7 @@
     mode="out-in"
   >
     <li v-for="(item, i) in articles" :key="item._id">
-      <slot name="tease" :item="item" v-if="i != 0">
+      <slot v-if="i != 0" name="tease" :item="item">
         <NuxtLink
           :to="getLink(item._id) ? getLink(item._id) : ''"
           :class="{ 'large-thumb': i == 0, 'px-r2/24 block md:px-0': i != 0 }"
@@ -94,6 +94,14 @@ export default {
         return []
       },
       type: Array,
+    },
+  },
+  methods: {
+    getCategoryTitle(id) {
+      return this.$store.getters['references/getFieldByRef']({
+        ref: id,
+        field: 'title',
+      })
     },
   },
 }
