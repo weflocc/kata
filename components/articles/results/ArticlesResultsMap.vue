@@ -62,10 +62,14 @@
             v-for="article in articles"
             :key="article._key"
             ref="marker"
-            :position="{
-              lat: article.location.lat,
-              lng: article.location.lng,
-            }"
+            :position="
+              article.location
+                ? {
+                    lat: article.location.lat,
+                    lng: article.location.lng,
+                  }
+                : {}
+            "
             :options="{
               icon:
                 article.title === currentArticle
@@ -218,11 +222,13 @@ export default {
       var bounds = new google.maps.LatLngBounds()
       for (let index = 0; index < this.articles.length; index++) {
         const element = this.articles[index]
-        let lat = element.location.lat
-        let lng = element.location.lng
-        if (lat && lng) {
-          let pos = new google.maps.LatLng(lat, lng)
-          bounds.extend(pos)
+        if (element.location) {
+          let lat = element.location.lat
+          let lng = element.location.lng
+          if (lat && lng) {
+            let pos = new google.maps.LatLng(lat, lng)
+            bounds.extend(pos)
+          }
         }
       }
       this.$refs.gMap.map.fitBounds(bounds)
