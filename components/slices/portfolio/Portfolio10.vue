@@ -23,7 +23,7 @@
 
         <div v-for="(item, i) in list" :key="item._id" class="px-small">
           <slot name="tease" :item="item" :index="i + 1">
-            <listTeaseParagraphOverlay v-bind="item" :index="i + 1" />
+            <ArticlesTeaseParagraphOverlay v-bind="item" :index="i + 1" />
           </slot>
         </div>
 
