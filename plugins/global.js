@@ -40,6 +40,19 @@ if (!Vue.__globalMixin__ || Vue.__globalMixin__ == undefined) {
         }
         return 'div'
       },
+      scrollToAnchor(anchor) {
+        if (process.client) {
+          if (anchor.includes('#')) anchor = anchor.replace('#', '')
+          let el = document.getElementById(anchor)
+          let header = document.getElementById('header')
+          if (el && header) {
+            window.scrollTo({
+              top: el.offsetTop - header.offsetHeight,
+              behavior: 'smooth',
+            })
+          }
+        }
+      },
     },
   })
 }

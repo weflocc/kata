@@ -102,14 +102,14 @@ export default {
         if (dropdownTrigger) dropdownTrigger.classList.toggle('active')
       }
     },
-    scrollToAnchor(anchor) {
-      let elem = document.getElementById(anchor)
-      window.scrollBy({
-        top: elem.getBoundingClientRect().top - 100,
-        left: 0,
-        behavior: 'smooth',
-      })
-    },
+    // scrollToAnchor(anchor) {
+    //   let elem = document.getElementById(anchor)
+    //   window.scrollBy({
+    //     top: elem.getBoundingClientRect().top - 100,
+    //     left: 0,
+    //     behavior: 'smooth',
+    //   })
+    // },
     linkTitle(item) {
       if (item?.internalLink?._ref) {
         let ref = item?.internalLink?._ref
