@@ -12,13 +12,20 @@ if (!Vue.__globalMixin__ || Vue.__globalMixin__ == undefined) {
         if (obj && obj != undefined) {
           if (obj.linkType == 'internal' || obj.linkType == 'file') {
             let ref =
-              obj.linkType == 'internal'
-                ? obj?.internalLink?._ref
-                : obj?.file?._ref
+              obj.linkType == 'file'
+                ? obj?.file?.asset?._ref
+                : obj?.internalLink?._ref
+
             const link = this.$store.getters['references/getLinkFromReference'](
               ref
             )
-            return link ? link.path : '/'
+            let path = '/'
+            if (link && obj.linkType == 'internal') {
+              path = link.path
+            } else if (link) {
+              path = link
+            }
+            return path
           } else if (obj.linkType == 'external') {
             return obj.url
           } else {
