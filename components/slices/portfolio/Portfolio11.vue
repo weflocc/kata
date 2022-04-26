@@ -1,9 +1,12 @@
 <template>
   <div class="portfolio-11 slice relative sm:flex fade-up">
-    <div v-if="list && list.length" class="bg-primary sm:w-1/3 articles-list">
+    <div
+      v-if="filteredList && filteredList.length"
+      class="bg-primary sm:w-1/3 articles-list"
+    >
       <ul class="p-medium">
         <li
-          v-for="item in list"
+          v-for="item in filteredList"
           :key="item.slug"
           class="mb-large list-item font-bold inline-block sm:block cursor-pointer transition-all hover:text-secondary"
           :class="{
@@ -13,16 +16,21 @@
           @mouseover="setCurrent(item.title)"
           @click="setActive(item)"
         >
-          <span v-if="item.number">
-            {{ item.number < 10 ? '0' + item.number : item.number }}
+          <p>
+            <span v-if="item.number">
+              {{ item.number < 10 ? '0' + item.number : item.number }}
+            </span>
+            {{ item.title }}
+          </p>
+          <span v-if="item.country">
+            {{ item.country }}
           </span>
-          {{ item.title }}
         </li>
       </ul>
     </div>
     <div class="sm:w-2/3">
       <GMap
-        v-if="list != null && list.length"
+        v-if="filteredList != null && filteredList.length"
         ref="gMap"
         language="en"
         :center="centre"
@@ -31,7 +39,7 @@
         @loaded="mapLoaded"
       >
         <GMapMarker
-          v-for="article in list"
+          v-for="article in filteredList"
           :key="article.title"
           ref="marker"
           :position="{ lat: article.location.lat, lng: article.location.lng }"
@@ -134,18 +142,26 @@ export default {
       infoWindow: null,
     }
   },
+  computed: {
+    filteredList() {
+      // filters out articles that don't contain a location prop
+      return this.list.filter((item) =>
+        Object.prototype.hasOwnProperty.call(item, 'location')
+      )
+    },
+  },
   methods: {
     setCurrent(item) {
       this.currentArticle = item
     },
     setActive(item) {
-      this.$router.push({ path: this.path + '/' + item.slug })
+      this.$router.push({ path: this.path + '/' + item.slug.current + '/' })
     },
     mapLoaded(e) {
       let context = this
       var bounds = new google.maps.LatLngBounds()
-      for (let index = 0; index < this.list.length; index++) {
-        const element = this.list[index]
+      for (let index = 0; index < this.filteredList.length; index++) {
+        const element = this.filteredList[index]
         let pos = new google.maps.LatLng(
           element.location.lat,
           element.location.lng
