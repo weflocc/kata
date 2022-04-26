@@ -1,6 +1,10 @@
 <template>
-  <div v-if="location" class="slice contact-2 md:flex">
-    <div class="w-full md:w-r10/24 mb-large md:mb-0 map">
+  <div
+    v-if="location"
+    class="slice contact-2 md:flex"
+    :class="{ 'reversed md:flex-row-reverse': reversed }"
+  >
+    <div class="w-full md:w-r12/24 mb-large md:mb-0 map">
       <GMap
         ref="gMap"
         language="en"
@@ -14,7 +18,7 @@
         />
       </GMap>
     </div>
-    <div class="w-r24/24 md:w-r10/24 mx-auto md:py-slice-half body">
+    <div class="w-r24/24 md:w-r12/24 mx-auto md:py-slice-half body">
       <h1
         v-if="isH1 && title"
         v-kata-html="title"
@@ -48,7 +52,7 @@
         </li> -->
         <li v-if="email" class="mb-medium item">
           <p class="label-1">Email</p>
-          <p>
+          <p class="email">
             <a :href="'mailto:' + email">{{ email }}</a>
           </p>
         </li>
@@ -116,6 +120,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    reversed: {
+      type: Boolean,
+      default: false,
+    },
   },
 }
 </script>
@@ -123,7 +131,7 @@ export default {
 <style lang="scss">
 .contact-2 {
   .columns {
-    columns: 2 250px;
+    columns: 2 300px;
     column-gap: var(--spacing-medium);
 
     .item {
