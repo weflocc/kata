@@ -9,6 +9,7 @@
         'w-full': secondaryMenu && menu,
       }"
     >
+      <slot name="menuPanelHeader"></slot>
       <div
         class="menus-wrapper"
         :class="{
@@ -43,7 +44,7 @@
           </ul>
         </nav>
       </div>
-      <slot>
+      <slot name="menuPanelFooter">
         <div class="menu-footer mt-large">
           <SocialMedia />
         </div>
