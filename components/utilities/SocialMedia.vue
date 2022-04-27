@@ -5,7 +5,7 @@
       :href="socialMedia.twitter"
       title="Twitter"
       target="_blank"
-      class="inline-block hover:text-secondary"
+      class="inline-block hover:text-secondary twitter"
     >
       <twitterIcon :width="size" :height="size" />
     </a>
@@ -14,7 +14,7 @@
       :href="socialMedia.facebook"
       title="Facebook"
       target="_blank"
-      class="inline-block hover:text-secondary"
+      class="inline-block hover:text-secondary facebook"
     >
       <facebookIcon :width="size" :height="size" />
     </a>
@@ -23,7 +23,7 @@
       :href="socialMedia.linkedIn"
       title="Linked In"
       target="_blank"
-      class="inline-block hover:text-secondary"
+      class="inline-block hover:text-secondary linked-in"
     >
       <linkedinIcon :width="size" :height="size" />
     </a>
@@ -32,7 +32,7 @@
       :href="socialMedia.youtube"
       title="Youtube"
       target="_blank"
-      class="inline-block hover:text-secondary"
+      class="inline-block hover:text-secondary youtube"
     >
       <youtubeIcon :width="size" :height="size" />
     </a>
@@ -41,7 +41,7 @@
       :href="socialMedia.instagram"
       title="Instagram"
       target="_blank"
-      class="inline-block hover:text-secondary"
+      class="inline-block hover:text-secondary instagram"
     >
       <instagramIcon :width="size" :height="size" />
     </a>

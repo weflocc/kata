@@ -44,12 +44,6 @@
           <p class="label-1">Opening Times</p>
           <p v-kata-html="openingTimes" class="whitespace-pre-line" />
         </li>
-        <!-- <li v-if="website" class="mb-medium item">
-          <p class="label-1">Website</p>
-          <p>
-            <a :href="website" target="_blank">{{ websiteText || website }}</a>
-          </p>
-        </li> -->
         <li v-if="email" class="mb-medium item">
           <p class="label-1">Email</p>
           <p class="email">
