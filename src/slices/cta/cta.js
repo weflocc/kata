@@ -48,6 +48,7 @@ const cta07 = {
   name: 'cta07',
   type: 'object',
   title: 'Call To Action #07',
+  options: defaultOptions,
   fields: [
     title,
     basicTextEditor(),
@@ -55,6 +56,9 @@ const cta07 = {
       name: 'list',
       title: 'Logos',
       type: 'array',
+      options: {
+        layout: 'grid',
+      },
       of: [standardImage()],
       preview: {
         select: {
