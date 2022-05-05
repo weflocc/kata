@@ -18,6 +18,7 @@ import Testimonial04 from './serializers/Testimonial04Serializer.vue'
 import KataMediaSerializer from './serializers/KataMediaSerializer.vue'
 import Feature01Serializer from './serializers/Feature01Serializer.vue'
 import StandoutText from './serializers/StandoutText.vue'
+import Id from './serializers/Id.vue'
 
 export default {
   props: {
@@ -43,6 +44,7 @@ export default {
           link: ExternalLink,
           file: FileLink,
           anchor: AnchorLink,
+          id: Id,
         },
       },
     }
