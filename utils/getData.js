@@ -10,6 +10,7 @@ const getData = async ($sanity, query, store, route, vars = {}) => {
   let client = null
   let type = ''
   if (vars) {
+    console.log('vars', vars)
     path = vars.path
     globals = vars.globals
     customProjections = vars.customProjections
@@ -118,6 +119,8 @@ const getData = async ($sanity, query, store, route, vars = {}) => {
     articlesObject.showSearch = instance.hasOwnProperty('searchTerm')
     articlesObject.showFilters = instance.hasOwnProperty('filters')
   }
+
+  console.log('type', type)
 
   let groqQuery = groq`{"c": *[_type == '${type}' ${pathQuery}]{
     ...,
