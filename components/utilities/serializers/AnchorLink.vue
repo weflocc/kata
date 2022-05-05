@@ -1,5 +1,9 @@
 <template>
-  <a :href="'#' + anchor" @click.prevent="scrollToAnchor(anchor)">
+  <a
+    class="anchor-link"
+    :href="'#' + anchor"
+    @click.prevent="scrollToAnchor(anchor)"
+  >
     <slot></slot>
   </a>
 </template>
