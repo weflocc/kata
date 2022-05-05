@@ -49,12 +49,14 @@ if (!Vue.__globalMixin__ || Vue.__globalMixin__ == undefined) {
       },
       scrollToAnchor(anchor) {
         if (process.client) {
+          console.log('scroll to anchor', anchor)
           if (anchor.includes('#')) anchor = anchor.replace('#', '')
           let el = document.getElementById(anchor)
           let header = document.getElementById('header')
           if (el && header) {
+            let pos = el.getBoundingClientRect()
             window.scrollTo({
-              top: el.offsetTop - header.offsetHeight,
+              top: pos.top - header.offsetHeight,
               behavior: 'smooth',
             })
           }
