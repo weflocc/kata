@@ -31,10 +31,23 @@
       ref="dropdownTrigger"
       title="Show/Hide Child Menu"
       class="inline-block lg:hidden dropdown-trigger border-none"
+      :class="{ active: visible }"
       @click="toggleChild()"
     ></button>
 
-    <ul v-if="list && list.length" ref="childMenu" class="child-menu">
+    <!-- <transition
+      name="dropdown"
+      @enter="start"
+      @after-enter="end"
+      @before-leave="start"
+      @after-leave="end"
+    > -->
+    <ul
+      v-show="list && list.length"
+      ref="childMenu"
+      :class="{ open: visible }"
+      class="child-menu"
+    >
       <KataMenuBarItem
         v-for="child in list"
         :key="child._key"
@@ -42,10 +55,12 @@
         :click-fn="clickFn"
       />
     </ul>
+    <!-- </transition> -->
   </li>
 </template>
 
 <script>
+import { RiTreasureMapFill } from 'react-icons/ri'
 import { title, list } from '../../slices/shared'
 export default {
   mixins: [title, list],
@@ -60,47 +75,37 @@ export default {
     },
     clickFn: {
       type: Function,
-      default: () => {},
+      default: () => {
+        console.log('no click function')
+      },
     },
   },
+  data: () => ({ visible: false }),
   methods: {
+    start(el, done) {
+      el.style.height = el?.scrollHeight + 'px'
+      done
+    },
+    end(el) {
+      el.style.height = ''
+    },
     openChild() {
       if (this.list && this.list.length > 0) {
-        let dropdown = this.$refs.childMenu
-        if (dropdown) dropdown.classList.add('open')
+        this.visible = RiTreasureMapFill
       }
     },
     closeChild() {
-      let dropdown = this.$refs.childMenu
-      if (dropdown) dropdown.classList.remove('open')
+      this.visible = false
     },
     toggleChild() {
       if (this.list && this.list.length > 0) {
-        let dropdown = this.$refs.childMenu
-        let dropdownTrigger = this.$refs.dropdownTrigger
-        if (dropdown && dropdown.classList.contains('open')) {
-          dropdown.classList.remove('open')
-        } else {
-          dropdown.classList.add('open')
-        }
-        if (dropdownTrigger) dropdownTrigger.classList.toggle('active')
+        this.visible = !this.visible
       }
     },
-    // scrollToAnchor(anchor) {
-    //   let elem = document.getElementById(anchor)
-    //   window.scrollBy({
-    //     top: elem.getBoundingClientRect().top - 100,
-    //     left: 0,
-    //     behavior: 'smooth',
-    //   })
-    // },
     onClick() {
-      if (process.client) {
-        // can't find ref here? close open dropdown panel
-        let dropdown = document.querySelector('.child-menu.open')
-        if (dropdown) dropdown.classList.remove('open')
-      }
-      this.$emit('clickFn')
+      this.visible = false
+      // run click function
+      this.clickFn()
     },
     linkTitle(item) {
       if (item?.internalLink?._ref) {
@@ -143,6 +148,7 @@ export default {
   @include lg-down {
     max-height: 0;
     overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
 
     &.open {
       max-height: 100%;
@@ -180,4 +186,18 @@ export default {
     }
   }
 }
+// @include lg-down {
+//   .dropdown-enter-active,
+//   .dropdown-leave-active {
+//     will-change: height, opacity;
+//     transition: height 0.3s ease, opacity 0.3s ease;
+//     overflow: hidden;
+//   }
+
+//   .dropdown-enter,
+//   .dropdown-leave-to {
+//     height: 0 !important;
+//     opacity: 0;
+//   }
+// }
 </style>

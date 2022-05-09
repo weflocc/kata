@@ -38,7 +38,6 @@ export default {
   },
   data() {
     return {
-      index: null,
       visible: false,
     }
   },

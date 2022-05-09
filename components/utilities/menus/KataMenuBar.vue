@@ -30,6 +30,12 @@ export default {
       type: Array,
       required: true,
     },
+    clickFn: {
+      type: Function,
+      default: () => {
+        console.log('no click function')
+      },
+    },
   },
   data: () => ({
     isMobile: false,
@@ -48,9 +54,6 @@ export default {
   methods: {
     mq() {
       this.isMobile = window.matchMedia('(max-width: 899px)').matches
-    },
-    clickFn() {
-      this.$emit('clickFn')
     },
   },
 }
