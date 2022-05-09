@@ -7,7 +7,7 @@
       <ul class="p-medium">
         <li
           v-for="item in filteredList"
-          :key="item.slug"
+          :key="item._key || item._id"
           class="mb-large list-item font-bold inline-block sm:block cursor-pointer transition-all hover:text-secondary"
           :class="{
             'text-secondary': item.title == currentArticle,
@@ -117,8 +117,8 @@ export default {
       required: true,
     },
     mapStyle: {
-      type: String,
-      default: '',
+      type: Array,
+      default: null,
     },
     mapPin: {
       type: String,
