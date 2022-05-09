@@ -10,7 +10,7 @@
             :key="item._key"
             v-bind="item"
             :is-mobile="isMobile"
-            @clickFn="clickFn"
+            :click-fn="clickFn"
           />
         </ul>
       </nav>

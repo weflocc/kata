@@ -39,7 +39,7 @@
         v-for="child in list"
         :key="child._key"
         v-bind="child"
-        @clickFn="clickFn"
+        :click-fn="clickFn"
       />
     </ul>
   </li>
