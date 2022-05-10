@@ -1,7 +1,15 @@
 <template>
   <div class="articles-filters">
-    <div v-for="filterGroup in filters" :key="filterGroup.label">
-      <h3 v-if="categoryLabels">{{ filterGroup.label }}</h3>
+    <div
+      v-for="filterGroup in filters"
+      :key="filterGroup.label"
+      class="mt-small"
+    >
+      <h3
+        v-if="categoryLabels"
+        v-kata-html="filterGroup.title || filterGroup.label"
+        class="label-1 mb-small"
+      />
 
       <div v-if="filterGroup.terms" class="flex flex-wrap">
         <div class="filter-wrapper w-auto block">
