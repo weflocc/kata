@@ -1,51 +1,46 @@
 <template>
   <nuxt-link
     v-if="linkType == 'internal' && (!isOnSamePage || !anchor) && path"
+    v-kata-html="linkText"
     :to="path"
     class="btn-internal"
     :class="linkStyle"
-  >
-    {{ linkText }}
-  </nuxt-link>
+  />
 
   <button
     v-else-if="linkType == 'internal' && isOnSamePage && anchor"
+    v-kata-html="linkText"
     :class="linkStyle"
     class="btn-anchor"
     @click="scrollToAnchor(anchor)"
-  >
-    {{ linkText }}
-  </button>
+  />
 
   <a
     v-else-if="linkType == 'file' && file"
+    v-kata-html="linkText"
     :href="link"
     :class="linkStyle"
     class="btn-file"
     target="_blank"
     download
-  >
-    {{ linkText }}
-  </a>
+  />
 
   <a
     v-else-if="linkType == 'external' && link"
+    v-kata-html="linkText"
     :href="url"
     target="_blank"
     class="btn-external"
     :class="linkStyle"
-  >
-    {{ linkText }}
-  </a>
+  />
 
   <nuxt-link
     v-else-if="linkType == 'lightbox' && query"
+    v-kata-html="linkText"
     :to="{ query: { lightbox: query } }"
     :class="linkStyle"
     class="btn-lightbox"
-  >
-    {{ linkText }}
-  </nuxt-link>
+  />
 </template>
 
 <script>
