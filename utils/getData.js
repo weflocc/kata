@@ -127,14 +127,14 @@ const getData = async ($sanity, query, store, route, vars = {}) => {
     ${projection}
   } | order(_updatedAt desc)[0], ${articlesQuery}}`
 
+  console.log('page groq query', groqQuery)
+
   let data
   if (client) {
     data = await $sanity[client].fetch(groqQuery)
   } else {
     data = await $sanity.fetch(groqQuery)
   }
-
-  console.log('page data', groqQuery)
 
   if (instance && articlesObject) {
     // merge the data and articlesObject objects
