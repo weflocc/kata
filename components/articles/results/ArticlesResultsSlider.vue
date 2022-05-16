@@ -3,31 +3,47 @@
     <VueSlickCarousel
       v-if="articles"
       v-bind="settings"
-      class="article-results-slider pl-r2/24"
+      class="article-results-slider xl:w-r24/24 xl:mx-auto"
     >
-      <template #prevArrow="arrowOption">
-        <button
-          class="carousel-nav prev focus:outline-none mb-medium"
-          title="Previous Slide"
-        >
-          <span></span>
-        </button>
-      </template>
-      <div v-for="item in articles" :key="item._id" class="px-small slide-item">
+      <div v-for="item in articles" :key="item._id" class="slide-item">
         <slot name="tease" :item="item" class="fade-up">
-          <ArticlesTeaseWithImage
-            :item-id="item._id"
-            :link="getLink(item._id)"
-            :title="item.title"
-            :image="item.image"
-          />
+          <component
+            :is="getLink(item._id) ? 'nuxt-link' : 'div'"
+            :to="getLink(item._id)"
+            class="slide-tease relative stack-children items-end"
+          >
+            <KataImage
+              v-if="item.thumbnailImage || item.image"
+              :image="item.thumbnailImage || item.image"
+              :max-width="2000"
+              :ratio="16 / 9"
+              width="1600"
+              height="900"
+              sizes="100vw"
+              class="w-full"
+            />
+            <div class="overlay text-white p-r1/24">
+              <p
+                v-if="superHeading"
+                v-kata-html="superHeading"
+                class="label-1 mt-small"
+              />
+              <h3 v-if="item.title" v-kata-html="item.title" class="mt-small" />
+              <DraftLabel v-if="item._id" :id="itemId" />
+              <p
+                v-if="item.text"
+                v-kata-html="item.text"
+                class="para-2 mt-small"
+              />
+              <p
+                v-if="readMoreText"
+                v-kata-html="readMoreText"
+                class="btn-secondary mt-small"
+              />
+            </div>
+          </component>
         </slot>
       </div>
-      <template #nextArrow="arrowOption">
-        <button class="carousel-nav next focus:outline-none" title="Next Slide">
-          <span></span>
-        </button>
-      </template>
     </VueSlickCarousel>
     <p v-else>No results found.</p>
   </div>
@@ -43,68 +59,31 @@ export default {
   components: { VueSlickCarousel },
   props: {
     articles: {
-      default: function () {
-        return []
-      },
+      default: null,
       type: Array,
+    },
+    readMoreText: {
+      default: '',
+      type: String,
+    },
+    superHeading: {
+      default: '',
+      type: String,
     },
   },
   data() {
     return {
       settings: {
-        arrows: true,
-        dots: false,
-        slidesToShow: 3.5,
-        infinite: false,
-        responsive: [
-          {
-            breakpoint: 100,
-            settings: {
-              slidesToShow: 2.5,
-            },
-          },
-          {
-            breakpoint: 700,
-            settings: {
-              slidesToShow: 1.2,
-              autoplaySpeed: 2000,
-            },
-          },
-        ],
+        arrows: false,
+        dots: true,
+        slidesToShow: 1,
+        infinite: true,
+        fade: true,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        speed: 1000,
       },
     }
-  },
-  mounted() {
-    this.size()
-  },
-  methods: {
-    visibilityChanged(isVisible, entry) {
-      if (isVisible) {
-        this.size()
-      }
-    },
-    size() {
-      if (process.client) {
-        // this.$nextTick(() => {
-        //   let all = this.$refs.listItems.querySelectorAll('.slick-slide')
-        //   let height = 0
-        //   // console.log(all)
-        //   if (all) {
-        //     all.forEach((element) => {
-        //       element.style.height = 'auto'
-        //       if (element.offsetHeight > height) {
-        //         height = element.offsetHeight
-        //       }
-        //     })
-        //     all.forEach((element) => {
-        //       // console.log(element, height)
-        //       element.style.height = height + 'px'
-        //       // console.log(element, height)
-        //     })
-        //   }
-        // })
-      }
-    },
   },
 }
 </script>
@@ -118,26 +97,20 @@ export default {
     pointer-events: none;
   }
 
-  .carousel-nav {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto;
+  .overlay {
+    background: linear-gradient(
+      360deg,
+      rgba(black, 0.75) 7.41%,
+      transparent 82.87%
+    );
+  }
 
-    &.prev {
-      left: 30px;
-    }
-    &.next {
-      right: 30px;
-    }
+  .slick-dots {
+    @apply right-small bottom-small absolute z-10 w-auto;
 
-    @include sm-down {
-      &.next {
-        right: 10px;
-      }
-      &.prev {
-        left: 10px;
-      }
+    li button:before {
+      color: white;
+      font-size: 15px;
     }
   }
 }
