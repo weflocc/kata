@@ -1,9 +1,12 @@
 <template>
-  <div ref="listItems" v-observe-visibility="visibilityChanged">
+  <div
+    ref="listItems"
+    class="article-results-slider-wrap xl:w-r24/24 xl:mx-auto"
+  >
     <VueSlickCarousel
       v-if="articles"
       v-bind="settings"
-      class="article-results-slider xl:w-r24/24 xl:mx-auto"
+      class="article-results-slider"
     >
       <div v-for="item in articles" :key="item._id" class="slide-item">
         <slot name="tease" :item="item" class="fade-up">
@@ -16,20 +19,24 @@
               v-if="item.thumbnailImage || item.image"
               :image="item.thumbnailImage || item.image"
               :max-width="2000"
-              :ratio="16 / 9"
+              :ratio="ratio"
               width="1600"
               height="900"
               sizes="100vw"
               class="w-full"
             />
-            <div class="overlay text-white p-r1/24">
+            <div class="overlay text-white px-container-margin py-large">
               <p
                 v-if="superHeading"
                 v-kata-html="superHeading"
                 class="label-1 mt-small"
               />
-              <h3 v-if="item.title" v-kata-html="item.title" class="mt-small" />
-              <DraftLabel v-if="item._id" :id="itemId" />
+              <h3
+                v-if="item.title"
+                v-kata-html="item.title"
+                class="mt-small heading-2"
+              />
+              <DraftLabel v-if="item._id" :id="item._id" />
               <p
                 v-if="item.text"
                 v-kata-html="item.text"
@@ -83,6 +90,15 @@ export default {
         autoplaySpeed: 5000,
         speed: 1000,
       },
+      ratio: 16 / 9,
+    }
+  },
+  mounted() {
+    if (
+      process.client &&
+      window.matchMedia('(orientation: portrait)').matches
+    ) {
+      this.ratio = 3 / 4
     }
   },
 }
