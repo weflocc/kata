@@ -64,13 +64,15 @@ export default {
       this.$nextTick(() => {
         const video = this.$refs.video
         let self = this
-        video.addEventListener('loadeddata', function () {
-          console.log(video.readyState)
-          // https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/readyState
-          if (video.readyState >= 2) {
-            self.loaded = true
-          }
-        })
+        if (video) {
+          video.addEventListener('loadeddata', function () {
+            console.log(video.readyState)
+            // https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/readyState
+            if (video.readyState >= 2) {
+              self.loaded = true
+            }
+          })
+        }
       })
     },
     isVisible(isVisible, entry) {

@@ -222,6 +222,10 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
+      "path": "slices/portfolio/portfolio03"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
       "path": "slices/portfolio/portfolio04"
     },
     {

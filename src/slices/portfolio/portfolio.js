@@ -18,6 +18,14 @@ const portfolio01 = {
   fields: [superHeading, title, thumbnails],
 }
 
+const portfolio03 = {
+  name: 'portfolio03',
+  type: 'object',
+  title: 'Portfolio #3',
+  options: defaultOptions,
+  fields: [title, text, thumbnails, links()],
+}
+
 const portfolio04 = {
   name: 'portfolio04',
   type: 'object',
@@ -76,6 +84,7 @@ const portfolio10 = {
 
 export {
   portfolio01,
+  portfolio03,
   portfolio04,
   portfolio05,
   portfolio06,
