@@ -93,4 +93,4 @@ const images04 = {
   fields: [imageThumbnailsNoLink],
 }
 
-export default { images01, images02, images03, images04 }
+export { images01, images02, images03, images04 }
