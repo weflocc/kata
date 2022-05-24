@@ -139,6 +139,10 @@ const profiles = {
               title: 'Email',
               name: 'email',
               type: 'url',
+              validation: (Rule) =>
+                Rule.uri({
+                  scheme: ['mailto'],
+                }),
             },
           ],
         },
