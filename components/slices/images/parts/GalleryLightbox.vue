@@ -92,8 +92,9 @@ export default {
       this.show = true
 
       this.$nextTick(() => {
-        console.log(this.$refs['image-gallery-slider'])
-        this.$refs['image-gallery-slider'].goTo(index, true)
+        if (this.$refs['image-gallery-slider']) {
+          this.$refs['image-gallery-slider'].goTo(index, true)
+        }
       })
     },
   },

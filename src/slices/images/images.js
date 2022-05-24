@@ -11,9 +11,6 @@ const imageThumbnails = {
   name: 'list',
   title: 'Images',
   type: 'array',
-  options: {
-    collapsable: true,
-  },
   of: [
     {
       name: 'item',
@@ -41,9 +38,6 @@ const imageThumbnailsNoLink = {
   name: 'list',
   title: 'Images',
   type: 'array',
-  options: {
-    collapsable: true,
-  },
   of: [
     {
       name: 'item',
