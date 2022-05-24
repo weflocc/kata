@@ -10,7 +10,7 @@
       <div
         v-for="item in list"
         :key="item._key"
-        class="px-small md:w-1/3 flex-grow fade-up thumbnail"
+        class="px-small md:w-1/2 lg:w-1/3 flex-grow fade-up thumbnail"
       >
         <slot name="tease" :item="item">
           <component
@@ -60,3 +60,11 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.thumbnail {
+  @include lg-up {
+    max-width: 50%;
+  }
+}
+</style>
