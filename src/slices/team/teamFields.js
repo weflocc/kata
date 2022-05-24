@@ -135,6 +135,11 @@ const profiles = {
               name: 'youtube',
               type: 'url',
             },
+            {
+              title: 'Email',
+              name: 'email',
+              type: 'url',
+            },
           ],
         },
       ],
