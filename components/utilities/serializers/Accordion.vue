@@ -1,10 +1,15 @@
 <template>
   <div v-if="wrapper" class="kata-accordions tabs">
-    <div v-for="(item, i) in wrapper.items" :key="item._key" class="tab">
-      <input :id="'chck' + i" type="checkbox" name="rd" />
-      <label class="tab-label" :for="'chck' + i">{{ item.title }}</label>
+    <div v-for="item in wrapper.items" :key="item._key" class="tab">
+      <input :id="'chck' + item._key" type="checkbox" name="rd" />
+      <label class="tab-label" :for="'chck' + item._key">
+        {{ item.title }}
+      </label>
       <div class="tab-content">
-        <SanityContent :blocks="item.textBody" :serializers="serializers" />
+        <SanityEmbedContent
+          :blocks="item.textBody"
+          :serializers="serializers"
+        />
       </div>
     </div>
   </div>
