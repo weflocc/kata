@@ -16,7 +16,11 @@ const imageThumbnails = {
       name: 'item',
       title: 'Item',
       type: 'object',
-      fields: [title, basicSingleLink, standardImage()],
+      fields: [
+        { name: 'title', title: 'Image Caption', type: 'string' },
+        basicSingleLink,
+        standardImage(),
+      ],
       preview: {
         select: {
           heading: 'title',
@@ -43,7 +47,10 @@ const imageThumbnailsNoLink = {
       name: 'item',
       title: 'Item',
       type: 'object',
-      fields: [title, standardImage()],
+      fields: [
+        { name: 'title', title: 'Image Caption', type: 'string' },
+        standardImage(),
+      ],
       preview: {
         select: {
           heading: 'title',

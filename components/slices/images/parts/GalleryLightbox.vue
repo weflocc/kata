@@ -18,7 +18,7 @@
           >
             <template #prevArrow="arrowOption">
               <button
-                class="carousel-nav prev focus:outline-none mb-medium"
+                class="carousel-nav prev focus:outline-none mb-medium absolute inset-y-0 left-0 my-auto"
                 title="Previous Slide"
               >
                 <span></span>
@@ -100,6 +100,20 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+.gallery-lightbox button.carousel-nav {
+  @apply absolute inset-y-0 my-auto;
+  z-index: 5;
+
+  &.prev {
+    left: 0;
+  }
+  &.next {
+    right: 0;
+  }
+}
+</style>
 
 <style lang="scss" scoped>
 .gallery-lightbox {
