@@ -254,6 +254,22 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
+      "path": "slices/images/images01"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/images/images02"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/images/images03"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/images/images04"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
       "path": "slices/stats/stats01"
     },
     {

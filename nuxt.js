@@ -14,6 +14,8 @@ export default function () {
     './components/slices/contact',
     './components/slices/feature',
     './components/slices/hero',
+    './components/slices/images',
+    './components/slices/images/parts',
     './components/slices/portfolio',
     './components/slices/statistics',
     './components/slices/team',
