@@ -24,7 +24,7 @@
     </div>
 
     <div
-      class="media-wrap mb-large landscape:mb-0 landscape:w-r12/24+container-margin relative order-1 landscape:order-2"
+      class="media-wrap mb-large w-full landscape:mb-0 landscape:w-r12/24+container-margin relative order-1 landscape:order-2"
     >
       <KataMedia
         v-if="media"
