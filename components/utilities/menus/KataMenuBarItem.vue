@@ -60,7 +60,6 @@
 </template>
 
 <script>
-import { RiTreasureMapFill } from 'react-icons/ri'
 import { title, list } from '../../slices/shared'
 export default {
   mixins: [title, list],
@@ -91,7 +90,7 @@ export default {
     },
     openChild() {
       if (this.list && this.list.length > 0) {
-        this.visible = RiTreasureMapFill
+        this.visible = true
       }
     },
     closeChild() {
