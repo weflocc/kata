@@ -1,7 +1,7 @@
 <template>
   <div class="slice hero-10">
     <div
-      class="w-r24/24 md:w-r18/24 lg:w-r14/24 mx-container-margin relative z-1 content-wrap"
+      class="w-r24/24 md:w-r18/24 lg:w-r14/24 mx-container-margin relative z-1 content-wrap z-2"
     >
       <div
         class="flex-col flex items-start justify-end w-full h-full min-h-screen py-slice-half content"
@@ -23,7 +23,7 @@
       </div>
     </div>
     <div
-      class="bg-black w-full h-full overflow-hidden image absolute top-0 left-0"
+      class="bg-black w-full h-full overflow-hidden image absolute top-0 left-0 z-1"
     >
       <KataMedia
         :media="media"
@@ -67,6 +67,11 @@ export default {
     object-fit: cover;
     height: 100%;
     width: 100%;
+  }
+
+  .slider {
+    // css slider so text can be visible
+    opacity: 0.7;
   }
 }
 </style>
