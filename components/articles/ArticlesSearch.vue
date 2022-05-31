@@ -7,7 +7,7 @@
       :value="searchTerm"
       class="focus:outline-none focus:ring-2 border-2 w-full mb-3 bg-transparent py-1 px-small"
       name="articlesSearch"
-      placeholder="Search"
+      :placeholder="placeholder"
       @keyup="searchArticles"
     />
   </div>
@@ -19,6 +19,10 @@ export default {
     articleInstance: {
       type: String,
       required: true,
+    },
+    placeholder: {
+      type: String,
+      default: 'Search',
     },
   },
   computed: {
