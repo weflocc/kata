@@ -1,6 +1,8 @@
 <template>
   <nuxt-link
-    v-if="linkType == 'internal' && (!isOnSamePage || !anchor) && path"
+    v-if="
+      linkType == 'internal' && (!isOnSamePage(link.path) || !anchor) && path
+    "
     v-kata-html="linkText"
     :to="path"
     class="btn-internal"
@@ -8,7 +10,7 @@
   />
 
   <button
-    v-else-if="linkType == 'internal' && isOnSamePage && anchor"
+    v-else-if="linkType == 'internal' && isOnSamePage(link.path) && anchor"
     v-kata-html="linkText"
     :class="linkStyle"
     class="btn-anchor"
@@ -91,12 +93,12 @@ export default {
         ? this.$store.getters['references/getLinkFromReference'](ref)
         : '/'
     },
-    isOnSamePage() {
-      if (this.link?.path) {
-        return this.link.path === this.$route.fullPath ? true : false
-      }
-      return false
-    },
+    // isOnSamePage() {
+    //   if (this.link?.path) {
+    //     return this.link.path === this.$route.fullPath ? true : false
+    //   }
+    //   return false
+    // },
     path() {
       let path = this.link ? this.link.path : this.$route.fullPath
       if (this.anchor) {
