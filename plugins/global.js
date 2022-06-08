@@ -45,13 +45,21 @@ if (!Vue.__globalMixin__ || Vue.__globalMixin__ == undefined) {
       },
       getLinkComponent(obj) {
         if (obj && obj != undefined) {
-          if (obj && obj.linkType == 'internal' && obj.internalLink) {
+          if (obj.linkType == 'internal' && obj.internalLink) {
+            if (
+              obj.anchor &&
+              this.isOnSamePage(this.getLink(obj.internalLink._ref))
+            ) {
+              return 'button'
+            }
             return 'n-link'
           } else if (
             (obj.linkType == 'external' && obj.url) ||
             (obj.linkType == 'file' && obj.file)
           ) {
             return 'a'
+          } else if (obj.anchor) {
+            return 'button'
           }
         }
         return 'div'
