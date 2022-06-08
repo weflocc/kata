@@ -29,6 +29,11 @@ if (!Vue.__globalMixin__ || Vue.__globalMixin__ == undefined) {
             } else if (link) {
               path = link
             }
+            if (obj.anchor) {
+              // add hash if missing
+              if (/^#/.test(obj.anchor)) path += obj.anchor
+              path += '#' + obj.anchor
+            }
             return path
           } else if (obj.linkType == 'external') {
             return obj.url
