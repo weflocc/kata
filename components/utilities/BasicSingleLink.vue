@@ -6,6 +6,9 @@
     :href="getSingleLink(item)"
     :target="getLinkComponent(item) == 'a' ? '_blank' : '_self'"
     class="transition-default"
+    @click="
+      getLinkComponent(item) === 'button' ? scrollToAnchor(item.anchor) : null
+    "
   >
     <slot></slot>
   </component>
