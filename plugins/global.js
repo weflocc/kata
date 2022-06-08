@@ -4,6 +4,10 @@ if (!Vue.__globalMixin__ || Vue.__globalMixin__ == undefined) {
   Vue.__globalMixin__ = true
   Vue.mixin({
     methods: {
+      isOnSamePage(path) {
+        if (path === this.$route.path) return true
+        return false
+      },
       getLink(ref) {
         const link = this.$store.getters['references/getLinkFromReference'](ref)
         return link ? link.path : '/'
