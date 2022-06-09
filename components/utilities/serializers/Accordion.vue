@@ -6,16 +6,14 @@
         {{ item.title }}
       </label>
       <div class="tab-content">
-        <SanityEmbedContent
-          :blocks="item.textBody"
-          :serializers="serializers"
-        />
+        <SanityContent :blocks="item.textBody" :serializers="serializers" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { SanityContent } from '@nuxtjs/sanity/dist/components/sanity-content'
 // This duplicates SanityEmbedContent but does not include Accordion as a type
 // This avoids a never-ending-loop of <SanityEmbedContent> and <Accordion> components
 import Youtube from './Youtube.vue'
@@ -27,6 +25,7 @@ import ExternalLink from './ExternalLink.vue'
 import TableField from './TableField.vue'
 
 export default {
+  components: { SanityContent },
   props: {
     // items: {
     //   type: Array,

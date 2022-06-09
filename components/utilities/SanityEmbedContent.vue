@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import { SanityContent } from '@nuxtjs/sanity/dist/components/sanity-content'
 import BlockLinks from './serializers/BlockLinks.vue'
 import FileLink from './serializers/FileLink.vue'
 import InternalLink from './serializers/InternalLink.vue'
@@ -21,6 +22,7 @@ import StandoutText from './serializers/StandoutText.vue'
 import Id from './serializers/Id.vue'
 
 export default {
+  components: { SanityContent },
   props: {
     blocks: {
       type: Array,
