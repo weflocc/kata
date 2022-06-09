@@ -1,58 +1,40 @@
 import {
   basicTextEditor,
   liteTextEditor,
+  fullTextEditor,
 } from 'part:@weflocc/kata/partials/index'
 import { BiListPlus } from 'react-icons/bi'
 import { title } from '../shared'
 
-const list = {
-  title: 'List',
-  name: 'list',
-  type: 'array',
-  of: [
-    {
-      type: 'object',
-      name: 'listItem',
-      fields: [title, basicTextEditor()],
-      preview: {
-        select: {
-          heading: 'title',
-        },
-        prepare(selection) {
-          const { heading } = selection
-          return {
-            title: heading || 'List item',
-            media: BiListPlus,
-          }
-        },
-      },
-    },
-  ],
-}
-
-const simpleList = {
-  title: 'List',
-  name: 'list',
-  type: 'array',
-  of: [
-    {
-      type: 'object',
-      name: 'listItem',
-      fields: [title, liteTextEditor()],
-      preview: {
-        select: {
-          heading: 'title',
-        },
-        prepare(selection) {
-          const { heading } = selection
-          return {
-            title: heading || 'List item',
-            media: BiListPlus,
-          }
+function listSchema(fields) {
+  return {
+    title: 'List',
+    name: 'list',
+    type: 'array',
+    of: [
+      {
+        type: 'object',
+        name: 'listItem',
+        fields: [...fields],
+        preview: {
+          select: {
+            heading: 'title',
+          },
+          prepare(selection) {
+            const { heading } = selection
+            return {
+              title: heading || 'List item',
+              media: BiListPlus,
+            }
+          },
         },
       },
-    },
-  ],
+    ],
+  }
 }
+// list schemas
+const list = listSchema([title, basicTextEditor()])
+const fullTextList = listSchema([title, fullTextEditor()])
+const simpleList = listSchema([title, liteTextEditor()])
 
-export { list, simpleList }
+export { list, simpleList, fullTextList }
