@@ -28,7 +28,7 @@
         </li>
       </ul>
     </div>
-    <div class="sm:w-2/3">
+    <div class="sm:w-2/3 map">
       <GMap
         v-if="filteredList != null && filteredList.length"
         ref="gMap"
@@ -155,6 +155,7 @@ export default {
       this.currentArticle = item
     },
     setActive(item) {
+      if (!item.slug) return
       this.$router.push({ path: this.path + '/' + item.slug.current + '/' })
     },
     mapLoaded(e) {
@@ -197,16 +198,6 @@ export default {
 <style lang="scss">
 .articles-list {
   overflow: scroll;
-}
-.GMap__Wrapper,
-.articles-list {
-  height: 80vh;
-  min-height: 500px;
-
-  @media (max-width: 500px) {
-    height: 50vh;
-    min-height: 300px;
-  }
 }
 .gm-style .gm-style-iw-d {
   overflow: hidden !important;

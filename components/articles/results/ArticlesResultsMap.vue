@@ -46,7 +46,7 @@
         </ul>
       </transition>
     </div>
-    <div class="sm:w-2/3 relative">
+    <div class="sm:w-2/3 relative map">
       <nuxt-child v-if="hasChild" :key="$route.name" />
       <transition name="fade">
         <GMap
@@ -282,10 +282,15 @@ export default {
   opacity: 0;
   transform: translateX(-100%);
 }
-.GMap__Wrapper,
 .articles-list {
   height: 80vh;
   min-height: 500px;
+}
+.GMap {
+  height: 100%;
+}
+.GMap__Wrapper {
+  height: 100% !important;
 }
 
 @media (max-width: 500px) {
