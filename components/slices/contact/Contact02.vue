@@ -40,6 +40,17 @@
           <p class="label-1">Address</p>
           <p v-kata-html="address" class="whitespace-pre-line" />
         </li>
+        <li v-if="what3Words" class="mb-medium item">
+          <p class="label-1">What 3 Words</p>
+          <p class="email">
+            <a
+              :href="'https://map.what3words.com/' + what3Words"
+              target="_blank"
+            >
+              {{ what3Words }}
+            </a>
+          </p>
+        </li>
         <li v-if="openingTimes" class="mb-medium item">
           <p class="label-1">Opening Times</p>
           <p v-kata-html="openingTimes" class="whitespace-pre-line" />
@@ -87,6 +98,10 @@ export default {
       default: '',
     },
     email: {
+      type: String,
+      default: '',
+    },
+    what3Words: {
       type: String,
       default: '',
     },

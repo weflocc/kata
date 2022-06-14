@@ -38,6 +38,12 @@ const contact02 = {
     // website,
     // websiteText,
     telephone,
+    {
+      name: 'what3Words',
+      type: 'string',
+      title: 'What 3 Words',
+      description: 'Enter your three words here in the format one.two.three',
+    },
   ],
 }
 
