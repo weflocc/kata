@@ -10,7 +10,6 @@ const getData = async ($sanity, query, store, route, vars = {}) => {
   let client = null
   let type = ''
   if (vars) {
-    console.log('vars', vars)
     path = vars.path
     globals = vars.globals
     customProjections = vars.customProjections
@@ -120,8 +119,6 @@ const getData = async ($sanity, query, store, route, vars = {}) => {
     articlesObject.showFilters = instance.hasOwnProperty('filters')
   }
 
-  console.log('type', type)
-
   let groqQuery = groq`{"c": *[_type == '${type}' ${pathQuery}]{
     ...,
     ${projection}
@@ -139,6 +136,11 @@ const getData = async ($sanity, query, store, route, vars = {}) => {
   if (instance && articlesObject) {
     // merge the data and articlesObject objects
     data = Object.assign(data, articlesObject)
+  }
+
+  if (!Object.keys(data).length) {
+    // return c to prevent it not being on the page at all
+    data = { c: null }
   }
 
   return data
