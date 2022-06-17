@@ -20,12 +20,12 @@ export default {
       let result = ''
       let res = ''
 
-      if (store.state && store.state.references) {
-        res = store.getters['references/isPathPublished'](clearPath)
-        result = store.state.references.index.some((x) => x.slug == clearPath)
-        console.log('res', res)
-        console.log('result', result)
-      }
+      res = store?.getters['references/isPathPublished'](clearPath)
+      result = store?.state?.references?.index?.some((x) => x.slug == clearPath)
+      console.log('res', res)
+      console.log('result', result)
+      // if (store.state && store.state.references) {
+      // }
 
       if (res || result) {
         console.log('validate 1 true')
