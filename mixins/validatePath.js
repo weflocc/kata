@@ -15,19 +15,16 @@ export default {
         ? route.params.slug || route.params.pathMatch
         : route.path
       let clearPath = removeBothSlashes(path)
+      let res = store?.getters?.['references/isPathPublished'](clearPath)
       clearPath = removeLeadingSlash(clearPath)
       clearPath = removeTrailingSlash(clearPath)
-      let result = ''
-      let res = ''
 
-      res = store?.getters['references/isPathPublished'](clearPath)
-      result = store?.state?.references?.index?.some((x) => x.slug == clearPath)
+      // result = store?.state?.references?.index?.some((x) => x.slug == clearPath)
       console.log('res', res)
-      console.log('result', result)
       // if (store.state && store.state.references) {
       // }
 
-      if (res || result) {
+      if (res) {
         console.log('validate 1 true')
         return true
       } else {
