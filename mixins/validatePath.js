@@ -33,7 +33,7 @@ export default {
           return result.length ? true : false
         } else {
           console.warn('Validate path: no sanity instance found')
-          return false
+          return true
         }
       }
     }
