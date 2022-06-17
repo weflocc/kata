@@ -15,7 +15,7 @@ export default {
         ? route.params.slug || route.params.pathMatch
         : route.path
       let clearPath = removeBothSlashes(path)
-      let res = store?.getters?.['references/isPathPublished'](clearPath)
+      let res = store.getters['references/isPathPublished'](clearPath)
       clearPath = removeLeadingSlash(clearPath)
       clearPath = removeTrailingSlash(clearPath)
 
