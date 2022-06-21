@@ -19,14 +19,15 @@
       :max-width="3000"
       class="w-full h-auto"
     />
+    <KataLinks v-if="links" :links="links" class="fade-up mt-large" />
   </div>
 </template>
 
 <script>
-import { title, textBody, media } from '../shared'
+import { title, textBody, media, links } from '../shared'
 
 export default {
-  mixins: [title, textBody, media],
+  mixins: [title, textBody, media, links],
   props: {
     isContained: {
       type: Boolean,

@@ -87,7 +87,7 @@ const feature08 = {
   type: 'object',
   title: 'Feature #8',
   options: defaultOptions,
-  fields: [title, basicTextEditor(), media()],
+  fields: [title, basicTextEditor(), media(), links()],
 }
 const feature09 = {
   name: 'feature09',
