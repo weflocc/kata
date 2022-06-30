@@ -40,6 +40,8 @@ if (!Vue.__globalMixin__ || Vue.__globalMixin__ == undefined) {
             return path
           } else if (obj.linkType == 'external') {
             return obj.url
+          } else if (obj.linkType == 'lightbox') {
+            return { query: { lightbox: obj.query } }
           } else {
             return null
           }
@@ -48,8 +50,12 @@ if (!Vue.__globalMixin__ || Vue.__globalMixin__ == undefined) {
       },
       getLinkComponent(obj) {
         if (obj && obj != undefined) {
-          if (obj.linkType == 'internal' && obj.internalLink) {
+          if (
+            (obj.linkType == 'internal' && obj.internalLink) ||
+            (obj.linkType == 'lightbox' && obj.query)
+          ) {
             if (
+              obj.linkType == 'internal' &&
               obj.anchor &&
               this.isOnSamePage(this.getLink(obj.internalLink._ref))
             ) {
