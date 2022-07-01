@@ -7,7 +7,6 @@ export default {
       (this.c && this.c._id && !this.c._id.includes('drafts')) ||
       this.$route.query.preview
     ) {
-      console.log(this.c?._id)
       this.error = false
     }
 
