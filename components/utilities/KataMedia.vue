@@ -43,7 +43,7 @@
     <KataLottie
       v-else-if="media.mediaType == 'lottie' && media.lottieJson"
       :animation-data="media.lottieJson"
-      class="w-full h-full"
+      class="w-full h-auto"
       :options="options"
     />
   </div>
