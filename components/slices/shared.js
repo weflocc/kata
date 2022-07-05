@@ -97,6 +97,15 @@ const noCrop = {
   },
 }
 
+const showLoader = {
+  props: {
+    showLoader: {
+      type: Boolean,
+      default: false,
+    },
+  },
+}
+
 export {
   title,
   superHeading,
@@ -109,4 +118,5 @@ export {
   list,
   articles,
   noCrop,
+  showLoader,
 }
