@@ -44,6 +44,7 @@
       v-else-if="media.mediaType == 'lottie' && media.lottieJson"
       :animation-data="media.lottieJson"
       class="w-full h-full"
+      :options="options"
     />
   </div>
 </template>
@@ -74,6 +75,10 @@ export default {
     showLoader: {
       type: Boolean,
       default: false,
+    },
+    options: {
+      type: Object,
+      default: null,
     },
   },
   data: () => ({ isMobile: false }),
