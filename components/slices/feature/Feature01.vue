@@ -18,7 +18,11 @@
           class="heading-2 mb-medium fade-up"
         />
       </div>
-      <h2 v-else v-kata-html="title" class="heading-2 mb-medium fade-up" />
+      <h2
+        v-else-if="!superHeading && title"
+        v-kata-html="title"
+        class="heading-2 mb-medium fade-up"
+      />
       <SanityEmbedContent v-if="textBody" :blocks="textBody" class="fade-up" />
       <KataLinks v-if="links" :links="links" class="fade-up mt-large" />
     </div>
