@@ -13,15 +13,16 @@
         :ratio="3 / 1"
         :max-width="3000"
         class="w-full"
+        :show-loader="showLoader"
       />
     </div>
   </div>
 </template>
 
 <script>
-import { title, media, noCrop } from '../shared'
+import { title, media, noCrop, showLoader } from '../shared'
 
 export default {
-  mixins: [title, media, noCrop],
+  mixins: [title, media, noCrop, showLoader],
 }
 </script>
