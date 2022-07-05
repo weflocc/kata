@@ -5,6 +5,7 @@
       :ratio="ratio"
       :no-crop="noCrop"
       :max-width="2500"
+      :show-loader="showLoader"
       class="h-screen w-full object-cover"
     />
     <div
@@ -36,10 +37,18 @@
 </template>
 
 <script>
-import { title, superHeading, textBody, links, media, noCrop } from '../shared'
+import {
+  title,
+  superHeading,
+  textBody,
+  links,
+  media,
+  noCrop,
+  showLoader,
+} from '../shared'
 
 export default {
-  mixins: [title, superHeading, textBody, links, media, noCrop],
+  mixins: [title, superHeading, textBody, links, media, noCrop, showLoader],
   data() {
     return {
       ratio: 16 / 9,

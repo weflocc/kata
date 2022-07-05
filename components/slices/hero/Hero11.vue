@@ -24,6 +24,7 @@
           :media="media"
           :max-width="2000"
           :no-crop="noCrop"
+          :show-loader="showLoader"
         />
       </div>
     </div>
@@ -31,10 +32,10 @@
 </template>
 
 <script>
-import { title, textBody, links, media, noCrop } from '../shared'
+import { title, textBody, links, media, noCrop, showLoader } from '../shared'
 
 export default {
-  mixins: [title, textBody, links, media, noCrop],
+  mixins: [title, textBody, links, media, noCrop, showLoader],
   props: {
     sideLinkText: {
       type: String,

@@ -5,6 +5,7 @@
       :ratio="ratio"
       :no-crop="noCrop"
       :max-width="2500"
+      :show-loader="showLoader"
       class="hero-animation border-animate"
     />
 
@@ -35,9 +36,17 @@
 </template>
 
 <script>
-import { superHeading, title, textBody, links, media, noCrop } from '../shared'
+import {
+  superHeading,
+  title,
+  textBody,
+  links,
+  media,
+  noCrop,
+  showLoader,
+} from '../shared'
 export default {
-  mixins: [superHeading, title, textBody, links, media, noCrop],
+  mixins: [superHeading, title, textBody, links, media, noCrop, showLoader],
   props: {
     ratio: {
       type: Number,

@@ -13,6 +13,7 @@
         :no-crop="noCrop"
         :ratio="1"
         :max-width="2000"
+        :show-loader="showLoader"
         class="h-full w-full object-cover"
       />
     </div>
@@ -37,10 +38,18 @@
 </template>
 
 <script>
-import { superHeading, title, textBody, links, media, noCrop } from '../shared'
+import {
+  superHeading,
+  title,
+  textBody,
+  links,
+  media,
+  noCrop,
+  showLoader,
+} from '../shared'
 
 export default {
-  mixins: [superHeading, title, textBody, links, media, noCrop],
+  mixins: [superHeading, title, textBody, links, media, noCrop, showLoader],
 }
 </script>
 

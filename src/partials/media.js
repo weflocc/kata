@@ -25,6 +25,7 @@ const media = (name = 'Media', required = false) => {
             { title: 'Video', value: 'video' },
             { title: 'Embed Video', value: 'embed' },
             { title: 'Image Slideshow', value: 'slideshow' },
+            { title: 'Lottie Js', value: 'lottie' },
           ],
         },
       },
@@ -48,6 +49,15 @@ const media = (name = 'Media', required = false) => {
         description: 'Please paste in your video url here.',
         hidden: ({ parent }) =>
           parent.mediaType != 'embed' || parent.mediaType == '',
+      },
+      {
+        title: 'Lottie JSON',
+        name: 'lottieJson',
+        type: 'text',
+        description:
+          'Please paste in your Lottie animation data here, in JSON format. Please contact Flocc if you would like to use this setting.',
+        hidden: ({ parent }) =>
+          parent.mediaType != 'lottie' || parent.mediaType == '',
       },
       {
         title: 'Image Slideshow',
