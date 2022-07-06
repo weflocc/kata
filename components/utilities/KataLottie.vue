@@ -1,5 +1,8 @@
 <template>
-  <div ref="kataLottie" />
+  <div v-if="showLoader" class="lottie-with-loader" :class="{ loaded: loaded }">
+    <div ref="kataLottie" />
+  </div>
+  <div v-else ref="kataLottie" />
 </template>
 
 <script>
@@ -16,7 +19,12 @@ export default {
       type: Object,
       default: null,
     },
+    showLoader: {
+      type: Boolean,
+      default: false,
+    },
   },
+  data: () => ({ loaded: false }),
   mounted() {
     let animData = JSON.parse(this.animationData)
     console.log(animData)
@@ -46,6 +54,7 @@ export default {
           //     id: 'some-id',
           //   },
         })
+        this.loaded = true
       })
     }
     // if you want to use the animation events, get this passed up.
@@ -53,3 +62,23 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.lottie-with-loader {
+  position: relative;
+
+  &:after {
+    content: '';
+    @apply bg-white w-full h-full left-0 top-header-height fixed;
+    transition: 0.5s ease;
+    pointer-events: none;
+    opacity: 1;
+  }
+
+  &.loaded {
+    &:after {
+      opacity: 0;
+    }
+  }
+}
+</style>

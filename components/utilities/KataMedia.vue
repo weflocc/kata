@@ -45,6 +45,7 @@
       :animation-data="media.lottieJson"
       class="w-full h-auto"
       :options="options"
+      :show-loader="showLoader"
     />
   </div>
 </template>
