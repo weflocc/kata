@@ -1,5 +1,5 @@
 <template>
-  <img :alt="$imgMeta(image.asset._ref).alt" :src="src" />
+  <img :alt="alt" :src="src" />
 </template>
 
 <script>
@@ -20,9 +20,30 @@ export default {
     },
   },
   methods: {
-    imgMeta(ref) {
-      return this.$store.getters['references/getImageMetadata'](ref)
+    alt() {
+      let alt = ''
+      if (this.image) {
+        let meta = this.$store.getters['references/getImageMetadata'](
+          this.image.asset._ref
+        )
+        // set in order of preference
+        let items = ['alt', 'title', 'description', 'id']
+
+        console.log('meta', meta)
+        if (!meta || !Object.keys(meta).length) return alt
+        for (let i = 0; i < items.length; i++) {
+          const elem = items[i]
+          if (Object.prototype.hasOwnProperty.call(meta, elem) && meta[elem]) {
+            alt = meta[elem]
+            break
+          }
+        }
+      }
+      return alt
     },
+    // imgMeta(ref) {
+    //   return this.$store.getters['references/getImageMetadata'](ref)
+    // },
   },
 }
 </script>

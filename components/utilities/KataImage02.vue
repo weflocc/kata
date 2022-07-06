@@ -81,7 +81,8 @@ export default {
       // set in order of preference
       let items = ['alt', 'title', 'description', 'id']
       let alt = ''
-      if (!meta) return alt
+      console.log('meta', meta)
+      if (!meta || !Object.keys(meta).length) return alt
       for (let i = 0; i < items.length; i++) {
         const elem = items[i]
         if (Object.prototype.hasOwnProperty.call(meta, elem) && meta[elem]) {
