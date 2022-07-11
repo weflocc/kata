@@ -1,3 +1,5 @@
+import WordCount from '../components/wordCount'
+
 const title = {
   name: 'title',
   title: 'Title',
@@ -65,9 +67,12 @@ const metaTitle = {
 
 const metaDescription = {
   name: 'metaDescription',
-  title: 'Global Meta Description',
+  title: 'Meta Description',
   type: 'text',
   rows: 3,
+  description: 'Max 150 characters',
+  inputComponent: WordCount,
+  validation: (Rule) => Rule.max(150),
 }
 
 const metaFields = {
