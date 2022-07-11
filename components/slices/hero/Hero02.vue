@@ -20,16 +20,12 @@
     <div
       class="content landscape:py-slice-half landscape:w-r14/24 px-r2/24 landscape:pl-large landscape:flex landscape:flex-col landscape:justify-center"
     >
-      <h1
-        v-if="superHeading"
-        v-kata-html="superHeading"
-        class="super-heading"
-      />
-      <h1 v-else-if="title" v-kata-html="title" class="heading-1" />
+      <h1 v-if="superHeading" class="super-heading" v-html="superHeading" />
+      <h1 v-else-if="title" class="heading-1" v-html="title" />
       <h2
         v-if="title && superHeading"
-        v-kata-html="title"
         class="heading-1 mb-medium"
+        v-html="title"
       />
       <SanityEmbedContent v-if="textBody" :blocks="textBody" />
       <KataLinks v-if="links" :links="links" class="links mt-medium" />

@@ -8,12 +8,12 @@
       >
         <template v-if="superHeading">
           <h1
-            v-kata-html="superHeading"
             class="super-heading text-white mb-medium"
+            v-html="superHeading"
           />
-          <h2 v-if="title" v-kata-html="title" class="heading-1 text-white" />
+          <h2 v-if="title" class="heading-1 text-white" v-html="title" />
         </template>
-        <h1 v-else v-kata-html="title" class="heading-1 text-white" />
+        <h1 v-else class="heading-1 text-white" v-html="title" />
         <SanityEmbedContent
           v-if="textBody"
           :blocks="textBody"

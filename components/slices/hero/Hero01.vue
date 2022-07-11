@@ -10,14 +10,14 @@
     >
       <h1
         v-if="superHeading"
-        v-kata-html="superHeading"
         class="super-heading mb-medium"
+        v-html="superHeading"
       />
-      <h1 v-else-if="title" v-kata-html="title" class="heading-1 mb-medium" />
+      <h1 v-else-if="title" class="heading-1 mb-medium" v-html="title" />
       <h2
         v-if="title && superHeading"
-        v-kata-html="title"
         class="heading-1 mb-medium"
+        v-html="title"
       />
       <SanityEmbedContent v-if="textBody" :blocks="textBody" />
       <KataLinks v-if="links" :links="links" class="mt-medium" />

@@ -13,18 +13,18 @@
     >
       <h1
         v-if="superHeading && title"
-        v-kata-html="superHeading"
         class="super-heading text-white mb-medium"
+        v-html="superHeading"
       />
       <h1
         v-else-if="title"
-        v-kata-html="title"
         class="heading-1 text-white mb-medium"
+        v-html="title"
       />
       <h2
         v-if="superHeading && title"
-        v-kata-html="title"
         class="heading-1 text-white mb-medium"
+        v-html="title"
       />
       <SanityEmbedContent
         v-if="textBody"

@@ -11,16 +11,12 @@
 
     <div class="mt-large mx-auto w-r24/24 md:flex md:justify-between text">
       <div class="md:w-1/2 md:pr-large">
-        <h1
-          v-if="superHeading"
-          v-kata-html="superHeading"
-          class="super-heading"
-        />
-        <h1 v-else-if="title" v-kata-html="title" class="heading-1" />
+        <h1 v-if="superHeading" class="super-heading" v-html="superHeading" />
+        <h1 v-else-if="title" class="heading-1" v-html="title" />
         <h2
           v-if="superHeading && title"
-          v-kata-html="title"
           class="heading-1 mt-small"
+          v-html="title"
         />
       </div>
       <div class="md:w-1/2">
