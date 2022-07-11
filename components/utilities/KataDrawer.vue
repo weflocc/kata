@@ -1,7 +1,7 @@
 <template>
   <transition name="slide">
     <div
-      v-show="active"
+      v-if="active"
       class="drawer fixed top-0 right-0 flex items-center justify-center w-full md:w-r16/24 xl:w-1/2 h-full"
     >
       <button
