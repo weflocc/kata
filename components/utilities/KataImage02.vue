@@ -81,7 +81,7 @@ export default {
       // set in order of preference
       let items = ['alt', 'title', 'description', 'id']
       let alt = ''
-      console.log('meta', meta)
+      // console.log('meta', meta)
       if (!meta || !Object.keys(meta).length) return alt
       for (let i = 0; i < items.length; i++) {
         const elem = items[i]

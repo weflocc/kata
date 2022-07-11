@@ -9,6 +9,7 @@
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
       allowfullscreen
+      loading="lazy"
     ></iframe>
     <iframe
       v-else-if="source == 'youtube'"
@@ -19,6 +20,7 @@
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
       allowfullscreen
+      loading="lazy"
     ></iframe>
     <iframe
       v-else
@@ -28,6 +30,7 @@
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
       allowfullscreen
+      loading="lazy"
     ></iframe>
   </div>
 </template>
