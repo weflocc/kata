@@ -21,20 +21,26 @@
           />
           <AisStateResults>
             <template #default="{ results: { hits, query } }">
+              <AisStats v-show="query.length > 0" class="mb-small" />
               <AisHits v-if="hits.length > 0 && query.length > 0">
                 <template #default="{ items }">
-                  <ul>
+                  <ul class="max-h-[70vh] overflow-y-scroll">
                     <li
                       v-for="item in items"
                       :key="item.objectID"
-                      class="mb-medium search-result"
+                      class="mb-medium search-result border-b pb-small"
                       @click="openLink(item.pathname)"
                     >
-                      <h3 class="label-1 mb-small">
-                        <AisHighlight attribute="title" :hit="item" />
-                      </h3>
+                      <div class="mb-small flex gap-small">
+                        <p class="label-1 !font-bold">
+                          {{ item.title }}
+                        </p>
+                        <span>
+                          <AisHighlight attribute="pathname" :hit="item" />
+                        </span>
+                      </div>
                       <p>
-                        <AisHighlight attribute="description" :hit="item" />
+                        <AisSnippet attribute="content" :hit="item" />
                       </p>
                     </li>
                   </ul>
@@ -47,58 +53,61 @@
             </template>
           </AisStateResults>
         </AisInstantSearch>
-        <button
-          ref="close"
-          class="close outline-none focus:outline-none"
-          :class="{ 'text-btn': showCloseText, 'icon-btn': !showCloseText }"
-          @click="searchOpen = false"
-        >
-          {{ showCloseText ? 'Close' : '' }}
-        </button>
+        <div @click="searchOpen = false">
+          <button
+            ref="close"
+            class="close outline-none focus:outline-none"
+            :class="{ 'text-btn': showCloseText, 'icon-btn': !showCloseText }"
+          >
+            {{ showCloseText ? 'Close' : '' }}
+          </button>
+        </div>
       </div>
     </transition>
   </div>
 </template>
 
 <script>
-// follow instructions here: https://made-agency.atlassian.net/wiki/spaces/madedev/pages/1843429417/Add+Algolia+search+to+a+site
-// Copy this file into your local repository and uncomment the relevant lines!
-
+// Copy into your local repository and uncomment the relevant lines!
 // yarn add vue-instantsearch
 // yarn add algoliasearch
 import SearchIcon from '~/assets/svgs/search.svg?inline'
 // uncomment the below to work!
-// import {
-//   AisInstantSearch,
-//   AisHits,
-//   AisHighlight,
-//   AisSearchBox,
-//   AisStateResults,
-// } from 'vue-instantsearch'
-// import algoliasearch from 'algoliasearch/lite'
+import {
+  AisInstantSearch,
+  AisStats,
+  AisHits,
+  AisHighlight,
+  AisSearchBox,
+  AisStateResults,
+  AisSnippet,
+} from 'vue-instantsearch'
+import algoliasearch from 'algoliasearch/lite'
 
 export default {
   components: {
-    // AisInstantSearch,
-    // AisStateResults,
-    // AisHits,
-    // AisHighlight,
-    // AisSearchBox,
+    AisInstantSearch,
+    AisStateResults,
+    AisStats,
+    AisHits,
+    AisHighlight,
+    AisSnippet,
+    AisSearchBox,
     SearchIcon,
   },
   props: {
     crawlerId: {
-      // found here - make sure you are on the right project https://www.algolia.com/apps/LB6R4RK6YE/api-keys/all (login with netlify)
+      // found here - make sure you are on the right project https://www.algolia.com/apps/LB6R4RK6YE/api-keys/all
       type: String,
       required: true,
     },
     adminApiKey: {
-      // found here - make sure you are on the right project https://www.algolia.com/apps/LB6R4RK6YE/api-keys/all (login with netlify)
+      // found here - make sure you are on the right project https://www.algolia.com/apps/LB6R4RK6YE/api-keys/all
       type: String,
       required: true,
     },
     indexName: {
-      // index name from https://crawler.algolia.com/admin/crawlers/?sort=status&order=ASC&limit=20 indices (login with netlify)
+      // index name from https://crawler.algolia.com/admin/crawlers/?sort=status&order=ASC&limit=20 indices
       type: String,
       required: true,
     },
@@ -133,8 +142,8 @@ export default {
 }
 
 .search-wrap {
-  width: 30px;
-  height: 30px;
+  width: 18px;
+  height: 18px;
   @apply flex items-center justify-center;
 
   svg path {
@@ -147,9 +156,10 @@ export default {
   z-index: 1000;
   background: rgba($primary, 0.98);
   transition: 1s ease;
-  padding-top: 20%;
+  padding-top: var(--spacing-slice);
   overflow-y: scroll;
   overflow-x: hidden;
+  color: white;
 
   .close {
     position: absolute;
@@ -237,6 +247,7 @@ export default {
   }
 
   .search-result {
+    border-color: currentColor;
     h3 {
       transition: 0.5s ease;
     }
