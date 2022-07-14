@@ -16,9 +16,10 @@
     :src="src"
     :class="{ loaded: loaded }"
     :width="maxWidth"
-    :height="maxWidth"
     class="kata-image kata-image-2 h-auto"
     :alt="alt"
+    :loading="lazyLoad ? 'lazy' : 'eager'"
+    format="webp"
     @load="imgLoaded"
   />
 </template>
@@ -43,6 +44,10 @@ export default {
     sizes: {
       type: String,
       default: 'sm:100vw',
+    },
+    lazyLoad: {
+      type: Boolean,
+      default: true,
     },
   },
   data() {

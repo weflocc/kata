@@ -5,11 +5,11 @@
     :src="src"
     :class="{ loaded: loaded }"
     :width="maxWidth"
-    :height="maxWidth * ratio"
     fit="cover"
     class="kata-image"
     :alt="alt"
-    loading="lazy"
+    format="webp"
+    :loading="lazyLoad ? 'lazy' : 'eager'"
     @load="imgLoaded"
   />
   <!-- <div v-if="showLoader" class="image-with-loader" :class="{ loaded: loaded }">
@@ -49,6 +49,10 @@ export default {
     showLoader: {
       type: Boolean,
       default: false,
+    },
+    lazyLoad: {
+      type: Boolean,
+      default: true,
     },
     maxWidth: {
       type: Number,

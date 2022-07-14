@@ -1,5 +1,11 @@
 <template>
-  <nuxt-img class="kata-simple-image" loading="lazy" :alt="alt" :src="src" />
+  <nuxt-img
+    class="kata-simple-image"
+    :loading="lazyLoad ? 'lazy' : 'eager'"
+    format="webp"
+    :alt="alt"
+    :src="src"
+  />
 </template>
 
 <script>
@@ -12,6 +18,10 @@ export default {
     loader: {
       type: Boolean,
       default: false,
+    },
+    lazyLoad: {
+      type: Boolean,
+      default: true,
     },
   },
   computed: {
