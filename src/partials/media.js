@@ -6,12 +6,13 @@ import {
 const camelCase = require('lodash.camelcase')
 import { BsFillImageFill } from 'react-icons/bs'
 
-const media = (name = 'Media', required = false) => {
+const media = (name = 'Media', required = false, hidden = '') => {
   return {
     name: camelCase(name),
     title: name,
     type: 'object',
     options: defaultOptions,
+    hidden: hidden,
     fields: [
       {
         type: 'string',
