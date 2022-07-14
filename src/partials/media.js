@@ -6,7 +6,8 @@ import {
 const camelCase = require('lodash.camelcase')
 import { BsFillImageFill } from 'react-icons/bs'
 
-const media = (name = 'Media', required = false, hidden = '') => {
+const media = (name = 'Media', required = false, vars = {}) => {
+  const hidden = vars?.hidden || false
   return {
     name: camelCase(name),
     title: name,
@@ -32,7 +33,7 @@ const media = (name = 'Media', required = false, hidden = '') => {
       },
       standardImage('Image', {
         hidden: ({ parent }) =>
-          parent.mediaType != 'image' || parent.mediaType == '',
+          parent?.mediaType != 'image' || parent?.mediaType == '',
       }),
       {
         title: 'Video file',
@@ -41,7 +42,7 @@ const media = (name = 'Media', required = false, hidden = '') => {
         description:
           'We recommend you crop and compress your video here before uploading it: https://www.videosmaller.com/.',
         hidden: ({ parent }) =>
-          parent.mediaType != 'video' || parent.mediaType == '',
+          parent?.mediaType != 'video' || parent?.mediaType == '',
       },
       {
         title: 'Embed Video',
@@ -49,7 +50,7 @@ const media = (name = 'Media', required = false, hidden = '') => {
         type: 'url',
         description: 'Please paste in your video url here.',
         hidden: ({ parent }) =>
-          parent.mediaType != 'embed' || parent.mediaType == '',
+          parent?.mediaType != 'embed' || parent?.mediaType == '',
       },
       {
         title: 'Lottie JSON',
@@ -58,7 +59,7 @@ const media = (name = 'Media', required = false, hidden = '') => {
         description:
           'Please paste in your Lottie animation data here, in JSON format. Please contact Flocc if you would like to use this setting.',
         hidden: ({ parent }) =>
-          parent.mediaType != 'lottie' || parent.mediaType == '',
+          parent?.mediaType != 'lottie' || parent?.mediaType == '',
       },
       {
         title: 'Image Slideshow',
@@ -66,7 +67,7 @@ const media = (name = 'Media', required = false, hidden = '') => {
         type: 'array',
         of: [standardImage()],
         hidden: ({ parent }) =>
-          parent.mediaType != 'slideshow' || parent.mediaType == '',
+          parent?.mediaType != 'slideshow' || parent?.mediaType == '',
         preview: {
           select: {
             image: 'image',
