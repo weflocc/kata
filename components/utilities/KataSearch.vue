@@ -71,29 +71,30 @@
 // Copy into your local repository and uncomment the relevant lines!
 // yarn add vue-instantsearch
 // yarn add algoliasearch
-import SearchIcon from '~/assets/svgs/search.svg?inline'
+
 // uncomment the below to work!
-import {
-  AisInstantSearch,
-  AisStats,
-  AisHits,
-  AisHighlight,
-  AisSearchBox,
-  AisStateResults,
-  AisSnippet,
-} from 'vue-instantsearch'
-import algoliasearch from 'algoliasearch/lite'
+// import SearchIcon from '~/assets/svgs/search.svg?inline'
+// import {
+//   AisInstantSearch,
+//   AisStats,
+//   AisHits,
+//   AisHighlight,
+//   AisSearchBox,
+//   AisStateResults,
+//   AisSnippet,
+// } from 'vue-instantsearch'
+// import algoliasearch from 'algoliasearch/lite'
 
 export default {
   components: {
-    AisInstantSearch,
-    AisStateResults,
-    AisStats,
-    AisHits,
-    AisHighlight,
-    AisSnippet,
-    AisSearchBox,
-    SearchIcon,
+    // AisInstantSearch,
+    // AisStateResults,
+    // AisStats,
+    // AisHits,
+    // AisHighlight,
+    // AisSnippet,
+    // AisSearchBox,
+    // SearchIcon,
   },
   props: {
     crawlerId: {
