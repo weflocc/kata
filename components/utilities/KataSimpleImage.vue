@@ -1,5 +1,5 @@
 <template>
-  <img :alt="alt" :src="src" />
+  <nuxt-img class="kata-simple-image" loading="lazy" :alt="alt" :src="src" />
 </template>
 
 <script>
@@ -27,7 +27,7 @@ export default {
         // set in order of preference
         let items = ['alt', 'title', 'description', 'id']
 
-        console.log('meta', meta)
+        // console.log('meta', meta)
         if (!meta || !Object.keys(meta).length) {
           return alt
         }

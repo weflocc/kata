@@ -1,5 +1,5 @@
 <template>
-  <img
+  <!-- <img
     v-if="imageIsSet"
     :srcSet="srcSet"
     :src="src"
@@ -10,6 +10,16 @@
     class="kata-image h-auto"
     :alt="alt"
     @load="loaded = true"
+  /> -->
+  <nuxt-img
+    v-if="imageIsSet"
+    :src="src"
+    :class="{ loaded: loaded }"
+    :width="maxWidth"
+    :height="maxWidth"
+    class="kata-image kata-image-2 h-auto"
+    :alt="alt"
+    @load="imgLoaded"
   />
 </template>
 
@@ -29,9 +39,10 @@ export default {
       type: Number,
       default: 800,
     },
+    // https://image.nuxtjs.org/api/options#screens
     sizes: {
       type: String,
-      default: '100vw',
+      default: 'sm:100vw',
     },
   },
   data() {
@@ -54,7 +65,11 @@ export default {
     src() {
       let calcWidth = Math.round(this.maxWidth / 4)
 
-      return this.$imgUrl(this.theImage).width(calcWidth).quality(80).url()
+      return this.$imgUrl(this.theImage)
+        .width(calcWidth)
+        .quality(80)
+        .auto('format')
+        .url()
     },
     srcSet() {
       let srcSet = ''
@@ -95,6 +110,13 @@ export default {
     },
   },
   methods: {
+    imgLoaded() {
+      console.log('KataImage02 loaded - ', this.alt)
+      this.loaded = true
+    },
+    imgError(e) {
+      console.log('KataImage02 error - ', e)
+    },
     increment(maxWidth) {
       const fiths = Math.floor(maxWidth / 5)
       let increment = fiths > 200 ? 200 : fiths
@@ -110,10 +132,11 @@ export default {
 <style scoped lang="scss">
 img.kata-image {
   transition: opacity 1s ease;
-  opacity: 0;
-  &.loaded,
-  &.isLoaded {
-    opacity: 1;
-  }
+  // @load not working right now
+  // opacity: 0;
+  // &.loaded,
+  // &.isLoaded {
+  //   opacity: 1;
+  // }
 }
 </style>

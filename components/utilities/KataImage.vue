@@ -1,19 +1,18 @@
 <template>
   <!-- clashes with nuxt lazy load, need to work out another route https://issueexplorer.com/issue/nuxt/image/358 -->
-  <!-- <NuxtImg
-    v-if="imgId"
-    provider="sanity"
-    :src="imgId"
+  <nuxt-img
+    v-if="imageIsSet"
+    :src="src"
     :class="{ loaded: loaded }"
     :width="maxWidth"
     :height="maxWidth * ratio"
-    fit="crop"
+    fit="cover"
     class="kata-image"
     :alt="alt"
     loading="lazy"
     @load="imgLoaded"
-  /> -->
-  <div v-if="showLoader" class="image-with-loader" :class="{ loaded: loaded }">
+  />
+  <!-- <div v-if="showLoader" class="image-with-loader" :class="{ loaded: loaded }">
     <img
       v-if="imageIsSet"
       :srcSet="srcSet"
@@ -36,7 +35,7 @@
     :height="maxWidth * ratio"
     class="kata-image"
     :alt="alt"
-  />
+  /> -->
 </template>
 
 <script>
@@ -129,6 +128,7 @@ export default {
   },
   methods: {
     imgLoaded() {
+      console.log('KataImage imgLoaded')
       this.loaded = true
     },
     increment(maxWidth) {
