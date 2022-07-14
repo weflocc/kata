@@ -85,6 +85,7 @@ export default {
       return this.$imgUrl(this.theImage)
         .width(calcWidth)
         .height(this.h(calcWidth))
+        .auto('format')
         .quality(80)
         .url()
     },
@@ -100,6 +101,7 @@ export default {
           .width(width)
           .height(this.h(width))
           .quality(80)
+          .auto('format')
           .url()} ${width}w,`
       }
 

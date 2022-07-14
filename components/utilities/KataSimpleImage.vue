@@ -16,7 +16,7 @@ export default {
   },
   computed: {
     src() {
-      return this.$imgUrl(this.image).url()
+      return this.$imgUrl(this.image).auto('format').url()
     },
     alt() {
       let alt = ''

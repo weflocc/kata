@@ -67,6 +67,7 @@ export default {
         srcSet += `${this.$imgUrl(this.theImage)
           .width(width)
           .quality(80)
+          .auto('format')
           .url()} ${width}w,`
       }
 
