@@ -18,8 +18,6 @@ export default {
     src() {
       return this.$imgUrl(this.image).url()
     },
-  },
-  methods: {
     alt() {
       let alt = ''
       if (this.image) {
@@ -30,7 +28,9 @@ export default {
         let items = ['alt', 'title', 'description', 'id']
 
         console.log('meta', meta)
-        if (!meta || !Object.keys(meta).length) return alt
+        if (!meta || !Object.keys(meta).length) {
+          return alt
+        }
         for (let i = 0; i < items.length; i++) {
           const elem = items[i]
           if (Object.prototype.hasOwnProperty.call(meta, elem) && meta[elem]) {
@@ -41,9 +41,6 @@ export default {
       }
       return alt
     },
-    // imgMeta(ref) {
-    //   return this.$store.getters['references/getImageMetadata'](ref)
-    // },
   },
 }
 </script>
