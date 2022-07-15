@@ -28,7 +28,7 @@
             :image="item"
             :ratio="635 / 500"
             :max-width="1000"
-            data-not-lazy
+            :lazy="false"
           />
         </div>
       </VueSlickCarousel>

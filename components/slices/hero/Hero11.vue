@@ -25,6 +25,7 @@
           :max-width="2000"
           :no-crop="noCrop"
           :show-loader="showLoader"
+          :lazy="false"
         />
       </div>
     </div>

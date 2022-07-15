@@ -1,10 +1,11 @@
 <template>
   <nuxt-img
     class="kata-simple-image"
-    :loading="lazyLoad ? 'lazy' : 'eager'"
+    :loading="lazy ? 'lazy' : 'eager'"
     format="webp"
     :alt="alt"
     :src="src"
+    @load="handleLoad"
   />
 </template>
 
@@ -19,7 +20,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    lazyLoad: {
+    lazy: {
       type: Boolean,
       default: true,
     },
@@ -50,6 +51,11 @@ export default {
         }
       }
       return alt
+    },
+  },
+  methods: {
+    handleLoad() {
+      console.log('Image loaded!')
     },
   },
 }

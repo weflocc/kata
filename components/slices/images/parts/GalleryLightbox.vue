@@ -34,7 +34,7 @@
                 :ratio="825 / 500"
                 :max-width="1500"
                 sizes="95vw"
-                data-not-lazy
+                :lazy="false"
                 class="mx-auto object-contain max-h-[90vh]"
               />
               <p

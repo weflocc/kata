@@ -34,6 +34,7 @@
         class="h-full w-full"
         :no-crop="noCrop"
         :show-loader="showLoader"
+        :lazy="false"
       />
     </div>
   </div>

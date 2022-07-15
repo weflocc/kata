@@ -5,11 +5,12 @@
     :src="src"
     :class="{ loaded: loaded }"
     :width="maxWidth"
+    :height="h(maxWidth)"
     fit="cover"
     class="kata-image"
     :alt="alt"
     format="webp"
-    :loading="lazyLoad ? 'lazy' : 'eager'"
+    :loading="lazy ? 'lazy' : 'eager'"
     @load="imgLoaded"
   />
   <!-- <div v-if="showLoader" class="image-with-loader" :class="{ loaded: loaded }">
@@ -50,7 +51,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    lazyLoad: {
+    lazy: {
       type: Boolean,
       default: true,
     },
@@ -66,11 +67,14 @@ export default {
     },
     sizes: {
       type: String,
-      default: '100vw',
+      default: 'xs:100vw sm:100vw md:100vw lg:100vw xl:100vw',
     },
   },
   data: () => ({ loaded: false }),
   computed: {
+    imgSize() {
+      return this.sizes || 'xs:100vw sm:100vw md:100vw lg:100vw xl:100vw'
+    },
     imageIsSet() {
       return this.image?.asset?._ref
     },
@@ -83,35 +87,32 @@ export default {
       }
     },
     src() {
-      let calcWidth = Math.round(this.maxWidth / 4)
-
-      return this.$imgUrl(this.theImage)
-        .width(calcWidth)
-        .height(this.h(calcWidth))
-        .auto('format')
-        .quality(80)
-        .url()
+      // let calcWidth = Math.round(this.maxWidth / 4)
+      return this.$imgUrl(this.theImage).auto('format').quality(80).url()
     },
-    srcSet() {
-      let srcSet = ''
-
-      for (
-        let width = this.maxWidth;
-        width > 200;
-        width -= this.increment(this.maxWidth)
-      ) {
-        srcSet += `${this.$imgUrl(this.theImage)
-          .width(width)
-          .height(this.h(width))
-          .quality(80)
-          .auto('format')
-          .url()} ${width}w,`
-      }
-
-      srcSet = srcSet.slice(0, -1) //remove the trailing comma
-
-      return srcSet
+    height() {
+      return Math.round(this.maxWidth / this.ratio)
     },
+    // srcSet() {
+    //   let srcSet = ''
+
+    //   for (
+    //     let width = this.maxWidth;
+    //     width > 200;
+    //     width -= this.increment(this.maxWidth)
+    //   ) {
+    //     srcSet += `${this.$imgUrl(this.theImage)
+    //       .width(width)
+    //       .height(this.h(width))
+    //       .quality(80)
+    //       .auto('format')
+    //       .url()} ${width}w,`
+    //   }
+
+    //   srcSet = srcSet.slice(0, -1) //remove the trailing comma
+
+    //   return srcSet
+    // },
     alt() {
       let meta = this.$store.getters['references/getImageMetadata'](
         this.image.asset._ref
@@ -148,8 +149,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-// fade in lazyloaded images
-img.kata-image.lazyLoad {
+// fade in lazyed images
+img.kata-image.lazy {
   transition: opacity 1s ease;
   opacity: 0;
   &.isLoaded {

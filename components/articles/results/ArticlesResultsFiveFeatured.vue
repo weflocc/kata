@@ -16,7 +16,7 @@
             :image="item.image"
             :max-width="650"
             :ratio="i == 0 ? 3 / 4 : 4 / 3"
-            sizes="(max-width:699px) 90vw,(max-width:1439px) 50vw,33vw"
+            sizes="md:90vw lg:50vw"
             :class="{
               'mb-small': i != 0,
               'md:h-full object-cover max-h-screen': i == 0,

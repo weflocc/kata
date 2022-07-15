@@ -9,7 +9,7 @@
           :image="item.image"
           :max-width="500"
           :ratio="251 / 285"
-          data-not-lazy
+          :lazy="false"
         />
       </section>
     </div>

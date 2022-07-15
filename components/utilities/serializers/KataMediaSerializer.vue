@@ -25,7 +25,7 @@
       v-else-if="media.mediaType == 'embed' && media.embedUrl"
       :url="media.embedUrl"
       class="w-full"
-      data-not-lazy
+      :lazy="false"
     />
     <KataCssSlider
       v-else-if="media.mediaType == 'slideshow' && media.slideshow"

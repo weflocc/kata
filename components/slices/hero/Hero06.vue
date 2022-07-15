@@ -7,6 +7,7 @@
       :max-width="2500"
       :show-loader="showLoader"
       class="hero-animation border-animate"
+      :lazy="false"
     />
 
     <div class="mt-large mx-auto w-r24/24 md:flex md:justify-between text">

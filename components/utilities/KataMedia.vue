@@ -8,6 +8,7 @@
       :max-width="maxWidth"
       class="h-full w-full object-cover"
       :show-loader="showLoader"
+      :lazy="lazy"
     />
     <KataImage02
       v-if="media.mediaType == 'image' && media.image && noCrop"
@@ -16,6 +17,7 @@
       :max-width="maxWidth"
       class="max-w-full"
       :show-loader="showLoader"
+      :lazy="lazy"
     />
     <!-- TODO: readd mobile video/image -->
     <KataVideo
@@ -29,7 +31,7 @@
       :url="media.embedUrl"
       class="w-full"
       :no-crop="noCrop"
-      data-not-lazy
+      :lazy="false"
     />
     <KataCssSlider
       v-else-if="media.mediaType == 'slideshow' && media.slideshow"
@@ -68,6 +70,10 @@ export default {
     sizes: {
       type: String,
       default: '100vw',
+    },
+    lazy: {
+      type: Boolean,
+      default: true,
     },
     noCrop: {
       type: Boolean,

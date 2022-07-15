@@ -11,6 +11,7 @@
     :alt="alt"
     @load="loaded = true"
   /> -->
+  <!-- sizes not working - maybe try https://image.nuxtjs.org/api/dollarimg#imggetsizes instead? -->
   <nuxt-img
     v-if="imageIsSet"
     :src="src"
@@ -18,7 +19,7 @@
     :width="maxWidth"
     class="kata-image kata-image-2 h-auto"
     :alt="alt"
-    :loading="lazyLoad ? 'lazy' : 'eager'"
+    :loading="lazy ? 'lazy' : 'eager'"
     format="webp"
     @load="imgLoaded"
   />
@@ -43,9 +44,9 @@ export default {
     // https://image.nuxtjs.org/api/options#screens
     sizes: {
       type: String,
-      default: 'sm:100vw',
+      default: 'xs:100vw sm:100vw md:100vw lg:100vw xl:100vw',
     },
-    lazyLoad: {
+    lazy: {
       type: Boolean,
       default: true,
     },
@@ -68,33 +69,28 @@ export default {
       }
     },
     src() {
-      let calcWidth = Math.round(this.maxWidth / 4)
-
-      return this.$imgUrl(this.theImage)
-        .width(calcWidth)
-        .quality(80)
-        .auto('format')
-        .url()
+      // let calcWidth = Math.round(this.maxWidth / 4)
+      return this.$imgUrl(this.theImage).quality(80).auto('format').url()
     },
-    srcSet() {
-      let srcSet = ''
+    // srcSet() {
+    //   let srcSet = ''
 
-      for (
-        let width = this.maxWidth;
-        width > 200;
-        width -= this.increment(this.maxWidth)
-      ) {
-        srcSet += `${this.$imgUrl(this.theImage)
-          .width(width)
-          .quality(80)
-          .auto('format')
-          .url()} ${width}w,`
-      }
+    //   for (
+    //     let width = this.maxWidth;
+    //     width > 200;
+    //     width -= this.increment(this.maxWidth)
+    //   ) {
+    //     srcSet += `${this.$imgUrl(this.theImage)
+    //       .width(width)
+    //       .quality(80)
+    //       .auto('format')
+    //       .url()} ${width}w,`
+    //   }
 
-      srcSet = srcSet.slice(0, -1) //remove the trailing comma
+    //   srcSet = srcSet.slice(0, -1) //remove the trailing comma
 
-      return srcSet
-    },
+    //   return srcSet
+    // },
     alt() {
       let meta = this.$store.getters['references/getImageMetadata'](
         this.image.asset._ref

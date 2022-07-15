@@ -11,7 +11,7 @@
       :image="item.image"
       width="100"
       height="100"
-      data-not-lazy
+      :lazy="false"
       class="mx-auto mb-small rounded-full fade-up object-cover w-[100px] h-[100px]"
     />
     <p v-if="item.name" v-kata-html="item.name" class="label-1 fade-up" />

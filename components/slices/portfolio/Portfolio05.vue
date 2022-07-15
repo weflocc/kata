@@ -37,7 +37,7 @@
               :ratio="825 / 500"
               :max-width="1500"
               sizes="75vw"
-              data-not-lazy
+              :lazy="false"
             />
           </div>
           <h3
