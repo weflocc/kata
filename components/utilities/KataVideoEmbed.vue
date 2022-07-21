@@ -20,7 +20,7 @@
           <div
             class="absolute inset-0 w-full h-full flex items-center justify-center bg-black/50"
           >
-            <span aria-label="Play" class="play-btn"></span>
+            <div aria-label="Play" class="play-btn" />
           </div>
         </button>
       </template>
@@ -30,6 +30,7 @@
           title="vimeo-player"
           width="640"
           height="360"
+          autoplay
           :src="url"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
@@ -41,6 +42,7 @@
           title="youtube-player"
           width="560"
           height="315"
+          autoplay
           :src="'https://www.youtube-nocookie.com/embed/' + getYoutubeId"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
@@ -52,6 +54,7 @@
           width="400"
           height="300"
           :src="url"
+          autoplay
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
           allowfullscreen
@@ -160,10 +163,19 @@ export default {
   }
 }
 .play-btn {
-  width: 0;
-  height: 0;
-  border-top: 40px solid transparent;
-  border-bottom: 40px solid transparent;
-  border-left: 60px solid white;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  border: 3px solid white;
+  border-radius: 100% !important;
+
+  &:after {
+    content: '';
+    @apply w-0 h-0 absolute inset-0 m-auto;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 30px solid white;
+    left: 10px;
+  }
 }
 </style>
