@@ -8,6 +8,7 @@
     :alt="alt"
     :loading="lazy ? 'lazy' : 'eager'"
     :sizes="sizes"
+    :format="format"
     @onLoad="imgLoaded"
   />
 </template>
@@ -81,7 +82,7 @@ export default {
         .url()
       if (url && url.includes('.svg')) {
         console.log('format svg')
-        this.format = 'svg'
+        this.format = ''
       }
       return url
     },

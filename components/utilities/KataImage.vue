@@ -12,6 +12,7 @@
       :alt="alt"
       :sizes="sizes"
       :loading="lazy ? 'lazy' : 'eager'"
+      :format="format"
       @onLoad="imgLoaded"
     />
   </div>
@@ -25,6 +26,7 @@
     class="kata-image"
     :alt="alt"
     :sizes="sizes"
+    :format="format"
     :loading="lazy ? 'lazy' : 'eager'"
     @onLoad="imgLoaded"
   />
@@ -108,7 +110,7 @@ export default {
         .height(this.height)
         .url()
       if (url && url.includes('.svg')) {
-        this.format = 'svg'
+        this.format = ''
       }
       return url
     },
