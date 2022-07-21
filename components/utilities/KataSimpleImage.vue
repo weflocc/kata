@@ -2,9 +2,9 @@
   <nuxt-img
     class="kata-simple-image"
     :loading="lazy ? 'lazy' : 'eager'"
-    format="webp"
     :alt="alt"
-    :src="src"
+    :src="src()"
+    :format="format"
     @load="handleLoad"
   />
 </template>
@@ -25,10 +25,10 @@ export default {
       default: true,
     },
   },
+  data: () => ({
+    format: 'webp',
+  }),
   computed: {
-    src() {
-      return this.$imgUrl(this.image).auto('format').url()
-    },
     alt() {
       let alt = ''
       if (this.image) {
@@ -54,6 +54,14 @@ export default {
     },
   },
   methods: {
+    src() {
+      // let calcWidth = Math.round(this.maxWidth / 4)
+      let url = this.$imgUrl(this.image).url()
+      if (url && url.includes('.svg')) {
+        this.format = 'svg'
+      }
+      return url
+    },
     handleLoad() {
       console.log('Image loaded!')
     },

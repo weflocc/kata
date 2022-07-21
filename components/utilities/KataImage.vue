@@ -2,14 +2,15 @@
   <!-- clashes with nuxt lazy load, need to work out another route https://issueexplorer.com/issue/nuxt/image/358 -->
   <nuxt-img
     v-if="imageIsSet"
-    :src="src"
+    :src="src()"
     :class="{ loaded: loaded }"
     :width="maxWidth"
-    :height="h(maxWidth)"
+    :height="height"
     fit="cover"
     class="kata-image"
     :alt="alt"
-    format="webp"
+    :sizes="sizes"
+    :format="format"
     :loading="lazy ? 'lazy' : 'eager'"
     @load="imgLoaded"
   />
@@ -70,11 +71,8 @@ export default {
       default: 'xs:100vw sm:100vw md:100vw lg:100vw xl:100vw',
     },
   },
-  data: () => ({ loaded: false }),
+  data: () => ({ loaded: false, format: 'webp' }),
   computed: {
-    imgSize() {
-      return this.sizes || 'xs:100vw sm:100vw md:100vw lg:100vw xl:100vw'
-    },
     imageIsSet() {
       return this.image?.asset?._ref
     },
@@ -86,33 +84,9 @@ export default {
         return {}
       }
     },
-    src() {
-      // let calcWidth = Math.round(this.maxWidth / 4)
-      return this.$imgUrl(this.theImage).auto('format').quality(80).url()
-    },
     height() {
       return Math.round(this.maxWidth / this.ratio)
     },
-    // srcSet() {
-    //   let srcSet = ''
-
-    //   for (
-    //     let width = this.maxWidth;
-    //     width > 200;
-    //     width -= this.increment(this.maxWidth)
-    //   ) {
-    //     srcSet += `${this.$imgUrl(this.theImage)
-    //       .width(width)
-    //       .height(this.h(width))
-    //       .quality(80)
-    //       .auto('format')
-    //       .url()} ${width}w,`
-    //   }
-
-    //   srcSet = srcSet.slice(0, -1) //remove the trailing comma
-
-    //   return srcSet
-    // },
     alt() {
       let meta = this.$store.getters['references/getImageMetadata'](
         this.image.asset._ref
@@ -136,13 +110,18 @@ export default {
       console.log('KataImage imgLoaded')
       this.loaded = true
     },
-    increment(maxWidth) {
-      const fiths = Math.floor(maxWidth / 5)
-      let increment = fiths > 200 ? 200 : fiths
-      return increment
-    },
-    h(val) {
-      return Math.round(val / this.ratio)
+    src() {
+      // let calcWidth = Math.round(this.maxWidth / 4)
+      let url = this.$imgUrl(this.theImage)
+        .quality(80)
+        .width(this.maxWidth)
+        .height(this.height)
+        .url()
+      if (url && url.includes('.svg')) {
+        console.log('format svg')
+        this.format = 'svg'
+      }
+      return url
     },
   },
 }

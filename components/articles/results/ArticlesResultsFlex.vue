@@ -13,7 +13,7 @@
             :image="item.image"
             :max-width="650"
             :ratio="6 / 4"
-            sizes="(max-width:699px) 90vw,(max-width:1439px) 50vw,33vw"
+            sizes="sm:90vw lg:50vw xl:33vw"
             class="mb-small mx-auto"
           />
 

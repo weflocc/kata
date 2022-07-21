@@ -47,7 +47,7 @@
         :max-width="1500"
         :no-crop="noCrop"
         class="h-full w-full object-cover"
-        sizes="(max-width:699px) 90vw, (max-width:1439px) 50vw, 50vw"
+        sizes="md:90vw lg:50vw"
       />
     </div>
   </div>

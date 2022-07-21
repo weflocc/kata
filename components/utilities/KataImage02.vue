@@ -11,16 +11,16 @@
     :alt="alt"
     @load="loaded = true"
   /> -->
-  <!-- sizes not working - maybe try https://image.nuxtjs.org/api/dollarimg#imggetsizes instead? -->
   <nuxt-img
     v-if="imageIsSet"
-    :src="src"
+    :src="src()"
     :class="{ loaded: loaded }"
     :width="maxWidth"
     class="kata-image kata-image-2 h-auto"
     :alt="alt"
     :loading="lazy ? 'lazy' : 'eager'"
-    format="webp"
+    :sizes="sizes"
+    :format="format"
     @load="imgLoaded"
   />
 </template>
@@ -44,18 +44,17 @@ export default {
     // https://image.nuxtjs.org/api/options#screens
     sizes: {
       type: String,
-      default: 'xs:100vw sm:100vw md:100vw lg:100vw xl:100vw',
+      default: 'xl:100vw',
     },
     lazy: {
       type: Boolean,
       default: true,
     },
   },
-  data() {
-    return {
-      loaded: false,
-    }
-  },
+  data: () => ({
+    loaded: false,
+    format: 'webp',
+  }),
   computed: {
     imageIsSet() {
       return this.image?.asset?._ref
@@ -68,29 +67,6 @@ export default {
         return {}
       }
     },
-    src() {
-      // let calcWidth = Math.round(this.maxWidth / 4)
-      return this.$imgUrl(this.theImage).quality(80).auto('format').url()
-    },
-    // srcSet() {
-    //   let srcSet = ''
-
-    //   for (
-    //     let width = this.maxWidth;
-    //     width > 200;
-    //     width -= this.increment(this.maxWidth)
-    //   ) {
-    //     srcSet += `${this.$imgUrl(this.theImage)
-    //       .width(width)
-    //       .quality(80)
-    //       .auto('format')
-    //       .url()} ${width}w,`
-    //   }
-
-    //   srcSet = srcSet.slice(0, -1) //remove the trailing comma
-
-    //   return srcSet
-    // },
     alt() {
       let meta = this.$store.getters['references/getImageMetadata'](
         this.image.asset._ref
@@ -98,7 +74,6 @@ export default {
       // set in order of preference
       let items = ['alt', 'title', 'description', 'id']
       let alt = ''
-      // console.log('meta', meta)
       if (!meta || !Object.keys(meta).length) return alt
       for (let i = 0; i < items.length; i++) {
         const elem = items[i]
@@ -111,6 +86,18 @@ export default {
     },
   },
   methods: {
+    src() {
+      // let calcWidth = Math.round(this.maxWidth / 4)
+      let url = this.$imgUrl(this.theImage)
+        .quality(80)
+        .width(this.maxWidth)
+        .url()
+      if (url && url.includes('.svg')) {
+        console.log('format svg')
+        this.format = 'svg'
+      }
+      return url
+    },
     imgLoaded() {
       console.log('KataImage02 loaded - ', this.alt)
       this.loaded = true
