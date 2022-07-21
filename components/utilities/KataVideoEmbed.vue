@@ -3,7 +3,7 @@
     <transition name="fade" mode="out-in">
       <template v-if="!loaded">
         <button
-          class="w-full block relative"
+          class="w-full block relative embed-facade"
           title="Click to play video"
           @click="loadFacade"
         >
