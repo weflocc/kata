@@ -1,7 +1,22 @@
 <template>
   <!-- clashes with nuxt lazy load, need to work out another route https://issueexplorer.com/issue/nuxt/image/358 -->
+  <div v-if="showLoader" class="image-with-loader" :class="{ loaded: loaded }">
+    <nuxt-img
+      v-if="imageIsSet"
+      :src="src()"
+      :class="{ loaded: loaded }"
+      :width="maxWidth"
+      :height="height"
+      fit="cover"
+      class="kata-image"
+      :alt="alt"
+      :sizes="sizes"
+      :loading="lazy ? 'lazy' : 'eager'"
+      @onLoad="imgLoaded"
+    />
+  </div>
   <nuxt-img
-    v-if="imageIsSet"
+    v-else-if="imageIsSet"
     :src="src()"
     :class="{ loaded: loaded }"
     :width="maxWidth"
@@ -10,34 +25,9 @@
     class="kata-image"
     :alt="alt"
     :sizes="sizes"
-    :format="format"
     :loading="lazy ? 'lazy' : 'eager'"
-    @load="imgLoaded"
+    @onLoad="imgLoaded"
   />
-  <!-- <div v-if="showLoader" class="image-with-loader" :class="{ loaded: loaded }">
-    <img
-      v-if="imageIsSet"
-      :srcSet="srcSet"
-      :src="src"
-      :sizes="sizes"
-      :class="{ loaded: loaded }"
-      :width="maxWidth"
-      :height="maxWidth * ratio"
-      class="kata-image"
-      :alt="alt"
-      @load="imgLoaded"
-    />
-  </div>
-  <img
-    v-else-if="imageIsSet"
-    :srcSet="srcSet"
-    :src="src"
-    :sizes="sizes"
-    :width="maxWidth"
-    :height="maxWidth * ratio"
-    class="kata-image"
-    :alt="alt"
-  /> -->
 </template>
 
 <script>
@@ -118,7 +108,6 @@ export default {
         .height(this.height)
         .url()
       if (url && url.includes('.svg')) {
-        console.log('format svg')
         this.format = 'svg'
       }
       return url
@@ -129,28 +118,28 @@ export default {
 
 <style scoped lang="scss">
 // fade in lazyed images
-img.kata-image.lazy {
+img.kata-image {
   transition: opacity 1s ease;
   opacity: 0;
   &.isLoaded {
     opacity: 1;
   }
 }
-.image-with-loader {
-  position: relative;
+// .image-with-loader {
+//   position: relative;
 
-  &:after {
-    content: '';
-    @apply bg-white w-full h-full left-0 top-header-height fixed;
-    transition: 0.5s ease;
-    pointer-events: none;
-    opacity: 1;
-  }
+//   &:after {
+//     content: '';
+//     @apply bg-white w-full h-full left-0 top-header-height fixed;
+//     transition: 0.5s ease;
+//     pointer-events: none;
+//     opacity: 1;
+//   }
 
-  &.loaded {
-    &:after {
-      opacity: 0;
-    }
-  }
-}
+//   &.loaded {
+//     &:after {
+//       opacity: 0;
+//     }
+//   }
+// }
 </style>

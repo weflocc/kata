@@ -18,6 +18,7 @@
       class="max-w-full"
       :show-loader="showLoader"
       :lazy="lazy"
+      height="1000"
     />
     <!-- TODO: readd mobile video/image -->
     <KataVideo

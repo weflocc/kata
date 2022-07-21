@@ -9,6 +9,7 @@
     width="100%"
     preload="metadata"
     :data-poster="poster"
+    loading="lazy"
   ></video>
 </template>
 

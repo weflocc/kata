@@ -10,6 +10,7 @@
     :autoplay="true"
     preload="true"
     playsinline
+    loading="lazy"
     :data-poster="image"
   ></video>
 </template>

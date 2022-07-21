@@ -1,16 +1,4 @@
 <template>
-  <!-- <img
-    v-if="imageIsSet"
-    :srcSet="srcSet"
-    :src="src"
-    :sizes="sizes"
-    :class="{ loaded: loaded }"
-    :width="maxWidth"
-    :height="maxWidth"
-    class="kata-image h-auto"
-    :alt="alt"
-    @load="loaded = true"
-  /> -->
   <nuxt-img
     v-if="imageIsSet"
     :src="src()"
@@ -20,8 +8,7 @@
     :alt="alt"
     :loading="lazy ? 'lazy' : 'eager'"
     :sizes="sizes"
-    :format="format"
-    @load="imgLoaded"
+    @onLoad="imgLoaded"
   />
 </template>
 
@@ -120,11 +107,10 @@ export default {
 <style scoped lang="scss">
 img.kata-image {
   transition: opacity 1s ease;
-  // @load not working right now
-  // opacity: 0;
-  // &.loaded,
-  // &.isLoaded {
-  //   opacity: 1;
-  // }
+  opacity: 0;
+  &.loaded,
+  &.isLoaded {
+    opacity: 1;
+  }
 }
 </style>

@@ -4,8 +4,6 @@
     :loading="lazy ? 'lazy' : 'eager'"
     :alt="alt"
     :src="src()"
-    :format="format"
-    @load="handleLoad"
   />
 </template>
 
@@ -61,9 +59,6 @@ export default {
         this.format = 'svg'
       }
       return url
-    },
-    handleLoad() {
-      console.log('Image loaded!')
     },
   },
 }
