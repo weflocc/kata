@@ -60,7 +60,7 @@ export default {
     },
     sizes: {
       type: String,
-      default: 'xs:100vw sm:100vw md:100vw lg:100vw xl:100vw',
+      default: 'xl:100vw',
     },
   },
   data: () => ({ loaded: false, format: 'webp' }),

@@ -75,7 +75,6 @@ export default {
   },
   methods: {
     src() {
-      // let calcWidth = Math.round(this.maxWidth / 4)
       let url = this.$imgUrl(this.theImage)
         .quality(80)
         .width(this.maxWidth)
