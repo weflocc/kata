@@ -120,10 +120,10 @@ export default {
 // fade in lazyed images
 img.kata-image {
   transition: opacity 1s ease;
-  opacity: 0;
-  &.isLoaded {
-    opacity: 1;
-  }
+  // opacity: 0;
+  // &.isLoaded {
+  //   opacity: 1;
+  // }
 }
 // .image-with-loader {
 //   position: relative;
