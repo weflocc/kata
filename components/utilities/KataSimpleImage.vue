@@ -4,6 +4,7 @@
     :loading="lazy ? 'lazy' : 'eager'"
     :alt="alt"
     :src="src()"
+    :format="format"
   />
 </template>
 
@@ -56,7 +57,7 @@ export default {
       // let calcWidth = Math.round(this.maxWidth / 4)
       let url = this.$imgUrl(this.image).url()
       if (url && url.includes('.svg')) {
-        this.format = 'svg'
+        this.format = ''
       }
       return url
     },
