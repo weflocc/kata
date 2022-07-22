@@ -1,15 +1,15 @@
 <template>
-  <img
+  <nuxt-img
     v-if="imageIsSet"
-    :srcSet="srcSet"
-    :src="src"
-    :sizes="sizes"
+    :src="src()"
     :class="{ loaded: loaded }"
     :width="maxWidth"
-    :height="maxWidth"
-    class="kata-image h-auto"
+    class="kata-image kata-image-2 h-auto"
     :alt="alt"
-    @load="loaded = true"
+    :loading="lazy ? 'lazy' : 'eager'"
+    :sizes="sizes"
+    :format="format"
+    @onLoad="imgLoaded"
   />
 </template>
 
@@ -29,16 +29,20 @@ export default {
       type: Number,
       default: 800,
     },
+    // https://image.nuxtjs.org/api/options#screens
     sizes: {
       type: String,
-      default: '100vw',
+      default: 'xl:100vw',
+    },
+    lazy: {
+      type: Boolean,
+      default: true,
     },
   },
-  data() {
-    return {
-      loaded: false,
-    }
-  },
+  data: () => ({
+    loaded: false,
+    format: 'webp',
+  }),
   computed: {
     imageIsSet() {
       return this.image?.asset?._ref
@@ -51,29 +55,6 @@ export default {
         return {}
       }
     },
-    src() {
-      let calcWidth = Math.round(this.maxWidth / 4)
-
-      return this.$imgUrl(this.theImage).width(calcWidth).quality(80).url()
-    },
-    srcSet() {
-      let srcSet = ''
-
-      for (
-        let width = this.maxWidth;
-        width > 200;
-        width -= this.increment(this.maxWidth)
-      ) {
-        srcSet += `${this.$imgUrl(this.theImage)
-          .width(width)
-          .quality(80)
-          .url()} ${width}w,`
-      }
-
-      srcSet = srcSet.slice(0, -1) //remove the trailing comma
-
-      return srcSet
-    },
     alt() {
       let meta = this.$store.getters['references/getImageMetadata'](
         this.image.asset._ref
@@ -81,7 +62,6 @@ export default {
       // set in order of preference
       let items = ['alt', 'title', 'description', 'id']
       let alt = ''
-      // console.log('meta', meta)
       if (!meta || !Object.keys(meta).length) return alt
       for (let i = 0; i < items.length; i++) {
         const elem = items[i]
@@ -94,6 +74,24 @@ export default {
     },
   },
   methods: {
+    src() {
+      let url = this.$imgUrl(this.theImage)
+        .quality(80)
+        .width(this.maxWidth)
+        .url()
+      if (url && url.includes('.svg')) {
+        console.log('format svg')
+        this.format = ''
+      }
+      return url
+    },
+    imgLoaded() {
+      console.log('KataImage02 loaded - ', this.alt)
+      this.loaded = true
+    },
+    imgError(e) {
+      console.log('KataImage02 error - ', e)
+    },
     increment(maxWidth) {
       const fiths = Math.floor(maxWidth / 5)
       let increment = fiths > 200 ? 200 : fiths
@@ -109,10 +107,10 @@ export default {
 <style scoped lang="scss">
 img.kata-image {
   transition: opacity 1s ease;
-  opacity: 0;
-  &.loaded,
-  &.isLoaded {
-    opacity: 1;
-  }
+  // opacity: 0;
+  // &.loaded,
+  // &.isLoaded {
+  //   opacity: 1;
+  // }
 }
 </style>

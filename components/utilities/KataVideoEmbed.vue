@@ -1,37 +1,69 @@
 <template>
   <div class="video-embed" :class="source">
-    <iframe
-      v-if="source == 'vimeo'"
-      title="vimeo-player"
-      width="640"
-      height="360"
-      :src="url"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
-      allowfullscreen
-      loading="lazy"
-    ></iframe>
-    <iframe
-      v-else-if="source == 'youtube'"
-      title="youtube-player"
-      width="560"
-      height="315"
-      :src="'https://www.youtube-nocookie.com/embed/' + getYoutubeId(url)"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
-      allowfullscreen
-      loading="lazy"
-    ></iframe>
-    <iframe
-      v-else
-      width="400"
-      height="300"
-      :src="url"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
-      allowfullscreen
-      loading="lazy"
-    ></iframe>
+    <transition name="fade" mode="out-in">
+      <template v-if="!loaded">
+        <button
+          class="w-full block relative embed-facade"
+          title="Click to play video"
+          @click="loadFacade"
+        >
+          <img
+            v-if="imgSrc"
+            :src="imgSrc"
+            :alt="imgAlt"
+            :width="source == 'vimeo' ? '640' : '360'"
+            :height="source == 'vimeo' ? '560' : '315'"
+            loading="lazy"
+            class="w-full h-auto !m-0"
+          />
+          <div v-else class="bg-black w-full h-[56%]" />
+          <div
+            class="absolute inset-0 w-full h-full flex items-center justify-center bg-black/50"
+          >
+            <div aria-label="Play" class="play-btn" />
+          </div>
+        </button>
+      </template>
+      <template v-else>
+        <iframe
+          v-if="source == 'vimeo'"
+          title="vimeo-player"
+          width="640"
+          height="360"
+          autoplay
+          :src="embedUrl"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+        <iframe
+          v-else-if="source == 'youtube'"
+          title="youtube-player"
+          width="560"
+          height="315"
+          :src="
+            'https://www.youtube-nocookie.com/embed/' +
+            getYoutubeId +
+            '?autoplay=1'
+          "
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+        <iframe
+          v-else
+          width="400"
+          height="300"
+          :src="url"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </template>
+    </transition>
   </div>
 </template>
 
@@ -43,6 +75,11 @@ export default {
       default: '',
     },
   },
+  data: () => ({
+    loaded: false,
+    imgSrc: '',
+    imgAlt: 'Video embed',
+  }),
   computed: {
     source() {
       if (this.url.includes('youtu.be') || this.url.includes('youtube')) {
@@ -53,9 +90,8 @@ export default {
         return 'source-unknown'
       }
     },
-  },
-  methods: {
-    getYoutubeId(url) {
+    getYoutubeId() {
+      let url = this.url
       if (/youtu\.?be/.test(url)) {
         // Look first for known patterns
         var i
@@ -76,6 +112,54 @@ export default {
       }
       return null
     },
+    getVimeoId() {
+      let url = this.url
+      // Look for a string with 'vimeo', then whatever, then a
+      // forward slash and a group of digits.
+      const match = /vimeo.*\/(\d+)/i.exec(url)
+      // If the match isn't null (i.e. it matched)
+      if (match) {
+        // The grouped/matched digits from the regex
+        return match[1]
+      }
+      return null
+    },
+    embedUrl() {
+      if (this.source == 'vimeo') {
+        if (this.url.includes('?') && !this.url.includes('autoplay')) {
+          return this.url + '&autoplay=1'
+        } else if (!this.url.includes('autoplay')) {
+          return this.url + '?autoplay=1'
+        }
+      }
+      return this.url
+    },
+  },
+  async mounted() {
+    // https://vimeo.com/api/v2/video/ID.json
+    if (this.source == 'vimeo') {
+      let id = this.getVimeoId
+      if (id) {
+        let res = await this.$http
+          .$get('https://vimeo.com/api/v2/video/' + id + '.json')
+          .catch((e) => {
+            console.error(e)
+          })
+        if (res && res[0] && res[0].thumbnail_large) {
+          this.imgSrc = res[0].thumbnail_large
+          this.imgAlt = res[0].title
+        }
+      }
+    } else if (this.source == 'youtube') {
+      // https://img.youtube.com/vi/<insert-youtube-video-id-here>/maxresdefault.jpg
+      let id = this.getYoutubeId
+      this.imgSrc = `https://img.youtube.com/vi/${id}/maxresdefault.jpg`
+    }
+  },
+  methods: {
+    loadFacade() {
+      this.loaded = true
+    },
   },
 }
 </script>
@@ -88,6 +172,22 @@ export default {
   iframe {
     width: 100%;
     height: 100%;
+  }
+}
+.play-btn {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  border: 3px solid white;
+  border-radius: 100% !important;
+
+  &:after {
+    content: '';
+    @apply w-0 h-0 absolute inset-0 m-auto;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 30px solid white;
+    left: 10px;
   }
 }
 </style>

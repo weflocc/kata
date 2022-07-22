@@ -31,7 +31,7 @@
             :image="item.image"
             :ratio="3 / 4"
             :max-width="650"
-            sizes="(max-width:699px) 95vw, (max-width:700px) 50vw, 33vw"
+            sizes="sm:95vw md:50vw lg:33vw"
             class="background"
           />
           <div v-else class="background bg-primary" />

@@ -21,7 +21,7 @@
           :ratio="825 / 500"
           :max-width="1500"
           sizes="95vw"
-          data-not-lazy
+          :lazy="false"
           class="mx-auto object-cover max-h-[90vh] w-full"
         />
       </div>

@@ -1,41 +1,34 @@
 <template>
   <!-- clashes with nuxt lazy load, need to work out another route https://issueexplorer.com/issue/nuxt/image/358 -->
-  <!-- <NuxtImg
-    v-if="imgId"
-    provider="sanity"
-    :src="imgId"
-    :class="{ loaded: loaded }"
-    :width="maxWidth"
-    :height="maxWidth * ratio"
-    fit="crop"
-    class="kata-image"
-    :alt="alt"
-    loading="lazy"
-    @load="imgLoaded"
-  /> -->
   <div v-if="showLoader" class="image-with-loader" :class="{ loaded: loaded }">
-    <img
+    <nuxt-img
       v-if="imageIsSet"
-      :srcSet="srcSet"
-      :src="src"
-      :sizes="sizes"
+      :src="src()"
       :class="{ loaded: loaded }"
       :width="maxWidth"
-      :height="maxWidth * ratio"
+      :height="height"
+      fit="cover"
       class="kata-image"
       :alt="alt"
-      @load="imgLoaded"
+      :sizes="sizes"
+      :loading="lazy ? 'lazy' : 'eager'"
+      :format="format"
+      @onLoad="imgLoaded"
     />
   </div>
-  <img
+  <nuxt-img
     v-else-if="imageIsSet"
-    :srcSet="srcSet"
-    :src="src"
-    :sizes="sizes"
+    :src="src()"
+    :class="{ loaded: loaded }"
     :width="maxWidth"
-    :height="maxWidth * ratio"
+    :height="height"
+    fit="cover"
     class="kata-image"
     :alt="alt"
+    :sizes="sizes"
+    :format="format"
+    :loading="lazy ? 'lazy' : 'eager'"
+    @onLoad="imgLoaded"
   />
 </template>
 
@@ -51,6 +44,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    lazy: {
+      type: Boolean,
+      default: true,
+    },
     maxWidth: {
       type: Number,
       default: 800,
@@ -63,10 +60,10 @@ export default {
     },
     sizes: {
       type: String,
-      default: '100vw',
+      default: 'xl:100vw',
     },
   },
-  data: () => ({ loaded: false }),
+  data: () => ({ loaded: false, format: 'webp' }),
   computed: {
     imageIsSet() {
       return this.image?.asset?._ref
@@ -79,33 +76,8 @@ export default {
         return {}
       }
     },
-    src() {
-      let calcWidth = Math.round(this.maxWidth / 4)
-
-      return this.$imgUrl(this.theImage)
-        .width(calcWidth)
-        .height(this.h(calcWidth))
-        .quality(80)
-        .url()
-    },
-    srcSet() {
-      let srcSet = ''
-
-      for (
-        let width = this.maxWidth;
-        width > 200;
-        width -= this.increment(this.maxWidth)
-      ) {
-        srcSet += `${this.$imgUrl(this.theImage)
-          .width(width)
-          .height(this.h(width))
-          .quality(80)
-          .url()} ${width}w,`
-      }
-
-      srcSet = srcSet.slice(0, -1) //remove the trailing comma
-
-      return srcSet
+    height() {
+      return Math.round(this.maxWidth / this.ratio)
     },
     alt() {
       let meta = this.$store.getters['references/getImageMetadata'](
@@ -127,44 +99,49 @@ export default {
   },
   methods: {
     imgLoaded() {
+      console.log('KataImage imgLoaded')
       this.loaded = true
     },
-    increment(maxWidth) {
-      const fiths = Math.floor(maxWidth / 5)
-      let increment = fiths > 200 ? 200 : fiths
-      return increment
-    },
-    h(val) {
-      return Math.round(val / this.ratio)
+    src() {
+      // let calcWidth = Math.round(this.maxWidth / 4)
+      let url = this.$imgUrl(this.theImage)
+        .quality(80)
+        .width(this.maxWidth)
+        .height(this.height)
+        .url()
+      if (url && url.includes('.svg')) {
+        this.format = ''
+      }
+      return url
     },
   },
 }
 </script>
 
 <style scoped lang="scss">
-// fade in lazyloaded images
-img.kata-image.lazyLoad {
+// fade in lazyed images
+img.kata-image {
   transition: opacity 1s ease;
-  opacity: 0;
-  &.isLoaded {
-    opacity: 1;
-  }
+  // opacity: 0;
+  // &.isLoaded {
+  //   opacity: 1;
+  // }
 }
-.image-with-loader {
-  position: relative;
+// .image-with-loader {
+//   position: relative;
 
-  &:after {
-    content: '';
-    @apply bg-white w-full h-full left-0 top-header-height fixed;
-    transition: 0.5s ease;
-    pointer-events: none;
-    opacity: 1;
-  }
+//   &:after {
+//     content: '';
+//     @apply bg-white w-full h-full left-0 top-header-height fixed;
+//     transition: 0.5s ease;
+//     pointer-events: none;
+//     opacity: 1;
+//   }
 
-  &.loaded {
-    &:after {
-      opacity: 0;
-    }
-  }
-}
+//   &.loaded {
+//     &:after {
+//       opacity: 0;
+//     }
+//   }
+// }
 </style>

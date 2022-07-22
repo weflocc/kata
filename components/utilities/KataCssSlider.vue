@@ -17,7 +17,7 @@
       >
         <KataImage
           v-if="item && !noCrop"
-          data-not-lazy
+          :lazy="false"
           :image="item"
           :ratio="ratio"
           :max-width="maxWidth"
@@ -26,7 +26,7 @@
         />
         <KataImage02
           v-else-if="item && noCrop"
-          data-not-lazy
+          :lazy="false"
           :image="item"
           :max-width="maxWidth"
           class="max-h-screen object-contain w-full"

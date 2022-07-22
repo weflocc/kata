@@ -7,6 +7,7 @@
       :max-width="2500"
       :show-loader="showLoader"
       class="h-screen w-full object-cover"
+      :lazy="false"
     />
     <div
       class="w-r24/24 mx-auto md:w-r12/24 h-screen flex flex-col justify-center text-center z-1 text"

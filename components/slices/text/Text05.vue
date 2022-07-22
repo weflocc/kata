@@ -19,7 +19,7 @@
         :image="image"
         :ratio="ratio"
         :max-width="1500"
-        sizes="(max-width:699px) 90vw, (max-width:1439px) 50vw, 50vw"
+        sizes="md:90vw lg:50vw"
         class="md:h-full md:w-full md:absolute md:top-0 md:left-0 md:object-cover md:bottom-0 md:m-auto"
       />
     </div>

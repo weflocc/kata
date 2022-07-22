@@ -13,7 +13,7 @@
       :image="image"
       :ratio="ratio"
       :max-width="650"
-      sizes="(max-width:699px) 90vw,(max-width:1439px) 50vw,33vw"
+      sizes="sm:90vw lg:50vw xl:33vw"
       class="bg-img"
     />
     <h3 class="label-1">

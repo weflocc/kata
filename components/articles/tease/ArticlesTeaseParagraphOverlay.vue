@@ -12,7 +12,7 @@
         v-if="image"
         :image="image"
         class="background object-cover w-full h-full"
-        :data-not-lazy="!lazy"
+        ::lazy="false"="!lazy"
       />
       <div class="overlay">
         <div class="title">

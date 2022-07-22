@@ -11,13 +11,13 @@
           :image="item.image"
           :max-width="500"
           :ratio="ratio"
-          data-not-lazy
+          :lazy="false"
         />
         <KataSimpleImage
           v-else
           :image="item.image"
           :max-width="500"
-          data-not-lazy
+          :lazy="false"
         />
       </div>
       <div class="text" :class="{ 'md:w-2/3 md:pl-medium': item.image }">

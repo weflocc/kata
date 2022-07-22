@@ -14,6 +14,7 @@
         :max-width="3000"
         class="w-full"
         :show-loader="showLoader"
+        :lazy="false"
       />
     </div>
   </div>

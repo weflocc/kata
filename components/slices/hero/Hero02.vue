@@ -15,6 +15,7 @@
         :max-width="2000"
         :show-loader="showLoader"
         class="h-full w-full object-cover"
+        :lazy="false"
       />
     </div>
     <div
