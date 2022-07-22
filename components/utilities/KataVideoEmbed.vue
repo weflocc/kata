@@ -11,10 +11,10 @@
             v-if="imgSrc"
             :src="imgSrc"
             :alt="imgAlt"
-            width="640"
-            height="360"
+            :width="source == 'vimeo' ? '640' : '360'"
+            :height="source == 'vimeo' ? '560' : '315'"
             loading="lazy"
-            class="w-full h-auto"
+            class="w-full h-auto !m-0"
           />
           <div v-else class="bg-black w-full h-[56%]" />
           <div
@@ -31,7 +31,7 @@
           width="640"
           height="360"
           autoplay
-          :src="url"
+          :src="embedUrl"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
           allowfullscreen
@@ -42,8 +42,11 @@
           title="youtube-player"
           width="560"
           height="315"
-          autoplay
-          :src="'https://www.youtube-nocookie.com/embed/' + getYoutubeId"
+          :src="
+            'https://www.youtube-nocookie.com/embed/' +
+            getYoutubeId +
+            '?autoplay=1'
+          "
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
           allowfullscreen
@@ -54,7 +57,6 @@
           width="400"
           height="300"
           :src="url"
-          autoplay
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
           allowfullscreen
@@ -122,6 +124,16 @@ export default {
       }
       return null
     },
+    embedUrl() {
+      if (this.source == 'vimeo') {
+        if (this.url.includes('?') && !this.url.includes('autoplay')) {
+          return this.url + '&autoplay=1'
+        } else if (!this.url.includes('autoplay')) {
+          return this.url + '?autoplay=1'
+        }
+      }
+      return this.url
+    },
   },
   async mounted() {
     // https://vimeo.com/api/v2/video/ID.json
@@ -139,9 +151,9 @@ export default {
         }
       }
     } else if (this.source == 'youtube') {
-      // https://img.youtube.com/vi/<insert-youtube-video-id-here>/default.jpg
+      // https://img.youtube.com/vi/<insert-youtube-video-id-here>/maxresdefault.jpg
       let id = this.getYoutubeId
-      this.imgSrc = `https://img.youtube.com/vi/${id}/default.jpg`
+      this.imgSrc = `https://img.youtube.com/vi/${id}/maxresdefault.jpg`
     }
   },
   methods: {
