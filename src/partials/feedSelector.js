@@ -121,4 +121,122 @@ const feedSelector = ({
   }
 }
 
-export { feedSelector }
+const feedSelector2 = ({
+  name,
+  articleTypes,
+  title = false,
+  manualTitle = 'Manual selection',
+  categoryTitle = 'All pages/articles with this category',
+  categoryType = false,
+  description = 'You can manually select, choose a category or select automatic to display a list of items.',
+  noShowAll = false,
+  filter = false,
+  filterParams = false,
+  hidden = false,
+  heading = false,
+  text = false,
+  links = false,
+}) => {
+  let options = {}
+  if (filter) {
+    options.filter = filter
+  }
+  if (filterParams) {
+    options.filterParams = filterParams
+  }
+
+  let types = []
+
+  if (!noShowAll) {
+    types.push({ title: 'Automatic', value: 'all' })
+  }
+  if (categoryType) {
+    types.push({ title: 'By category', value: 'category' })
+  }
+  types.push({ title: 'Manual', value: 'manual' })
+
+  const type = {
+    name: 'type',
+    type: 'string',
+    description: 'Select the way to add to this list',
+    options: {
+      list: types,
+    },
+  }
+
+  let to = []
+  if (articleTypes) {
+    articleTypes.forEach((element) => {
+      to.push({ type: element })
+    })
+  }
+
+  const manual = {
+    name: 'selected',
+    type: 'array',
+    title: manualTitle,
+    hidden: ({ parent }) => parent.type != 'manual',
+    of: [
+      {
+        type: 'reference',
+        to: to,
+        options: options,
+      },
+    ],
+  }
+
+  const categories = {
+    name: 'categories',
+    type: 'array',
+    description: 'This will show everything assigned to this category',
+    title: categoryTitle,
+    hidden: ({ parent }) => parent.type != 'category',
+    of: [
+      {
+        type: 'reference',
+        to: [{ type: categoryType }],
+      },
+    ],
+  }
+
+  const fields = [type, manual]
+
+  if (heading) {
+    const title = {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    }
+    fields.push(title)
+  }
+
+  if (text) {
+    const text = {
+      name: 'text',
+      title: 'Text',
+      type: 'text',
+      rows: 3,
+    }
+    fields.push(text)
+  }
+
+  if (categoryType) {
+    fields.push(categories)
+  }
+
+  if (links) {
+    fields.push(links())
+  }
+
+  return {
+    name: name,
+    title: title || null,
+    type: 'object',
+    description: description,
+    fields: fields,
+    options: defaultOptions,
+    hidden: hidden,
+  }
+}
+
+export { feedSelector, feedSelector2 }
