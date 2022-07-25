@@ -54,14 +54,16 @@
             {{ c.startDate | formatDate }}
             <template v-if="c.endDate">- {{ c.endDate | formatDate }}</template>
           </p>
-          <p v-if="c.date" class="font-bold sm:mr-small">
+          <p v-if="c.date" class="font-bold sm:mr-small sm:mt-0">
             {{ c.date | formatDate }}
           </p>
-          <span v-if="c.author" class="w-full mt-1">
+          <p v-if="c.author" class="w-full sm:mt-0">
             By
             <strong>{{ c.author }}</strong>
-          </span>
-          <p v-if="c.location" class="font-bold">Location: {{ c.location }}</p>
+          </p>
+          <p v-if="c.location" class="font-bold sm:mt-0">
+            Location: {{ c.location }}
+          </p>
         </div>
       </slot>
     </div>
