@@ -128,7 +128,7 @@ const feedSelector2 = ({
   manualTitle = 'Manual selection',
   categoryTitle = 'All pages/articles with this category',
   categoryType = false,
-  description = 'You can manually select, choose a category or select automatic to display a list of items.',
+  description = '',
   noShowAll = false,
   filter = false,
   filterParams = false,
@@ -158,7 +158,8 @@ const feedSelector2 = ({
   const type = {
     name: 'type',
     type: 'string',
-    description: 'Select the way to add to this list',
+    description:
+      'Select the way to add to this list. If unselected, the list will remain empty',
     options: {
       list: types,
     },
@@ -199,7 +200,7 @@ const feedSelector2 = ({
     ],
   }
 
-  const fields = [type, manual]
+  const fields = []
 
   if (heading) {
     const title = {
@@ -219,6 +220,9 @@ const feedSelector2 = ({
     }
     fields.push(text)
   }
+
+  fields.push(type)
+  fields.push(manual)
 
   if (categoryType) {
     fields.push(categories)
