@@ -11,7 +11,7 @@
     >
       <div
         v-for="item in list"
-        :key="item._key"
+        :key="item._key || item._id"
         class="px-small flex-grow fade-up thumbnail mb-medium"
         :class="{
           'md:w-1/2 lg:w-1/3': list.length % 4 !== 0,
@@ -21,6 +21,7 @@
         <slot name="tease" :item="item">
           <component
             :is="getLinkComponent(item.singleLink)"
+            v-if="item"
             class="thumbnail-inner"
             :to="getSingleLink(item.singleLink)"
             :href="getSingleLink(item.singleLink)"
