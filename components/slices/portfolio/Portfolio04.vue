@@ -6,7 +6,7 @@
     </div>
     <div
       v-if="list && list != null && list.length"
-      class="list mb-large flex flex-wrap justify-evenly -mx-small"
+      class="list flex flex-wrap justify-evenly -mx-small"
       :class="'list-length-' + list.length"
     >
       <div
@@ -44,7 +44,7 @@
         </slot>
       </div>
     </div>
-    <div v-if="links" class="text-center">
+    <div v-if="links" class="text-center mt-large">
       <KataLinks :links="links" />
     </div>
   </div>
