@@ -1,7 +1,8 @@
 <template>
   <div class="slice portfolio-4 mx-auto w-r24/24">
-    <div class="mb-large text-center">
-      <h2 v-if="title" class="mb-medium fade-up">{{ title }}</h2>
+    <div class="mb-large text-center lg:px-r4/24">
+      <h2 v-if="title" class="fade-up">{{ title }}</h2>
+      <p v-if="text" class="mt-small fade-up">{{ text }}</p>
     </div>
     <div
       v-if="list && list != null && list.length"
@@ -49,9 +50,9 @@
 </template>
 
 <script>
-import { title, links, list } from '../shared'
+import { title, links, list, text } from '../shared'
 export default {
-  mixins: [title, links, list],
+  mixins: [title, links, list, text],
   data() {
     return {
       settings: {
