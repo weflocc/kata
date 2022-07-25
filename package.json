@@ -57,6 +57,7 @@
     "@sanity/form-builder": "^2.30.1",
     "react": "^17.0.0",
     "vue-lottie": "^0.2.1",
+    "@nuxt/image": "^0.7.1",
     "vue-slick-carousel": "^1.0.6"
   }
 }
