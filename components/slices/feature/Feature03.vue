@@ -13,7 +13,7 @@
       class="w-full object-cover"
     />
     <div
-      class="w-r24/24 md:w-r16/24+container-margin lg:w-r12/24+container-margin flex flex-col justify-end items-start z-1 px-container-margin py-slice content"
+      class="w-r24/24 md:w-r16/24+container-margin lg:w-r12/24+container-margin xl:w-r20/24 xl:px-0 xl:pl-container-margin flex flex-col justify-end items-start z-1 px-container-margin py-slice content"
       :class="{
         'ml-auto mr-0': reversed,
         'mr-auto ml-0': !reversed,
