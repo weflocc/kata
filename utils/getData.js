@@ -7,6 +7,7 @@ const getData = async ($sanity, query, store, route, vars = {}) => {
   let globals = []
   let customProjections = []
   let feedSelectors = []
+  let feedSelectors2 = []
   let client = null
   let type = ''
   if (vars) {
@@ -14,6 +15,7 @@ const getData = async ($sanity, query, store, route, vars = {}) => {
     globals = vars.globals
     customProjections = vars.customProjections
     feedSelectors = vars.feedSelectors
+    feedSelectors2 = vars.feedSelectors2
     client = vars.client
     type = vars.type
   }
@@ -51,21 +53,34 @@ const getData = async ($sanity, query, store, route, vars = {}) => {
   if (feedSelectors && feedSelectors.length) {
     feedSelectors.forEach((element) => {
       let sort = element.sort ? element.sort : '| order(_createdAt desc)'
-      let types = ''
-      if (element.articleType) {
-        types = `_type == "${element.articleType}"`
-      } else if (element.articleTypes) {
-        types = `_type in ${element.articleTypes}`
-      }
 
       projection += `${element.field} {...,"feed": select(`
       projection += `defined(selected) && length(selected) > 0 => selected[]->,`
-      projection += `defined(categories) && length(categories) > 0 => *[${types} && references(^.categories[]._ref)]${sort},`
+      projection += `defined(categories) && length(categories) > 0 => *[_type == "${element.articleType}" && references(^.categories[]._ref)]${sort},`
 
       if (element.customProjection) {
         projection += element.customProjection
       } else {
-        projection += `*[${element.types}]${sort}`
+        projection += `*[_type == "${element.articleType}"]${sort}`
+      }
+
+      if (element.max) {
+        projection += `[0...${element.max}]`
+      }
+      projection += `)},`
+    })
+  } else if (feedSelectors2 && feedSelectors2.length) {
+    feedSelectors.forEach((element) => {
+      let sort = element.sort ? element.sort : '| order(_createdAt desc)'
+
+      projection += `${element.name} {...,"feed": select(`
+      projection += `defined(selected) && length(selected) > 0 => selected[]->,`
+      projection += `defined(categories) && length(categories) > 0 => *[_type in ${element.articleTypes} && references(^.categories[]._ref)]${sort},`
+
+      if (element.customProjection) {
+        projection += element.customProjection
+      } else {
+        projection += `*[_type in [${element.articleType}]]${sort}`
       }
 
       if (element.max) {
