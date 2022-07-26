@@ -1,6 +1,6 @@
 {
   "name": "@weflocc/kata",
-  "version": "2.1.102",
+  "version": "2.0.722",
   "description": "Core dependencies for kata sites",
   "main": "index.js",
   "scripts": {
@@ -23,11 +23,14 @@
   },
   "homepage": "https://github.com/weflocc/kata#readme",
   "dependencies": {
+    "@sanity/desk-tool": "^2.10.2",
     "@sanity/ui": "^0.37.2",
     "get-youtube-id": "^1.0.1",
+    "hls.js": "^1.1.5",
     "lodash.camelcase": "^4.3.0",
     "react-icons": "^4.2.0",
-    "react-youtube": "^7.13.1"
+    "react-youtube": "^7.13.1",
+    "sanity-plugin-table": "^2.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
@@ -49,7 +52,6 @@
     "sanipack": "^2.1.0"
   },
   "peerDependencies": {
-    "@nuxt/image": "^0.7.1",
     "@reach/auto-id": "^0.17.0",
     "@sanity/base": "^2.28.0",
     "@sanity/form-builder": "^2.30.1",
