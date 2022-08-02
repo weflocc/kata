@@ -21,6 +21,10 @@
     <p v-if="date" class="date mt-small">
       {{ date | formatDate }}
     </p>
+    <p v-if="startDate" class="date mt-small">
+      {{ startDate | formatDate }}
+      <template v-if="endDate">- {{ endDate | formatDate }}</template>
+    </p>
     <h3 class="mt-small">
       {{ title }}
       <DraftLabel v-if="itemId" :id="itemId" />
@@ -50,6 +54,14 @@ export default {
       default: '',
     },
     date: {
+      type: String,
+      default: '',
+    },
+    startDate: {
+      type: String,
+      default: '',
+    },
+    endDate: {
       type: String,
       default: '',
     },
