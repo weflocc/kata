@@ -134,15 +134,7 @@ export default {
 
 <style lang="scss" scoped>
 .menu-panel {
-  opacity: 0;
-  pointer-events: none;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: $secondary;
-  z-index: 10;
+  @apply opacity-0 pointer-events-none w-full h-full fixed inset-0 bg-secondary z-10;
   transition: 0.4s ease;
   padding-top: 130px;
   padding-bottom: 30px;
