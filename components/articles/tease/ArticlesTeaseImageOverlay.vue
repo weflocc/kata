@@ -24,9 +24,9 @@
 </template>
 
 <script>
-import { image, title, text } from '../../slices/shared'
+import { image, title, text, singleLink } from '../../slices/shared'
 export default {
-  mixins: [image, title, text],
+  mixins: [image, title, text, singleLink],
   props: {
     itemId: {
       type: String,
@@ -35,10 +35,6 @@ export default {
     link: {
       type: String,
       default: '',
-    },
-    singleLink: {
-      type: Object,
-      default: null,
     },
     ratio: {
       type: Number,

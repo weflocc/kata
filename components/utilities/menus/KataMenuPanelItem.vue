@@ -36,14 +36,10 @@
 </template>
 
 <script>
-import { title, list } from '../../slices/shared'
+import { title, list, singleLink } from '../../slices/shared'
 export default {
-  mixins: [title, list],
+  mixins: [title, list, singleLink],
   props: {
-    singleLink: {
-      type: Object,
-      default: null,
-    },
     clickFn: {
       type: Function,
       default: () => {
