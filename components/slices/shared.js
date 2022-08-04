@@ -106,6 +106,15 @@ const showLoader = {
   },
 }
 
+const singleLink = {
+  props: {
+    singleLink: {
+      type: Object,
+      default: null,
+    },
+  },
+}
+
 export {
   title,
   superHeading,
@@ -119,4 +128,5 @@ export {
   articles,
   noCrop,
   showLoader,
+  singleLink,
 }
