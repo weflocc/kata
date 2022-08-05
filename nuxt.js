@@ -7,9 +7,9 @@ export default function () {
   const ourDirs = [
     './components/articles',
     './components/articles/results',
+    './components/articles/featured',
     './components/articles/tease',
     './components/slices',
-    './components/slices/article-block',
     './components/slices/call-to-action',
     './components/slices/contact',
     './components/slices/feature',
