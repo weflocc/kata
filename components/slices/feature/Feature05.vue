@@ -49,9 +49,9 @@
 </template>
 
 <script>
-import { title, textBody, links, list } from '../shared'
+import { title, textBody, links, list, singleLink } from '../shared'
 export default {
-  mixins: [title, textBody, links, list],
+  mixins: [title, textBody, links, list, singleLink],
   props: {
     autoNumber: {
       type: Boolean,

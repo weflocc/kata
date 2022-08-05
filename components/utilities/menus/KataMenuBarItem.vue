@@ -60,17 +60,13 @@
 </template>
 
 <script>
-import { title, list } from '../../slices/shared'
+import { title, list, singleLink } from '../../slices/shared'
 export default {
-  mixins: [title, list],
+  mixins: [title, list, singleLink],
   props: {
     isMobile: {
       type: Boolean,
       default: false,
-    },
-    singleLink: {
-      type: Object,
-      default: null,
     },
     clickFn: {
       type: Function,
