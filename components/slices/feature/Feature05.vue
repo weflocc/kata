@@ -19,29 +19,38 @@
         class="mb-large fade-up px-medium item"
         :class="width"
       >
-        <KataSimpleImage
-          v-if="item.icon"
-          :image="item.icon"
-          width="50"
-          height="50"
-          class="mb-small"
-        />
-        <p
-          v-else-if="autoNumber"
-          v-kata-html="index + 1 < 10 ? '0' + (index + 1) : index + 1"
-          class="heading-2"
-        />
-        <h3
-          v-if="item.title"
-          v-kata-html="item.title"
-          class="label-1 mb-small"
-        />
-        <SanityEmbedContent
-          v-if="item.textBody"
-          :blocks="item.textBody"
-          class="para-2"
-        />
-        <!-- <p v-if="item.text" v-kata-html="item.text" class="para-1" /> -->
+        <component
+          :is="getLinkComponent(item.singleLink)"
+          :to="getSingleLink(item.singleLink)"
+          :href="getSingleLink(item.singleLink)"
+          :target="
+            getLinkComponent(item.singleLink) == 'a' ? '_blank' : '_self'
+          "
+        >
+          <KataSimpleImage
+            v-if="item.icon"
+            :image="item.icon"
+            width="50"
+            height="50"
+            class="mb-small"
+          />
+          <p
+            v-else-if="autoNumber"
+            v-kata-html="index + 1 < 10 ? '0' + (index + 1) : index + 1"
+            class="heading-2"
+          />
+          <h3
+            v-if="item.title"
+            v-kata-html="item.title"
+            class="label-1 mb-small"
+          />
+          <SanityEmbedContent
+            v-if="item.textBody"
+            :blocks="item.textBody"
+            class="para-2"
+          />
+          <!-- <p v-if="item.text" v-kata-html="item.text" class="para-1" /> -->
+        </component>
       </li>
     </ul>
     <KataLinks v-if="links" :links="links" />
@@ -49,9 +58,9 @@
 </template>
 
 <script>
-import { title, textBody, links, list, singleLink } from '../shared'
+import { title, textBody, links, list } from '../shared'
 export default {
-  mixins: [title, textBody, links, list, singleLink],
+  mixins: [title, textBody, links, list],
   props: {
     autoNumber: {
       type: Boolean,
