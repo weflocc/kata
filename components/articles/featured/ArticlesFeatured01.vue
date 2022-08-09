@@ -1,16 +1,16 @@
 <template>
   <div class="slice articles-featured-1 w-r24/24 mx-auto">
-    <ul class="md:pr-medium grid md:grid-cols-4">
+    <ul class="grid lg:grid-cols-4 grid-flow-row-dense gap-small w-full">
       <li
         v-for="(item, i) in list"
         :key="item._key || item._id"
         class="mb-0 transition-default featured-item"
-        :class="{ 'md:col-span-2 large-thumb': i % 2 }"
+        :class="{ 'md:col-span-2 large-thumb': i % 2 && !(i % 4 == 0) }"
       >
-        <slot name="tease" :item="item">
+        <slot name="tease" :item="item" :index="i">
           <nuxt-link
             :to="getLink(item._id)"
-            class="mb-small inline-block pl-small hover:text-primary transition-default"
+            class="inline-block hover:text-primary transition-default w-full"
           >
             <KataImage
               v-if="item.thumbnailImage || item.image"
@@ -29,9 +29,11 @@
         </slot>
       </li>
     </ul>
-    <button @click="toggleList">
-      {{ showAll ? 'Show less' : 'Show more' }}
-    </button>
+    <div v-if="hasMore" class="text-center mt-small">
+      <button class="btn-secondary" @click="toggleList">
+        {{ showAll ? 'Show less' : 'Load more' }}
+      </button>
+    </div>
   </div>
 </template>
 
@@ -51,27 +53,12 @@ export default {
       default: 4 / 3,
     },
   },
-  data: () => ({ showAll: false, list: [] }),
-  // computed: {
-  //   firstList() {
-  //     let arr = this.articles
-  //     if (this.articles?.length) {
-  //       arr = arr.slice(0, 3)
-  //     }
-  //     return arr
-  //   },
-  //   secondList() {
-  //     let arr = this.articles
-  //     if (this.articles?.length > 3) {
-  //       arr = arr.slice(3, arr.length)
-  //     }
-  //     return arr
-  //   },
-  // },
+  data: () => ({ showAll: false, list: [], hasMore: false }),
   beforeMount() {
     let arr = this.articles
-    if (this.articles?.length) {
+    if (this.articles?.length > 3) {
       arr = arr.slice(0, 3)
+      this.hasMore = true
     }
     this.list = arr
   },

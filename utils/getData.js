@@ -70,17 +70,25 @@ const getData = async ($sanity, query, store, route, vars = {}) => {
       projection += `)},`
     })
   } else if (feedSelectors2 && feedSelectors2.length) {
-    feedSelectors.forEach((element) => {
+    feedSelectors2.forEach((element) => {
       let sort = element.sort ? element.sort : '| order(_createdAt desc)'
+
+      console.log(element.articleTypes)
+
+      let types = '['
+      element.articleTypes.forEach((e) => {
+        types += `"${e}",`
+      })
+      types += ']'
 
       projection += `${element.name} {...,"feed": select(`
       projection += `defined(selected) && length(selected) > 0 => selected[]->,`
-      projection += `defined(categories) && length(categories) > 0 => *[_type in ${element.articleTypes} && references(^.categories[]._ref)]${sort},`
+      projection += `defined(categories) && length(categories) > 0 => *[_type in ${types} && references(^.categories[]._ref)]${sort},`
 
       if (element.customProjection) {
         projection += element.customProjection
       } else {
-        projection += `*[_type in [${element.articleType}]]${sort}`
+        projection += `*[_type in ${types}]${sort}`
       }
 
       if (element.max) {
