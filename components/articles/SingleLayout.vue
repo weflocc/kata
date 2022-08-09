@@ -151,19 +151,14 @@ export default {
 
   &:before {
     content: '';
+    @apply inline-block absolute inset-y-0 left-0 my-auto;
     border-color: currentColor;
     border-style: solid;
     border-width: 2px 2px 0 0;
-    display: inline-block;
     height: 10px;
     width: 10px;
     transform: rotate(-135deg);
     vertical-align: top;
-    position: absolute;
-    top: 0;
-    bottom: 1px;
-    margin: auto;
-    left: 0;
     transition: 0.5s ease;
   }
 

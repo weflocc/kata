@@ -1,5 +1,5 @@
 <template>
-  <div class="slice cta-1 w-r24/24 mx-auto md:mx-auto text-center">
+  <div class="slice cta-1 w-r24/24 mx-auto text-center">
     <h2
       v-if="title"
       v-kata-html="title"
