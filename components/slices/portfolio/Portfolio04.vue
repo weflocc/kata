@@ -10,7 +10,7 @@
       :class="'list-length-' + list.length"
     >
       <div
-        v-for="item in list"
+        v-for="(item, i) in list"
         :key="item._key || item._id"
         class="px-small flex-grow fade-up thumbnail mb-medium"
         :class="{
@@ -18,7 +18,7 @@
           'md:w-1/2': list.length % 4 === 0,
         }"
       >
-        <slot name="tease" :item="item">
+        <slot name="tease" :item="item" :index="i">
           <component
             :is="getLinkComponent(item.singleLink)"
             v-if="item"

@@ -29,7 +29,7 @@
         </slot>
       </li>
     </ul>
-    <div v-if="hasMore" class="text-center mt-small">
+    <div v-if="hasMore" class="text-center mt-medium">
       <button class="btn-secondary" @click="toggleList">
         {{ showAll ? 'Show less' : 'Load more' }}
       </button>
@@ -54,15 +54,23 @@ export default {
     },
   },
   data: () => ({ showAll: false, list: [], hasMore: false }),
+  watch: {
+    articles() {
+      this.setList()
+    },
+  },
   beforeMount() {
-    let arr = this.articles
-    if (this.articles?.length > 3) {
-      arr = arr.slice(0, 3)
-      this.hasMore = true
-    }
-    this.list = arr
+    this.setList()
   },
   methods: {
+    setList() {
+      let arr = this.articles
+      if (this.articles?.length > 3) {
+        arr = arr.slice(0, 3)
+        this.hasMore = true
+      }
+      this.list = arr
+    },
     getLink(ref) {
       const link = this.$store.getters['references/getLinkFromReference'](ref)
       return link ? link.path : '/'
@@ -72,11 +80,7 @@ export default {
       if (this.showAll) {
         this.list = this.articles
       } else {
-        let arr = this.articles
-        if (this.articles?.length) {
-          arr = arr.slice(0, 3)
-        }
-        this.list = arr
+        this.setList()
       }
     },
   },
