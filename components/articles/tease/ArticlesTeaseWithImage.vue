@@ -18,13 +18,15 @@
         <span v-if="i != categories.length - 1">|</span>
       </span>
     </p>
-    <p v-if="date" class="date mt-small">
-      {{ date | formatDate }}
-    </p>
-    <p v-if="startDate" class="date mt-small">
-      {{ startDate | formatDate }}
-      <template v-if="endDate">- {{ endDate | formatDate }}</template>
-    </p>
+    <slot name="date">
+      <p v-if="date" class="date mt-small">
+        {{ date | formatDate }}
+      </p>
+      <p v-if="startDate" class="date mt-small">
+        {{ startDate | formatDate }}
+        <template v-if="endDate">- {{ endDate | formatDate }}</template>
+      </p>
+    </slot>
     <h3 class="mt-small">
       {{ title }}
       <DraftLabel v-if="itemId" :id="itemId" />
