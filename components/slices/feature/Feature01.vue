@@ -34,7 +34,7 @@
         :max-width="1500"
         :no-crop="noCrop"
         class="h-full w-full object-cover"
-        sizes="sm:90vw md:50vw"
+        sizes="sm:100vw lg:80vw"
       />
     </div>
   </div>
@@ -52,7 +52,7 @@ export default {
     },
     ratio: {
       type: Number,
-      default: 685 / 514,
+      default: 4 / 3,
     },
   },
 }
