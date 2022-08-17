@@ -33,11 +33,11 @@ export default {
         this.anim = lottie.loadAnimation({
           container: this.$refs.kataLottie,
           renderer: 'svg',
-          loop: this.options && this.options.loop ? this.options.loop : false, // true / false / number
+          loop: this.options && this.options.loop ? this.options.loop : true, // default true -> true / false / number
           autoplay:
             this.options && this.options.autoplay
               ? this.options.autoplay
-              : true, // true / false it will start playing as soon as it is ready
+              : true, // default true -> true /false - it will start playing as soon as it is ready
           animationData: animData,
           rendererSettings:
             this.options && this.options.rendererSettings
