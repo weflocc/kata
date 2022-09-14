@@ -33,6 +33,7 @@
         :ratio="ratio"
         :max-width="1500"
         :no-crop="noCrop"
+        :lottie-on-visible="true"
         class="h-full w-full object-cover"
         sizes="sm:100vw lg:80vw"
       />

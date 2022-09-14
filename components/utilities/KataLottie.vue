@@ -1,8 +1,13 @@
 <template>
-  <div v-if="showLoader" class="lottie-with-loader" :class="{ loaded: loaded }">
+  <div
+    v-if="showLoader"
+    v-observe-visibility="onVisible"
+    class="lottie-with-loader"
+    :class="{ loaded: loaded }"
+  >
     <div ref="kataLottie" />
   </div>
-  <div v-else ref="kataLottie" />
+  <div v-else ref="kataLottie" v-observe-visibility="onVisible" />
 </template>
 
 <script>
@@ -23,21 +28,29 @@ export default {
       type: Boolean,
       default: false,
     },
+    lottieOnVisible: {
+      type: Boolean,
+      default: false,
+    },
   },
-  data: () => ({ loaded: false }),
+  data: () => ({ loaded: false, lottieVisible: false }),
   mounted() {
     let animData = JSON.parse(this.animationData)
-    console.log(animData)
     if (animData) {
       this.$nextTick(() => {
+        let autoplay =
+          this.options && this.options.loop ? this.options.loop : true
+        let loop =
+          this.options && this.options.autoplay ? this.options.autoplay : true
+        if (this.lottieOnVisible) {
+          autoplay = false
+          loop = false
+        }
         this.anim = lottie.loadAnimation({
           container: this.$refs.kataLottie,
           renderer: 'svg',
-          loop: this.options && this.options.loop ? this.options.loop : true, // default true -> true / false / number
-          autoplay:
-            this.options && this.options.autoplay
-              ? this.options.autoplay
-              : true, // default true -> true /false - it will start playing as soon as it is ready
+          loop: loop, // default true -> true / false / number
+          autoplay: autoplay, // default true -> true /false - it will start playing as soon as it is ready
           animationData: animData,
           rendererSettings:
             this.options && this.options.rendererSettings
@@ -59,6 +72,18 @@ export default {
     }
     // if you want to use the animation events, get this passed up.
     // this.$emit('animCreated', this.anim)
+  },
+  methods: {
+    onVisible(isVisible, entry) {
+      if (this.lottieOnVisible) {
+        this.lottieVisible = isVisible
+        if (isVisible) {
+          this.anim.play()
+        } else {
+          this.anim.stop()
+        }
+      }
+    },
   },
 }
 </script>
