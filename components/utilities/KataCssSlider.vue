@@ -58,7 +58,7 @@ export default {
     },
     sizes: {
       type: String,
-      default: '100vw',
+      default: 'xl:100vw',
     },
   },
   data() {
