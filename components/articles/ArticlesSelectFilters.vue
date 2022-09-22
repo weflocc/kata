@@ -12,7 +12,7 @@
         class="select-wrap"
         @change="handleChange($event, filterGroup.label)"
       >
-        <select :name="filterGroup.label">
+        <select :name="filterGroup.label" class="w-full">
           <option value="">All {{ camelToTitle(filterGroup.label) }}</option>
           <option
             v-for="filter in filterGroup.terms"

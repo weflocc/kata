@@ -83,10 +83,5 @@ export default {
 
 <style lang="scss" scoped>
 .article-results-single {
-  @include md-up {
-    img {
-      min-height: 75vh;
-    }
-  }
 }
 </style>
