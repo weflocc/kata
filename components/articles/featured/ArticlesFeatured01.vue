@@ -1,11 +1,15 @@
 <template>
   <div class="slice articles-featured-1 w-r24/24 mx-auto">
-    <ul class="grid lg:grid-cols-4 grid-flow-row-dense gap-small w-full">
+    <ul class="flex flex-wrap gap-medium w-full">
       <li
         v-for="(item, i) in list"
         :key="item._key || item._id"
         class="mb-0 transition-default featured-item"
-        :class="{ 'md:col-span-2 large-thumb': i % 2 && !(i % 4 == 0) }"
+        :class="{
+          'md:w-1/2 large-thumb': i == 1,
+          'md:w-1/4 top-thumb': i == 0 || i == 2,
+          'md:w-1/3 standard-thumb': i > 2,
+        }"
       >
         <slot name="tease" :item="item" :index="i">
           <nuxt-link
@@ -31,7 +35,8 @@
     </ul>
     <div v-if="hasMore" class="text-center mt-medium">
       <button class="btn-secondary" @click="toggleList">
-        {{ showAll ? 'Show less' : 'Load more' }}
+        <!-- {{ showAll ? 'Show less' : 'Load more' }} -->
+        Load more
       </button>
     </div>
   </div>
@@ -53,21 +58,29 @@ export default {
       default: 4 / 3,
     },
   },
-  data: () => ({ showAll: false, list: [], hasMore: false }),
+  data: () => ({ showAll: false, list: [], hasMore: false, showNum: 3 }),
   watch: {
     articles() {
-      this.setList()
+      this.showNum = 3
+      this.setList(this.showNum)
     },
   },
   beforeMount() {
-    this.setList()
+    this.setList(this.showNum)
   },
   methods: {
-    setList() {
+    setList(n) {
       let arr = this.articles
-      if (this.articles?.length > 3) {
-        arr = arr.slice(0, 3)
+      if (this.articles?.length >= n) {
+        arr = arr.slice(0, n)
         this.hasMore = true
+      } else if (this.list.length < n) {
+        arr = arr.slice(0, n)
+        this.hasMore = false
+      }
+
+      if (this.articles.length <= n) {
+        this.hasMore = false
       }
       this.list = arr
     },
@@ -76,12 +89,16 @@ export default {
       return link ? link.path : '/'
     },
     toggleList() {
-      this.showAll = !this.showAll
-      if (this.showAll) {
-        this.list = this.articles
-      } else {
-        this.setList()
+      if (this.hasMore) {
+        this.showNum += 3
+        this.setList(this.showNum)
       }
+      // this.showAll = !this.showAll
+      // if (this.showAll) {
+      //   this.list = this.articles
+      // } else {
+      //   this.setList()
+      // }
     },
   },
 }
@@ -89,5 +106,20 @@ export default {
 
 <style lang="scss">
 .articles-featured-1 {
+  .large-thumb {
+    @include md-up {
+      width: calc(50% - var(--spacing-medium));
+    }
+  }
+  .top-thumb {
+    @include md-up {
+      width: calc(25% - var(--spacing-medium));
+    }
+  }
+  .standard-thumb {
+    @include md-up {
+      width: calc(33.33% - var(--spacing-medium));
+    }
+  }
 }
 </style>
