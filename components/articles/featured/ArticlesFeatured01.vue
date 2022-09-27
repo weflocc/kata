@@ -33,12 +33,14 @@
         </slot>
       </li>
     </ul>
-    <div v-if="hasMore" class="text-center mt-medium">
-      <button class="btn-secondary" @click="toggleList">
-        <!-- {{ showAll ? 'Show less' : 'Load more' }} -->
-        Load more
-      </button>
-    </div>
+    <slot name="below">
+      <div v-if="hasMore" class="text-center mt-medium">
+        <button class="btn-secondary" @click="toggleList">
+          <!-- {{ showAll ? 'Show less' : 'Load more' }} -->
+          Load more
+        </button>
+      </div>
+    </slot>
   </div>
 </template>
 
