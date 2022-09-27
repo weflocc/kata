@@ -85,12 +85,13 @@ const getData = async ($sanity, query, store, route, vars = {}) => {
 
       projection += `${element.name} {...,categories[]->,"feed": select(`
       projection += `defined(selected) && length(selected) > 0 => selected[]->,`
-      projection += `defined(categories) && length(categories) > 0 => *[_type in ${types} && references(^.categories[]._ref) && !(_id in path('drafts.**'))]${sort}${max},`
+      projection += `defined(categories) && length(categories) > 0 => *[_type in ${types} && references(^.categories[]._ref) && !(_id in path('drafts.**')) && _id != ^.^._id]${sort}${max},`
 
       if (element.customProjection) {
         projection += element.customProjection
       } else {
-        projection += `*[_type in ${types} && !(_id in path('drafts.**'))]${sort}${max}`
+        // ^.^._id => up 2 levels to the main page id
+        projection += `*[_type in ${types} && !(_id in path('drafts.**')) && _id != ^.^._id]${sort}${max}`
       }
 
       projection += `)},`
