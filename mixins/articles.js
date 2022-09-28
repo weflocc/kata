@@ -2,6 +2,7 @@ import { groq } from '@nuxtjs/sanity'
 const debounce = require('lodash.debounce')
 
 const searchArticles = {
+  data: () => ({ featured: null }),
   methods: {
     async searchArticles() {
       let queryBuilder = ``
