@@ -59,7 +59,11 @@ const cta07 = {
       options: {
         layout: 'grid',
       },
-      of: [standardImage()],
+      of: [
+        { name: 'title', type: 'string' },
+        standardImage(),
+        { name: 'url', type: 'url' },
+      ],
       preview: {
         select: {
           image: 'image',
