@@ -60,9 +60,16 @@ const cta07 = {
         layout: 'grid',
       },
       of: [
-        { name: 'title', type: 'string' },
-        standardImage(),
-        { name: 'url', type: 'url' },
+        {
+          name: 'item',
+          type: 'object',
+          title: 'Item',
+          fields: [
+            { name: 'title', type: 'string' },
+            standardImage('Logo'),
+            { name: 'url', type: 'url' },
+          ],
+        },
       ],
       preview: {
         select: {

@@ -17,15 +17,23 @@
       v-if="list && list.length > 0"
       class="fade-up list grid items-center gap-medium"
     >
-      <div v-for="item in list" :key="item._id" class="logo-item">
+      <component
+        :is="item.url ? 'a' : 'div'"
+        v-for="item in list"
+        :key="item._id"
+        class="logo-item"
+        :title="item.title"
+        :aria-label="item.title"
+      >
         <KataSimpleImage
-          v-if="item"
-          :image="item"
+          v-if="item.logo"
+          :image="item.logo"
+          :title="item.title"
           width="100"
           height="100"
           class="w-[100px] h-[100px] object-contain"
         />
-      </div>
+      </component>
     </div>
     <KataLinks v-if="links" :links="links" class="mt-medium" />
   </div>

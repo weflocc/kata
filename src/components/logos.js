@@ -4,14 +4,14 @@ import InfoToolTip from './InfoTooltip'
 
 const LogosPreview = ({ value }) => {
   const { cta07 } = value
-  const testimonials = cta07?.list
+  const logos = cta07?.list
 
-  if (testimonials) {
+  if (logos) {
     return (
       <InfoToolTip>
         <Container padding={3}>
           <Stack space={[2, 2, 3, 4]}>
-            {testimonials.map((element) => {
+            {logos.map((element) => {
               if (element) {
                 return (
                   <Card key={element._key} padding={4} shadow={1}>
@@ -33,7 +33,7 @@ const LogosPreview = ({ value }) => {
     return (
       <InfoToolTip>
         <Container padding={3}>
-          <p>Double click to add</p>
+          <p>Double click to add (Logos)</p>
         </Container>
       </InfoToolTip>
     )

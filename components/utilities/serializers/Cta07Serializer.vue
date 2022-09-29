@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="cta07"
-    class="slice cta-7 cta-7-serializer w-r24/24 mx-auto text-center"
+    class="slice cta-7 cta-7-serializer py-slice-half text-center"
   >
     <div class="title-wrap lg:px-r2/24">
       <h2
@@ -20,15 +20,24 @@
       v-if="cta07.list && cta07.list.length > 0"
       class="fade-up list grid items-center gap-medium"
     >
-      <div v-for="item in cta07.list" :key="item._id" class="logo-item">
+      <component
+        :is="item.url ? 'a' : 'div'"
+        v-for="item in cta07.list"
+        :key="item._id"
+        :href="item.url"
+        class="logo-item"
+        :title="item.title"
+        :aria-label="item.title"
+      >
         <KataSimpleImage
-          v-if="item"
-          :image="item"
+          v-if="item.logo"
+          :image="item.logo"
+          :title="item.title"
           width="100"
           height="100"
           class="w-[100px] h-[100px] object-contain"
         />
-      </div>
+      </component>
     </div>
     <KataLinks v-if="cta07.links" :links="cta07.links" class="mt-medium" />
   </div>
