@@ -35,7 +35,7 @@
         :no-crop="noCrop"
         :lottie-on-visible="true"
         class="h-full w-full object-cover"
-        sizes="sm:100vw lg:80vw"
+        sizes="md:100vw xl:80vw"
       />
     </div>
   </div>

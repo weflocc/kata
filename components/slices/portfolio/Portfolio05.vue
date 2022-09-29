@@ -36,7 +36,7 @@
               :image="item.image"
               :ratio="825 / 500"
               :max-width="1500"
-              sizes="75vw"
+              sizes="xl:75vw"
               :lazy="false"
             />
           </div>

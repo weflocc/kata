@@ -6,14 +6,16 @@
       <div
         class="flex-col flex items-start justify-end w-full h-full min-h-screen py-slice-half content"
       >
-        <template v-if="superHeading">
-          <h1
-            class="super-heading text-white mb-medium"
-            v-html="superHeading"
-          />
-          <h2 v-if="title" class="heading-1 text-white" v-html="title" />
-        </template>
-        <h1 v-else class="heading-1 text-white" v-html="title" />
+        <slot name="heading">
+          <template v-if="superHeading">
+            <h1
+              class="super-heading text-white mb-medium"
+              v-html="superHeading"
+            />
+            <h2 v-if="title" class="heading-1 text-white" v-html="title" />
+          </template>
+          <h1 v-else class="heading-1 text-white" v-html="title" />
+        </slot>
         <SanityEmbedContent
           v-if="textBody"
           :blocks="textBody"
@@ -72,7 +74,8 @@ export default {
   position: relative;
   background: black;
 
-  img {
+  img,
+  video {
     opacity: 0.75 !important;
     object-fit: cover;
     height: 100%;
