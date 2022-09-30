@@ -14,6 +14,7 @@
       <div v-if="filterGroup.terms" class="flex flex-wrap">
         <div class="filter-wrapper w-auto block">
           <button
+            v-if="!hideAll"
             type="button"
             class="block w-max filter-btn btn-plain mb-2 mr-small"
             :class="{ selected: all(filterGroup.label) }"
@@ -58,6 +59,10 @@ export default {
       required: true,
     },
     categoryLabels: {
+      type: Boolean,
+      default: false,
+    },
+    hideAll: {
       type: Boolean,
       default: false,
     },
