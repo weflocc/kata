@@ -146,7 +146,7 @@ const filters = {
       for (const [filterGroup, activeTerms] of Object.entries(
         this.activeFilters
       )) {
-        if (activeTerms?.length > 0) {
+        if (activeTerms && activeTerms.length > 0) {
           trigger = true
         }
       }
