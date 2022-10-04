@@ -6,7 +6,7 @@
     }"
   >
     <div
-      class="landscape:py-slice-half landscape:w-r14/24 px-container-margin landscape:pr-r2/24 landscape:flex landscape:flex-col landscape:justify-center order-2 landscape:order-1 content mb-large landscape:mb-0"
+      class="landscape:py-slice-half landscape:w-r14/24 px-container-margin landscape:pr-r2/24 landscape:flex landscape:flex-col landscape:justify-center order-2 landscape:order-1 content mb-large landscape:mb-0 xl:pl-0 xl:ml-container-margin"
     >
       <h1
         v-if="superHeading"
