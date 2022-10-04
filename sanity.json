@@ -58,6 +58,14 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
+      "path": "components/textAndImage"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "components/logos"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
       "path": "documents/globalSlices"
     },
     {

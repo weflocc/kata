@@ -2,8 +2,9 @@
   <div v-if="list && list != null" class="feature-list-01">
     <Feature01
       v-for="(feature, i) in list"
-      :key="feature._key"
       v-bind="feature"
+      :id="`feature-list-item-${i}`"
+      :key="feature._key"
       :reversed="i % 2 == 0"
       :no-crop="noCrop"
       class="mb-large slice-animation"

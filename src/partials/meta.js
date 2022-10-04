@@ -72,7 +72,10 @@ const metaDescription = {
   rows: 3,
   description: 'Max 150 characters',
   inputComponent: WordCount,
-  validation: (Rule) => Rule.max(150),
+  validation: (Rule) =>
+    Rule.max(150).warning(
+      'Google will cut off the meta description at 150 characters'
+    ),
 }
 
 const metaFields = {

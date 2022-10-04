@@ -49,6 +49,7 @@
       class="w-full h-auto"
       :options="options"
       :show-loader="showLoader"
+      :lottie-on-visible="lottieOnVisible"
     />
   </div>
 </template>
@@ -87,6 +88,10 @@ export default {
     options: {
       type: Object,
       default: null,
+    },
+    lottieOnVisible: {
+      type: Boolean,
+      default: false,
     },
   },
   data: () => ({ isMobile: false }),

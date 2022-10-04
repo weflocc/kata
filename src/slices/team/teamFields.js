@@ -18,7 +18,13 @@ const thumbnails = {
       name: 'item',
       title: 'Item',
       type: 'object',
-      fields: [standardImage(), title, text],
+      fields: [
+        standardImage(),
+        title,
+        text,
+        { name: 'linkText', type: 'string' },
+        basicSingleLink,
+      ],
       preview: {
         select: {
           heading: 'title',

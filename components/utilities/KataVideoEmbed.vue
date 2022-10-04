@@ -1,69 +1,71 @@
 <template>
   <div class="video-embed" :class="source">
-    <transition name="fade" mode="out-in">
-      <template v-if="!loaded">
-        <button
-          class="w-full block relative embed-facade"
-          title="Click to play video"
-          @click="loadFacade"
-        >
-          <img
-            v-if="imgSrc"
-            :src="imgSrc"
-            :alt="imgAlt"
-            :width="source == 'vimeo' ? '640' : '360'"
-            :height="source == 'vimeo' ? '560' : '315'"
-            loading="lazy"
-            class="w-full h-auto !m-0"
-          />
-          <div v-else class="bg-black w-full h-[56%]" />
-          <div
-            class="absolute inset-0 w-full h-full flex items-center justify-center bg-black/50"
+    <template v-if="source == 'vimeo' || source == 'youtube'">
+      <transition name="fade" mode="out-in">
+        <template v-if="!loaded">
+          <button
+            class="w-full block relative embed-facade"
+            title="Click to play video"
+            @click="loadFacade"
           >
-            <div aria-label="Play" class="play-btn" />
-          </div>
-        </button>
-      </template>
-      <template v-else>
-        <iframe
-          v-if="source == 'vimeo'"
-          title="vimeo-player"
-          width="640"
-          height="360"
-          autoplay
-          :src="embedUrl"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
-          allowfullscreen
-          loading="lazy"
-        ></iframe>
-        <iframe
-          v-else-if="source == 'youtube'"
-          title="youtube-player"
-          width="560"
-          height="315"
-          :src="
-            'https://www.youtube-nocookie.com/embed/' +
-            getYoutubeId +
-            '?autoplay=1'
-          "
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
-          allowfullscreen
-          loading="lazy"
-        ></iframe>
-        <iframe
-          v-else
-          width="400"
-          height="300"
-          :src="url"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
-          allowfullscreen
-          loading="lazy"
-        ></iframe>
-      </template>
-    </transition>
+            <img
+              v-if="imgSrc"
+              :src="imgSrc"
+              :alt="imgAlt"
+              :width="source == 'vimeo' ? '640' : '360'"
+              :height="source == 'vimeo' ? '560' : '315'"
+              loading="lazy"
+              class="w-full h-auto !m-0"
+            />
+            <div v-else class="bg-black w-full h-[56%]" />
+            <div
+              class="absolute inset-0 w-full h-full flex items-center justify-center bg-black/50"
+            >
+              <div aria-label="Play" class="play-btn" />
+            </div>
+          </button>
+        </template>
+        <template v-else>
+          <iframe
+            v-if="source == 'vimeo'"
+            title="vimeo-player"
+            width="640"
+            height="360"
+            autoplay
+            :src="embedUrl"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+          <iframe
+            v-else-if="source == 'youtube'"
+            title="youtube-player"
+            width="560"
+            height="315"
+            :src="
+              'https://www.youtube-nocookie.com/embed/' +
+              getYoutubeId +
+              '?autoplay=1'
+            "
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </template>
+      </transition>
+    </template>
+    <iframe
+      v-else
+      width="400"
+      height="300"
+      :src="url"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
+      allowfullscreen
+      loading="lazy"
+    ></iframe>
   </div>
 </template>
 

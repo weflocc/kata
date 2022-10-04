@@ -2,6 +2,7 @@ import { groq } from '@nuxtjs/sanity'
 const debounce = require('lodash.debounce')
 
 const searchArticles = {
+  data: () => ({ featured: null }),
   methods: {
     async searchArticles() {
       let queryBuilder = ``
@@ -138,8 +139,24 @@ const filters = {
       })
     },
   },
+  mounted() {
+    // if active filter exists on page load, trigger search articles
+    if (this.activeFilters) {
+      let trigger = false
+      for (const [filterGroup, activeTerms] of Object.entries(
+        this.activeFilters
+      )) {
+        if (activeTerms && activeTerms.length > 0) {
+          trigger = true
+        }
+      }
+      if (trigger) {
+        this.searchArticles()
+      }
+    }
+  },
   watch: {
-    activeFilters: function () {
+    activeFilters() {
       this.searchArticles()
     },
   },

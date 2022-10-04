@@ -135,7 +135,7 @@ const feedSelector2 = ({
   hidden = false,
   heading = false,
   text = false,
-  links = false,
+  showLinks = false,
 }) => {
   let options = {}
   if (filter) {
@@ -228,7 +228,7 @@ const feedSelector2 = ({
     fields.push(categories)
   }
 
-  if (links) {
+  if (showLinks) {
     fields.push(links())
   }
 

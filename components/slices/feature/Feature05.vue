@@ -1,6 +1,6 @@
 <template>
   <div class="slice feature-5 w-r24/24 mx-auto">
-    <div v-if="title || text" class="mb-large">
+    <div v-if="title || textBody" class="mb-large">
       <h2 v-kata-html="title" class="fade-up heading-2" />
       <SanityEmbedContent
         v-if="textBody"

@@ -10,8 +10,6 @@ const FeaturePreview = ({ value }) => {
     <Container padding={3}>
       <p>Double click to add (Text &amp; Image)</p>
     </Container>
-    // <InfoToolTip>
-    // </InfoToolTip>
   )
 }
 export default {
@@ -23,7 +21,7 @@ export default {
       name: 'reversed',
       title: 'Reverse Columns',
       description:
-        '💡 By default, text is left and image is right. If you enable this field, the columns will be reversed.',
+        'By default, text is left and image is right. If you enable this field, the columns will be reversed.',
       type: 'boolean',
       initialValue: false,
     },
@@ -31,7 +29,7 @@ export default {
       name: 'noCrop',
       title: 'No Crop?',
       description:
-        '💡 By default, images are cropped to fit the height of the text. If you enable this field, the image will display at its initial aspect ratio.',
+        'By default, images are cropped to fit the height of the text. If you enable this field, the image will display at its initial aspect ratio.',
       type: 'boolean',
       initialValue: false,
     },

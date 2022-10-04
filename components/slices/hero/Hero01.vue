@@ -8,17 +8,19 @@
     <div
       class="landscape:py-slice-half landscape:w-r14/24 px-container-margin landscape:pr-r2/24 landscape:flex landscape:flex-col landscape:justify-center order-2 landscape:order-1 content mb-large landscape:mb-0 xl:pl-0 xl:ml-container-margin"
     >
-      <h1
-        v-if="superHeading"
-        class="super-heading mb-medium"
-        v-html="superHeading"
-      />
-      <h1 v-else-if="title" class="heading-1 mb-medium" v-html="title" />
-      <h2
-        v-if="title && superHeading"
-        class="heading-1 mb-medium"
-        v-html="title"
-      />
+      <slot name="superHeading">
+        <h1
+          v-if="superHeading"
+          class="super-heading mb-medium"
+          v-html="superHeading"
+        />
+        <h1 v-else-if="title" class="heading-1 mb-medium" v-html="title" />
+        <h2
+          v-if="title && superHeading"
+          class="heading-1 mb-medium"
+          v-html="title"
+        />
+      </slot>
       <SanityEmbedContent v-if="textBody" :blocks="textBody" />
       <KataLinks v-if="links" :links="links" class="mt-medium" />
     </div>

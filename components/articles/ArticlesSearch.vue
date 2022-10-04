@@ -5,7 +5,7 @@
       id="articlesSearch"
       type="text"
       :value="searchTerm"
-      class="focus:outline-none focus:ring-2 border-2 w-full mb-3 bg-transparent py-1 px-small"
+      class="focus:outline-none focus:ring-2 border-2 w-full bg-transparent py-1 px-small"
       name="articlesSearch"
       :placeholder="placeholder"
       @keyup="searchArticles"

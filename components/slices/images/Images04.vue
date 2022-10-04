@@ -1,5 +1,5 @@
 <template>
-  <div class="slice images-4 w-full relative">
+  <div class="slice images-4 w-full xl:w-r24/24 xl:mx-auto relative">
     <VueSlickCarousel
       v-bind="settings"
       ref="images-4-slider"
@@ -20,7 +20,7 @@
           :image="item.image"
           :ratio="825 / 500"
           :max-width="1500"
-          sizes="sm:95vw"
+          sizes="lg:100vw xl:90vw"
           :lazy="false"
           class="mx-auto object-cover max-h-[90vh] w-full"
         />

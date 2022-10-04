@@ -42,6 +42,9 @@ const imageThumbnailsNoLink = {
   name: 'list',
   title: 'Images',
   type: 'array',
+  options: {
+    layout: 'grid',
+  },
   of: [
     {
       name: 'item',

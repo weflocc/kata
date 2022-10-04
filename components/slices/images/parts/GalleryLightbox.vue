@@ -33,7 +33,7 @@
                 :image="item.image"
                 :ratio="825 / 500"
                 :max-width="1500"
-                sizes="95vw"
+                sizes="xl:95vw"
                 :lazy="false"
                 class="mx-auto object-contain max-h-[90vh]"
               />

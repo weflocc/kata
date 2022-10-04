@@ -29,7 +29,7 @@ const AccordionPreview = ({ value }) => {
     return (
       <InfoToolTip>
         <Container padding={3}>
-          <p>Double click to add</p>
+          <p>Double click to add (Accordion)</p>
         </Container>
       </InfoToolTip>
     )

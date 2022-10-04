@@ -1,6 +1,6 @@
 {
   "name": "@weflocc/kata",
-  "version": "2.1.111",
+  "version": "2.1.134",
   "description": "Core dependencies for kata sites",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/weflocc/kata#readme",
   "dependencies": {
-    "@sanity/desk-tool": "^2.10.2",
+    "@sanity/desk-tool": "^2.33.3",
     "@sanity/ui": "^0.37.2",
     "get-youtube-id": "^1.0.1",
     "hls.js": "^1.1.5",

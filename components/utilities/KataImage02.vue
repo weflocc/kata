@@ -92,14 +92,6 @@ export default {
     imgError(e) {
       console.log('KataImage02 error - ', e)
     },
-    increment(maxWidth) {
-      const fiths = Math.floor(maxWidth / 5)
-      let increment = fiths > 200 ? 200 : fiths
-      return increment
-    },
-    h(val) {
-      return Math.round(val / this.ratio)
-    },
   },
 }
 </script>

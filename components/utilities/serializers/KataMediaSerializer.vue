@@ -7,6 +7,8 @@
       :ratio="ratio"
       :max-width="maxWidth"
       class="h-full w-full object-cover"
+      :show-loader="showLoader"
+      :lazy="lazy"
     />
     <KataImage02
       v-if="media.mediaType == 'image' && media.image && noCrop"
@@ -14,17 +16,22 @@
       :sizes="sizes"
       :max-width="maxWidth"
       class="max-w-full"
+      :show-loader="showLoader"
+      :lazy="lazy"
+      height="1000"
     />
     <!-- TODO: readd mobile video/image -->
     <KataVideo
-      v-else-if="media.mediaType == 'video' && media.video && noCrop"
+      v-else-if="media.mediaType == 'video' && media.video"
       :video="media.video"
+      :no-crop="noCrop"
       class="h-full w-full object-cover"
     />
     <KataVideoEmbed
       v-else-if="media.mediaType == 'embed' && media.embedUrl"
       :url="media.embedUrl"
       class="w-full"
+      :no-crop="noCrop"
       :lazy="false"
     />
     <KataCssSlider
@@ -32,9 +39,17 @@
       :images="media.slideshow"
       class="w-full h-full"
       :sizes="sizes"
-      :ratio="ratio"
       :no-crop="noCrop"
+      :ratio="ratio"
       :max-width="maxWidth"
+    />
+    <KataLottie
+      v-else-if="media.mediaType == 'lottie' && media.lottieJson"
+      :animation-data="media.lottieJson"
+      class="w-full h-auto"
+      :options="options"
+      :show-loader="showLoader"
+      :lottie-on-visible="lottieOnVisible"
     />
   </div>
 </template>
@@ -56,9 +71,25 @@ export default {
     },
     sizes: {
       type: String,
-      default: '100vw',
+      default: 'xl:100vw',
+    },
+    lazy: {
+      type: Boolean,
+      default: true,
     },
     noCrop: {
+      type: Boolean,
+      default: false,
+    },
+    showLoader: {
+      type: Boolean,
+      default: false,
+    },
+    options: {
+      type: Object,
+      default: null,
+    },
+    lottieOnVisible: {
       type: Boolean,
       default: false,
     },

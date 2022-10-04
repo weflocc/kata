@@ -22,7 +22,7 @@
               :ratio="ratio"
               width="1600"
               height="900"
-              sizes="100vw"
+              sizes="xl:100vw"
               class="w-full"
             />
             <div class="overlay text-white px-container-margin py-large">

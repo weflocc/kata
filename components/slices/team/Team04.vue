@@ -25,6 +25,11 @@
               class="mb-small label-1"
             />
             <p v-if="item.text" v-kata-html="item.text" class="para-2" />
+            <p v-if="item.singleLink && item.linkText">
+              <BasicSingleLink v-bind="item.singleLink">
+                {{ item.linkText }}
+              </BasicSingleLink>
+            </p>
           </slot>
         </li>
       </ul>

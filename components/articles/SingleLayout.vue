@@ -133,11 +133,12 @@ export default {
     > .standout-text {
       @apply md:w-r18/24 lg:w-r14/24 w-r24/24 mx-auto;
     }
-    > .feature-1-serializer {
+    > .feature-1-serializer,
+    > .cta-7-serializer {
       @apply w-r24/24 mx-auto;
     }
   }
-  .content-blocks .block:not(.textAndImage) {
+  .content-blocks .block:not(.textAndImage):not(.logos) {
     @apply md:w-r18/24 lg:w-r14/24 w-r24/24 mx-auto;
   }
 }

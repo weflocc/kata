@@ -3,11 +3,18 @@
     <div class="md:w-1/2 image">
       <transition name="fade" mode="out-in">
         <KataImage
-          v-if="item.thumbnailImage || item.image"
+          v-if="(item.thumbnailImage || item.image) && !noCrop"
           :image="item.thumbnailImage || item.image"
           sizes="sm:100vw md:50vw"
-          :max-width="1000"
+          :max-width="2000"
           :ratio="ratio"
+          class="h-full w-full object-cover"
+        />
+        <KataImage02
+          v-if="(item.thumbnailImage || item.image) && noCrop"
+          :image="item.thumbnailImage || item.image"
+          sizes="sm:100vw md:50vw"
+          :max-width="2000"
           class="h-full w-full object-cover"
         />
       </transition>
@@ -66,6 +73,10 @@ export default {
       type: Number,
       default: 4 / 3,
     },
+    noCrop: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     item() {
@@ -83,10 +94,5 @@ export default {
 
 <style lang="scss" scoped>
 .article-results-single {
-  @include md-up {
-    img {
-      min-height: 75vh;
-    }
-  }
 }
 </style>

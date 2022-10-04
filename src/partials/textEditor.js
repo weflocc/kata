@@ -219,6 +219,11 @@ const fullTextEditor = (name = 'Text Body', includes, settings) => {
         type: 'textAndImage',
       })
     }
+    if (includes.cta07 || includes.logos) {
+      customEditor.push({
+        type: 'logos',
+      })
+    }
     if (includes.accordion || includes.dropdown) {
       customEditor.push({
         type: 'accordion',

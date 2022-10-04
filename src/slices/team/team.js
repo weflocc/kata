@@ -5,7 +5,7 @@ import { title, text } from '../shared'
 const team01 = {
   name: 'team01',
   type: 'object',
-  title: 'Team #4',
+  title: 'Team #1',
   options: defaultOptions,
   fields: [title, text, people, links()],
 }

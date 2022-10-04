@@ -10,7 +10,7 @@ const InfoToolTip = ({
       content={
         <Box padding={2}>
           <Text muted size={1}>
-            💡 {message}
+            {message}
           </Text>
         </Box>
       }
