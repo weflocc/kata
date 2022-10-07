@@ -5,7 +5,7 @@
         <KataImage
           v-if="(item.thumbnailImage || item.image) && !noCrop"
           :image="item.thumbnailImage || item.image"
-          sizes="sm:100vw md:50vw"
+          sizes="sm:100vw xl:50vw"
           :max-width="2000"
           :ratio="ratio"
           class="h-full w-full object-cover"
@@ -13,7 +13,7 @@
         <KataImage02
           v-if="(item.thumbnailImage || item.image) && noCrop"
           :image="item.thumbnailImage || item.image"
-          sizes="sm:100vw md:50vw"
+          sizes="sm:100vw xl:50vw"
           :max-width="2000"
           class="h-full w-full object-cover"
         />
