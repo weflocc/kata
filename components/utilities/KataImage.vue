@@ -1,6 +1,9 @@
 <template>
-  <!-- clashes with nuxt lazy load, need to work out another route https://issueexplorer.com/issue/nuxt/image/358 -->
-  <div v-if="showLoader" class="image-with-loader" :class="{ loaded: loaded }">
+  <div
+    v-if="showLoader"
+    class="image-with-loader"
+    :class="`${kataClass}${loaded ? ' loaded' : ''}`"
+  >
     <nuxt-img
       v-if="imageIsSet"
       :src="src()"
@@ -19,7 +22,7 @@
   <nuxt-img
     v-else-if="imageIsSet"
     :src="src()"
-    :class="{ loaded: loaded }"
+    :class="`${kataClass}${loaded ? ' loaded' : ''}`"
     :width="maxWidth"
     :height="height"
     fit="cover"
@@ -61,6 +64,10 @@ export default {
     sizes: {
       type: String,
       default: 'xl:100vw',
+    },
+    kataClass: {
+      type: String,
+      default: '',
     },
   },
   data: () => ({ loaded: false, format: 'webp' }),
