@@ -24,6 +24,7 @@
         v-for="item in list"
         :key="item._id"
         class="logo-item block text-center"
+        :href="item.url"
         :title="item.title"
         :aria-label="item.title"
       >
