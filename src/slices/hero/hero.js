@@ -4,6 +4,7 @@ import {
   media,
   defaultOptions,
   basicTextEditor,
+  liteTextEditor,
 } from 'part:@weflocc/kata/partials/index'
 
 const hero01 = {
@@ -46,6 +47,14 @@ const hero07 = {
   fields: [media(), superHeading, title, links()],
 }
 
+const hero08 = {
+  name: 'hero08',
+  type: 'object',
+  title: 'Hero #8',
+  options: defaultOptions,
+  fields: [superHeading, title, liteTextEditor(), links()],
+}
+
 const hero09 = {
   name: 'hero09',
   type: 'object',
@@ -83,4 +92,14 @@ const hero11 = {
   ],
 }
 
-export { hero01, hero04, hero05, hero06, hero07, hero09, hero10, hero11 }
+export {
+  hero01,
+  hero04,
+  hero05,
+  hero06,
+  hero07,
+  hero08,
+  hero09,
+  hero10,
+  hero11,
+}
