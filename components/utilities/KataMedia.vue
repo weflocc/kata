@@ -9,6 +9,7 @@
       class="h-full w-full object-cover"
       :show-loader="showLoader"
       :lazy="lazy"
+      :kata-class="kataClass"
     />
     <KataImage02
       v-if="media.mediaType == 'image' && media.image && noCrop"
@@ -19,6 +20,7 @@
       :show-loader="showLoader"
       :lazy="lazy"
       height="1000"
+      :kata-class="kataClass"
     />
     <!-- TODO: readd mobile video/image -->
     <KataVideo
@@ -92,6 +94,10 @@ export default {
     lottieOnVisible: {
       type: Boolean,
       default: false,
+    },
+    kataClass: {
+      type: String,
+      default: '',
     },
   },
   data: () => ({ isMobile: false }),
