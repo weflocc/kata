@@ -1,13 +1,9 @@
 <template>
-  <div
-    v-if="showLoader"
-    class="image-with-loader"
-    :class="`${kataClass}${loaded ? ' loaded' : ''}`"
-  >
+  <div v-if="showLoader" class="image-with-loader" :class="{ loaded: loaded }">
     <nuxt-img
       v-if="imageIsSet"
       :src="src()"
-      :class="{ loaded: loaded }"
+      :class="`${kataClass}${loaded ? ' loaded' : ''}`"
       :width="maxWidth"
       :height="height"
       fit="cover"

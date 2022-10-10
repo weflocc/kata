@@ -3,27 +3,29 @@
     <template v-if="source == 'vimeo' || source == 'youtube'">
       <transition name="fade" mode="out-in">
         <template v-if="!loaded">
-          <button
-            class="w-full block relative embed-facade"
-            title="Click to play video"
-            @click="loadFacade"
-          >
-            <img
-              v-if="imgSrc"
-              :src="imgSrc"
-              :alt="imgAlt"
-              :width="source == 'vimeo' ? '640' : '360'"
-              :height="source == 'vimeo' ? '560' : '315'"
-              loading="lazy"
-              class="w-full h-auto !m-0"
-            />
-            <div v-else class="bg-black w-full h-[56%]" />
-            <div
-              class="absolute inset-0 w-full h-full flex items-center justify-center bg-black/50"
+          <slot name="facade" :loadFacade="loadFacade">
+            <button
+              class="w-full block relative embed-facade"
+              title="Click to play video"
+              @click="loadFacade"
             >
-              <div aria-label="Play" class="play-btn" />
-            </div>
-          </button>
+              <img
+                v-if="imgSrc"
+                :src="imgSrc"
+                :alt="imgAlt"
+                :width="source == 'vimeo' ? '640' : '360'"
+                :height="source == 'vimeo' ? '560' : '315'"
+                loading="lazy"
+                class="w-full h-auto !m-0"
+              />
+              <div v-else class="bg-black w-full h-[56%]" />
+              <div
+                class="absolute inset-0 w-full h-full flex items-center justify-center bg-black/50"
+              >
+                <div aria-label="Play" class="play-btn" />
+              </div>
+            </button>
+          </slot>
         </template>
         <template v-else>
           <iframe
