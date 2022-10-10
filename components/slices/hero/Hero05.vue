@@ -66,12 +66,13 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .hero-5 {
   position: relative;
   background: black;
 
-  img {
+  img,
+  video {
     opacity: 0.75 !important;
   }
 

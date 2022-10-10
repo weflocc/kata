@@ -22,6 +22,11 @@
         />
       </slot>
       <SanityEmbedContent v-if="textBody" :blocks="textBody" />
+      <p
+        v-else-if="text"
+        class="text-center text-white mb-medium"
+        v-html="text"
+      />
       <KataLinks v-if="links" :links="links" class="mt-medium" />
     </div>
 
@@ -47,6 +52,7 @@ import {
   superHeading,
   title,
   textBody,
+  text,
   links,
   media,
   noCrop,
@@ -54,7 +60,16 @@ import {
 } from '../shared'
 
 export default {
-  mixins: [superHeading, title, textBody, links, media, noCrop, showLoader],
+  mixins: [
+    superHeading,
+    title,
+    textBody,
+    text,
+    links,
+    media,
+    noCrop,
+    showLoader,
+  ],
 }
 </script>
 
