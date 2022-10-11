@@ -7,7 +7,12 @@
       class="block mb-slice-half"
       :class="item._type"
     >
-      <component :is="getType(item)" v-bind="bindData(item)" class="fade-up" />
+      <component
+        :is="getType(item)"
+        v-bind="bindData(item)"
+        class="fade-up"
+        :class="{ 'whitespace-pre-line': item._type == 'paragraph' }"
+      />
     </div>
   </div>
 </template>
@@ -35,7 +40,7 @@ export default {
     getType(item) {
       switch (item._type) {
         case 'paragraph':
-          return 'SanityEmbedContent'
+          return 'p'
         case 'buttons':
           return 'BlockLinks'
         case 'table':
@@ -55,9 +60,10 @@ export default {
       }
     },
     bindData(item) {
-      if (item._type == 'paragraph') {
-        return { blocks: item.textBody }
-      } else if (item._type == 'media') {
+      // if (item._type == 'paragraph') {
+      //   return { blocks: item.textBody }
+      // } else if (item._type == 'media') {
+      if (item._type == 'media') {
         return { media: item, noCrop: true }
       } else {
         return item

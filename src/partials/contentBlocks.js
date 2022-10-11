@@ -36,7 +36,15 @@ const buttons = {
 }
 
 const contentBlocks = (name = 'Content Blocks', includes) => {
-  let customEditor = [paragraph, buttons, media()]
+  let customEditor = [
+    {
+      name: 'paragraph',
+      type: 'text',
+      rows: 8,
+    },
+    buttons,
+    media(),
+  ]
   if (includes) {
     if (includes.feature01 || includes.textAndImage)
       customEditor.push(textAndImage)
@@ -51,6 +59,12 @@ const contentBlocks = (name = 'Content Blocks', includes) => {
         title: 'Testimonials',
         type: 'testimonial04',
       })
+
+    if (includes.cta07 || includes.logos) {
+      customEditor.push({
+        type: 'logos',
+      })
+    }
 
     if (includes.standoutText)
       customEditor.push({
@@ -92,5 +106,4 @@ const contentBlocks = (name = 'Content Blocks', includes) => {
     of: customEditor,
   }
 }
-
 export { contentBlocks }
