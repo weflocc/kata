@@ -7,8 +7,14 @@
       class="block mb-slice-half"
       :class="item._type"
     >
+      <p
+        v-if="item._type == 'paragraph'"
+        class="fade-up whitespace-pre-line"
+        v-html="item.text"
+      />
       <component
         :is="getType(item)"
+        v-else
         v-bind="bindData(item)"
         class="fade-up"
         :class="{ 'whitespace-pre-line': item._type == 'paragraph' }"
@@ -39,8 +45,6 @@ export default {
   methods: {
     getType(item) {
       switch (item._type) {
-        case 'paragraph':
-          return 'p'
         case 'buttons':
           return 'BlockLinks'
         case 'table':
@@ -77,6 +81,9 @@ export default {
 .content-blocks {
   .block {
     @apply w-r24/24 mx-auto;
+  }
+  .block.paragraph {
+    @apply md:w-r20/24 lg:w-r18/24;
   }
   .feature-1 {
     width: 100%;

@@ -1,5 +1,5 @@
 const camelCase = require('lodash.camelcase')
-import { BiLink } from 'react-icons/bi'
+import { BiLink, BiListPlus } from 'react-icons/bi'
 import { BsCardText } from 'react-icons/bs'
 import { media, links } from './index'
 import { accordion } from '../blocks/accordion'
@@ -39,8 +39,26 @@ const contentBlocks = (name = 'Content Blocks', includes) => {
   let customEditor = [
     {
       name: 'paragraph',
-      type: 'text',
-      rows: 8,
+      type: 'object',
+      fields: [
+        {
+          name: 'text',
+          type: 'text',
+          rows: 8,
+        },
+      ],
+      preview: {
+        select: {
+          text: 'text',
+        },
+        prepare(selection) {
+          const { text } = selection
+          return {
+            title: text,
+            media: BiListPlus,
+          }
+        },
+      },
     },
     buttons,
     media(),
