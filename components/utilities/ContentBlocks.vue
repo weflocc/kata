@@ -88,5 +88,8 @@ export default {
   .feature-1 {
     width: 100%;
   }
+  .media .slider {
+    min-height: calc((4 / 3) * 100%);
+  }
 }
 </style>
