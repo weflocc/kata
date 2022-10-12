@@ -66,6 +66,9 @@ const media = (name = 'Media', required = false, vars = {}) => {
         name: 'slideshow',
         type: 'array',
         of: [standardImage()],
+        options: {
+          layout: 'grid',
+        },
         hidden: ({ parent }) =>
           parent?.mediaType != 'slideshow' || parent?.mediaType == '',
         preview: {
