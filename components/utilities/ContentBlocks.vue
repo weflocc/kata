@@ -12,6 +12,16 @@
         class="fade-up whitespace-pre-line"
         v-html="item.text"
       />
+      <h2
+        v-if="item._type == 'heading' && item.style == 'h2'"
+        class="fade-up"
+        v-html="item.title"
+      />
+      <h3
+        v-if="item._type == 'heading' && item.style == 'h3'"
+        class="fade-up"
+        v-html="item.title"
+      />
       <component
         :is="getType(item)"
         v-else

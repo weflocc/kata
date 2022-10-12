@@ -60,6 +60,38 @@ const contentBlocks = (name = 'Content Blocks', includes) => {
         },
       },
     },
+    {
+      name: 'heading',
+      type: 'object',
+      fields: [
+        {
+          name: 'style',
+          type: 'string',
+          options: {
+            list: [
+              { title: 'Heading (h2)', value: 'h2' },
+              { title: 'Sub Heading (h3)', value: 'h3' },
+            ],
+          },
+        },
+        {
+          name: 'title',
+          type: 'string',
+        },
+      ],
+      preview: {
+        select: {
+          title: 'title',
+        },
+        prepare(selection) {
+          const { title } = selection
+          return {
+            title: title,
+            media: BiListPlus,
+          }
+        },
+      },
+    },
     buttons,
     media(),
   ]
