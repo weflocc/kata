@@ -80,7 +80,7 @@ export default {
     li {
       flex-basis: calc(50% - var(--spacing-medium));
       flex-grow: 1;
-      max-width: 50%;
+      max-width: 50% !important;
     }
     li:nth-child(10n + 1),
     li:nth-child(10n + 2),
@@ -97,7 +97,7 @@ export default {
     li:nth-child(10n + 7) {
       flex-basis: calc(33% - var(--spacing-medium));
       min-width: calc(33% - var(--spacing-medium));
-      max-width: 34%;
+      max-width: 34% !important;
     }
     li:nth-child(10n + 1),
     li:nth-child(10n + 2),
