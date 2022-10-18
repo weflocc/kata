@@ -19,7 +19,7 @@ const media = (name = 'Media', required = false, vars = {}) => {
         type: 'string',
         name: 'mediaType',
         title: 'Media Type',
-        initialValue: 'image',
+        initialValue: '', //reduce attribute limit by not setting this by default
         validation: (Rule) => Rule.required(),
         options: {
           list: [
