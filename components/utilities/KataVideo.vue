@@ -4,7 +4,7 @@
     ref="video"
     v-observe-visibility="isVisible"
     class="kata-video"
-    :class="{ loaded: loaded }"
+    :class="{ loaded: loaded, 'mobile-video': isMobile }"
     nocontrols
     muted
     :autoplay="true"
@@ -22,28 +22,46 @@ export default {
   props: {
     video: {
       type: Object,
-      default: () => {},
+      default: null,
+    },
+    mobileVideo: {
+      type: Object,
+      default: null,
     },
   },
-  data() {
-    return {
-      // video: '',
-      resizeTimer: null,
-      playPromise: false,
-      isMobile: false,
-      image: '',
-      loaded: false,
-    }
-  },
+  data: () => ({
+    resizeTimer: null,
+    playPromise: false,
+    isMobile: false,
+    image: '',
+    loaded: false,
+  }),
   computed: {
     playbackId() {
+      let videoObj = this.video
+      if (
+        process.client &&
+        window.matchMedia('(max-width: 700px)').matches &&
+        this.mobileVideo
+      ) {
+        videoObj = this.mobileVideo
+      }
       return this.$store.getters['references/getPlaybackIdFromRef'](
-        this.video.asset._ref
+        videoObj.asset._ref
       )
     },
   },
   mounted() {
-    if (this.video) {
+    let videoObj = this.video
+    if (
+      process.client &&
+      window.matchMedia('(max-width: 699px)').matches &&
+      this.mobileVideo
+    ) {
+      this.isMobile = true
+      videoObj = this.mobileVideo
+    }
+    if (videoObj && videoObj != null) {
       // https://github.com/video-dev/hls.js/#embedding-hlsjs
       const videoSrc = `https://stream.mux.com/${this.playbackId}.m3u8`
       this.image = `https://image.mux.com/${this.playbackId}/thumbnail.jpg?time=0`
@@ -77,7 +95,6 @@ export default {
       })
     },
     isVisible(isVisible, entry) {
-      // if (!this.isMobile) {
       let context = this
       this.$nextTick(() => {
         let video = context.$refs.video
@@ -99,7 +116,6 @@ export default {
           }
         }
       })
-      // }
     },
   },
 }

@@ -26,6 +26,7 @@
     <KataVideo
       v-else-if="media.mediaType == 'video' && media.video"
       :video="media.video"
+      :mobile-video="media.mobileVideo"
       :no-crop="noCrop"
       class="h-full w-full object-cover"
     />
@@ -99,12 +100,6 @@ export default {
       type: String,
       default: '',
     },
-  },
-  data: () => ({ isMobile: false }),
-  mounted() {
-    if (process.client && window.matchMedia('(max-width: 500px)').matches) {
-      this.isMobile = true
-    }
   },
 }
 </script>

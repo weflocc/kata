@@ -45,6 +45,15 @@ const media = (name = 'Media', required = false, vars = {}) => {
           parent?.mediaType != 'video' || parent?.mediaType == '',
       },
       {
+        title: 'Mobile Video (Optional)',
+        name: 'mobileVideo',
+        type: 'mux.video',
+        description:
+          'For screens smaller than 700px. We recommend you crop and compress your video here before uploading it: https://www.videosmaller.com/.',
+        hidden: ({ parent }) =>
+          parent?.mediaType != 'video' || parent?.mediaType == '',
+      },
+      {
         title: 'Embed Video',
         name: 'embedUrl',
         type: 'url',
