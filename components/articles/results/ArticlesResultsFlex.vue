@@ -71,7 +71,8 @@ export default {
   }
   li:nth-child(10n + 3),
   li:nth-child(10n + 6),
-  li:nth-child(10n + 9) {
+  li:nth-child(10n + 9),
+  li:nth-child(10n + 10) {
     flex-basis: 100%;
     max-width: 100%;
   }
@@ -104,7 +105,8 @@ export default {
     li:nth-child(10n + 3),
     li:nth-child(10n + 4),
     li:nth-child(10n + 8),
-    li:nth-child(10n + 9) {
+    li:nth-child(10n + 9),
+    li:nth-child(10n + 10) {
       flex-basis: calc(25% - var(--spacing-medium));
       min-width: calc(25% - var(--spacing-medium));
     }
