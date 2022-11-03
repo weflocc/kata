@@ -22,11 +22,11 @@ export default {
   props: {
     video: {
       type: Object,
-      default: null,
+      default: () => {},
     },
     mobileVideo: {
       type: Object,
-      default: null,
+      default: () => {},
     },
   },
   data: () => ({
@@ -36,21 +36,21 @@ export default {
     image: '',
     loaded: false,
   }),
-  computed: {
-    playbackId() {
-      let videoObj = this.video
-      if (
-        process.client &&
-        window.matchMedia('(max-width: 700px)').matches &&
-        this.mobileVideo
-      ) {
-        videoObj = this.mobileVideo
-      }
-      return this.$store.getters['references/getPlaybackIdFromRef'](
-        videoObj.asset._ref
-      )
-    },
-  },
+  // computed: {
+  //   playbackId() {
+  //     let videoObj = this.video
+  //     if (
+  //       process.client &&
+  //       window.matchMedia('(max-width: 700px)').matches &&
+  //       this.mobileVideo
+  //     ) {
+  //       videoObj = this.mobileVideo
+  //     }
+  //     return this.$store.getters['references/getPlaybackIdFromRef'](
+  //       videoObj.asset._ref
+  //     )
+  //   },
+  // },
   mounted() {
     let videoObj = this.video
     if (
@@ -62,9 +62,12 @@ export default {
       videoObj = this.mobileVideo
     }
     if (videoObj && videoObj != null) {
+      let playbackId = this.$store.getters['references/getPlaybackIdFromRef'](
+        videoObj.asset._ref
+      )
       // https://github.com/video-dev/hls.js/#embedding-hlsjs
-      const videoSrc = `https://stream.mux.com/${this.playbackId}.m3u8`
-      this.image = `https://image.mux.com/${this.playbackId}/thumbnail.jpg?time=0`
+      const videoSrc = `https://stream.mux.com/${playbackId}.m3u8`
+      this.image = `https://image.mux.com/${playbackId}/thumbnail.jpg?time=0`
       const video = this.$refs.video
 
       if (Hls.isSupported()) {
