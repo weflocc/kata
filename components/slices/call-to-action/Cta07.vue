@@ -58,7 +58,7 @@ export default {
         arrows: false,
         dots: true,
         slidesToShow: 6,
-        centerMode: false,
+        centerMode: true,
         infinite: true,
         autoplaySpeed: 3000,
         autoplay: true,
