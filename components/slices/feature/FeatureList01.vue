@@ -5,7 +5,7 @@
       v-bind="feature"
       :id="`feature-list-item-${i}`"
       :key="feature._key"
-      :reversed="i % 2 == 0"
+      :reversed="startReverse ? (i + 1) % 2 == 0 : i % 2 == 0"
       :no-crop="noCrop"
       class="mb-large slice-animation"
     />
@@ -16,5 +16,11 @@
 import { list, noCrop } from '../shared'
 export default {
   mixins: [list, noCrop],
+  props: {
+    startReverse: {
+      type: Boolean,
+      default: false,
+    },
+  },
 }
 </script>
