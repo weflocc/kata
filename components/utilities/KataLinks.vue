@@ -1,5 +1,5 @@
 <template>
-  <div v-if="links && links.length" class="kata-links">
+  <div v-if="links && links.length" class="kata-links -mb-small">
     <KataLink
       v-for="link in links"
       v-bind="link"
