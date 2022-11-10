@@ -16,7 +16,7 @@
           'two-menus md:flex md:justify-between': secondaryMenu && menu,
         }"
       >
-        <nav class="kata-menu">
+        <nav class="kata-menu" :class="{ 'w-full': !secondaryMenu }">
           <ul class="kata-menu-list p-0">
             <KataMenuPanelItem
               v-for="item in menu"
