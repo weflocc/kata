@@ -5,7 +5,7 @@
       <SanityEmbedContent
         v-if="textBody"
         :blocks="textBody"
-        class="mt-medium fade-up lg:pr-r2/24 lg:pr-r2/12"
+        class="mt-medium fade-up lg:pr-r2/24"
       />
     </div>
     <ul
