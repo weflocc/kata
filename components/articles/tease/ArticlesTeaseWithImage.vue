@@ -32,6 +32,7 @@
       <DraftLabel v-if="itemId" :id="itemId" />
     </h3>
     <p v-if="text" v-kata-html="text" class="text mt-small" />
+    <slot name="afterContent"></slot>
     <p v-if="readMore" v-kata-html="readMore" class="read-more mt-small" />
   </component>
 </template>
