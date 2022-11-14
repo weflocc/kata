@@ -33,7 +33,7 @@
       </div>
       <SocialMedia />
     </div>
-    <div id="form" class="md:w-1/2 md:pl-large">
+    <div v-if="!sendInBlue" id="form" class="md:w-1/2 md:pl-large">
       <p v-if="submitted" v-kata-html="thanks" />
       <form
         v-else
@@ -106,6 +106,81 @@
         </div>
       </form>
     </div>
+    <div v-else-if="sendInBlue" id="form" class="md:w-1/2 md:pl-large">
+      <!-- id for GA tracking -->
+      <p
+        v-if="submitted && (thanks || formFields.thanksMessage)"
+        :id="formName + 'FormThanks'"
+        v-kata-html="thanks ? thanks : formFields.thanksMessage"
+      />
+      <form
+        v-else
+        :id="formName"
+        :ref="formName"
+        :name="formName"
+        method="POST"
+        @submit.prevent="actionFn"
+      >
+        <div class="w-full mb-small field">
+          <label for="name" class="sr-only">Name</label>
+          <div class="w-full control block">
+            <input
+              id="name"
+              class="input w-full"
+              type="text"
+              name="name"
+              placeholder="Name"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="w-full mb-small field">
+          <label for="email" class="sr-only">Email</label>
+          <div class="w-full control block">
+            <input
+              id="email"
+              class="input w-full"
+              type="email"
+              name="email"
+              placeholder="Email"
+              required
+            />
+          </div>
+        </div>
+
+        <div v-if="formPhone" class="w-full mb-small field">
+          <label for="phone" class="sr-only">Phone</label>
+          <div class="w-full control block">
+            <input
+              id="phone"
+              class="input w-full"
+              type="text"
+              name="phone"
+              placeholder="Phone"
+            />
+          </div>
+        </div>
+
+        <div class="w-full mb-small field">
+          <label for="message" class="sr-only">Message</label>
+          <div class="w-full control block">
+            <textarea
+              id="message"
+              rows="8"
+              class="textarea w-full"
+              name="message"
+              placeholder="How can we help you?"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="submit-wrap">
+          <button class="btn-primary" type="submit">Submit</button>
+        </div>
+      </form>
+      <p v-if="error" v-kata-html="error" />
+    </div>
   </div>
 </template>
 
@@ -115,6 +190,10 @@ export default {
   mixins: [title, text, textBody],
   props: {
     isH1: {
+      type: Boolean,
+      default: false,
+    },
+    sendInBlue: {
       type: Boolean,
       default: false,
     },
@@ -147,10 +226,14 @@ export default {
       default: 'contact',
     },
   },
-  data() {
-    return {
-      submitted: false,
-    }
+  data: () => ({
+    submitted: false,
+    error: '',
+  }),
+  computed: {
+    formFields() {
+      return this.$store.state.globalContent?.formFields
+    },
   },
   watch: {
     '$route.query': function (newVal, oldVal) {
@@ -166,15 +249,31 @@ export default {
       this.submitted = true
     }
   },
-  // methods: {
-  //   actionFn() {
-  //     if (this.action) {
-  //       return this.action
-  //     } else {
-  //       this.$router.push({ query: { form: 'submitted' } })
-  //     }
-  //   },
-  // },
+  methods: {
+    async actionFn(e) {
+      let self = this
+      let elems = e.target.elements
+      let fields = []
+      for (var i = 0; i < elems.length; i++) {
+        var element = elems[i]
+        fields.push({ name: element.name, value: element.value })
+      }
+      await this.$http
+        .$post('/.netlify/functions/send-email', {
+          adminEmail: this.formFields?.formNotifications,
+          formName: this.formName,
+          fields: fields,
+        })
+        .then((data) => {
+          console.log('email sent:', data)
+          self.submitted = true
+        })
+        .catch((e) => {
+          console.error(e)
+          self.error = 'Oops, something went wrong! Please try again later.'
+        })
+    },
+  },
 }
 </script>
 
