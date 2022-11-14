@@ -1,5 +1,5 @@
 <template>
-  <div class="articles-search bg-transparent">
+  <div class="articles-search bg-transparent" :class="{ flex: showButton }">
     <label for="articlesSearch" class="sr-only">Search</label>
     <input
       id="articlesSearch"
@@ -10,6 +10,13 @@
       :placeholder="placeholder"
       @keyup="searchArticles"
     />
+    <button
+      v-if="showButton"
+      class="btn-primary btn-search"
+      @click="triggerSearchArticles"
+    >
+      {{ searchBtnText }}
+    </button>
   </div>
 </template>
 
@@ -24,6 +31,14 @@ export default {
       type: String,
       default: 'Search',
     },
+    searchBtnText: {
+      type: String,
+      default: 'Search',
+    },
+    showButton: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     searchTerm() {
@@ -37,6 +52,12 @@ export default {
     searchArticles(e) {
       this.$store.commit('articles/setSearchTerm', {
         searchTerm: e.target.value,
+        instance: this.articleInstance,
+      })
+    },
+    triggerSearchArticles(e) {
+      this.$store.commit('articles/setSearchTerm', {
+        searchTerm: this.searchTerm,
         instance: this.articleInstance,
       })
     },
