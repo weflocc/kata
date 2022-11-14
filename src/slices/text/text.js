@@ -85,7 +85,7 @@ const text10 = {
   type: 'object',
   title: 'Text #10',
   options: defaultOptions,
-  fields: [title, fullTextList],
+  fields: [title, list],
 }
 
 export {

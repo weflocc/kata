@@ -17,6 +17,7 @@
         }"
       >
         <nav class="kata-menu" :class="{ 'w-full': !secondaryMenu }">
+          <slot name="primaryMenuTitle" />
           <ul class="kata-menu-list p-0">
             <KataMenuPanelItem
               v-for="item in menu"
@@ -32,6 +33,7 @@
           v-if="secondaryMenu"
           class="kata-secondary-menu md:w-1/2 md:pl-medium mt-large md:mt-0"
         >
+          <slot name="secondaryMenuTitle" />
           <ul class="kata-menu-list p-0">
             <KataMenuPanelItem
               v-for="item in secondaryMenu"
