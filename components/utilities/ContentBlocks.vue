@@ -25,7 +25,7 @@
       <SanityEmbedContent
         v-else-if="item._type == 'richText'"
         class="fade-up"
-        :blocks="item.blocks"
+        :blocks="item.textBody"
       />
       <component
         :is="getType(item)"
