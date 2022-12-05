@@ -145,26 +145,23 @@ export default {
     }
 
     .slide-image {
-      position: absolute;
-      top: 0;
-      left: 0;
+      @apply absolute inset-0 w-full h-full z-1 overflow-hidden opacity-0;
       transition: opacity 1s ease-in;
-      z-index: 1;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      overflow: hidden;
 
-      &.last-active {
-        z-index: 3;
-        width: 100%;
-        transition: 0;
-        opacity: 1;
-      }
+      // &.last-active {
+      //   z-index: 3;
+      //   transition: 0;
+      //   opacity: 1;
+      // }
+
+      // &.slide-image:last-of-type {
+      //   &.last-active {
+      //     opacity: 0;
+      //   }
+      // }
 
       &.active {
         z-index: 5;
-        width: 100%;
         transition: 0;
         opacity: 1;
       }
