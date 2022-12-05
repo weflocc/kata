@@ -7,9 +7,12 @@
       :key="item._ref"
       :to="item._id ? link(item._id) : ''"
       class="item md:flex md:items-center mb-slice md:mb-slice-half md:space-x-medium block"
-      :class="{
-        'md:flex-row-reverse md:space-x-reverse': i % 2,
-      }"
+      :class="[
+        itemClass,
+        {
+          'md:flex-row-reverse md:space-x-reverse reversed': i % 2,
+        },
+      ]"
     >
       <div class="md:w-7/12 lg:w-5/12 text md:mb-0 mb-medium">
         <slot name="superHeader" :item="item">
@@ -21,6 +24,11 @@
         </slot>
         <h2 v-if="item.title" v-kata-html="item.title" class="heading-3" />
         <p v-if="item.text" v-kata-html="item.text" class="para-2 mt-medium" />
+        <p
+          v-if="showButton"
+          class="btn-primary mt-medium"
+          v-text="buttonText"
+        />
       </div>
       <div class="md:w-5/12 lg:w-7/12 image md:mb-0 mb-medium">
         <KataImage
@@ -41,6 +49,21 @@
 import { title, list, links } from '../shared'
 export default {
   mixins: [title, list, links],
+  props: {
+    showButton: {
+      type: Boolean,
+      default: false,
+    },
+    itemClass: {
+      type: String,
+      default: '',
+    },
+    // only valid is showButton is true
+    buttonText: {
+      type: String,
+      default: 'Read More',
+    },
+  },
   methods: {
     link(id) {
       const link = this.$store.getters['references/getLinkFromReference'](id)
