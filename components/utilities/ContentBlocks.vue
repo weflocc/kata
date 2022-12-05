@@ -13,14 +13,19 @@
         v-html="item.text"
       />
       <h2
-        v-if="item._type == 'heading' && item.style == 'h2'"
+        v-else-if="item._type == 'heading' && item.style == 'h2'"
         class="fade-up"
         v-html="item.title"
       />
       <h3
-        v-if="item._type == 'heading' && item.style == 'h3'"
+        v-else-if="item._type == 'heading' && item.style == 'h3'"
         class="fade-up"
         v-html="item.title"
+      />
+      <SanityEmbedContent
+        v-else-if="item._type == 'richText'"
+        class="fade-up"
+        :blocks="item.blocks"
       />
       <component
         :is="getType(item)"

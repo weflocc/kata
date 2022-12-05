@@ -93,12 +93,6 @@ export default {
         ? this.$store.getters['references/getLinkFromReference'](ref)
         : '/'
     },
-    // isOnSamePage() {
-    //   if (this.link?.path) {
-    //     return this.link.path === this.$route.fullPath ? true : false
-    //   }
-    //   return false
-    // },
     path() {
       let path = this.link ? this.link.path : this.$route.fullPath
       if (this.anchor) {
@@ -107,20 +101,5 @@ export default {
       return path
     },
   },
-  // methods: {
-  //   scrollToAnchor(anchor) {
-  //     if (process.client) {
-  //       if (anchor.includes('#')) anchor = anchor.replace('#', '')
-  //       let el = document.getElementById(anchor)
-  //       let header = document.getElementById('header')
-  //       if (el && header) {
-  //         window.scrollTo({
-  //           top: el.offsetTop - header.offsetHeight,
-  //           behavior: 'smooth',
-  //         })
-  //       }
-  //     }
-  //   },
-  // },
 }
 </script>
