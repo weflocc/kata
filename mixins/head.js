@@ -14,39 +14,42 @@ export default {
         head.title = this.c.title
       }
 
-      head.meta = []
+      head.meta = [{ name: 'twitter:card', content: 'summary' }]
+
+      if (process.client) {
+        head.meta.push({ property: 'og:url', content: window.location.href })
+      }
+
       if (this.c.meta && this.c.meta.metaDescription) {
+        let desc = this.c.meta.metaDescription
+          ? this.c.meta.metaDescription
+          : undefined
         head.meta.push(
           {
             hid: 'description',
             name: 'description',
-            content: this.c.meta.metaDescription
-              ? this.c.meta.metaDescription
-              : undefined,
+            content: desc,
           },
           {
             hid: 'twitter:description',
             name: 'twitter:description',
-            content: this.c.meta.metaDescription
-              ? this.c.meta.metaDescription
-              : undefined,
+            content: desc,
           },
           {
             hid: 'og:description',
             property: 'og:description',
-            content: this.c.meta.metaDescription
-              ? this.c.meta.metaDescription
-              : undefined,
+            content: desc,
           }
         )
       }
 
       if (this.c.meta && this.c.meta.socialImage) {
+        let img = this.$imgUrl(this.c.meta.socialImage).url()
         head.meta.push(
           {
             hid: 'twitter:image',
             name: 'twitter:image',
-            content: this.$imgUrl(this.c.meta.socialImage).url(),
+            content: img,
           },
           {
             hid: 'twitter:image:alt',
@@ -56,12 +59,12 @@ export default {
           {
             hid: 'og:image',
             property: 'og:image',
-            content: this.$imgUrl(this.c.meta.socialImage).url(),
+            content: img,
           },
           {
             hid: 'og:image:secure_url',
             property: 'og:image:secure_url',
-            content: this.$imgUrl(this.c.meta.socialImage).url(),
+            content: img,
           },
           {
             hid: 'twitter:title',
@@ -71,7 +74,7 @@ export default {
           {
             hid: 'twitter:image',
             name: 'twitter:image',
-            content: this.$imgUrl(this.c.meta.socialImage).url(),
+            content: img,
           },
           {
             hid: 'twitter:image:alt',
@@ -86,12 +89,12 @@ export default {
           {
             hid: 'og:image',
             property: 'og:image',
-            content: this.$imgUrl(this.c.meta.socialImage).url(),
+            content: img,
           },
           {
             hid: 'og:image:secure_url',
             property: 'og:image:secure_url',
-            content: this.$imgUrl(this.c.meta.socialImage).url(),
+            content: img,
           },
           {
             hid: 'og:image:alt',
