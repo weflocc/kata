@@ -47,7 +47,10 @@ export default {
         let img =
           this.c.meta && this.c.meta.socialImage
             ? this.$imgUrl(this.c.meta.socialImage).url()
-            : this.c.image
+            : undefined
+        if (this.c.image && img == undefined) {
+          img = this.$imgUrl(this.c.image).url()
+        }
         head.meta.push(
           {
             hid: 'twitter:image',
