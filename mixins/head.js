@@ -44,34 +44,43 @@ export default {
       }
 
       if (this.c.image || (this.c.meta && this.c.meta.socialImage)) {
-        let img =
+        let ogImg =
           this.c.meta && this.c.meta.socialImage
-            ? this.$imgUrl(this.c.meta.socialImage).url()
-            : this.$imgUrl(this.c.image).url()
-        // if (this.c.image && img == undefined) {
-        //   img = this.$imgUrl(this.c.image).url()
-        // }
-        console.log('head img', img)
+            ? this.$imgUrl(this.c.meta.socialImage)
+                .quality(80)
+                .width(1200)
+                .height(630)
+                .url()
+            : this.$imgUrl(this.c.image)
+                .quality(80)
+                .width(1200)
+                .height(630)
+                .url()
+        let twitterImg =
+          this.c.meta && this.c.meta.socialImage
+            ? this.$imgUrl(this.c.meta.socialImage)
+                .quality(80)
+                .width(800)
+                .height(418)
+                .url()
+            : this.$imgUrl(this.c.image)
+                .quality(80)
+                .width(800)
+                .height(418)
+                .url()
+
+        console.log('head img', ogImg, twitterImg)
+
         head.meta.push(
           {
             hid: 'twitter:image',
             name: 'twitter:image',
-            content: img,
+            content: twitterImg,
           },
           {
             hid: 'twitter:image:alt',
             name: 'twitter:image:alt',
             content: head.title,
-          },
-          {
-            hid: 'og:image',
-            property: 'og:image',
-            content: img,
-          },
-          {
-            hid: 'og:image:secure_url',
-            property: 'og:image:secure_url',
-            content: img,
           },
           {
             hid: 'twitter:title',
@@ -79,29 +88,19 @@ export default {
             content: head.title,
           },
           {
-            hid: 'twitter:image',
-            name: 'twitter:image',
-            content: img,
+            hid: 'og:image',
+            property: 'og:image',
+            content: ogImg,
           },
           {
-            hid: 'twitter:image:alt',
-            name: 'twitter:image:alt',
-            content: head.title,
+            hid: 'og:image:secure_url',
+            property: 'og:image:secure_url',
+            content: ogImg,
           },
           {
             hid: 'og:title',
             property: 'og:title',
             content: head.title,
-          },
-          {
-            hid: 'og:image',
-            property: 'og:image',
-            content: img,
-          },
-          {
-            hid: 'og:image:secure_url',
-            property: 'og:image:secure_url',
-            content: img,
           },
           {
             hid: 'og:image:alt',
