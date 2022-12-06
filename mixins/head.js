@@ -48,7 +48,9 @@ export default {
           this.c.meta && this.c.meta.socialImage
             ? this.$imgUrl(this.c.meta.socialImage).url()
             : this.$imgUrl(this.c.image).url()
-
+        // if (this.c.image && img == undefined) {
+        //   img = this.$imgUrl(this.c.image).url()
+        // }
         console.log('head img', img)
         head.meta.push(
           {
