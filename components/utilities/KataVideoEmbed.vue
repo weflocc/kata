@@ -17,6 +17,7 @@
                 :height="source == 'vimeo' ? '560' : '315'"
                 loading="lazy"
                 class="w-full h-auto !m-0"
+                @error="imageLoadError"
               />
               <div v-else class="bg-black w-full h-[56%]" />
               <div
@@ -83,6 +84,7 @@ export default {
     loaded: false,
     imgSrc: '',
     imgAlt: 'Video embed',
+    googleAPIKey: 'AIzaSyDH_t2JHugO2PBklI-fmNy8Ew0T34hJ-Ek',
   }),
   computed: {
     source() {
@@ -157,12 +159,47 @@ export default {
     } else if (this.source == 'youtube') {
       // https://img.youtube.com/vi/<insert-youtube-video-id-here>/maxresdefault.jpg
       let id = this.getYoutubeId
-      this.imgSrc = `https://img.youtube.com/vi/${id}/maxresdefault.jpg`
+      // this.imgSrc = `https://img.youtube.com/vi/${id}/maxresdefault.jpg` //not all videos have this size
+      let res = await this.$http
+        .$get(
+          `https://www.googleapis.com/youtube/v3/videos?id=${id}&key=${this.googleAPIKey}&part=snippet&fields=items/snippet/thumbnails`
+        )
+        .catch((e) => {
+          console.error(e)
+        })
+      if (
+        res.items &&
+        res.items[0] &&
+        res.items[0].snippet &&
+        res.items[0].snippet.thumbnails
+      ) {
+        let thumbs = res.items[0].snippet.thumbnails
+        // in order of best quality
+        if (thumbs.maxres) {
+          this.imgSrc = thumbs.maxres.url
+        } else if (thumbs.standard) {
+          this.imgSrc = thumbs.standard.url
+        } else if (thumbs.high) {
+          this.imgSrc = thumbs.high.url
+        } else if (thumbs.medium) {
+          this.imgSrc = thumbs.medium.url
+        } else if (thumbs.default) {
+          this.imgSrc = thumbs.default.url
+        }
+      }
     }
   },
   methods: {
     loadFacade() {
       this.loaded = true
+    },
+    imageLoadError() {
+      console.log('image 404')
+      if (this.source == 'youtube') {
+        let id = this.getYoutubeId
+        // try a different url
+        this.imgSrc = `https://img.youtube.com/vi/${id}/default.jpg`
+      }
     },
   },
 }
