@@ -71,12 +71,9 @@ export default {
     width() {
       if (this.list?.length) {
         let length = this.list.length
-        if (length % 4 == 0 && this.max >= 4) {
+        if (length % 4 == 0) {
           return 'sm:w-1/2 md:w-1/4'
-        } else if (
-          (length % 3 == 0 || length % 6 == 0 || length % 5 == 0) &&
-          this.max >= 3
-        ) {
+        } else if (length % 3 == 0 || length % 6 == 0 || length % 5 == 0) {
           return 'sm:w-1/2 md:w-1/3'
         }
       }

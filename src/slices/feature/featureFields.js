@@ -31,11 +31,18 @@ const features = {
       preview: {
         select: {
           heading: 'title',
-          subheading: 'text',
+          blocks: 'textBody',
           image: 'icon',
         },
         prepare(selection) {
-          const { heading, image, subheading } = selection
+          const { heading, image, blocks } = selection
+          const block = (blocks || []).find((block) => block._type === 'block')
+          let subheading = block
+            ? block.children
+                .filter((child) => child._type === 'span')
+                .map((span) => span.text)
+                .join('')
+            : 'No title'
           return {
             title: heading || subheading,
             media: image || BiListPlus,
