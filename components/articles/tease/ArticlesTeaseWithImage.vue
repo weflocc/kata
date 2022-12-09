@@ -5,10 +5,17 @@
     class="tease-with-image"
   >
     <KataImage
-      v-if="image"
+      v-if="image && !noCrop"
       :image="image"
       :max-width="650"
       :ratio="ratio"
+      sizes="sm:90vw lg:50vw xl:33vw"
+      class="w-full"
+    />
+    <KataImage02
+      v-else-if="image && noCrop"
+      :image="image"
+      :max-width="650"
       sizes="sm:90vw lg:50vw xl:33vw"
       class="w-full"
     />
@@ -38,21 +45,15 @@
 </template>
 
 <script>
+import { title, image, text, noCrop } from '../../slices/shared'
 export default {
+  mixins: [title, image, text, noCrop],
   props: {
-    image: {
-      type: Object,
-      default: () => {},
-    },
     itemId: {
       type: String,
       default: '',
     },
     link: {
-      type: String,
-      default: '',
-    },
-    title: {
       type: String,
       default: '',
     },
@@ -65,10 +66,6 @@ export default {
       default: '',
     },
     endDate: {
-      type: String,
-      default: '',
-    },
-    text: {
       type: String,
       default: '',
     },
