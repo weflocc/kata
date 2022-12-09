@@ -68,6 +68,8 @@ export default {
           return 'AccordionBlock'
         case 'testimonial04':
           return 'Testimonial04'
+        case 'feature05':
+          return 'Feature05'
         case 'media':
           return 'KataMedia'
         case 'textAndImage':

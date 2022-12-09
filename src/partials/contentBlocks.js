@@ -150,68 +150,68 @@ const richText = {
 }
 
 const contentBlocks = (name = 'Content Blocks', includes) => {
-  let customEditor = [
-    richText,
-    // will delete paragraph and headings after cathedral content moved over
-    {
-      name: 'paragraph',
-      type: 'object',
-      fields: [
+  let customEditor = [richText, buttons, media()]
+  if (includes) {
+    if (includes.old) {
+      // will delete paragraph and headings after cathedral content moved over
+      customEditor.push(
         {
-          name: 'text',
-          type: 'text',
-          rows: 8,
-        },
-      ],
-      preview: {
-        select: {
-          text: 'text',
-        },
-        prepare(selection) {
-          const { text } = selection
-          return {
-            title: text,
-            media: BiListPlus,
-          }
-        },
-      },
-    },
-    {
-      name: 'heading',
-      type: 'object',
-      fields: [
-        {
-          name: 'style',
-          type: 'string',
-          options: {
-            list: [
-              { title: 'Heading (h2)', value: 'h2' },
-              { title: 'Sub Heading (h3)', value: 'h3' },
-            ],
+          name: 'paragraph',
+          type: 'object',
+          fields: [
+            {
+              name: 'text',
+              type: 'text',
+              rows: 8,
+            },
+          ],
+          preview: {
+            select: {
+              text: 'text',
+            },
+            prepare(selection) {
+              const { text } = selection
+              return {
+                title: text,
+                media: BiListPlus,
+              }
+            },
           },
         },
         {
-          name: 'title',
-          type: 'string',
-        },
-      ],
-      preview: {
-        select: {
-          title: 'title',
-        },
-        prepare(selection) {
-          const { title } = selection
-          return {
-            title: title,
-            media: BiListPlus,
-          }
-        },
-      },
-    },
-    buttons,
-    media(),
-  ]
-  if (includes) {
+          name: 'heading',
+          type: 'object',
+          fields: [
+            {
+              name: 'style',
+              type: 'string',
+              options: {
+                list: [
+                  { title: 'Heading (h2)', value: 'h2' },
+                  { title: 'Sub Heading (h3)', value: 'h3' },
+                ],
+              },
+            },
+            {
+              name: 'title',
+              type: 'string',
+            },
+          ],
+          preview: {
+            select: {
+              title: 'title',
+            },
+            prepare(selection) {
+              const { title } = selection
+              return {
+                title: title,
+                media: BiListPlus,
+              }
+            },
+          },
+        }
+      )
+    }
     // if (includes.richText || includes.textBody) customEditor.push(richText)
 
     if (includes.feature01 || includes.textAndImage)
@@ -227,6 +227,14 @@ const contentBlocks = (name = 'Content Blocks', includes) => {
         title: 'Testimonials',
         type: 'testimonial04',
       })
+
+    if (includes.features) {
+      customEditor.push({
+        name: 'feature05',
+        title: 'Features',
+        type: 'feature05',
+      })
+    }
 
     if (includes.cta07 || includes.logos) {
       customEditor.push({
