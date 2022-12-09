@@ -23,12 +23,13 @@ const thumbnails = {
       preview: {
         select: {
           heading: 'title',
+          text: 'text',
           image: 'image',
         },
         prepare(selection) {
-          const { heading, image } = selection
+          const { heading, text, image } = selection
           return {
-            title: heading,
+            title: heading || text,
             media: image || BiListPlus,
           }
         },

@@ -6,7 +6,7 @@
     </div>
     <transition-group :class="ulClass" tag="ul" name="fade" mode="out-in">
       <li v-for="(item, i) in list" :key="item._id || i" class="relative">
-        <slot name="tease" :item="item">
+        <slot name="tease" :item="item" :index="i">
           <ArticlesTeaseWithImage
             :item-id="item._id"
             :link="getLink(item._id)"
