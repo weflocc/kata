@@ -53,6 +53,18 @@ const searchArticles = {
       } else if (this.customFilter && this.customFilter.value) {
         queryBuilder += ` && ${this.customFilter.field} ${this.customFilter.comparator} "${this.customFilter.value}"`
       }
+      // second custom Filter
+      if (
+        this.secondCustomFilter &&
+        this.secondCustomFilter.value &&
+        this.secondCustomFilter.type == 'array'
+      ) {
+        queryBuilder += ` && "${this.secondCustomFilter.value}" ${this.secondCustomFilter.comparator} ${this.secondCustomFilter.field}`
+      } else if (this.secondCustomFilter && this.secondCustomFilter.value && this.secondCustomFilter.type == 'date') {
+        queryBuilder += ` && ${this.secondCustomFilter.field} ${this.secondCustomFilter.comparator} ${this.secondCustomFilter.value}`
+      } else if (this.secondCustomFilter && this.secondCustomFilter.value) {
+        queryBuilder += ` && ${this.secondCustomFilter.field} ${this.secondCustomFilter.comparator} "${this.secondCustomFilter.value}"`
+      }
 
       // sort
       const articleSort = this.articleSort || ''

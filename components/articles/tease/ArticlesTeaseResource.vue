@@ -32,19 +32,19 @@ export default {
     },
     link: {
       type: String,
-      required: true,
+      default: '',
     },
     title: {
       type: String,
-      required: true,
+      default: '',
     },
     date: {
       type: String,
-      required: true,
+      default: '',
     },
     excerpt: {
       type: String,
-      required: true,
+      default: '',
     },
   },
   computed: {
