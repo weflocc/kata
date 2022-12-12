@@ -72,7 +72,12 @@
       <!-- For basic blogs -->
       <SanityEmbedContent v-if="c.textBody" :blocks="c.textBody" />
       <!-- Complex pages should be page builder -->
-      <ContentBlocks v-if="c.contentBlocks" :blocks="c.contentBlocks" />
+      <ContentBlocks
+        v-if="c.contentBlocks"
+        :blocks="c.contentBlocks"
+        :map-style="mapStyle"
+        :map-pin="mapPin"
+      />
     </div>
     <slot name="postContent"></slot>
     <div
@@ -112,6 +117,14 @@ export default {
     noTopBack: {
       type: Boolean,
       default: false,
+    },
+    mapPin: {
+      type: String,
+      default: '',
+    },
+    mapStyle: {
+      type: Array,
+      default: null,
     },
   },
 }

@@ -27,6 +27,20 @@
         class="fade-up"
         :blocks="item.textBody"
       />
+      <div v-else-if="item._type == 'map' && item.location" class="map">
+        <GMap
+          ref="gMap"
+          language="en"
+          :center="{ lat: item.location.lat, lng: item.location.lng }"
+          :options="{ fullscreenControl: false, styles: mapStyle }"
+          :zoom="12"
+        >
+          <GMapMarker
+            :position="{ lat: item.location.lat, lng: item.location.lng }"
+            :options="{ icon: mapPin }"
+          />
+        </GMap>
+      </div>
       <component
         :is="getType(item)"
         v-else
@@ -53,6 +67,14 @@ export default {
   },
   props: {
     blocks: {
+      type: Array,
+      default: null,
+    },
+    mapPin: {
+      type: String,
+      default: '',
+    },
+    mapStyle: {
       type: Array,
       default: null,
     },

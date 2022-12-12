@@ -4,6 +4,7 @@ import { BsCardText } from 'react-icons/bs'
 import { media, links } from './index'
 import { accordion } from '../blocks/accordion'
 import { paragraph } from '../blocks/paragraph'
+import { map } from '../blocks/map'
 import { table } from '../blocks/table'
 import { textAndImage } from '../blocks/textAndImage'
 import config from 'config:@weflocc/kata'
@@ -220,6 +221,8 @@ const contentBlocks = (name = 'Content Blocks', includes) => {
     if (includes.accordion || includes.dropdown) customEditor.push(accordion)
 
     if (includes.tableField || includes.table) customEditor.push(table)
+
+    if (includes.map) customEditor.push(map)
 
     if (includes.testimonials || includes.quotes)
       customEditor.push({
