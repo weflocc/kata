@@ -24,7 +24,7 @@
       />
       <SanityEmbedContent
         v-else-if="item._type == 'richText'"
-        class="fade-up"
+        class="fade-up text-max"
         :blocks="item.textBody"
       />
       <div v-else-if="item._type == 'map' && item.location" class="map">
