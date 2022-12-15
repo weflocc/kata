@@ -9,7 +9,10 @@
       </li>
     </transition-group>
   </div>
-  <div v-else class="py-slice-half px-5 sm:flex sm:space-x-5">
+  <div
+    v-else-if="!hideNoResults"
+    class="py-slice-half px-5 sm:flex sm:space-x-5"
+  >
     <p>No results found.</p>
   </div>
 </template>
@@ -20,6 +23,10 @@ export default {
     articles: {
       default: null,
       type: Array,
+    },
+    hideNoResults: {
+      default: false,
+      type: Boolean,
     },
   },
 }
