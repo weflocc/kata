@@ -3,7 +3,7 @@
     <div class="small-style-gallery">
       <div
         v-if="imageThumbnails && imageThumbnails.length"
-        class="w-r10/12 mx-r1/12 grid grid-cols-2 lg:grid-cols-4 gap-small"
+        class="grid grid-cols-2 lg:grid-cols-4 gap-small"
       >
         <div
           v-for="(item, i) in imageThumbnails"
@@ -32,23 +32,10 @@
 </template>
 
 <script>
-import { title } from '../shared'
+import { title, list } from '../shared'
 
 export default {
-  mixins: [title],
-  props: {
-    list: {
-      type: Array,
-      default: null,
-    },
-    gridStyleGallery: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  data: () => ({
-    portrait: [],
-  }),
+  mixins: [title, list],
   computed: {
     imageThumbnails() {
       let max = 4
