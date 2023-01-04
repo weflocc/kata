@@ -15,8 +15,6 @@ export default {
       },
       description:
         'For developer use only. If you edit this, your lightbox will break.',
-      // validation: (Rule) =>
-      //   Rule.warning('If you edit this, your lightbox will break.')
     },
     linkText,
     linkStyle,

@@ -74,6 +74,14 @@ export default {
   img,
   video {
     opacity: 0.75 !important;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+
+  .slider {
+    // css slider so text can be visible
+    opacity: 0.7;
   }
 
   &:before {
