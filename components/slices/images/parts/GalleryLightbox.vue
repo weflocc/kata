@@ -9,7 +9,9 @@
         class="lightbox-underlay bg-secondary opacity-95 fixed top-0 left-0 w-full h-full cursor-default"
         @click="hideLightbox"
       ></button>
-      <div class="lightbox-inner text-white text-center w-full h-full">
+      <div
+        class="lightbox-inner text-white text-center w-full h-full flex items-center justify-center"
+      >
         <slot>
           <VueSlickCarousel
             v-bind="settings"
