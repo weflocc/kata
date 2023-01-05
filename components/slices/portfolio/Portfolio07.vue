@@ -111,7 +111,7 @@ export default {
       animation-play-state: paused;
       /* Bind the animation to scroll */
       animation-delay: calc(var(--slice-move) * -1s); //minus duration amount
-      /* These last 2 properites clean up overshoot weirdness */
+      /* These last 2 properties clean up overshoot weirdness */
       animation-iteration-count: 1;
       animation-fill-mode: both;
       font-weight: normal;
