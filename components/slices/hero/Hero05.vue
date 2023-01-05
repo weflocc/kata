@@ -92,6 +92,7 @@ export default {
     left: 1px;
     top: 0px;
     background: linear-gradient(180deg, black 0%, rgba(0, 0, 0, 0) 100%);
+    z-index: 1;
   }
 }
 </style>

@@ -6,7 +6,7 @@ const globalSliceReference = (name, hidden = '') => {
     title: name,
     hidden: hidden,
     description:
-      'This slice is shown on multiple pages. Click the link icon to see/edit it. This will affect all instances.',
+      'This slice is shown on multiple pages. Click below to see/edit it. Editing it will affect all instances.',
     type: 'reference',
     to: [{ type: 'globalSlices' }],
   }
