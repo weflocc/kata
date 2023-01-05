@@ -6,14 +6,18 @@
     name="fade"
     mode="out-in"
   >
-    <li v-for="item in articles" :key="item._id" class="mb-medium">
-      <slot name="tease" :item="item">
+    <li
+      v-for="(item, i) in articles"
+      :key="item._id || item._key"
+      class="mb-medium"
+    >
+      <slot name="tease" :item="item" :index="i">
         <NuxtLink :to="getLink(item._id)">
           <KataImage
             :image="item.image"
             :max-width="650"
             :ratio="6 / 4"
-            sizes="sm:90vw lg:50vw xl:33vw"
+            sizes="sm:90vw md:50vw lg:50vw xl:50vw"
             class="mb-small mx-auto"
           />
 
