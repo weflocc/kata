@@ -8,11 +8,12 @@
     nocontrols
     muted
     :autoplay="true"
-    preload="true"
+    :preload="preload"
     playsinline
-    loading="lazy"
-    :data-poster="image"
-  ></video>
+    :loading="loading"
+    :poster="image"
+    @loadeddata="videoLoaded"
+  />
 </template>
 
 <script>
@@ -28,6 +29,14 @@ export default {
       type: Object,
       default: () => {},
     },
+    loading: {
+      type: String,
+      default: 'lazy',
+    },
+    preload: {
+      type: String,
+      default: 'metadata',
+    },
   },
   data: () => ({
     resizeTimer: null,
@@ -36,21 +45,6 @@ export default {
     image: '',
     loaded: false,
   }),
-  // computed: {
-  //   playbackId() {
-  //     let videoObj = this.video
-  //     if (
-  //       process.client &&
-  //       window.matchMedia('(max-width: 700px)').matches &&
-  //       this.mobileVideo
-  //     ) {
-  //       videoObj = this.mobileVideo
-  //     }
-  //     return this.$store.getters['references/getPlaybackIdFromRef'](
-  //       videoObj.asset._ref
-  //     )
-  //   },
-  // },
   mounted() {
     let videoObj = this.video
     if (
@@ -67,7 +61,8 @@ export default {
       )
       // https://github.com/video-dev/hls.js/#embedding-hlsjs
       const videoSrc = `https://stream.mux.com/${playbackId}.m3u8`
-      this.image = `https://image.mux.com/${playbackId}/thumbnail.jpg?time=0`
+      this.image = `https://image.mux.com/${playbackId}/thumbnail.webp?time=0&width=1000&height=563&fit_mode=smartcrop`
+
       const video = this.$refs.video
 
       if (Hls.isSupported()) {
@@ -77,23 +72,14 @@ export default {
       } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
         video.src = videoSrc
       }
-
-      this.videoLoaded()
     }
   },
   methods: {
     videoLoaded() {
       this.$nextTick(() => {
         const video = this.$refs.video
-        let self = this
-        if (video) {
-          video.addEventListener('loadeddata', function () {
-            console.log(video.readyState)
-            // https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/readyState
-            if (video.readyState >= 2) {
-              self.loaded = true
-            }
-          })
+        if (video.readyState >= 2) {
+          self.loaded = true
         }
       })
     },
@@ -126,11 +112,11 @@ export default {
 
 <style lang="scss" scoped>
 .kata-video {
-  opacity: 0;
-  transition: opacity 1s ease;
+  // opacity: 0;
+  // transition: opacity 1s ease;
 
-  &.loaded {
-    opacity: 1;
-  }
+  // &.loaded {
+  //   opacity: 1;
+  // }
 }
 </style>
