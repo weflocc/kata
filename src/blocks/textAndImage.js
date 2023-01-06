@@ -9,7 +9,7 @@ const textAndImage = {
       name: 'reversed',
       title: 'Reverse Columns',
       description:
-        '💡 By default, text is left and image is right. If you enable this field, the columns will be reversed.',
+        'By default, text is left and image is right. If you enable this field, the columns will be reversed.',
       type: 'boolean',
       initialValue: false,
     },
@@ -17,7 +17,7 @@ const textAndImage = {
       name: 'noCrop',
       title: 'No Crop?',
       description:
-        '💡 By default, images are scaled and cropped to fit the height of the text. If you enable this field, the image will display at its initial aspect ratio.',
+        'By default, images are scaled and cropped to fit the height of the text. If you enable this field, the image will display at its initial aspect ratio.',
       type: 'boolean',
       initialValue: false,
     },
