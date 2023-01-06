@@ -98,12 +98,12 @@ export default {
   },
   props: {
     crawlerId: {
-      // found here - make sure you are on the right project https://www.algolia.com/apps/LB6R4RK6YE/api-keys/all
+      // found here - make sure you are on the right project https://www.algolia.com/apps/APPID/api-keys/all
       type: String,
       required: true,
     },
     adminApiKey: {
-      // found here - make sure you are on the right project https://www.algolia.com/apps/LB6R4RK6YE/api-keys/all
+      // found here - make sure you are on the right project https://www.algolia.com/apps/APPID/api-keys/all
       type: String,
       required: true,
     },
