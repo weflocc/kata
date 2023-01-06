@@ -11,7 +11,7 @@
         :key="item._id"
         class="slide-image"
         :class="{
-          active: sliderindex == i + 1,
+          active: sliderIndex == i + 1,
           'last-active': lastActive(i),
         }"
       >
@@ -21,7 +21,7 @@
           :image="item"
           :ratio="ratio"
           :max-width="maxWidth"
-          class="h-full max-h-screen object-cover w-full"
+          class="h-full max-h-screen object-cover object-center w-full"
           :sizes="sizes"
         />
         <KataImage02
@@ -29,7 +29,7 @@
           :lazy="false"
           :image="item"
           :max-width="maxWidth"
-          class="max-h-screen object-contain w-full"
+          class="max-h-screen object-contain object-center w-full"
           :sizes="sizes"
         />
       </div>
@@ -65,7 +65,7 @@ export default {
     return {
       loading: true,
       animate: false,
-      sliderindex: 1,
+      sliderIndex: 1,
       minHeight: '300px',
     }
   },
@@ -82,15 +82,17 @@ export default {
             height = h
           }
         })
-        this.minHeight = height + 'px'
+        if (height > 0) {
+          this.minHeight = height + 'px'
+        }
       }
     }
     setInterval(() => {
       this.animate = true
-      if (this.sliderindex < this.images.length) {
-        this.sliderindex++
+      if (this.sliderIndex < this.images.length) {
+        this.sliderIndex++
       } else {
-        this.sliderindex = 1
+        this.sliderIndex = 1
       }
       setTimeout(() => {
         this.animate = false
@@ -99,11 +101,11 @@ export default {
   },
   methods: {
     lastActive(i) {
-      if (this.sliderindex - 1 == 0) {
+      if (this.sliderIndex - 1 == 0) {
         return i + 1 == this.images.length
       }
 
-      return this.sliderindex - 1 == i + 1
+      return this.sliderIndex - 1 == i + 1
     },
   },
 }
@@ -145,7 +147,7 @@ export default {
     }
 
     .slide-image {
-      @apply absolute inset-0 w-full h-full z-1 overflow-hidden opacity-0;
+      @apply absolute inset-0 w-full h-full z-1 overflow-hidden opacity-0 flex items-center justify-center;
       transition: opacity 1s ease-in;
 
       // &.last-active {
