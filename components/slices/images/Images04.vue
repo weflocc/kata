@@ -65,10 +65,10 @@ export default {
       slidesToShow: 1,
       infinite: true,
       lazyLoad: 'ondemand',
-      speed: 1000,
+      speed: 1500,
       fade: true,
       autoplay: true,
-      autoplaySpeed: 4000,
+      autoplaySpeed: 3000,
     },
   }),
 }
@@ -76,6 +76,7 @@ export default {
 
 <style lang="scss">
 .images-4 {
+  color: white;
   .overlay:before {
     content: '';
     background: linear-gradient(180deg, black 0%, transparent 100%);
