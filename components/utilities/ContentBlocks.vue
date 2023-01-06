@@ -46,7 +46,10 @@
         v-else
         v-bind="bindData(item)"
         class="fade-up"
-        :class="{ 'whitespace-pre-line': item._type == 'paragraph' }"
+        :class="{
+          'whitespace-pre-line': item._type == 'paragraph',
+          'text-max': item._type == 'buttons',
+        }"
       />
     </div>
   </div>
