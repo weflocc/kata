@@ -28,7 +28,7 @@
                     <li
                       v-for="item in items"
                       :key="item.objectID"
-                      class="mb-medium search-result border-b pb-small"
+                      class="mb-medium search-result border-b pb-small cursor-pointer"
                       @click="openLink(item.pathname)"
                     >
                       <div class="mb-small flex gap-small">
