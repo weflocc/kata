@@ -4,7 +4,7 @@
       :to="{ path: $route.path, query: { page: 1 } }"
       :class="currentPage === 1 ? disabledStyle : buttonStyles"
     >
-      <span class="hidden sm:inline">&#60;&#60;</span>
+      <span class="inline">&#60;&#60;</span>
     </nuxt-link> -->
     <nuxt-link
       :to="{
@@ -13,7 +13,7 @@
       }"
       :class="!prevPage ? disabledStyle : buttonStyles"
     >
-      <span class="hidden sm:inline">&#60;</span>
+      <span class="inline">&#60;</span>
     </nuxt-link>
 
     <nuxt-link
@@ -22,7 +22,7 @@
       :to="{ path: $route.path, query: { page: item } }"
       :class="currentPage === item ? selectedStyles : buttonStyles"
     >
-      <span class="hidden sm:inline">{{ item }}</span>
+      <span class="inline">{{ item }}</span>
     </nuxt-link>
 
     <nuxt-link
@@ -32,13 +32,13 @@
       }"
       :class="!nextPage ? disabledStyle : buttonStyles"
     >
-      <span class="hidden sm:inline">&#62;</span>
+      <span class="inline">&#62;</span>
     </nuxt-link>
     <!-- <nuxt-link
       :to="{ path: $route.path, query: { page: totalPages } }"
       :class="currentPage === totalPages ? disabledStyle : buttonStyles"
     >
-      <span class="hidden sm:inline">&#62;&#62;</span>
+      <span class="inline">&#62;&#62;</span>
     </nuxt-link> -->
   </div>
 </template>

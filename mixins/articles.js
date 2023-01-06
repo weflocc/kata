@@ -60,7 +60,11 @@ const searchArticles = {
         this.secondCustomFilter.type == 'array'
       ) {
         queryBuilder += ` && "${this.secondCustomFilter.value}" ${this.secondCustomFilter.comparator} ${this.secondCustomFilter.field}`
-      } else if (this.secondCustomFilter && this.secondCustomFilter.value && this.secondCustomFilter.type == 'date') {
+      } else if (
+        this.secondCustomFilter &&
+        this.secondCustomFilter.value &&
+        this.secondCustomFilter.type == 'date'
+      ) {
         queryBuilder += ` && ${this.secondCustomFilter.field} ${this.secondCustomFilter.comparator} ${this.secondCustomFilter.value}`
       } else if (this.secondCustomFilter && this.secondCustomFilter.value) {
         queryBuilder += ` && ${this.secondCustomFilter.field} ${this.secondCustomFilter.comparator} "${this.secondCustomFilter.value}"`
@@ -212,7 +216,7 @@ const singleArticle = {
 const pagination = {
   computed: {
     currentPage() {
-      return this.$route.query.page
+      return this.$route.query?.page
     },
     itemsPerPage() {
       return this.pagination || 12 //12 is default per page
@@ -230,20 +234,23 @@ const pagination = {
       }
       this.resultCount = this.articles.length
       this.existingQueries = this.$route.query
+      let current = this.currentPage
       if (!this.currentPage) {
-        this.$router.push({
-          path: this.$route.path,
-          // set the page and existing query params
-          query: { page: 1, ...this.existingQueries },
-        })
+        current = 1
+        // prevents unable to click back button issue
+        // this.$router.push({
+        //   path: this.$route.path,
+        //   // set the page and existing query params
+        //   query: { page: 1, ...this.existingQueries },
+        // })
       }
-      if (this.currentPage >= this.totalPages) {
+      if (current >= this.totalPages) {
         this.$router.push({
           path: this.$route.path,
           query: { page: this.totalPages, ...this.existingQueries },
         })
       }
-      var index = this.currentPage * this.itemsPerPage - this.itemsPerPage
+      var index = current * this.itemsPerPage - this.itemsPerPage
       return this.articles.slice(index, index + this.itemsPerPage)
     },
     paginatedUnfeaturedArticles() {
