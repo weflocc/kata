@@ -72,6 +72,7 @@ const getData = async ($sanity, query, store, route, vars = {}) => {
   } else if (feedSelectors2 && feedSelectors2.length) {
     feedSelectors2.forEach((element) => {
       let sort = element.sort ? element.sort : '| order(_createdAt desc)'
+      let customFilter = element.customFilter ? element.customFilter : ''
 
       console.log(element.articleTypes)
 
@@ -83,15 +84,23 @@ const getData = async ($sanity, query, store, route, vars = {}) => {
 
       let max = element.max ? `[0...${element.max}]` : ''
 
-      projection += `${element.name} {...,categories[]->,"feed": select(`
-      projection += `defined(selected) && length(selected) > 0 => selected[]->,`
-      projection += `defined(categories) && length(categories) > 0 => *[_type in ${types} && references(^.categories[]._ref) && !(_id in path('drafts.**')) && _id != ^.^._id]${sort}${max},`
+      if (customFilter) {
+        projection += `${element.name} {...,categories[]->,"feed": select(`
+        projection += `defined(selected) && length(selected) > 0 => (selected[]->)[${customFilter}],`
+        projection += `defined(categories) && length(categories) > 0 => *[_type in ${types} && references(^.categories[]._ref) && !(_id in path('drafts.**')) && _id != ^.^._id && ${customFilter}]${sort}${max},`
+      } else {
+        projection += `${element.name} {...,categories[]->,"feed": select(`
+        projection += `defined(selected) && length(selected) > 0 => selected[]->,`
+        projection += `defined(categories) && length(categories) > 0 => *[_type in ${types} && references(^.categories[]._ref) && !(_id in path('drafts.**')) && _id != ^.^._id ]${sort}${max},`
+      }
 
       if (element.customProjection) {
         projection += element.customProjection
       } else {
         // ^.^._id => up 2 levels to the main page id
-        projection += `*[_type in ${types} && !(_id in path('drafts.**')) && _id != ^.^._id]${sort}${max}`
+        projection += `*[_type in ${types} && !(_id in path('drafts.**')) && _id != ^.^._id ${
+          customFilter ? `&& ${customFilter}` : ''
+        }]${sort}${max}`
       }
 
       projection += `)},`
