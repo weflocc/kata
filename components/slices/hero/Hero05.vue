@@ -10,23 +10,21 @@
       :lazy="false"
     />
     <div
-      class="w-r24/24 mx-auto md:w-r12/24 h-screen flex flex-col justify-center text-center z-1 text"
+      class="w-r24/24 mx-auto md:w-r12/24 h-screen flex flex-col justify-center text-center z-1 text text-white"
     >
-      <h1
-        v-if="superHeading && title"
-        class="super-heading text-white mb-medium"
-        v-html="superHeading"
-      />
-      <h1
-        v-else-if="title"
-        class="heading-1 text-white mb-medium"
-        v-html="title"
-      />
-      <h2
-        v-if="superHeading && title"
-        class="heading-1 text-white mb-medium"
-        v-html="title"
-      />
+      <slot name="title">
+        <h1
+          v-if="superHeading && title"
+          class="super-heading mb-medium"
+          v-html="superHeading"
+        />
+        <h1 v-else-if="title" class="heading-1 mb-medium" v-html="title" />
+        <h2
+          v-if="superHeading && title"
+          class="heading-1 mb-medium"
+          v-html="title"
+        />
+      </slot>
       <SanityEmbedContent
         v-if="textBody"
         :blocks="textBody"
