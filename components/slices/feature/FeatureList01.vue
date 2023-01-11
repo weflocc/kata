@@ -7,6 +7,7 @@
       :key="feature._key"
       :reversed="reversed ? (i + 1) % 2 == 0 : i % 2 == 0"
       :no-crop="noCrop"
+      :class="individualClass"
       class="mb-large slice-animation"
     />
   </div>
@@ -20,6 +21,10 @@ export default {
     reversed: {
       type: Boolean,
       default: false,
+    },
+    individualClass: {
+      type: String,
+      default: 'false',
     },
   },
 }
