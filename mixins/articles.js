@@ -79,9 +79,9 @@ const searchArticles = {
 
       this.articles = await this.$sanity.fetch(groqQuery)
 
-      if (this.paginatedArticles) {
-        this.$router.push({ path: this.$router.path, query: { page: 1 } })
-      }
+      // if (this.paginatedArticles) {
+      //   this.$router.push({ path: this.$router.path, query: { page: 1 } })
+      // }
     },
 
     articlesNotFeatured() {
@@ -259,21 +259,22 @@ const pagination = {
       }
       this.existingQueries = this.$route.query
       this.resultCount = this.unfeaturedArticles.length
+      let current = this.currentPage
       if (!this.currentPage) {
-        this.$router.push({
-          path: this.$route.path,
-          query: { page: 1, ...this.existingQueries },
-        })
+        current = 1
+        // this.$router.push({
+        //   path: this.$route.path,
+        //   query: { page: 1, ...this.existingQueries },
+        // })
       }
-      if (this.currentPage >= this.totalPages) {
+      if (current >= this.totalPages) {
         this.existingQueries.page = this.totalPages
         this.$router.push({
           path: this.$route.path,
           query: { page: this.totalPages, ...this.existingQueries },
         })
       }
-      console.log(this.$route.query)
-      var index = this.currentPage * this.itemsPerPage - this.itemsPerPage
+      var index = current * this.itemsPerPage - this.itemsPerPage
       return this.unfeaturedArticles.slice(index, index + this.itemsPerPage)
     },
   },
