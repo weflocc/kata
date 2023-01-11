@@ -47,8 +47,8 @@
     <div class="main-content mb-large md:w-r18/24 lg:w-r14/24 w-r24/24 mx-auto">
       <slot name="postInfo">
         <div
-          v-if="c.date || c.location || c.startDate || c.author"
-          class="sm:flex justify-between sm:flex-wrap mb-large article-info"
+          v-if="c.date || c.location || c.startDate || c.author || showShare"
+          class="md:flex md:justify-between md:flex-wrap mb-large article-info"
         >
           <p v-if="c.startDate" class="font-bold sm:mr-small">
             {{ c.startDate | formatDate }}
@@ -64,6 +64,7 @@
           <p v-if="c.location" class="font-bold sm:mt-0">
             Location: {{ c.location }}
           </p>
+          <ShareButtons v-if="showShare && link" :link="link" :size="15" />
         </div>
       </slot>
     </div>
@@ -118,6 +119,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    showShare: {
+      type: Boolean,
+      default: false,
+    },
     mapPin: {
       type: String,
       default: '',
@@ -126,6 +131,12 @@ export default {
       type: Array,
       default: null,
     },
+  },
+  data: () => ({ link: '/' }),
+  mounted() {
+    if (process.client) {
+      this.link = window.location.href
+    }
   },
 }
 </script>
