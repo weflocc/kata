@@ -1,11 +1,16 @@
 <template>
   <div class="slice feature-5 w-r24/24 mx-auto">
-    <div v-if="title || textBody" class="mb-large">
+    <div v-if="title || textBody || text" class="mb-large">
       <h2 v-kata-html="title" class="fade-up heading-2" />
+      <p
+        v-if="text"
+        v-kata-html="text"
+        class="mt-medium fade-up lg:px-r2/24 whitespace-pre-line"
+      />
       <SanityEmbedContent
         v-if="textBody"
         :blocks="textBody"
-        class="mt-medium fade-up lg:pr-r2/24"
+        class="mt-medium fade-up lg:px-r2/24"
       />
     </div>
     <ul
@@ -58,9 +63,9 @@
 </template>
 
 <script>
-import { title, textBody, links, list } from '../shared'
+import { title, textBody, text, links, list } from '../shared'
 export default {
-  mixins: [title, textBody, links, list],
+  mixins: [title, textBody, text, links, list],
   props: {
     autoNumber: {
       type: Boolean,
