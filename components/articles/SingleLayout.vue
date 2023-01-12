@@ -17,30 +17,32 @@
       <div
         class="hero-image sm:w-r24/24 sm:mx-auto px-container-margin sm:px-0 w-full"
       >
-        <div class="image-wrapper overflow-hidden">
-          <KataMedia
-            v-if="c.media"
-            :media="c.media"
-            :ratio="2 / 1"
-            :max-width="2000"
-            :show-loader="true"
-            :no-crop="noCrop"
-          />
-          <KataImage
-            v-else-if="c.image && !noCrop"
-            :image="c.image"
-            :ratio="2 / 1"
-            :max-width="2000"
-            :show-loader="true"
-          />
-          <KataImage02
-            v-else-if="c.image && noCrop"
-            :image="c.image"
-            :max-width="2000"
-            :show-loader="true"
-            class="max-w-full mx-auto"
-          />
-        </div>
+        <slot name="heroMedia">
+          <div class="image-wrapper overflow-hidden">
+            <KataMedia
+              v-if="c.media"
+              :media="c.media"
+              :ratio="2 / 1"
+              :max-width="2000"
+              :show-loader="true"
+              :no-crop="noCrop"
+            />
+            <KataImage
+              v-else-if="c.image && !noCrop"
+              :image="c.image"
+              :ratio="2 / 1"
+              :max-width="2000"
+              :show-loader="true"
+            />
+            <KataImage02
+              v-else-if="c.image && noCrop"
+              :image="c.image"
+              :max-width="2000"
+              :show-loader="true"
+              class="max-w-full mx-auto"
+            />
+          </div>
+        </slot>
       </div>
     </div>
 
