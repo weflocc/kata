@@ -2,7 +2,20 @@
   <div class="testimonial-2-part">
     <div class="md:flex md:items-center">
       <div
-        v-if="item.image"
+        v-if="item.media"
+        class="w-1/2 md:w-1/3 md:pr-medium mb-medium md:mb-0 media-wrap"
+      >
+        <!-- can pass in ratio = null to display icon/logo instead -->
+        <KataMedia
+          :media="item.media"
+          :max-width="700"
+          :ratio="ratio"
+          :no-crop="ratio ? false : true"
+          :lazy="false"
+        />
+      </div>
+      <div
+        v-else-if="item.image"
         class="w-1/2 md:w-1/3 md:pr-medium mb-medium md:mb-0 image"
       >
         <!-- can pass in ratio = null to display icon/logo instead -->
