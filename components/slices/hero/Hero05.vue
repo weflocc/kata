@@ -3,6 +3,7 @@
     <KataMedia
       :media="media"
       :ratio="ratio"
+      :mobile-ratio="mobileRatio"
       :no-crop="noCrop"
       :max-width="2500"
       :show-loader="showLoader"
@@ -48,18 +49,15 @@ import {
 
 export default {
   mixins: [title, superHeading, textBody, links, media, noCrop, showLoader],
-  data() {
-    return {
-      ratio: 16 / 9,
-    }
-  },
-  mounted() {
-    if (
-      process.client &&
-      window.matchMedia('(orientation: portrait)').matches
-    ) {
-      this.ratio = 3 / 4
-    }
+  props: {
+    ratio: {
+      type: Number,
+      default: 16 / 9,
+    },
+    mobileRatio: {
+      type: Number,
+      default: 3 / 4,
+    },
   },
 }
 </script>

@@ -5,6 +5,7 @@
       :image="media.image"
       :sizes="sizes"
       :ratio="ratio"
+      :mobile-ratio="mobileRatio"
       :max-width="maxWidth"
       class="h-full w-full object-cover"
       :show-loader="showLoader"
@@ -44,6 +45,7 @@
       :sizes="sizes"
       :no-crop="noCrop"
       :ratio="ratio"
+      :mobile-ratio="mobileRatio"
       :max-width="maxWidth"
     />
     <KataLottie
@@ -66,7 +68,11 @@ export default {
     },
     ratio: {
       type: Number,
-      default: 6 / 4,
+      default: 3 / 2,
+    },
+    mobileRatio: {
+      type: Number,
+      default: null,
     },
     maxWidth: {
       type: Number,

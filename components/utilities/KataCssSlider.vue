@@ -20,6 +20,7 @@
           :lazy="false"
           :image="item"
           :ratio="ratio"
+          :mobile-ratio="mobileRatio"
           :max-width="maxWidth"
           class="h-full max-h-screen object-cover object-center w-full"
           :sizes="sizes"
@@ -47,6 +48,10 @@ export default {
     ratio: {
       type: Number,
       default: 4 / 3,
+    },
+    mobileRatio: {
+      type: Number,
+      default: null,
     },
     noCrop: {
       type: Boolean,

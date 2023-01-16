@@ -11,8 +11,9 @@
         :media="media"
         :no-crop="noCrop"
         :ratio="ratio"
+        :mobile-ratio="mobileRatio"
         :max-width="3000"
-        class="w-full"
+        class="w-full h-auto"
         :show-loader="showLoader"
         :lazy="false"
       />
@@ -29,6 +30,10 @@ export default {
     ratio: {
       type: Number,
       default: 3 / 1,
+    },
+    mobileRatio: {
+      type: Number,
+      default: 1,
     },
   },
 }

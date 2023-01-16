@@ -3,6 +3,7 @@
     <KataMedia
       :media="media"
       :ratio="ratio"
+      :mobile-ratio="mobileRatio"
       :no-crop="noCrop"
       :max-width="2500"
       :show-loader="showLoader"
@@ -49,6 +50,10 @@ export default {
   mixins: [superHeading, title, textBody, links, media, noCrop, showLoader],
   props: {
     ratio: {
+      type: Number,
+      default: 16 / 9,
+    },
+    mobileRatio: {
       type: Number,
       default: 16 / 9,
     },

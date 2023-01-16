@@ -57,6 +57,10 @@ export default {
         return 6 / 4
       },
     },
+    mobileRatio: {
+      type: Number,
+      default: null,
+    },
     sizes: {
       type: String,
       default: 'xl:100vw',
@@ -80,6 +84,9 @@ export default {
       }
     },
     height() {
+      if (process.client && window.matchMedia('(max-width: 599px)').matches) {
+        return Math.round(this.maxWidth / this.mobileRatio)
+      }
       return Math.round(this.maxWidth / this.ratio)
     },
     alt() {

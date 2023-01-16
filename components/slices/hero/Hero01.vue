@@ -37,6 +37,7 @@
         v-if="media"
         :media="media"
         :ratio="1"
+        :mobile-ratio="1"
         :max-width="2000"
         class="h-full w-full"
         :no-crop="noCrop"
