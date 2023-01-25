@@ -84,7 +84,11 @@ export default {
       }
     },
     height() {
-      if (process.client && window.matchMedia('(max-width: 599px)').matches) {
+      if (
+        process.client &&
+        window.matchMedia('(max-width: 599px)').matches &&
+        this.mobileRatio
+      ) {
         return Math.round(this.maxWidth / this.mobileRatio)
       }
       return Math.round(this.maxWidth / this.ratio)
