@@ -5,6 +5,7 @@
       v-bind="link"
       :key="link._key"
       class="inline-block mb-small fade-up kata-link mr-small"
+      :class="kataClass"
     />
   </div>
 </template>
@@ -14,6 +15,10 @@ export default {
   props: {
     links: {
       type: Array,
+      default: null,
+    },
+    kataClass: {
+      type: String,
       default: null,
     },
   },

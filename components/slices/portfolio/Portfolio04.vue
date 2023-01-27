@@ -54,17 +54,6 @@
 import { title, links, list, text } from '../shared'
 export default {
   mixins: [title, links, list, text],
-  data() {
-    return {
-      settings: {
-        arrows: false,
-        dots: false,
-        slidesToShow: 1.2,
-        infinite: false,
-        centerMode: false,
-      },
-    }
-  },
 }
 </script>
 

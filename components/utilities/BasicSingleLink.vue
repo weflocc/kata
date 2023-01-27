@@ -1,7 +1,6 @@
 <template>
   <component
     :is="getLinkComponent(item)"
-    v-if="item"
     :to="getSingleLink(item)"
     :href="getSingleLink(item)"
     :target="getLinkComponent(item) == 'a' ? '_blank' : '_self'"
