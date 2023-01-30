@@ -57,6 +57,19 @@ const sharingImage = {
   name: 'socialImage',
   type: 'image',
   description: '1200px x 630px',
+  options: {
+    hotspot: true,
+  },
+}
+
+const twitterSharingImage = {
+  title: 'Twitter Social Sharing Image',
+  name: 'twitterSharingImage',
+  type: 'image',
+  description: '800px x 800px',
+  options: {
+    hotspot: true,
+  },
 }
 
 const metaTitle = {
@@ -94,6 +107,7 @@ const metaFields = {
     },
     metaDescription,
     sharingImage,
+    twitterSharingImage,
     schemaOrg,
   ],
 }
@@ -105,6 +119,7 @@ export {
   hiddenSlug,
   schemaOrg,
   sharingImage,
+  twitterSharingImage,
   metaTitle,
   metaDescription,
   metaFields,

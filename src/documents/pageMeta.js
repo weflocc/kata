@@ -1,6 +1,7 @@
 import {
   hiddenTitle,
   sharingImage,
+  twitterSharingImage,
   schemaOrg,
 } from 'part:@weflocc/kata/partials/index'
 
@@ -25,6 +26,7 @@ export default {
       rows: 3,
     },
     sharingImage,
+    twitterSharingImage,
     schemaOrg,
   ],
 }
