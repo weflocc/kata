@@ -44,30 +44,37 @@ export default {
       }
 
       if (this.c.image || (this.c.meta && this.c.meta.socialImage)) {
-        let ogImg =
-          this.c.meta && this.c.meta.socialImage
-            ? this.$imgUrl(this.c.meta.socialImage)
-                .quality(80)
-                .width(1200)
-                .height(630)
-                .url()
-            : this.$imgUrl(this.c.image)
-                .quality(80)
-                .width(1200)
-                .height(630)
-                .url()
-        let twitterImg =
-          this.c.meta && this.c.meta.socialImage
-            ? this.$imgUrl(this.c.meta.socialImage)
-                .quality(80)
-                .width(800)
-                .height(418)
-                .url()
-            : this.$imgUrl(this.c.image)
-                .quality(80)
-                .width(800)
-                .height(418)
-                .url()
+        let ogImg = this.$imgUrl(this.c.image)
+          .quality(80)
+          .width(1200)
+          .height(630)
+          .url()
+        let twitterImg = this.$imgUrl(this.c.image)
+          .quality(80)
+          .width(800)
+          .height(800)
+          .url()
+        if (this.c.meta && this.c.meta.twitterSharingImage) {
+          twitterImg = this.$imgUrl(this.c.meta.twitterSharingImage)
+            .quality(80)
+            .width(800)
+            .height(800)
+            .url()
+        }
+        if (this.c.meta && this.c.meta.socialImage) {
+          ogImg = this.$imgUrl(this.c.meta.socialImage)
+            .quality(80)
+            .width(1200)
+            .height(630)
+            .url()
+          if (!this.c.meta.twitterSharingImage) {
+            twitterImg = this.$imgUrl(this.c.meta.socialImage)
+              .quality(80)
+              .width(1200)
+              .height(630)
+              .url()
+          }
+        }
 
         console.log('head img', ogImg, twitterImg)
 

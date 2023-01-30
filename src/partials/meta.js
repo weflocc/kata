@@ -66,7 +66,8 @@ const twitterSharingImage = {
   title: 'Twitter Social Sharing Image',
   name: 'twitterSharingImage',
   type: 'image',
-  description: '800px x 800px',
+  description:
+    '800px x 800px. If unset, the social sharing image will be used instead',
   options: {
     hotspot: true,
   },
