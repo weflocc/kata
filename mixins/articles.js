@@ -79,6 +79,9 @@ const searchArticles = {
 
       this.articles = await this.$sanity.fetch(groqQuery)
 
+      // TODO: update pagination method.
+      // might want this to not include featured: * [_type == 'press' && !(_id in * [_type == 'pressFeatured'][0].featured[]._ref)]
+
       // if (this.paginatedArticles) {
       //   this.$router.push({ path: this.$router.path, query: { page: 1 } })
       // }
