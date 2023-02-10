@@ -7,16 +7,16 @@
     <KataImage
       v-if="image && !noCrop"
       :image="image"
-      :max-width="650"
+      :max-width="1000"
       :ratio="ratio"
-      sizes="sm:90vw lg:50vw xl:33vw"
+      sizes="sm:90vw xl:50vw xxl:33vw"
       class="w-full"
     />
     <KataImage02
       v-else-if="image && noCrop"
       :image="image"
-      :max-width="650"
-      sizes="sm:90vw lg:50vw xl:33vw"
+      :max-width="1000"
+      sizes="sm:90vw xl:50vw xxl:33vw"
       class="w-full"
     />
     <p v-if="categories && categories.length" class="category mt-small">
