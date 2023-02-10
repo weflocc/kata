@@ -10,6 +10,7 @@ const getData = async ($sanity, query, store, route, vars = {}) => {
   let feedSelectors2 = []
   let client = null
   let type = ''
+
   if (vars) {
     path = vars.path
     globals = vars.globals
@@ -116,12 +117,22 @@ const getData = async ($sanity, query, store, route, vars = {}) => {
     name = name.replace('-slug', '')
   }
   const articleInstance = vars.articleInstance || name
+
   const instance = store.state.articles[articleInstance]
   if (instance) {
     const articleTypes = vars.articleTypes || instance.types
     const articleSort = vars.articleSort || instance.sort || ''
     articlesObject.articleInstance = articleInstance
     articlesObject.articleSort = articleSort
+    const showFeatured = instance.hasOwnProperty('featured')
+    // hide featured from the returned list of articles (no need for computed property now)
+    let separateFeatured = vars.separateFeatured || true
+
+    // auto pagination to reduce page load
+    // let hasPagination = vars.hasPagination || true
+    // let paginationPerPage = vars.paginationPerPage || 12
+    // let min = 0
+    // let max = paginationPerPage
 
     // under SSR, the preview mode bool in vuex store is not yet defined, hence check the query string.
     let filterDrafts = ` && !(_id in path('drafts.**'))`
@@ -136,7 +147,12 @@ const getData = async ($sanity, query, store, route, vars = {}) => {
       articleTypesString += `'${type}', `
     })
 
-    articlesQuery += `"articles": *[_type in [${articleTypesString}] ${filterDrafts}] ${articleSort},`
+    let separateFeaturedString = ``
+    if (separateFeatured && showFeatured) {
+      separateFeaturedString = ` && !(_id in *[_type == '${articleInstance}Featured'][0].featured[]._ref)`
+    }
+
+    articlesQuery += `"articles": *[_type in [${articleTypesString}] ${filterDrafts}${separateFeaturedString}] ${articleSort},`
 
     let categoryType = null
     if (instance.hasOwnProperty('filters')) {
@@ -147,7 +163,6 @@ const getData = async ($sanity, query, store, route, vars = {}) => {
       articlesObject.categoryType = categoryType
     }
 
-    const showFeatured = instance.hasOwnProperty('featured')
     articlesObject.showFeatured = showFeatured
     if (showFeatured) {
       articlesQuery += `"featured": *[ _type == '${articleInstance}Featured' ${filterDrafts}]{"featured": featured[]->}| order(_updatedAt desc)[0].featured`
@@ -155,6 +170,7 @@ const getData = async ($sanity, query, store, route, vars = {}) => {
 
     articlesObject.showSearch = instance.hasOwnProperty('searchTerm')
     articlesObject.showFilters = instance.hasOwnProperty('filters')
+    articlesObject.separateFeatured = separateFeatured
   }
 
   let groqQuery = groq`{"c": *[_type == '${type}' ${pathQuery}]{
