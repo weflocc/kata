@@ -70,7 +70,7 @@ export default {
       default: '',
     },
   },
-  data: () => ({ loaded: false, format: 'webp, jpeg' }),
+  data: () => ({ loaded: false, format: 'webp' }),
   computed: {
     imageIsSet() {
       return this.image?.asset?._ref

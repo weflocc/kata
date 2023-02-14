@@ -32,7 +32,7 @@ export default {
     // https://image.nuxtjs.org/api/options#screens
     sizes: {
       type: String,
-      default: 'xl:100vw (webp), xl:100vw (jpeg),',
+      default: 'xl:100vw',
     },
     lazy: {
       type: Boolean,
@@ -41,7 +41,7 @@ export default {
   },
   data: () => ({
     loaded: false,
-    format: 'webp, jpeg',
+    format: 'webp',
   }),
   computed: {
     imageIsSet() {
