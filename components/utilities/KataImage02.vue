@@ -32,7 +32,7 @@ export default {
     // https://image.nuxtjs.org/api/options#screens
     sizes: {
       type: String,
-      default: 'xl:100vw',
+      default: 'xl:100vw (webp)',
     },
     lazy: {
       type: Boolean,
@@ -41,10 +41,11 @@ export default {
   },
   data: () => ({
     loaded: false,
-    format: 'webp',
+    format: 'webp, jpeg',
   }),
   computed: {
     imageIsSet() {
+      console.log('dan ling')
       return this.image?.asset?._ref
     },
     theImage() {
@@ -74,6 +75,21 @@ export default {
     },
   },
   methods: {
+    // testWebP() {
+    //   if (process.client) {
+    //     var elem = document.createElement('canvas')
+
+    //     if (elem.getContext && elem.getContext('2d')) {
+    //       // was able or not to get WebP representation
+    //       return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0
+    //         ? 'webp'
+    //         : 'jpeg'
+    //     } else {
+    //       // very old browser like IE 8, canvas not supported
+    //       return 'jpeg'
+    //     }
+    //   }
+    // },
     src() {
       let url = this.$imgUrl(this.theImage)
         .quality(80)

@@ -11,7 +11,7 @@
       :alt="alt"
       :sizes="sizes"
       :loading="lazy ? 'lazy' : 'eager'"
-      :format="format"
+      :format="testWebP()"
       @onLoad="imgLoaded"
     />
   </div>
@@ -25,7 +25,7 @@
     class="kata-image"
     :alt="alt"
     :sizes="sizes"
-    :format="format"
+    :format="testWebP()"
     :loading="lazy ? 'lazy' : 'eager'"
     @onLoad="imgLoaded"
   />
@@ -112,6 +112,21 @@ export default {
     },
   },
   methods: {
+    testWebP() {
+      if (process.client) {
+        var elem = document.createElement('canvas')
+
+        if (elem.getContext && elem.getContext('2d')) {
+          // was able or not to get WebP representation
+          return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0
+            ? 'webp'
+            : 'jpeg'
+        } else {
+          // very old browser like IE 8, canvas not supported
+          return 'jpeg'
+        }
+      }
+    },
     imgLoaded() {
       console.log('KataImage imgLoaded')
       this.loaded = true
