@@ -134,8 +134,7 @@ export default {
     &.no-crop {
       min-height: 56vw;
       img {
-        width: full;
-        height: auto;
+        @apply w-full h-auto object-contain;
       }
     }
 
@@ -152,20 +151,12 @@ export default {
     }
 
     .slide-image {
-      @apply absolute inset-0 w-full h-full z-1 overflow-hidden opacity-0 flex items-center justify-center;
+      @apply z-1 overflow-hidden opacity-0 flex items-center justify-center;
       transition: opacity 1s ease-in;
 
-      // &.last-active {
-      //   z-index: 3;
-      //   transition: 0;
-      //   opacity: 1;
-      // }
-
-      // &.slide-image:last-of-type {
-      //   &.last-active {
-      //     opacity: 0;
-      //   }
-      // }
+      img {
+        @apply absolute inset-0 w-full h-auto;
+      }
 
       &.active {
         z-index: 5;
