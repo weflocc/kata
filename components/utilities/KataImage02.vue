@@ -8,7 +8,7 @@
     :alt="alt"
     :loading="lazy ? 'lazy' : 'eager'"
     :sizes="sizes"
-    :format="format"
+    :format="testWebP()"
     @onLoad="imgLoaded"
   />
 </template>
@@ -41,11 +41,11 @@ export default {
   },
   data: () => ({
     loaded: false,
-    format: 'webp, jpeg',
+    format: 'webp',
+    svg: false,
   }),
   computed: {
     imageIsSet() {
-      console.log('dan ling')
       return this.image?.asset?._ref
     },
     theImage() {
@@ -75,21 +75,25 @@ export default {
     },
   },
   methods: {
-    // testWebP() {
-    //   if (process.client) {
-    //     var elem = document.createElement('canvas')
+    testWebP() {
+      if (this.svg !== true) {
+        if (process.client) {
+          var elem = document.createElement('canvas')
 
-    //     if (elem.getContext && elem.getContext('2d')) {
-    //       // was able or not to get WebP representation
-    //       return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0
-    //         ? 'webp'
-    //         : 'jpeg'
-    //     } else {
-    //       // very old browser like IE 8, canvas not supported
-    //       return 'jpeg'
-    //     }
-    //   }
-    // },
+          if (elem.getContext && elem.getContext('2d')) {
+            // was able or not to get WebP representation
+            return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0
+              ? 'webp'
+              : 'jpeg'
+          } else {
+            // very old browser like IE 8, canvas not supported
+            return 'jpeg'
+          }
+        }
+      } else {
+        return ''
+      }
+    },
     src() {
       let url = this.$imgUrl(this.theImage)
         .quality(80)
@@ -98,6 +102,7 @@ export default {
       if (url && url.includes('.svg')) {
         console.log('format svg')
         this.format = ''
+        this.svg = true
       }
       return url
     },

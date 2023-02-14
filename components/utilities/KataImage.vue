@@ -32,6 +32,8 @@
 </template>
 
 <script>
+import { off } from 'process'
+
 export default {
   props: {
     image: {
@@ -70,7 +72,7 @@ export default {
       default: '',
     },
   },
-  data: () => ({ loaded: false, format: 'webp' }),
+  data: () => ({ loaded: false, format: 'webp', svg: false }),
   computed: {
     imageIsSet() {
       return this.image?.asset?._ref
@@ -113,18 +115,22 @@ export default {
   },
   methods: {
     testWebP() {
-      if (process.client) {
-        var elem = document.createElement('canvas')
+      if (this.svg !== true) {
+        if (process.client) {
+          var elem = document.createElement('canvas')
 
-        if (elem.getContext && elem.getContext('2d')) {
-          // was able or not to get WebP representation
-          return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0
-            ? 'webp'
-            : 'jpeg'
-        } else {
-          // very old browser like IE 8, canvas not supported
-          return 'jpeg'
+          if (elem.getContext && elem.getContext('2d')) {
+            // was able or not to get WebP representation
+            return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0
+              ? 'webp'
+              : 'jpeg'
+          } else {
+            // very old browser like IE 8, canvas not supported
+            return 'jpeg'
+          }
         }
+      } else {
+        return ''
       }
     },
     imgLoaded() {
@@ -140,6 +146,7 @@ export default {
         .url()
       if (url && url.includes('.svg')) {
         this.format = ''
+        this.svg = true
       }
       return url
     },
