@@ -3,7 +3,7 @@
     <button
       ref="search"
       class="search-icon outline-none focus:outline-none block"
-      @click="searchOpen = true"
+      @click="searchOpenClick()"
     >
       <SearchIcon />
     </button>
@@ -124,9 +124,13 @@ export default {
     }
   },
   mounted() {
-    this.searchClient = algoliasearch(this.crawlerId, this.adminApiKey)
+    //this.searchClient = algoliasearch(this.crawlerId, this.adminApiKey)
   },
   methods: {
+    searchOpenClick() {
+      this.searchOpen = true
+      this.searchClient = algoliasearch(this.crawlerId, this.adminApiKey)
+    },
     openLink(path) {
       this.searchOpen = false
       if (path) this.$router.push({ path: path })
