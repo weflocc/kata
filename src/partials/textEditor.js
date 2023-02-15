@@ -2,6 +2,7 @@ import config from 'config:@weflocc/kata'
 import { BiLinkExternal, BiLink, BiAnchor, BiKey } from 'react-icons/bi'
 import { GoFileSymlinkFile } from 'react-icons/go'
 import { standoutText } from '../components/standoutText'
+import { AiFillTwitterCircle } from 'react-icons/ai'
 const camelCase = require('lodash.camelcase')
 
 const basicTextEditor = (name = 'Text Body', settings) => {
@@ -237,6 +238,34 @@ const fullTextEditor = (name = 'Text Body', includes, settings) => {
     if (includes.testimonials || includes.quotes) {
       customEditor.push({
         type: 'testimonials',
+      })
+    }
+    if (includes.twitter) {
+      customEditor.push({
+        type: 'object',
+        name: 'twitterEmbed',
+        fields: [
+          {
+            type: 'string',
+            name: 'tweetId',
+            title: 'Tweet ID',
+            validation: (Rule) => Rule.required(),
+            description:
+              'To find your tweet ID, click on the three dots and select embed tweet. This will open a new tab. Scroll up the new page, and at the top there will be a heading saying "What would you like to embed?" with a url. Your tweet ID is the number at the end of the URL.',
+          },
+        ],
+        preview: {
+          select: {
+            tweetId: 'tweetId',
+          },
+          prepare({ tweetId }) {
+            return {
+              title: 'Tweet embed',
+              subtitle: tweetId,
+              media: AiFillTwitterCircle,
+            }
+          },
+        },
       })
     }
     if (includes.standoutText) {

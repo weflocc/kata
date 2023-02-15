@@ -30,7 +30,8 @@
     "lodash.camelcase": "^4.3.0",
     "react-icons": "^4.2.0",
     "react-youtube": "^7.13.1",
-    "sanity-plugin-table": "^2.2.0"
+    "sanity-plugin-table": "^2.2.0",
+    "vue-tweet-embed": "^2.4.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",

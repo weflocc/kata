@@ -21,6 +21,7 @@ import Feature01Serializer from './serializers/Feature01Serializer.vue'
 import StandoutText from './serializers/StandoutText.vue'
 import Id from './serializers/Id.vue'
 import Cta07Serializer from './serializers/Cta07Serializer.vue'
+import TwitterEmbed from './serializers/TwitterEmbed.vue'
 
 export default {
   components: { SanityContent },
@@ -42,6 +43,7 @@ export default {
           textAndImage: Feature01Serializer,
           standoutText: StandoutText,
           logos: Cta07Serializer,
+          twitterEmbed: TwitterEmbed,
         },
         marks: {
           internalLink: InternalLink,
