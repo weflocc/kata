@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/weflocc/kata#readme",
   "dependencies": {
+    "@nuxt/http": "^0.6.4",
     "@sanity/desk-tool": "^2.33.3",
     "@sanity/ui": "^0.37.2",
     "get-youtube-id": "^1.0.1",
