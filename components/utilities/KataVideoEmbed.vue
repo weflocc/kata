@@ -145,7 +145,8 @@ export default {
     // https://vimeo.com/api/v2/video/ID.json
     if (this.source == 'vimeo') {
       let id = this.getVimeoId
-      if (id) {
+      // if $http is installed
+      if (id && this.$http) {
         let res = await this.$http
           .$get('https://vimeo.com/api/v2/video/' + id + '.json')
           .catch((e) => {
@@ -160,31 +161,33 @@ export default {
       // https://img.youtube.com/vi/<insert-youtube-video-id-here>/maxresdefault.jpg
       let id = this.getYoutubeId
       // this.imgSrc = `https://img.youtube.com/vi/${id}/maxresdefault.jpg` //not all videos have this size
-      let res = await this.$http
-        .$get(
-          `https://www.googleapis.com/youtube/v3/videos?id=${id}&key=${this.googleAPIKey}&part=snippet&fields=items/snippet/thumbnails`
-        )
-        .catch((e) => {
-          console.error(e)
-        })
-      if (
-        res.items &&
-        res.items[0] &&
-        res.items[0].snippet &&
-        res.items[0].snippet.thumbnails
-      ) {
-        let thumbs = res.items[0].snippet.thumbnails
-        // in order of best quality
-        if (thumbs.maxres) {
-          this.imgSrc = thumbs.maxres.url
-        } else if (thumbs.standard) {
-          this.imgSrc = thumbs.standard.url
-        } else if (thumbs.high) {
-          this.imgSrc = thumbs.high.url
-        } else if (thumbs.medium) {
-          this.imgSrc = thumbs.medium.url
-        } else if (thumbs.default) {
-          this.imgSrc = thumbs.default.url
+      if (id && this.$http) {
+        let res = await this.$http
+          .$get(
+            `https://www.googleapis.com/youtube/v3/videos?id=${id}&key=${this.googleAPIKey}&part=snippet&fields=items/snippet/thumbnails`
+          )
+          .catch((e) => {
+            console.error(e)
+          })
+        if (
+          res.items &&
+          res.items[0] &&
+          res.items[0].snippet &&
+          res.items[0].snippet.thumbnails
+        ) {
+          let thumbs = res.items[0].snippet.thumbnails
+          // in order of best quality
+          if (thumbs.maxres) {
+            this.imgSrc = thumbs.maxres.url
+          } else if (thumbs.standard) {
+            this.imgSrc = thumbs.standard.url
+          } else if (thumbs.high) {
+            this.imgSrc = thumbs.high.url
+          } else if (thumbs.medium) {
+            this.imgSrc = thumbs.medium.url
+          } else if (thumbs.default) {
+            this.imgSrc = thumbs.default.url
+          }
         }
       }
     }
