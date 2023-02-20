@@ -113,9 +113,8 @@ export default {
   }
 
   img {
-    max-height: 537px; //from figma
-    margin-left: auto;
-    margin-right: auto;
+    @apply mx-auto object-contain;
+    max-height: 75vh;
   }
 }
 </style>
