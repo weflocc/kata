@@ -148,6 +148,7 @@ const getData = async ($sanity, query, store, route, vars = {}) => {
     })
 
     let separateFeaturedString = ``
+    // pass in showFeatured = true if you want to remove them from the returned articles array
     if (separateFeatured && showFeatured) {
       separateFeaturedString = ` && !(_id in *[_type == '${articleInstance}Featured'][0].featured[]._ref)`
     }
