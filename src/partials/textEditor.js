@@ -5,7 +5,13 @@ import { standoutText } from '../components/standoutText'
 import { AiFillTwitterCircle } from 'react-icons/ai'
 const camelCase = require('lodash.camelcase')
 
-const basicTextEditor = (name = 'Text Body', settings) => {
+const basicTextEditor = (name = 'Text Body', settings, includes) => {
+  let customEditor = []
+  if (includes && includes.buttons) {
+    customEditor.push({
+      type: 'buttons',
+    })
+  }
   return {
     title: name,
     name: camelCase(name),
@@ -73,6 +79,7 @@ const basicTextEditor = (name = 'Text Body', settings) => {
           ],
         },
       },
+      ...customEditor,
     ],
   }
 }

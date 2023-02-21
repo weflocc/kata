@@ -1,5 +1,5 @@
 import { title, superHeading } from '../shared'
-import { list, simpleList, fullTextList } from './textFields'
+import { list, simpleList, listWithButtons } from './textFields'
 import {
   basicTextEditor,
   media,
@@ -85,7 +85,7 @@ const text10 = {
   type: 'object',
   title: 'Text #10',
   options: defaultOptions,
-  fields: [title, list],
+  fields: [title, listWithButtons],
 }
 
 export {

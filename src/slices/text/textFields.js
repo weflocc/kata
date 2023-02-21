@@ -34,7 +34,11 @@ function listSchema(fields) {
 }
 // list schemas
 const list = listSchema([title, basicTextEditor()])
+const listWithButtons = listSchema([
+  title,
+  basicTextEditor('Text Body', null, { buttons: true }),
+])
 const fullTextList = listSchema([title, fullTextEditor()])
 const simpleList = listSchema([title, liteTextEditor()])
 
-export { list, simpleList, fullTextList }
+export { list, listWithButtons, simpleList, fullTextList }
