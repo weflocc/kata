@@ -38,8 +38,22 @@
       :no-crop="noCrop"
       :lazy="false"
     />
+    <KataFadeSlider
+      v-else-if="
+        media.mediaType == 'slideshow' && media.slideshow && useCarousel
+      "
+      :images="media.slideshow"
+      class="w-full h-full"
+      :sizes="sizes"
+      :no-crop="noCrop"
+      :ratio="ratio"
+      :mobile-ratio="mobileRatio"
+      :max-width="maxWidth"
+    />
     <KataCssSlider
-      v-else-if="media.mediaType == 'slideshow' && media.slideshow"
+      v-else-if="
+        media.mediaType == 'slideshow' && media.slideshow && !useCarousel
+      "
       :images="media.slideshow"
       class="w-full h-full"
       :sizes="sizes"
@@ -99,6 +113,10 @@ export default {
       default: null,
     },
     lottieOnVisible: {
+      type: Boolean,
+      default: false,
+    },
+    useCarousel: {
       type: Boolean,
       default: false,
     },

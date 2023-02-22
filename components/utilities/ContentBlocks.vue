@@ -50,6 +50,7 @@
           'whitespace-pre-line': item._type == 'paragraph',
           'text-max': item._type == 'buttons',
         }"
+        :use-carousel="true"
       />
     </div>
   </div>

@@ -5,10 +5,12 @@
       :image="media.image"
       :sizes="sizes"
       :ratio="ratio"
+      :mobile-ratio="mobileRatio"
       :max-width="maxWidth"
       class="h-full w-full object-cover"
       :show-loader="showLoader"
       :lazy="lazy"
+      :kata-class="kataClass"
     />
     <KataImage02
       v-if="media.mediaType == 'image' && media.image && noCrop"
@@ -19,11 +21,13 @@
       :show-loader="showLoader"
       :lazy="lazy"
       height="1000"
+      :kata-class="kataClass"
     />
     <!-- TODO: readd mobile video/image -->
     <KataVideo
       v-else-if="media.mediaType == 'video' && media.video"
       :video="media.video"
+      :mobile-video="media.mobileVideo"
       :no-crop="noCrop"
       class="h-full w-full object-cover"
     />
@@ -34,15 +38,26 @@
       :no-crop="noCrop"
       :lazy="false"
     />
-    <KataCssSlider
+    <KataFadeSlider
       v-else-if="media.mediaType == 'slideshow' && media.slideshow"
       :images="media.slideshow"
       class="w-full h-full"
       :sizes="sizes"
       :no-crop="noCrop"
       :ratio="ratio"
+      :mobile-ratio="mobileRatio"
       :max-width="maxWidth"
     />
+    <!-- <KataCssSlider
+      v-else-if="media.mediaType == 'slideshow' && media.slideshow"
+      :images="media.slideshow"
+      class="w-full h-full"
+      :sizes="sizes"
+      :no-crop="noCrop"
+      :ratio="ratio"
+      :mobile-ratio="mobileRatio"
+      :max-width="maxWidth"
+    /> -->
     <KataLottie
       v-else-if="media.mediaType == 'lottie' && media.lottieJson"
       :animation-data="media.lottieJson"
@@ -63,7 +78,11 @@ export default {
     },
     ratio: {
       type: Number,
-      default: 6 / 4,
+      default: 3 / 2,
+    },
+    mobileRatio: {
+      type: Number,
+      default: null,
     },
     maxWidth: {
       type: Number,
@@ -93,12 +112,10 @@ export default {
       type: Boolean,
       default: false,
     },
-  },
-  data: () => ({ isMobile: false }),
-  mounted() {
-    if (process.client && window.matchMedia('(max-width: 500px)').matches) {
-      this.isMobile = true
-    }
+    kataClass: {
+      type: String,
+      default: '',
+    },
   },
 }
 </script>
