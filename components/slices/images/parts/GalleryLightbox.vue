@@ -32,6 +32,16 @@
               class="image-thumbnail w-full"
             >
               <KataImage
+                v-if="!noCrop && item.image"
+                :image="item.image"
+                :ratio="825 / 500"
+                :max-width="1500"
+                sizes="xl:95vw"
+                :lazy="false"
+                class="mx-auto object-contain max-h-[90vh]"
+              />
+              <KataImage02
+                v-else-if="noCrop && item.image"
                 :image="item.image"
                 :ratio="825 / 500"
                 :max-width="1500"
@@ -66,8 +76,10 @@ import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 // optional style for arrows & dots
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+import { noCrop } from '../../shared'
 export default {
   components: { VueSlickCarousel },
+  mixins: [noCrop],
   props: {
     list: {
       type: Array,
@@ -104,15 +116,20 @@ export default {
 </script>
 
 <style lang="scss">
-.gallery-lightbox button.carousel-nav {
-  @apply absolute inset-y-0 my-auto;
-  z-index: 5;
+.gallery-lightbox {
+  button.carousel-nav {
+    @apply absolute inset-y-0 my-auto;
+    z-index: 5;
 
-  &.prev {
-    left: 0;
+    &.prev {
+      left: 0;
+    }
+    &.next {
+      right: 0;
+    }
   }
-  &.next {
-    right: 0;
+  .slick-track {
+    @apply flex items-center;
   }
 }
 </style>
