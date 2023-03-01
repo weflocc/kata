@@ -3,29 +3,21 @@
     <div class="w-r24/24 mx-auto md:w-r12/24 text-center py-slice z-1 text">
       <h1
         v-if="superHeading && title"
-        class="super-heading text-white mb-medium"
+        class="super-heading mb-medium"
         v-html="superHeading"
       />
-      <h1
-        v-else-if="title"
-        class="heading-1 text-white mb-medium"
-        v-html="title"
-      />
+      <h1 v-else-if="title" class="heading-1 mb-medium" v-html="title" />
       <h2
         v-if="superHeading && title"
-        class="heading-1 text-white mb-medium"
+        class="heading-1 mb-medium"
         v-html="title"
       />
       <SanityEmbedContent
         v-if="textBody"
         :blocks="textBody"
-        class="text-center text-white mb-medium"
+        class="text-center mb-medium"
       />
-      <p
-        v-else-if="text"
-        class="text-center text-white mb-medium"
-        v-html="text"
-      />
+      <p v-else-if="text" class="text-center mb-medium" v-html="text" />
       <KataLinks v-if="links" :links="links" class="text-center" />
     </div>
   </div>
