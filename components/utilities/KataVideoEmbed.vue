@@ -19,7 +19,7 @@
                 class="w-full h-auto !m-0"
                 @error="imageLoadError"
               />
-              <div v-else class="bg-black w-full h-[56%]" />
+              <div v-else class="bg-black w-full h-[56vh]" />
               <div
                 class="absolute inset-0 w-full h-full flex items-center justify-center bg-black/50"
               >
