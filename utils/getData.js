@@ -126,7 +126,7 @@ const getData = async ($sanity, query, store, route, vars = {}) => {
     articlesObject.articleSort = articleSort
     const showFeatured = instance.hasOwnProperty('featured')
     // hide featured from the returned list of articles (no need for computed property now)
-    let separateFeatured = vars.separateFeatured || true
+    let separateFeatured = vars.separateFeatured === false ? false : true
 
     // auto pagination to reduce page load
     // let hasPagination = vars.hasPagination || true
@@ -148,7 +148,8 @@ const getData = async ($sanity, query, store, route, vars = {}) => {
     })
 
     let separateFeaturedString = ``
-    // pass in showFeatured = true if you want to remove them from the returned articles array
+    // separateFeatured removes featured articles them from the returned articles array. Default is true, pass in false to disable.
+    console.log('separateFeatured', separateFeatured)
     if (separateFeatured && showFeatured) {
       separateFeaturedString = ` && !(_id in *[_type == '${articleInstance}Featured'][0].featured[]._ref)`
     }
