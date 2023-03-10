@@ -26,6 +26,7 @@
         class="logo-item block text-center"
         :href="item.url"
         :title="item.title"
+        :target="item.url ? '_blank' : ''"
         :aria-label="item.title"
       >
         <KataSimpleImage
