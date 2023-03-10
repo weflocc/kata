@@ -129,19 +129,17 @@ export default {
       default: '',
     },
   },
-  data() {
-    return {
-      currentArticle: {},
-      activeArticle: {},
-      pins: {
-        selected: this.mapPinSelected,
-        notSelected: this.mapPin,
-      },
-      infoBoxOpen: false,
-      selectedLocation: null,
-      infoWindow: null,
-    }
-  },
+  data: () => ({
+    currentArticle: {},
+    activeArticle: {},
+    pins: {
+      selected: this.mapPinSelected,
+      notSelected: this.mapPin,
+    },
+    infoBoxOpen: false,
+    selectedLocation: null,
+    infoWindow: null,
+  }),
   computed: {
     filteredList() {
       // filters out articles that don't contain a location prop
@@ -176,11 +174,6 @@ export default {
       })
     },
     openInfoWindow(item, event) {
-      // this.$google.infoWindow.setPosition({
-      //   lat: item.location.lat,
-      //   lng: item.location.lng,
-      // })
-
       if (this.infoWindow) {
         this.infoWindow.open(event.map, event.marker)
       }
@@ -196,64 +189,67 @@ export default {
 </script>
 
 <style lang="scss">
-.articles-list {
-  overflow: scroll;
-}
-.gm-style .gm-style-iw-d {
-  overflow: hidden !important;
-}
-.gm-style .gm-style-iw-c {
-  background: $primary;
-  padding: 0;
-  border-radius: 0;
+.portfolio-11 {
+  .articles-list {
+    overflow: scroll;
+  }
+  .gm-style .gm-style-iw-d {
+    overflow: hidden !important;
+  }
+  .gm-style .gm-style-iw-c {
+    background: $primary;
+    padding: 0;
+    border-radius: 0;
 
-  button {
-    position: relative;
-    img {
-      display: none !important;
-    }
-    &::after,
-    &::before {
-      content: '';
-      background-color: white;
-      width: 15px;
-      height: 2px;
-      position: absolute;
-      right: 10px;
-      top: 16px;
-    }
-    &:before {
-      transform: rotate(45deg);
-    }
-    &:after {
-      transform: rotate(-45deg);
+    button {
+      position: relative;
+      img,
+      span {
+        display: none !important;
+      }
+      &::after,
+      &::before {
+        content: '';
+        background-color: white;
+        width: 15px;
+        height: 2px;
+        position: absolute;
+        right: 10px;
+        top: 16px;
+      }
+      &:before {
+        transform: rotate(45deg);
+      }
+      &:after {
+        transform: rotate(-45deg);
+      }
     }
   }
-}
-.gm-style .gm-style-iw-t::after {
-  background: linear-gradient(
-    45deg,
-    rgba($primary, 1) 50%,
-    rgba($primary, 0) 51%,
-    rgba($primary, 0) 100%
-  );
-}
-.info-window {
-  background: $primary;
-  color: white;
-  padding: 30px;
-
-  p {
-    font-size: 15px;
+  .gm-style .gm-style-iw-t::after {
+    background: linear-gradient(
+      45deg,
+      rgba($primary, 1) 50%,
+      rgba($primary, 0) 51%,
+      rgba($primary, 0) 100%
+    );
   }
-}
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
+  .info-window {
+    background: $primary;
+    color: white;
+    padding: 30px;
 
-.fade-enter,
-.fade-leave-active {
-  opacity: 0;
+    p {
+      font-size: 15px;
+    }
+  }
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s;
+  }
+
+  .fade-enter,
+  .fade-leave-active {
+    opacity: 0;
+  }
 }
 </style>

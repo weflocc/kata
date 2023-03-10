@@ -154,26 +154,23 @@ export default {
       default: false,
     },
   },
-  data() {
-    return {
-      currentArticle: {},
-      activeArticle: {},
-      pins: {
-        selected: this.mapPinSelected,
-        notSelected: this.mapPin,
-      },
-      infoBoxOpen: false,
-      selectedLocation: null,
-      mobileView: 'List',
-      infoWindow: null,
-      isMobile: false,
-      loaded: false,
-      initialLoadDone: false,
-    }
-  },
+  data: () => ({
+    currentArticle: {},
+    activeArticle: {},
+    pins: {
+      selected: this.mapPinSelected,
+      notSelected: this.mapPin,
+    },
+    infoBoxOpen: false,
+    selectedLocation: null,
+    mobileView: 'List',
+    infoWindow: null,
+    isMobile: false,
+    loaded: false,
+    initialLoadDone: false,
+  }),
   watch: {
-    articles: function (newVal, oldVal) {
-      // watch it
+    articles(newVal, oldVal) {
       console.log('Results map articles changed: ', newVal, ' | was: ', oldVal)
       if (this.initialLoadDone && this.loaded) {
         this.mapLoaded()
@@ -286,7 +283,7 @@ export default {
     height: 100% !important;
   }
 
-  @media (max-width: 500px) {
+  @include md-down {
     .GMap__Wrapper {
       height: 80vh;
       min-height: 300px;
@@ -296,34 +293,23 @@ export default {
       min-height: 0;
     }
   }
-  .partner-page {
-    height: 80vh;
-    min-height: 500px;
-
-    @media (max-width: 500px) {
-      height: 100vh;
-    }
-  }
   .gm-style .gm-style-iw-d {
     overflow: hidden !important;
   }
   .gm-style .gm-style-iw-c {
-    background: $primary;
-    padding: 0;
-    border-radius: 0;
+    @apply bg-primary p-0 rounded-none;
 
     button {
-      position: relative;
-      img {
+      img,
+      span {
         display: none !important;
       }
       &::after,
       &::before {
         content: '';
-        background-color: white;
+        @apply absolute bg-white;
         width: 15px;
         height: 2px;
-        position: absolute;
         right: 10px;
         top: 16px;
       }
@@ -334,6 +320,9 @@ export default {
         transform: rotate(-45deg);
       }
     }
+  }
+  .gm-style .gm-style-iw-tc::after {
+    @apply bg-primary;
   }
   .gm-style .gm-style-iw-t::after {
     background: linear-gradient(
