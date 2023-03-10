@@ -1,9 +1,9 @@
 <template>
   <div
     v-if="articles && articles.length > 0 && loaded"
-    class="articles-layout-map relative sm:flex"
+    class="articles-layout-map relative md:flex"
   >
-    <div class="block sm:hidden mx-auto mb-slice-half">
+    <div class="block md:hidden mx-auto mb-slice-half">
       <button
         :class="mobileView == 'List' ? 'border-secondary' : 'border-white'"
         class="font-bold mr-small border-b-2 hover:text-secondary focus:border-b-2 focus:outline-none focus:border-secondary"
@@ -19,7 +19,7 @@
         Map
       </button>
     </div>
-    <div class="bg-primary sm:w-1/3 articles-list">
+    <div class="bg-primary md:w-1/3 articles-list">
       <transition name="fade">
         <ul
           v-if="(isMobile && mobileView == 'List') || !isMobile"
@@ -28,7 +28,7 @@
           <li
             v-for="item in articles"
             :key="item._key"
-            class="mb-large list-item font-bold inline-block sm:block cursor-pointer transition-all hover:text-secondary"
+            class="mb-medium list-item font-bold inline-block md:block cursor-pointer transition-default hover:text-secondary"
             :class="{
               'text-secondary': item.title == currentArticle,
               'text-white': item.title != currentArticle,
@@ -46,7 +46,7 @@
         </ul>
       </transition>
     </div>
-    <div class="sm:w-2/3 relative map">
+    <div class="md:w-2/3 relative map">
       <nuxt-child v-if="hasChild" :key="$route.name" />
       <transition name="fade">
         <GMap
@@ -200,7 +200,6 @@ export default {
       this.currentArticle = item
     },
     setActive(item) {
-      console.log('here', this.path, item.slug)
       if (typeof item.slug == 'string') {
         let path = this.path
           ? this.path + '/' + item.slug + '/'
@@ -238,13 +237,6 @@ export default {
       })
     },
     openInfoWindow(item, event) {
-      console.log(item, event)
-
-      // this.$google.infoWindow.setPosition({
-      //   lat: item.location.lat,
-      //   lng: item.location.lng,
-      // })
-
       if (this.infoWindow) {
         this.infoWindow.open(event.map, event.marker)
       }
@@ -260,112 +252,114 @@ export default {
 </script>
 
 <style lang="scss">
-.articles-list {
-  overflow: scroll;
-  z-index: 11;
-}
-.slide-right-enter-active,
-.slide-right-leave-active {
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-}
-.slide-right-enter,
-.slide-right-leave-to {
-  opacity: 0;
-  transform: translateX(100%);
-}
-.slide-left-enter-active,
-.slide-left-leave-active {
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-}
-.slide-left-enter,
-.slide-left-leave-to {
-  opacity: 0;
-  transform: translateX(-100%);
-}
-.articles-list {
-  height: 80vh;
-  min-height: 500px;
-}
-.GMap {
-  height: 100%;
-}
-.GMap__Wrapper {
-  height: 100% !important;
-}
-
-@media (max-width: 500px) {
-  .GMap__Wrapper {
-    height: 80vh;
-    min-height: 300px;
+.articles-layout-map {
+  .articles-list {
+    overflow: scroll;
+    z-index: 11;
+  }
+  .slide-right-enter-active,
+  .slide-right-leave-active {
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  }
+  .slide-right-enter,
+  .slide-right-leave-to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  .slide-left-enter-active,
+  .slide-left-leave-active {
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  }
+  .slide-left-enter,
+  .slide-left-leave-to {
+    opacity: 0;
+    transform: translateX(-100%);
   }
   .articles-list {
-    height: auto;
-    min-height: 0;
+    height: 80vh;
+    min-height: 500px;
   }
-}
-.partner-page {
-  height: 80vh;
-  min-height: 500px;
+  .GMap {
+    height: 100%;
+  }
+  .GMap__Wrapper {
+    height: 100% !important;
+  }
 
   @media (max-width: 500px) {
-    height: 100vh;
-  }
-}
-.gm-style .gm-style-iw-d {
-  overflow: hidden !important;
-}
-.gm-style .gm-style-iw-c {
-  background: $primary;
-  padding: 0;
-  border-radius: 0;
-
-  button {
-    position: relative;
-    img {
-      display: none !important;
+    .GMap__Wrapper {
+      height: 80vh;
+      min-height: 300px;
     }
-    &::after,
-    &::before {
-      content: '';
-      background-color: white;
-      width: 15px;
-      height: 2px;
-      position: absolute;
-      right: 10px;
-      top: 16px;
-    }
-    &:before {
-      transform: rotate(45deg);
-    }
-    &:after {
-      transform: rotate(-45deg);
+    .articles-list {
+      height: auto;
+      min-height: 0;
     }
   }
-}
-.gm-style .gm-style-iw-t::after {
-  background: linear-gradient(
-    45deg,
-    rgba($primary, 1) 50%,
-    rgba($primary, 0) 51%,
-    rgba($primary, 0) 100%
-  );
-}
-.info-window {
-  background: $primary;
-  color: white;
-  padding: 30px;
+  .partner-page {
+    height: 80vh;
+    min-height: 500px;
 
-  p {
-    font-size: 15px;
+    @media (max-width: 500px) {
+      height: 100vh;
+    }
   }
-}
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
+  .gm-style .gm-style-iw-d {
+    overflow: hidden !important;
+  }
+  .gm-style .gm-style-iw-c {
+    background: $primary;
+    padding: 0;
+    border-radius: 0;
 
-.fade-enter,
-.fade-leave-active {
-  opacity: 0;
+    button {
+      position: relative;
+      img {
+        display: none !important;
+      }
+      &::after,
+      &::before {
+        content: '';
+        background-color: white;
+        width: 15px;
+        height: 2px;
+        position: absolute;
+        right: 10px;
+        top: 16px;
+      }
+      &:before {
+        transform: rotate(45deg);
+      }
+      &:after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  .gm-style .gm-style-iw-t::after {
+    background: linear-gradient(
+      45deg,
+      rgba($primary, 1) 50%,
+      rgba($primary, 0) 51%,
+      rgba($primary, 0) 100%
+    );
+  }
+  .info-window {
+    background: $primary;
+    color: white;
+    padding: 30px;
+
+    p {
+      font-size: 15px;
+    }
+  }
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s;
+  }
+
+  .fade-enter,
+  .fade-leave-active {
+    opacity: 0;
+  }
 }
 </style>
