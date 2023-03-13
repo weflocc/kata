@@ -252,11 +252,11 @@ export default {
 
     .search-result {
       border-color: currentColor;
-      h3 {
+      p {
         transition: 0.5s ease;
       }
       &:hover {
-        h3 {
+        p {
           color: $secondary;
         }
       }
