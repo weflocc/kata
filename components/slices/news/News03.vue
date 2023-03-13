@@ -105,10 +105,10 @@ export default {
     z-index: 50;
 
     &.prev {
-      left: var(--container-margin);
+      @apply left-container-margin xl:left-2;
     }
     &.next {
-      right: var(--container-margin);
+      @apply right-container-margin xl:right-2;
     }
   }
 }
