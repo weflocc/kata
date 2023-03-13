@@ -24,7 +24,7 @@
         class="fade-up"
         :class="{
           'mx-auto w-r24/24': list.length == 1,
-          'w-r16/24': list.length > 1,
+          'w-r22/24 md:w-r16/24': list.length > 1,
         }"
       >
         <div v-for="item in list" :key="item._key">
