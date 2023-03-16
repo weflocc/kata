@@ -122,6 +122,9 @@ const getData = async ($sanity, query, store, route, vars = {}) => {
   if (instance) {
     const articleTypes = vars.articleTypes || instance.types
     const articleSort = vars.articleSort || instance.sort || ''
+    const customArticlesFilter = vars.customArticlesFilter
+      ? `&& ${vars.customArticlesFilter}`
+      : ''
     articlesObject.articleInstance = articleInstance
     articlesObject.articleSort = articleSort
     const showFeatured = instance.hasOwnProperty('featured')
@@ -154,7 +157,7 @@ const getData = async ($sanity, query, store, route, vars = {}) => {
       separateFeaturedString = ` && !(_id in *[_type == '${articleInstance}Featured'][0].featured[]._ref)`
     }
 
-    articlesQuery += `"articles": *[_type in [${articleTypesString}] ${filterDrafts}${separateFeaturedString}] ${articleSort},`
+    articlesQuery += `"articles": *[_type in [${articleTypesString}] ${filterDrafts}${separateFeaturedString}${customArticlesFilter}] ${articleSort},`
 
     let categoryType = null
     if (instance.hasOwnProperty('filters')) {
