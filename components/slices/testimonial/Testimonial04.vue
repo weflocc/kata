@@ -68,17 +68,20 @@ import { list } from '../shared'
 export default {
   components: { VueSlickCarousel },
   mixins: [list],
-  data() {
-    return {
-      settings: {
+  props: {
+    settings: {
+      type: Object,
+      default: () => ({
         arrows: false,
         dots: false,
         slidesToShow: 1,
         infinite: true,
         centerMode: false,
-        // fade: true,
-      },
-    }
+        autoplay: true,
+        autoplaySpeed: 5000,
+        speed: 750,
+      }),
+    },
   },
   methods: {
     showNext() {
