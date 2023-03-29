@@ -3,7 +3,7 @@
     <button
       ref="search"
       class="search-icon outline-none focus:outline-none block"
-      @click="searchOpenClick()"
+      @click="openSearch"
     >
       <SearchIcon />
     </button>
@@ -127,7 +127,7 @@ export default {
     //this.searchClient = algoliasearch(this.crawlerId, this.adminApiKey)
   },
   methods: {
-    searchOpenClick() {
+    openSearch() {
       this.searchOpen = true
       this.searchClient = algoliasearch(this.crawlerId, this.adminApiKey)
     },
