@@ -5,7 +5,7 @@
     >
       <button
         class="para-1 bg-grey px-medium py-small border-primary transition-default hover:bg-black !font-bold text-white cursor-pointer w-full text-center"
-        @click="refresh()"
+        @click="refresh"
       >
         {{ ready ? 'Refresh Preview' : 'Loading...' }}
       </button>
@@ -19,6 +19,7 @@ export default {
     ready: false,
   }),
   mounted() {
+    //trigger on load to get latest data
     this.$nextTick(() => {
       this.refresh()
     })
@@ -31,13 +32,3 @@ export default {
   },
 }
 </script>
-
-<style>
-.kata-header {
-  top: 5% !important;
-  position: absolute;
-}
-aside {
-  transition: height 0.4s linear;
-}
-</style>
