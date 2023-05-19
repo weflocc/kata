@@ -117,7 +117,8 @@ const getData = async ($sanity, query, store, route, vars = {}) => {
   // ----- Detect preview mode -----
   // in production mode, hide drafts from being shown or generated. In sanity preview or locally, show drafts
   // under SSR, the preview mode bool in vuex store is not yet defined, hence check the query string
-  let filterDrafts = ` && !(_id in path('drafts.**'))`
+  let filterDrafts = " && !(_id in path('drafts.**'))"
+
   if (query.preview || store.state.preview?.active) {
     console.log('Running in preview mode - show drafts')
     filterDrafts = ''
