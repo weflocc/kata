@@ -4,7 +4,7 @@ export default function ({ query, enablePreview, store }) {
     store.commit('preview/enablePreviewMode')
 
     // rerun the index. for some reason the one on nuxtServerInit doesn't use credentials
-    // do doesn't include drafts
+    // so doesn't include drafts
     store.dispatch('references/initIndex')
   }
 }
