@@ -3,7 +3,7 @@ import {
   standardImage,
   liteTextEditor,
   basicSingleLink,
-} from 'part:@weflocc/kata/partials/index'
+} from '../../partials'
 import { title, text } from '../shared'
 
 const thumbnails = {

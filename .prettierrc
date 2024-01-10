@@ -1,8 +1,6 @@
 {
   "semi": false,
-  "singleQuote": true,
-  "htmlWhitespaceSensitivity": "ignore",
-  "selector_separator_newline": false,
-  "jsx-bracket-same-line": true,
-  "prose-wrap": "never"
+  "printWidth": 100,
+  "bracketSpacing": false,
+  "singleQuote": true
 }

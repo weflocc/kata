@@ -3,7 +3,7 @@ import {
   sharingImage,
   twitterSharingImage,
   schemaOrg,
-} from 'part:@weflocc/kata/partials/index'
+} from '../partials'
 
 export default {
   type: 'document',

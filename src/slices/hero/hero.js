@@ -5,7 +5,7 @@ import {
   defaultOptions,
   basicTextEditor,
   liteTextEditor,
-} from 'part:@weflocc/kata/partials/index'
+} from '../../partials'
 
 const hero01 = {
   name: 'hero01',

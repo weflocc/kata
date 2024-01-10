@@ -3,7 +3,7 @@ import {
   basicSingleLink,
   standardImage,
   media,
-} from 'part:@weflocc/kata/partials/index'
+} from '../../partials'
 import { title } from '../shared'
 import { BiListPlus } from 'react-icons/bi'
 

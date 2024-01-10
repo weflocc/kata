@@ -1,5 +1,5 @@
 import { statistics } from './statsFields'
-import { defaultOptions, links } from 'part:@weflocc/kata/partials/index'
+import { defaultOptions, links } from '../../partials'
 import { title } from '../shared'
 
 const stats01 = {

@@ -1,4 +1,4 @@
-import { hiddenTitle } from 'part:@weflocc/kata/partials/index'
+import { hiddenTitle } from '../partials'
 
 export default {
   type: 'document',

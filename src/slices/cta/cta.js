@@ -3,7 +3,7 @@ import {
   defaultOptions,
   links,
   basicTextEditor,
-} from 'part:@weflocc/kata/partials/index'
+} from '../../partials'
 import { title, text } from '../shared'
 
 const list = {

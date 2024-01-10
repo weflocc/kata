@@ -12,7 +12,7 @@ import {
 import {
   defaultOptions,
   basicTextEditor,
-} from 'part:@weflocc/kata/partials/index'
+} from '../../partials'
 import { title } from '../shared'
 
 const contact01 = {

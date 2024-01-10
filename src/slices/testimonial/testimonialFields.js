@@ -1,4 +1,4 @@
-import { standardImage, links } from 'part:@weflocc/kata/partials/index'
+import { standardImage, links } from '../../partials'
 import { BsFillChatQuoteFill } from 'react-icons/bs'
 import { title, superHeading, text } from '../shared'
 

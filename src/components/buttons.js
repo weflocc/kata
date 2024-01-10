@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Inline, Button } from '@sanity/ui'
 import { BiLink, BiLinkExternal } from 'react-icons/bi'
 import { GoFileSymlinkFile } from 'react-icons/go'
-import { links } from 'part:@weflocc/kata/partials/index'
+import { links } from '../partials'
 import InfoToolTip from './InfoTooltip'
 
 // function linkType(type) {

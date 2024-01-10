@@ -6,7 +6,7 @@ import {
   defaultOptions,
   standardImage,
   links,
-} from 'part:@weflocc/kata/partials/index'
+} from '../../partials'
 
 const text01 = {
   name: 'text01',

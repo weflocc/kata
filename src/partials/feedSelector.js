@@ -1,4 +1,4 @@
-import { defaultOptions, links } from 'part:@weflocc/kata/partials/index'
+import { defaultOptions, links } from '../partials'
 
 const feedSelector = ({
   field,

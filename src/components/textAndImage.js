@@ -1,6 +1,5 @@
 import React from 'react'
 import { Card, Heading, Container } from '@sanity/ui'
-// import InfoToolTip from 'part:@weflocc/kata/components/InfoToolTip'
 
 const FeaturePreview = ({ value }) => {
   const { feature } = value
@@ -12,6 +11,7 @@ const FeaturePreview = ({ value }) => {
     </Container>
   )
 }
+
 export default {
   name: 'textAndImage',
   title: 'Text & Image',

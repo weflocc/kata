@@ -7,7 +7,7 @@ import { paragraph } from '../blocks/paragraph'
 import { map } from '../blocks/map'
 import { table } from '../blocks/table'
 import { textAndImage } from '../blocks/textAndImage'
-import config from 'config:@weflocc/kata'
+import config from '../../config.dist.json'
 import { GoFileSymlinkFile } from 'react-icons/go'
 
 const buttons = {

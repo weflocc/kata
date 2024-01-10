@@ -1,7 +1,7 @@
 import {
   standardImage,
   defaultOptions,
-} from 'part:@weflocc/kata/partials/index'
+} from '../partials'
 // import { videoSrcset } from './videoSrcset'
 const camelCase = require('lodash.camelcase')
 import { BsFillImageFill } from 'react-icons/bs'

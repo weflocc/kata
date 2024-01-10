@@ -12,7 +12,7 @@ import {
   links,
   defaultOptions,
   basicTextEditor,
-} from 'part:@weflocc/kata/partials/index'
+} from '../../partials'
 import { BiListPlus } from 'react-icons/bi'
 
 const feature01 = {

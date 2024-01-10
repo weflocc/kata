@@ -4,7 +4,7 @@ import {
   cite,
   testimonialsImage,
 } from './testimonialFields'
-import { defaultOptions, links } from 'part:@weflocc/kata/partials/index'
+import { defaultOptions, links } from '../../partials'
 import { superHeading, title } from '../shared'
 import { BiChat } from 'react-icons/bi'
 

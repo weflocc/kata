@@ -1,5 +1,5 @@
 import { BiDownArrowCircle } from 'react-icons/bi'
-import { basicTextEditor } from 'part:@weflocc/kata/partials/index'
+import { basicTextEditor } from '../partials'
 
 const accordion = {
   name: 'accordion',

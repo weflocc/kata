@@ -7,7 +7,7 @@ import {
   defaultOptions,
   links,
   basicTextEditor,
-} from 'part:@weflocc/kata/partials/index'
+} from '../../partials'
 import { title, superHeading, text } from '../shared'
 
 const portfolio01 = {

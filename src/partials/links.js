@@ -1,5 +1,5 @@
 const camelCase = require('lodash.camelcase')
-import config from 'config:@weflocc/kata'
+import config from '../../config.dist.json'
 import { BiLink, BiLinkExternal } from 'react-icons/bi'
 import { GoFileSymlinkFile } from 'react-icons/go'
 import { BsFilePost } from 'react-icons/bs'

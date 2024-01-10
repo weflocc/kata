@@ -2,7 +2,7 @@ import {
   basicTextEditor,
   liteTextEditor,
   fullTextEditor,
-} from 'part:@weflocc/kata/partials/index'
+} from '../../partials'
 import { BiListPlus } from 'react-icons/bi'
 import { title } from '../shared'
 

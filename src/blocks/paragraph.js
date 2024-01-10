@@ -1,4 +1,4 @@
-import config from 'config:@weflocc/kata'
+import config from '../../config.dist.json'
 import { BiLinkExternal, BiLink, BiParagraph, BiAnchor } from 'react-icons/bi'
 import { GoFileSymlinkFile } from 'react-icons/go'
 

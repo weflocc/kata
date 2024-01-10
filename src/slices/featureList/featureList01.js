@@ -1,4 +1,4 @@
-import { defaultOptions } from 'part:@weflocc/kata/partials/index'
+import { defaultOptions } from '../../partials'
 
 const featureList01 = {
   name: 'featureList01',

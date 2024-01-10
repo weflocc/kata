@@ -1,29 +1,35 @@
-# @weflocc/kata Package (private)
+# sanity-plugin-kata
+
+> This is a **Sanity Studio v3** plugin.
 
 ## Installation
 
-```
-yarn add @weflocc/kata
-```
-
-## Updating
-
-```
-yarn upgrade @weflocc/kata@latest
+```sh
+npm install sanity-plugin-kata
 ```
 
+## Usage
 
-## Configuration
+Add it as a plugin in `sanity.config.ts` (or .js):
 
-The plugin can be configured through `<your-studio-folder>/config/kata.json`:
+```ts
+import {defineConfig} from 'sanity'
+import {myPlugin} from 'sanity-plugin-kata'
 
-```json
-{
-  "add-config": "here"
-}
+export default defineConfig({
+  //...
+  plugins: [myPlugin({})],
+})
 ```
 
 ## License
 
-MIT © andy@flocc.co
-See LICENSE
+[ISC](LICENSE) © antonImpression
+
+## Develop & test
+
+This plugin uses [@sanity/plugin-kit](https://github.com/sanity-io/plugin-kit)
+with default configuration for build & watch scripts.
+
+See [Testing a plugin in Sanity Studio](https://github.com/sanity-io/plugin-kit#testing-a-plugin-in-sanity-studio)
+on how to run this plugin with hotreload in the studio.
