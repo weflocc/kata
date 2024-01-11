@@ -1,6 +1,6 @@
 {
   "name": "@weflocc/kata",
-  "version": "3.0.0-alpha1",
+  "version": "3.0.0-alpha4",
   "description": "",
   "keywords": [
     "sanity",
@@ -18,18 +18,19 @@
   "author": "antonImpression <93979559+antonImpression@users.noreply.github.com>",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "source": "./src/index.ts",
+      "source": "./src/index.js",
       "require": "./dist/index.js",
       "import": "./dist/index.esm.js",
       "default": "./dist/index.esm.js"
     },
     "./package.json": "./package.json"
   },
+  "imports": {
+    "#partials": "./src/partials/index.js"
+  },
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
-  "source": "./src/index.ts",
-  "types": "./dist/index.d.ts",
+  "source": "./src/index.js",
   "files": [
     "dist",
     "sanity.json",
@@ -47,14 +48,16 @@
   },
   "dependencies": {
     "@nuxt/http": "^0.6.4",
+    "@reach/auto-id": "^0.18.0",
+    "@sanity/incompatible-plugin": "^1.0.4",
     "get-youtube-id": "^1.0.1",
     "hls.js": "^1.1.5",
     "lodash.camelcase": "^4.3.0",
     "prop-types": "^15.8.1",
     "react-icons": "^4.2.0",
     "react-youtube": "^7.13.1",
-    "vue-tweet-embed": "^2.4.0",
-    "@sanity/incompatible-plugin": "^1.0.4"
+    "vue-slick-carousel": "^1.0.6",
+    "vue-tweet-embed": "^2.4.0"
   },
   "devDependencies": {
     "@sanity/pkg-utils": "^3.3.7",
