@@ -1,11 +1,12 @@
 {
   "name": "@weflocc/kata",
-  "version": "3.0.0-alpha12",
+  "version": "3.0.0-alpha13",
   "description": "",
   "keywords": [
     "sanity",
     "sanity-plugin"
   ],
+  "type": "commonjs",
   "homepage": "https://github.com/weflocc/kata#readme",
   "bugs": {
     "url": "https://github.com/weflocc/kata/issues"
@@ -16,17 +17,21 @@
   },
   "license": "ISC",
   "author": "antonImpression <93979559+antonImpression@users.noreply.github.com>",
+  "imports": {
+    "#partials": "./src/partials/index.js"
+  },
   "exports": {
     ".": {
       "source": "./src/index.js",
-      "require": "./dist/index.js",
       "import": "./dist/index.esm.js",
       "default": "./dist/index.esm.js"
     },
+    "./partials": {
+      "source": "./src/partials/index.js",
+      "import": "./dist/partials/index.esm.js",
+      "default": "./dist/partials/index.esm.js"
+    },
     "./package.json": "./package.json"
-  },
-  "imports": {
-    "#partials": "./src/partials/index.js"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
