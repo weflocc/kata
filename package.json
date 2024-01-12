@@ -1,6 +1,6 @@
 {
   "name": "@weflocc/kata",
-  "version": "3.0.0-alpha13",
+  "version": "3.0.0-alpha14",
   "description": "",
   "keywords": [
     "sanity",
@@ -31,7 +31,8 @@
       "import": "./dist/partials/index.esm.js",
       "default": "./dist/partials/index.esm.js"
     },
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./config.json": "./src/config.json"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
