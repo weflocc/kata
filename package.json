@@ -1,12 +1,11 @@
 {
   "name": "@weflocc/kata",
-  "version": "3.0.0-alpha15",
+  "version": "3.0.0-alpha16",
   "description": "",
   "keywords": [
     "sanity",
     "sanity-plugin"
   ],
-  "type": "commonjs",
   "homepage": "https://github.com/weflocc/kata#readme",
   "bugs": {
     "url": "https://github.com/weflocc/kata/issues"
@@ -18,7 +17,8 @@
   "license": "ISC",
   "author": "antonImpression <93979559+antonImpression@users.noreply.github.com>",
   "imports": {
-    "#partials": "./src/partials/index.js"
+    "#partials": "./src/partials/index.js",
+    "#kataConfig": "./config.json"
   },
   "exports": {
     ".": {
