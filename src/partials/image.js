@@ -1,5 +1,5 @@
-import { defaultOptions } from '../partials'
-const camelCase = require('lodash.camelcase')
+import { defaultOptions } from   '#partials'
+import camelCase from 'lodash.camelcase'
 
 const standardImage = (name = 'Image', vars = {}) => {
   const required = vars?.required || false

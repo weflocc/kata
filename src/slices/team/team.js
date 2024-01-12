@@ -1,5 +1,5 @@
 import { thumbnails, profiles, people } from './teamFields'
-import { defaultOptions, links } from '../../partials'
+import { defaultOptions, links } from  '#partials'
 import { title, text } from '../shared'
 
 const team01 = {

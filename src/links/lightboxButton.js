@@ -1,4 +1,4 @@
-import { linkText, linkStyle } from '../partials'
+import { linkText, linkStyle } from '#partials'
 import { BsFilePost } from 'react-icons/bs'
 
 export default {
@@ -11,7 +11,7 @@ export default {
       name: 'query',
       title: 'Query',
       hidden: ({ currentUser }) => {
-        return currentUser.email != 'studio@flocc.co'
+        return currentUser?.email != 'studio@flocc.co'
       },
       description:
         'For developer use only. If you edit this, your lightbox will break.',

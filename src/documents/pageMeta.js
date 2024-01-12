@@ -3,7 +3,7 @@ import {
   sharingImage,
   twitterSharingImage,
   schemaOrg,
-} from '../partials'
+} from '#partials'
 
 export default {
   type: 'document',

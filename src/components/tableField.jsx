@@ -63,6 +63,8 @@ export default {
     select: {
       table: 'table',
     },
-    component: TablePreview,
+  },
+  components: {
+    preview: TablePreview,
   },
 }

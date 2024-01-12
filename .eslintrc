@@ -6,7 +6,6 @@
   },
   "extends": [
     "sanity",
-    "sanity/typescript",
     "sanity/react",
     "plugin:react-hooks/recommended",
     "plugin:prettier/recommended",

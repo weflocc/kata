@@ -1,6 +1,6 @@
 import { list } from './timelineFields'
 import { title } from '../shared'
-import { defaultOptions, links } from '../../partials'
+import { defaultOptions, links } from  '#partials'
 
 const timeline01 = {
   name: 'timeline01',

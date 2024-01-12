@@ -1,5 +1,4 @@
-import config from '../../config.dist.json'
-import { linkText, linkStyle } from '../partials'
+import { linkText, linkStyle } from '#partials'
 import { BiAnchor } from 'react-icons/bi'
 
 export default {

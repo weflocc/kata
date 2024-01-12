@@ -5,7 +5,7 @@ import {
   defaultOptions,
   basicTextEditor,
   liteTextEditor,
-} from '../../partials'
+} from  '#partials'
 
 const hero01 = {
   name: 'hero01',

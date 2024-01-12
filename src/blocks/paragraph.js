@@ -1,6 +1,8 @@
-import config from '../../config.dist.json'
+import {getKataConfig} from '../kataConfig'
 import { BiLinkExternal, BiLink, BiParagraph, BiAnchor } from 'react-icons/bi'
 import { GoFileSymlinkFile } from 'react-icons/go'
+
+const config = getKataConfig()
 
 const paragraph = {
   title: 'Paragraph',
@@ -29,9 +31,7 @@ const paragraph = {
                 name: 'link',
                 type: 'object',
                 title: 'External link',
-                blockEditor: {
-                  icon: BiLinkExternal,
-                },
+                icon: BiLinkExternal,
                 fields: [
                   {
                     name: 'href',
@@ -55,9 +55,7 @@ const paragraph = {
                 name: 'internalLink',
                 type: 'object',
                 title: 'Internal link',
-                blockEditor: {
-                  icon: BiLink,
-                },
+                icon: BiLink,
                 fields: [
                   {
                     name: 'reference',
@@ -71,9 +69,7 @@ const paragraph = {
                 name: 'file',
                 type: 'object',
                 title: 'File',
-                blockEditor: {
-                  icon: GoFileSymlinkFile,
-                },
+                icon: GoFileSymlinkFile,
                 fields: [
                   {
                     name: 'file',
@@ -87,9 +83,7 @@ const paragraph = {
                 name: 'anchor',
                 type: 'object',
                 title: 'Anchor link',
-                blockEditor: {
-                  icon: BiAnchor,
-                },
+                icon: BiAnchor,
                 fields: [
                   {
                     type: 'string',

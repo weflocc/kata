@@ -1,7 +1,7 @@
 import React from 'react'
-import { FormField } from '@sanity/base/components'
+import { FormField } from 'sanity'
 import { TextArea, Stack, Text } from '@sanity/ui'
-import PatchEvent, { set, unset } from '@sanity/form-builder/PatchEvent'
+import {PatchEvent, set, unset } from 'sanity'
 import { useId } from '@reach/auto-id' // hook to generate unique IDs
 
 const WordCount = React.forwardRef((props, ref) => {

@@ -3,7 +3,7 @@ import {
   standardImage,
   liteTextEditor,
   basicSingleLink,
-} from '../../partials'
+} from  '#partials'
 import { title, text } from '../shared'
 
 const thumbnails = {

@@ -1,9 +1,8 @@
-import config from '../../../config.dist.json'
 import {
   standardImage,
   links,
   basicSingleLink,
-} from '../../partials'
+} from  '#partials'
 import { BiListPlus } from 'react-icons/bi'
 import { title, text, longerText } from '../shared'
 

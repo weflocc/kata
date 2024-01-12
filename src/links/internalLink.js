@@ -1,6 +1,8 @@
-import config from '../../config.dist.json'
-import { linkText, linkStyle } from '../partials'
+import {getKataConfig} from '../kataConfig'
+import { linkText, linkStyle } from '#partials'
 import { BiLink } from 'react-icons/bi'
+
+const config = getKataConfig()
 
 export default {
   name: 'internalLink',

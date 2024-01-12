@@ -7,7 +7,7 @@ import {
   defaultOptions,
   links,
   basicTextEditor,
-} from '../../partials'
+} from  '#partials'
 import { title, superHeading, text } from '../shared'
 
 const portfolio01 = {

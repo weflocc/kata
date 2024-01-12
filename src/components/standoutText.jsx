@@ -51,7 +51,9 @@ const standoutText = {
       text: 'text',
       cite: 'cite',
     },
-    component: StandoutTextPreview,
+  },
+  components: {
+    preview: StandoutTextPreview,
   },
 }
 

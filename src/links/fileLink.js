@@ -1,4 +1,4 @@
-import { linkText, linkStyle } from '../partials'
+import { linkText, linkStyle } from '#partials'
 import { GoFileSymlinkFile } from 'react-icons/go'
 
 export default {

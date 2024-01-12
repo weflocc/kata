@@ -3,7 +3,7 @@ import {
   defaultOptions,
   links,
   basicTextEditor,
-} from '../../partials'
+} from  '#partials'
 import { title, text } from '../shared'
 
 const list = {

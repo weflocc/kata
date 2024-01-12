@@ -2,16 +2,16 @@ import React from 'react'
 import { Card, Stack, Text, Container } from '@sanity/ui'
 import InfoToolTip from './InfoTooltip'
 
-const LogosPreview = ({ value }) => {
-  const { cta07 } = value
-  const logos = cta07?.list
+const TestimonialsPreview = ({ value }) => {
+  const { testimonialsParent } = value
+  const testimonials = testimonialsParent?.list
 
-  if (logos) {
+  if (testimonials) {
     return (
       <InfoToolTip>
         <Container padding={3}>
           <Stack space={[2, 2, 3, 4]}>
-            {logos.map((element) => {
+            {testimonials.map((element) => {
               if (element) {
                 return (
                   <Card key={element._key} padding={4} shadow={1}>
@@ -19,7 +19,10 @@ const LogosPreview = ({ value }) => {
                       <Text
                         size={[2, 2, 3, 4]}
                         weight={'semibold'}
-                      >{`"${element.title}"`}</Text>
+                      >{`"${element.quote}"`}</Text>
+                      <Text muted size={[1, 1, 2]}>
+                        {'- ' + element.name}
+                      </Text>
                     </Stack>
                   </Card>
                 )
@@ -33,7 +36,7 @@ const LogosPreview = ({ value }) => {
     return (
       <InfoToolTip>
         <Container padding={3}>
-          <p>Double click to add (Logos)</p>
+          <p>Double click to add (Testimonials)</p>
         </Container>
       </InfoToolTip>
     )
@@ -41,14 +44,14 @@ const LogosPreview = ({ value }) => {
 }
 
 export default {
-  title: 'Logos',
-  name: 'logos',
+  title: 'Testimonials',
+  name: 'testimonials',
   type: 'object',
   fields: [
     {
-      name: 'cta07',
-      title: 'Logos',
-      type: 'cta07',
+      name: 'testimonial04',
+      title: 'Testimonials',
+      type: 'testimonial04',
       options: {
         collapsible: false,
       },
@@ -56,8 +59,10 @@ export default {
   ],
   preview: {
     select: {
-      cta07: 'cta07',
+      testimonialsParent: 'testimonial04',
     },
-    component: LogosPreview,
+  },
+  components: {
+    preview: TestimonialsPreview,
   },
 }

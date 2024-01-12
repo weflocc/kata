@@ -1,6 +1,6 @@
-import { defaultOptions, links } from '../partials'
+import { defaultOptions, links } from '#partials'
 
-const feedSelector = ({
+const feedSelector = ({ 
   field,
   title,
   selectedTitle,
@@ -176,7 +176,7 @@ const feedSelector2 = ({
     name: 'selected',
     type: 'array',
     title: manualTitle,
-    hidden: ({ parent }) => parent.type != 'manual',
+    hidden: ({ parent }) => parent?.type != 'manual',
     of: [
       {
         type: 'reference',
@@ -191,7 +191,7 @@ const feedSelector2 = ({
     type: 'array',
     description: 'This will show everything assigned to this category',
     title: categoryTitle,
-    hidden: ({ parent }) => parent.type != 'category',
+    hidden: ({ parent }) => parent?.type != 'category',
     of: [
       {
         type: 'reference',

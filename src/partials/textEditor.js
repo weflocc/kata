@@ -1,9 +1,11 @@
-import config from '../../config.dist.json'
+import {getKataConfig} from '../kataConfig'
 import { BiLinkExternal, BiLink, BiAnchor, BiKey } from 'react-icons/bi'
 import { GoFileSymlinkFile } from 'react-icons/go'
 import { standoutText } from '../components/standoutText'
 import { AiFillTwitterCircle } from 'react-icons/ai'
-const camelCase = require('lodash.camelcase')
+import camelCase from 'lodash.camelcase'
+
+const config = getKataConfig()
 
 const basicTextEditor = (name = 'Text Body', settings, includes) => {
   let customEditor = []
@@ -36,9 +38,7 @@ const basicTextEditor = (name = 'Text Body', settings, includes) => {
               name: 'link',
               type: 'object',
               title: 'External link',
-              blockEditor: {
-                icon: BiLinkExternal,
-              },
+              icon: BiLinkExternal,
               fields: [
                 {
                   name: 'href',
@@ -61,9 +61,7 @@ const basicTextEditor = (name = 'Text Body', settings, includes) => {
               name: 'internalLink',
               type: 'object',
               title: 'Internal link',
-              blockEditor: {
-                icon: BiLink,
-              },
+              icon: BiLink,
               fields: [
                 {
                   name: 'reference',
@@ -90,9 +88,7 @@ const fullTextEditor = (name = 'Text Body', includes, settings) => {
       name: 'link',
       type: 'object',
       title: 'External link',
-      blockEditor: {
-        icon: BiLinkExternal,
-      },
+      icon: BiLinkExternal,
       fields: [
         {
           name: 'href',
@@ -116,9 +112,7 @@ const fullTextEditor = (name = 'Text Body', includes, settings) => {
       name: 'internalLink',
       type: 'object',
       title: 'Internal link',
-      blockEditor: {
-        icon: BiLink,
-      },
+      icon: BiLink,
       fields: [
         {
           name: 'reference',
@@ -132,9 +126,7 @@ const fullTextEditor = (name = 'Text Body', includes, settings) => {
       name: 'file',
       type: 'object',
       title: 'File',
-      blockEditor: {
-        icon: GoFileSymlinkFile,
-      },
+      icon: GoFileSymlinkFile,
       fields: [
         {
           name: 'file',
@@ -150,9 +142,7 @@ const fullTextEditor = (name = 'Text Body', includes, settings) => {
       name: 'id',
       type: 'object',
       title: 'ID',
-      blockEditor: {
-        icon: BiKey,
-      },
+      icon: BiKey,
       fields: [
         {
           type: 'string',
@@ -179,9 +169,7 @@ const fullTextEditor = (name = 'Text Body', includes, settings) => {
       name: 'anchor',
       type: 'object',
       title: 'Anchor link',
-      blockEditor: {
-        icon: BiAnchor,
-      },
+      icon: BiAnchor,
       fields: [
         {
           type: 'string',

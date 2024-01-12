@@ -1,8 +1,10 @@
-const camelCase = require('lodash.camelcase')
-import config from '../../config.dist.json'
+import camelCase from 'lodash.camelcase'
+import {getKataConfig} from '../kataConfig'
 import { BiLink, BiLinkExternal } from 'react-icons/bi'
 import { GoFileSymlinkFile } from 'react-icons/go'
 import { BsFilePost } from 'react-icons/bs'
+
+const config = getKataConfig()
 
 const linkText = {
   type: 'string',

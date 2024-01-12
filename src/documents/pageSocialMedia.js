@@ -1,4 +1,4 @@
-import { hiddenTitle } from '../partials'
+import { hiddenTitle } from '#partials'
 
 export default {
   type: 'document',

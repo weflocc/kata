@@ -1,9 +1,9 @@
 import {
   standardImage,
   defaultOptions,
-} from '../partials'
+} from   '#partials'
 // import { videoSrcset } from './videoSrcset'
-const camelCase = require('lodash.camelcase')
+import camelCase from 'lodash.camelcase'
 import { BsFillImageFill } from 'react-icons/bs'
 
 const media = (name = 'Media', required = false, vars = {}) => {

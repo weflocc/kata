@@ -12,7 +12,7 @@ import {
 import {
   defaultOptions,
   basicTextEditor,
-} from '../../partials'
+} from  '#partials'
 import { title } from '../shared'
 
 const contact01 = {

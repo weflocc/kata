@@ -1,5 +1,4 @@
 import { BiListPlus } from 'react-icons/bi'
-import config from '../../../config.dist.json'
 import {title, text} from '../shared'
 
 const list = {

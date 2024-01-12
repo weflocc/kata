@@ -3,7 +3,7 @@ import {
   basicSingleLink,
   standardImage,
   media,
-} from '../../partials'
+} from  '#partials'
 import { title } from '../shared'
 import { BiListPlus } from 'react-icons/bi'
 

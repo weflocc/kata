@@ -12,7 +12,7 @@ const hiddenTitle = {
   type: 'string',
   description: 'Only studio@flocc.co can see this',
   hidden: ({ currentUser }) => {
-    return currentUser.email != 'studio@flocc.co'
+    return currentUser?.email != 'studio@flocc.co'
   },
 }
 
@@ -40,7 +40,7 @@ const hiddenSlug = {
   validation: (Rule) =>
     Rule.required('A slug is required before you can publish.'),
   hidden: ({ currentUser }) => {
-    return currentUser.email != 'studio@flocc.co'
+    return currentUser?.email != 'studio@flocc.co'
   },
 }
 
@@ -85,7 +85,9 @@ const metaDescription = {
   type: 'text',
   rows: 3,
   description: 'Max 150 characters',
-  inputComponent: WordCount,
+  components: {
+    input: WordCount,
+  },
   validation: (Rule) =>
     Rule.max(150).warning(
       'Google will cut off the meta description at 150 characters'

@@ -1,4 +1,4 @@
-import { defaultOptions } from '../../partials'
+import { defaultOptions } from  '#partials'
 
 const featureList01 = {
   name: 'featureList01',

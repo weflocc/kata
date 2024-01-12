@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { BsEye, BsEyeSlash } from 'react-icons/bs'
 import { Card, Heading, Container } from '@sanity/ui'
-import { fullTextEditor } from '../partials'
+import { fullTextEditor } from '#partials'
 import InfoToolTip from './InfoTooltip'
 
 const AccordionPreview = ({ value }) => {
@@ -70,6 +70,8 @@ export default {
     select: {
       accordions: 'wrapper',
     },
-    component: AccordionPreview,
+  },
+  components: {
+    preview: AccordionPreview,
   },
 }

@@ -1,14 +1,16 @@
-const camelCase = require('lodash.camelcase')
+import camelCase from 'lodash.camelcase'
 import { BiLink, BiListPlus, BiLinkExternal } from 'react-icons/bi'
 import { BsCardText } from 'react-icons/bs'
-import { media, links } from './index'
+import { media, links } from   '#partials'
 import { accordion } from '../blocks/accordion'
 import { paragraph } from '../blocks/paragraph'
 import { map } from '../blocks/map'
 import { table } from '../blocks/table'
 import { textAndImage } from '../blocks/textAndImage'
-import config from '../../config.dist.json'
+import { getKataConfig } from '../kataConfig'
 import { GoFileSymlinkFile } from 'react-icons/go'
+
+const config = getKataConfig()
 
 const buttons = {
   name: 'buttons',
@@ -64,9 +66,7 @@ const richText = {
                 name: 'link',
                 type: 'object',
                 title: 'External link',
-                blockEditor: {
-                  icon: BiLinkExternal,
-                },
+                icon: BiLinkExternal,
                 fields: [
                   {
                     name: 'href',
@@ -90,9 +90,7 @@ const richText = {
                 name: 'internalLink',
                 type: 'object',
                 title: 'Internal link',
-                blockEditor: {
-                  icon: BiLink,
-                },
+                icon: BiLink,
                 fields: [
                   {
                     name: 'reference',
@@ -106,9 +104,7 @@ const richText = {
                 name: 'file',
                 type: 'object',
                 title: 'File',
-                blockEditor: {
-                  icon: GoFileSymlinkFile,
-                },
+                icon: GoFileSymlinkFile,
                 fields: [
                   {
                     name: 'file',

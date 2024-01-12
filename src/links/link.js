@@ -10,7 +10,7 @@ export default {
       type: 'array',
       validation: (Rule) =>
         Rule.max(2).warning('The maximum number of CTAs on this slice is 2'),
-      editModal: 'popover',
+        modal: 'popover',
       of: [
         { type: 'internalLink' },
         { type: 'fileLink' },

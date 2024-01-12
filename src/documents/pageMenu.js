@@ -1,6 +1,5 @@
-import config from '../../config.dist.json'
 import { RiMenuAddLine } from 'react-icons/ri'
-import { basicSingleLink, hiddenTitle } from '../partials'
+import { basicSingleLink, hiddenTitle } from '#partials'
 
 export default {
   type: 'document',

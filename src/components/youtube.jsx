@@ -23,6 +23,8 @@ export default {
     select: {
       url: 'url',
     },
-    component: Preview,
+  },
+  components: {
+    preview: Preview,
   },
 }

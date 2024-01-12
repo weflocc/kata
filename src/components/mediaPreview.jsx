@@ -32,6 +32,8 @@ export default {
     select: {
       media: 'media',
     },
-    component: MediaPreview,
+  },
+  components: {
+    preview: MediaPreview,
   },
 }

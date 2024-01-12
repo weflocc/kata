@@ -6,7 +6,7 @@ import {
   defaultOptions,
   standardImage,
   links,
-} from '../../partials'
+} from  '#partials'
 
 const text01 = {
   name: 'text01',

@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Inline, Button } from '@sanity/ui'
 import { BiLink, BiLinkExternal } from 'react-icons/bi'
 import { GoFileSymlinkFile } from 'react-icons/go'
-import { links } from '../partials'
+import { links } from '#partials'
 import InfoToolTip from './InfoTooltip'
 
 // function linkType(type) {
@@ -64,6 +64,8 @@ export default {
       link4: 'links.3',
       link5: 'links.4',
     },
-    component: ButtonsPreview,
+  },
+  components: {
+    preview: ButtonsPreview,
   },
 }

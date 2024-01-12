@@ -1,5 +1,7 @@
-import config from '../../config.dist.json'
+import {getKataConfig} from '../kataConfig'
 import { RiGlobeFill } from 'react-icons/ri'
+
+const config = getKataConfig()
 
 export default {
   type: 'document',
@@ -19,7 +21,7 @@ export default {
       description:
         'Normally, you should only add a single slice here. If you are creating dynamic content, add multiple of the same type of slice, and set the target for each.',
       options: {
-        editModal: 'fullscreen',
+        modal: 'fullscreen',
       },
       of: config.allSlices,
     },

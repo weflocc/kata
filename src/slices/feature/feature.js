@@ -12,7 +12,7 @@ import {
   links,
   defaultOptions,
   basicTextEditor,
-} from '../../partials'
+} from  '#partials'
 import { BiListPlus } from 'react-icons/bi'
 
 const feature01 = {

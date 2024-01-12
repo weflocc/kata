@@ -1,4 +1,4 @@
-import { standardImage, links } from '../../partials'
+import { standardImage, links } from  '#partials'
 import { BiListPlus } from 'react-icons/bi'
 import { title, superHeading, text } from '../shared'
 
