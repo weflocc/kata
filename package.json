@@ -1,6 +1,6 @@
 {
   "name": "@weflocc/kata",
-  "version": "3.0.0-alpha17",
+  "version": "3.0.0-alpha18",
   "description": "",
   "keywords": [
     "sanity",
@@ -67,9 +67,6 @@
   "devDependencies": {
     "@sanity/pkg-utils": "^3.3.7",
     "@sanity/plugin-kit": "^3.1.10",
-    "@types/react": "^18.2.47",
-    "@typescript-eslint/eslint-plugin": "^6.18.1",
-    "@typescript-eslint/parser": "^6.18.1",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-sanity": "^7.0.1",
@@ -84,8 +81,7 @@
     "react-is": "^18.2.0",
     "rimraf": "^5.0.5",
     "sanity": "^3.23.4",
-    "styled-components": "^5.3.11",
-    "typescript": "^5.3.3"
+    "styled-components": "^5.3.11"
   },
   "peerDependencies": {
     "react": "^18",
