@@ -6,7 +6,7 @@ import { useId } from '@reach/auto-id' // hook to generate unique IDs
 
 const WordCount = React.forwardRef((props, ref) => {
   const {
-    type, // Schema information
+    schemaType, // Schema information
     value, // Current field value
     readOnly, // Boolean if field is not editable
     placeholder, // Placeholder text from the schema
@@ -16,13 +16,17 @@ const WordCount = React.forwardRef((props, ref) => {
     onBlur, // Method to handle blur state
     onChange, // Method to handle patch events
   } = props
+  
+  const {type, validation} = schemaType
 
   // Creates a unique ID for our input
   const inputId = useId()
 
-  const MaxConstraint = type.validation[0]._rules.filter(
+  const rule = validation[0]._rules.filter(
     (rule) => rule.flag == 'max'
-  )[0].constraint
+  )
+
+  const MaxConstraint = (rule.length && rule[0].constraint) || ''
 
   const handleChange = React.useCallback(
     (event) => {
