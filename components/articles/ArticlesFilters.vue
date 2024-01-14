@@ -98,6 +98,12 @@ export default {
       if (window.location.hash === '#nccl') {
         this.toggleFilter('f651cdec-cbb9-48dd-9aae-3e9dc5d1d22b', 'eventCategory');
       }
+      if (window.location.hash === '#organ') {
+        this.toggleFilter('2e8d0a3a-5c8a-4d9c-8ccb-f6a93e930514', 'eventCategory');
+      }
+      if (window.location.hash === '#friends') {
+        this.toggleFilter('fbb9ba10-0389-4a0c-88e3-9bd0e8e20888', 'eventCategory');
+      }
     },
     toggleFilter(filterId, filterGroup) {
       this.$store.commit('articles/toggleFilter', {
