@@ -75,6 +75,13 @@ import testimonials from './components/testimonials'
 import textAndImage from './components/textAndImage'
 import youtube from './components/youtube'
 
+import anchor from './links/anchor'
+import externalLink from './links/externalLink'
+import fileLink from './links/fileLink'
+import internalLink from './links/internalLink'
+import lightboxButton from './links/lightboxButton'
+import link from './links/link'
+
 import globalSlices from './documents/globalSlices'
 import pageInfiniteMenu from './documents/pageInfiniteMenu'
 import pageMenu from './documents/pageMenu'
@@ -168,6 +175,12 @@ export const KataPlugin = definePlugin(() => {
     team03,
     team04,
     timeline01,
+    anchor,
+    externalLink,
+    fileLink,
+    internalLink,
+    lightboxButton,
+    link,
   ]
 
   return {
