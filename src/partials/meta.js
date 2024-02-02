@@ -1,5 +1,21 @@
 import WordCount from '../components/wordCount'
 
+const metaFieldset = {
+  name: 'meta',
+  title: 'Meta',
+  options: {
+    collapsed: true,
+    collapsible: true,
+  },
+}
+
+const metaField = {
+  name: 'seoMeta',
+  type: 'seoMeta',
+  title: 'SEO & Meta',
+  fieldset: 'meta',
+}
+
 const title = {
   name: 'title',
   title: 'Title',
@@ -126,4 +142,6 @@ export {
   metaTitle,
   metaDescription,
   metaFields,
+  metaFieldset,
+  metaField
 }

@@ -19,7 +19,7 @@ const TableRow = (props) => {
   return cells
 }
 
-const TablePreview = ({ value }) => {
+export const TablePreview = ({ value }) => {
   const { table } = value
   if (table && table.rows.length) {
     return (

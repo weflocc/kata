@@ -1,6 +1,6 @@
 import camelCase from 'lodash.camelcase'
 
-const globalSliceReference = (name, hidden = '') => {
+const globalSliceReference = (name, hidden = false) => {
   return {
     name: camelCase(name),
     title: name,

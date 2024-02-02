@@ -1,9 +1,6 @@
 import { hiddenTitle } from '../partials/meta'
-import {getKataConfig} from '../kataConfig'
 import { RiMenuAddLine } from 'react-icons/ri'
 import { basicSingleLink } from '#partials'
-
-const config = getKataConfig()
 
 const linkItem = (index) => {
   // max of 5 levels deep!

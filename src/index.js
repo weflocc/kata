@@ -89,6 +89,8 @@ import pageTwoMenus from './documents/pageTwoMenus'
 import pageMeta from './documents/pageMeta'
 import pageSocialMedia from './documents/pageSocialMedia'
 import custom from './documents/custom'
+import pageFloccCredit from './documents/pageFloccCredit'
+import pageSimpleMenu from './documents/pageSimpleMenu'
 
 export const KataPlugin = definePlugin(() => {
   const types = [
@@ -107,6 +109,8 @@ export const KataPlugin = definePlugin(() => {
     pageTwoMenus,
     pageMeta,
     pageSocialMedia,
+    pageFloccCredit,
+    pageSimpleMenu,
     custom,
     hero01,
     hero04,

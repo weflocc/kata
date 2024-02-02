@@ -4,7 +4,7 @@ const config = {
   "buttonTypes": [
   ],
   "allSlices": [
-  ]
+  ],
 }
 
 export function getKataConfig() {
