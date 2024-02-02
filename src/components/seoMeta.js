@@ -2,7 +2,7 @@ import {
   metaDescription,
   sharingImage,
   schemaOrg,
-} from 'part:@weflocc/kata/partials/meta'
+} from '#partials'
 
 export default {
   name: 'seoMeta',

@@ -2,7 +2,7 @@ import {
   removeBothSlashes,
   removeLeadingSlash,
   removeTrailingSlash,
-} from '~/utils/functions'
+} from '../utils/functions'
 import { groq } from '@nuxtjs/sanity'
 
 export default {

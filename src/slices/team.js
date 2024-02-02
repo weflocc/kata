@@ -1,5 +1,5 @@
 import { title, text, thumbnails, profiles } from './teamFields'
-import { defaultOptions } from 'part:@weflocc/kata/partials/defaults'
+import { defaultOptions } from '#partials'
 
 const team04 = {
   name: 'team04',

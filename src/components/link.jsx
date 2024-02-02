@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Inline, Button } from '@sanity/ui'
 import { BiLink, BiLinkExternal } from 'react-icons/bi'
 import { GoFileSymlinkFile } from 'react-icons/go'
-import { links } from 'part:@weflocc/kata/partials/links'
+import { links } from '#partials'
 import InfoToolTip from './InfoTooltip'
 
 const ButtonsPreview = ({ value }) => {
@@ -69,6 +69,8 @@ export default {
     select: {
       links: 'link',
     },
-    component: ButtonsPreview,
+  },
+  components: {
+    preview: ButtonsPreview,
   },
 }

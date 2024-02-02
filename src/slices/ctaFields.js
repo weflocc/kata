@@ -1,4 +1,4 @@
-import { links } from 'part:@weflocc/kata/partials/links'
+import { links } from '#partials'
 
 const title = {
   name: 'title',

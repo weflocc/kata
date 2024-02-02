@@ -10,7 +10,7 @@ import {
   thanks,
   openingTimes,
 } from './contactFields'
-import { defaultOptions } from 'part:@weflocc/kata/partials/defaults'
+import { defaultOptions } from '#partials'
 
 const contact01 = {
   name: 'contact01',

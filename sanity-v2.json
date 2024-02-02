@@ -1,0 +1,348 @@
+{
+  "paths": {
+    "source": "./src",
+    "compiled": "./lib"
+  },
+  "parts": [
+    {
+      "name": "#partials",
+      "path": "partials/defaults"
+    },
+    {
+      "name": "part:@weflocc/kata/partials/feedSelector",
+      "path": "partials/feedSelector"
+    },
+    {
+      "name": "part:@weflocc/kata/partials/globalSliceReference",
+      "path": "partials/globalSliceReference"
+    },
+    {
+      "name": "#partials",
+      "path": "partials/image"
+    },
+    {
+      "name": "#partials",
+      "path": "partials/links"
+    },
+    {
+      "name": "part:@weflocc/kata/partials/media",
+      "path": "partials/media"
+    },
+    {
+      "name": "#partials",
+      "path": "partials/meta"
+    },
+    {
+      "name": "part:@weflocc/kata/partials/order",
+      "path": "partials/order"
+    },
+    {
+      "name": "#partials",
+      "path": "partials/textEditor"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "components/listItem"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "components/externalLink"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "components/fileLink"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "components/internalLink"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "components/lightboxButton"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "components/anchor"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "components/link"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "components/seoMeta"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "components/youtube"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "components/accordion"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "documents/globalSlices"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "documents/pageFloccCredit"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "documents/pageSimpleMenu"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "documents/pageMenu"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "documents/pageTwoMenus"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "documents/pageMeta"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "documents/pageSocialMedia"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "documents/custom"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/contact/contact01"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/contact/contact02"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/contact/contact03"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/cta/cta01"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/cta/cta02"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/cta/cta05"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/cta/cta08"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/feature/feature01"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/feature/feature02"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/feature/feature03"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/feature/feature04"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/feature/feature05"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/feature/feature06"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/feature/feature07"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/feature/feature08"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/feature/feature09"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/feature/feature10"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/feature/feature11"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/feature/feature12"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/featureList/featureList01"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/hero/hero01"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/hero/hero04"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/hero/hero05"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/hero/hero06"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/hero/hero07"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/hero/hero09"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/hero/hero10"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/hero/hero11"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/news/news02"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/news/news03"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/news/news05"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/portfolio/portfolio01"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/portfolio/portfolio04"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/portfolio/portfolio05"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/portfolio/portfolio06"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/portfolio/portfolio07"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/portfolio/portfolio08"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/portfolio/portfolio09"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/portfolio/portfolio10"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/stats/stats01"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/team/team03"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/team/team04"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/testimonial/testimonial01"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/testimonial/testimonial02"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/testimonial/testimonial03"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/testimonial/testimonial04"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/testimonial/testimonial05"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/text/text01"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/text/text02"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/text/text03"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/text/text04"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/text/text05"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/text/text06"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/text/text07"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/text/text08"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/text/text09"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/text/text10"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slices/timeline/timeline01"
+    }
+  ]
+}

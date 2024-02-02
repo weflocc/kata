@@ -1,5 +1,7 @@
-const camelCase = require('lodash.camelcase')
-import config from 'config:@weflocc/kata'
+import camelCase from 'lodash.camelcase'
+import {getKataConfig} from '../kataConfig'
+
+const config = getKataConfig()
 
 const links = (name = 'Links', settings) => {
   return {

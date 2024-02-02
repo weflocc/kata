@@ -2,8 +2,8 @@ import {
   title,
   list
 } from './timelineFields'
-import { links } from 'part:@weflocc/kata/partials/links'
-import { defaultOptions } from 'part:@weflocc/kata/partials/defaults'
+import { links } from '#partials'
+import { defaultOptions } from '#partials'
 
 const timeline01 = {
   name: 'timeline01',

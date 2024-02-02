@@ -1,6 +1,8 @@
 import { hiddenTitle } from '../partials/meta'
-import config from 'config:@weflocc/kata'
 import { RiMenuAddLine } from 'react-icons/ri'
+import {getKataConfig} from '../kataConfig'
+
+const config = getKataConfig()
 
 export default {
   type: 'document',

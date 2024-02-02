@@ -1,4 +1,4 @@
-import { basicTextEditor } from 'part:@weflocc/kata/partials/textEditor'
+import { basicTextEditor } from '#partials'
 import { BiListPlus } from 'react-icons/bi'
 
 const title = {

@@ -1,9 +1,8 @@
 import { title, list, superHeading, listWithButtons } from './textFields'
-import { basicTextEditor } from 'part:@weflocc/kata/partials/textEditor'
-import { media } from 'part:@weflocc/kata/partials/media'
-import { defaultOptions } from 'part:@weflocc/kata/partials/defaults'
-import { standardImage } from 'part:@weflocc/kata/partials/image'
-import { links } from 'part:@weflocc/kata/partials/links'
+import { basicTextEditor } from '#partials'
+import { defaultOptions } from '#partials'
+import { standardImage } from '#partials'
+import { links } from '#partials'
 
 const text01 = {
   name: 'text01',

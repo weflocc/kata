@@ -1,49 +1,35 @@
-import config from 'config:@weflocc/kata'
-import { BiLinkExternal, BiLink } from 'react-icons/bi'
-import { GoFileSymlinkFile } from 'react-icons/go'
-import { GrSubscript, GrSuperscript } from 'react-icons/gr'
-import { standardImage } from 'part:@weflocc/kata/partials/image'
-const camelCase = require('lodash.camelcase')
+import {BiLinkExternal, BiLink} from 'react-icons/bi'
+import {GoFileSymlinkFile} from 'react-icons/go'
+import {GrSubscript, GrSuperscript} from 'react-icons/gr'
+import camelCase from 'lodash.camelcase'
 import React from 'react'
+import {getKataConfig} from '../kataConfig'
 
 // Preview components
-import TablePreview from '../components/TablePreview'
+import TablePreview, {superscriptRender, subscriptRender} from '../components/TablePreview'
 
-const superscriptRender = (props) => (
-  <span style={{ fontSize: '10px', verticalAlign: 'top' }}>
-    {props.children}
-  </span>
-)
-const subscriptRender = (props) => (
-  <span style={{ fontSize: '10px', verticalAlign: 'bottom' }}>
-    {props.children}
-  </span>
-)
+const config = getKataConfig()
 
 const basicTextEditor = (name = 'Text Body', settings, options) => {
   let decorators = [
-    { title: 'Strong', value: 'strong' },
-    { title: 'Emphasis', value: 'em' },
-    { title: 'Underline', value: 'underline' },
+    {title: 'Strong', value: 'strong'},
+    {title: 'Emphasis', value: 'em'},
+    {title: 'Underline', value: 'underline'},
   ]
   if (options && options.subscript) {
     decorators.push({
       title: 'Superscript',
       value: 'sup',
-      blockEditor: {
-        icon: GrSuperscript,
-        render: superscriptRender,
-      },
+      icon: GrSuperscript,
+      component: superscriptRender,
     })
   }
   if (options && options.superscript) {
     decorators.push({
       title: 'Subscript',
       value: 'sub',
-      blockEditor: {
-        icon: GrSubscript,
-        render: subscriptRender,
-      },
+      icon: GrSubscript,
+      component: subscriptRender,
     })
   }
   return {
@@ -54,7 +40,7 @@ const basicTextEditor = (name = 'Text Body', settings, options) => {
     of: [
       {
         type: 'block',
-        lists: [{ title: 'Bullet', value: 'bullet' }],
+        lists: [{title: 'Bullet', value: 'bullet'}],
         styles: [],
         marks: {
           decorators: decorators,
@@ -63,9 +49,7 @@ const basicTextEditor = (name = 'Text Body', settings, options) => {
               name: 'externalLink',
               type: 'object',
               title: 'External link',
-              blockEditor: {
-                icon: BiLinkExternal,
-              },
+              icon: BiLinkExternal,
               fields: [
                 {
                   name: 'href',
@@ -88,9 +72,7 @@ const basicTextEditor = (name = 'Text Body', settings, options) => {
               name: 'internalLink',
               type: 'object',
               title: 'Internal link',
-              blockEditor: {
-                icon: BiLink,
-              },
+              icon: BiLink,
               fields: [
                 {
                   name: 'reference',
@@ -124,29 +106,25 @@ const basicTextEditor = (name = 'Text Body', settings, options) => {
 
 const fullTextEditor = (name = 'Text Body', settings, options) => {
   let decorators = [
-    { title: 'Strong', value: 'strong' },
-    { title: 'Emphasis', value: 'em' },
-    { title: 'Underline', value: 'underline' },
+    {title: 'Strong', value: 'strong'},
+    {title: 'Emphasis', value: 'em'},
+    {title: 'Underline', value: 'underline'},
   ]
   console.log('options', options)
   if (options && options.subscript) {
     decorators.push({
       title: 'Superscript',
       value: 'sup',
-      blockEditor: {
-        icon: GrSuperscript,
-        render: superscriptRender,
-      },
+      icon: GrSuperscript,
+      component: superscriptRender,
     })
   }
   if (options && options.superscript) {
     decorators.push({
       title: 'Subscript',
       value: 'sub',
-      blockEditor: {
-        icon: GrSubscript,
-        render: subscriptRender,
-      },
+      icon: GrSubscript,
+      component: subscriptRender,
     })
   }
   return {
@@ -164,9 +142,7 @@ const fullTextEditor = (name = 'Text Body', settings, options) => {
               name: 'externalLink',
               type: 'object',
               title: 'External link',
-              blockEditor: {
-                icon: BiLinkExternal,
-              },
+              icon: BiLinkExternal,
               fields: [
                 {
                   name: 'href',
@@ -189,9 +165,7 @@ const fullTextEditor = (name = 'Text Body', settings, options) => {
               name: 'internalLink',
               type: 'object',
               title: 'Internal link',
-              blockEditor: {
-                icon: BiLink,
-              },
+              icon: BiLink,
               fields: [
                 {
                   name: 'reference',
@@ -205,9 +179,7 @@ const fullTextEditor = (name = 'Text Body', settings, options) => {
               name: 'file',
               type: 'object',
               title: 'File',
-              blockEditor: {
-                icon: GoFileSymlinkFile,
-              },
+              icon: GoFileSymlinkFile,
               fields: [
                 {
                   name: 'file',
@@ -232,9 +204,9 @@ const fullTextEditor = (name = 'Text Body', settings, options) => {
           ],
         },
         styles: [
-          { title: 'Normal', value: 'normal' },
-          { title: 'Heading', value: 'h2' },
-          { title: 'Subheading', value: 'h3' },
+          {title: 'Normal', value: 'normal'},
+          {title: 'Heading', value: 'h2'},
+          {title: 'Subheading', value: 'h3'},
         ],
       },
       {
@@ -249,9 +221,6 @@ const fullTextEditor = (name = 'Text Body', settings, options) => {
             name: 'caption',
             type: 'string',
             title: 'Caption',
-            options: {
-              isHighlighted: true, // <-- make this field easily accessible
-            },
           },
         ],
       },
@@ -279,7 +248,9 @@ const fullTextEditor = (name = 'Text Body', settings, options) => {
           select: {
             table: 'table',
           },
-          component: TablePreview,
+        },
+        components: {
+          preview: TablePreview,
         },
       },
       {
@@ -289,4 +260,4 @@ const fullTextEditor = (name = 'Text Body', settings, options) => {
   }
 }
 
-export { basicTextEditor, fullTextEditor }
+export {basicTextEditor, fullTextEditor}

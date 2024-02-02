@@ -6,9 +6,9 @@ import {
   imageThumbnails,
   portfolio06Slides,
 } from './portfolioFields'
-import { defaultOptions } from 'part:@weflocc/kata/partials/defaults'
-import { links } from 'part:@weflocc/kata/partials/links'
-import { basicTextEditor } from 'part:@weflocc/kata/partials/textEditor'
+import { defaultOptions } from '#partials'
+import { links } from '#partials'
+import { basicTextEditor } from '#partials'
 
 const portfolio01 = {
   name: 'portfolio01',

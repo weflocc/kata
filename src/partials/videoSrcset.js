@@ -1,4 +1,4 @@
-const camelCase = require('lodash.camelcase')
+import camelCase from 'lodash.camelcase'
 
 const videoSrcset = (name = 'Video Srcset', vars = {}) => {
   const title = vars?.title || name

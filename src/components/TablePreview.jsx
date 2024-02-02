@@ -2,6 +2,17 @@ import React from 'react'
 import { Container, Grid, Card, Text } from '@sanity/ui'
 import InfoToolTip from './InfoTooltip'
 
+const superscriptRender = (props) => (
+  <span style={{ fontSize: '10px', verticalAlign: 'top' }}>
+    {props.children}
+  </span>
+)
+const subscriptRender = (props) => (
+  <span style={{ fontSize: '10px', verticalAlign: 'bottom' }}>
+    {props.children}
+  </span>
+)
+
 const TableRow = (props) => {
   const { items, cols } = props
   let cells = []
@@ -47,5 +58,7 @@ const TablePreview = ({ value }) => {
     )
   }
 }
+
+export {superscriptRender, subscriptRender}
 
 export default TablePreview

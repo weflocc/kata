@@ -1,7 +1,7 @@
 import { title, text, superHeading } from './heroFields'
-import { links } from 'part:@weflocc/kata/partials/links'
-import { media } from 'part:@weflocc/kata/partials/media'
-import { defaultOptions } from 'part:@weflocc/kata/partials/defaults'
+import { links } from '#partials'
+import { media } from '#partials'
+import { defaultOptions } from '#partials'
 
 const hero01 = {
   name: 'hero01',

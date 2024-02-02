@@ -1,6 +1,6 @@
 import { standardImage } from '../partials/image'
 // import { videoSrcset } from './videoSrcset'
-const camelCase = require('lodash.camelcase')
+import camelCase from 'lodash.camelcase'
 
 const media = (name = 'Media', vars = {}) => {
   const hidden = vars?.hidden || false

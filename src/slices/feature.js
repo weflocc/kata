@@ -8,9 +8,9 @@ import {
   featureImageTabs,
   locations,
 } from './featureFields'
-import { standardImage } from 'part:@weflocc/kata/partials/image'
-import { links } from 'part:@weflocc/kata/partials/links'
-import { defaultOptions } from 'part:@weflocc/kata/partials/defaults'
+import { standardImage } from '#partials'
+import { links } from '#partials'
+import { defaultOptions } from '#partials'
 
 const feature01 = {
   name: 'feature01',

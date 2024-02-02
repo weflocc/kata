@@ -1,7 +1,7 @@
-import { links } from 'part:@weflocc/kata/partials/links'
-import { defaultOptions } from 'part:@weflocc/kata/partials/defaults'
+import { links } from '#partials'
+import { defaultOptions } from '#partials'
 import { title, text, items } from './ctaFields'
-import { standardImage } from 'part:@weflocc/kata/partials/image'
+import { standardImage } from '#partials'
 
 const cta01 = {
   name: 'cta01',

@@ -1,6 +1,8 @@
 import { standardImage } from '../partials/image'
-import config from 'config:@weflocc/kata'
 import { BiListPlus } from 'react-icons/bi'
+import {getKataConfig} from '../kataConfig'
+
+const config = getKataConfig()
 
 const title = {
   name: 'title',

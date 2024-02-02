@@ -1,4 +1,4 @@
-import { fullTextEditor } from 'part:@weflocc/kata/partials/textEditor'
+import { fullTextEditor } from '#partials'
 
 export default {
   name: 'accordion',

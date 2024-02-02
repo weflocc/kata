@@ -1,4 +1,4 @@
-import { linkText, linkStyle } from 'part:@weflocc/kata/partials/links'
+import { linkText, linkStyle } from '#partials'
 import { BsFilePost } from 'react-icons/bs'
 
 export default {

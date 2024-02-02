@@ -1,5 +1,5 @@
 import { title, items } from './newsFields'
-import { defaultOptions } from 'part:@weflocc/kata/partials/defaults'
+import { defaultOptions } from '#partials'
 
 const news02 = {
   name: 'news02',

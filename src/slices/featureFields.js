@@ -1,7 +1,9 @@
-import { standardImage } from 'part:@weflocc/kata/partials/image'
-import { basicTextEditor } from 'part:@weflocc/kata/partials/textEditor'
+import { standardImage } from '#partials'
+import { basicTextEditor } from '#partials'
 import { BiListPlus } from 'react-icons/bi'
-import config from 'config:@weflocc/kata'
+import {getKataConfig} from '../kataConfig'
+
+const config = getKataConfig()
 
 const title = {
   name: 'title',
