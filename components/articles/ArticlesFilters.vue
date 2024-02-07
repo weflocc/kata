@@ -104,6 +104,19 @@ export default {
       if (window.location.hash === '#friends') {
         this.toggleFilter('fbb9ba10-0389-4a0c-88e3-9bd0e8e20888', 'eventCategory');
       }
+      if (window.location.hash === '#lent_and_easter') {
+        this.toggleFilter('b67e81af-19ed-4cfd-afbf-a8ffbec44ec9', 'eventCategory');
+      }
+      if (window.location.hash === '#heritage_open_days') {
+        this.toggleFilter('e20a47b5-61cb-4b9c-b569-8f4c7d1ce4b1', 'eventCategory');
+      }
+      if (window.location.hash === '#theatre') {
+        this.toggleFilter('ecb0ad9e-26da-4dda-ae05-091e5f36730f', 'eventCategory');
+      }
+      if (window.location.hash === '#family_activity') {
+        this.toggleFilter('b2908923-b004-4914-aca0-0bc4ad8d1c9e', 'eventCategory');
+      }
+
     },
     toggleFilter(filterId, filterGroup) {
       this.$store.commit('articles/toggleFilter', {
