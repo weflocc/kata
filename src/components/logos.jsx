@@ -2,8 +2,8 @@ import React from 'react'
 import { Card, Stack, Text, Container } from '@sanity/ui'
 import InfoToolTip from './InfoTooltip'
 
-const LogosPreview = ({ value }) => {
-  const { cta07 } = value
+const LogosPreview = (props) => {
+  const { cta07 } = props
   const logos = cta07?.list
 
   if (logos) {

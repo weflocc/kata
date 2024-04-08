@@ -237,7 +237,7 @@ const feedSelector2 = ({
     title: title || null,
     type: 'object',
     description: description,
-    fields: fields,
+    fields: fields || [],
     options: defaultOptions,
     hidden: hidden,
   }
