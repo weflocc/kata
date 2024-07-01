@@ -5,7 +5,7 @@ import { GoFileSymlinkFile } from 'react-icons/go'
 import { links } from '#partials'
 import InfoToolTip from './InfoTooltip'
 
-const ButtonsPreview = ({ value }) => {
+const ButtonsPreview = (value) => {
   const { links } = value
   //create an object with icon values
   // add lightbox buttons and other link types here
@@ -69,8 +69,5 @@ export default {
     select: {
       links: 'link',
     },
-  },
-  components: {
-    preview: ButtonsPreview,
   },
 }
