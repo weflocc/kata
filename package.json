@@ -1,6 +1,6 @@
 {
   "name": "@weflocc/kata",
-  "version": "3.0.9",
+  "version": "3.0.10",
   "description": "",
   "keywords": [
     "sanity",
@@ -31,6 +31,18 @@
       "import": "./dist/partials/index.esm.js",
       "default": "./dist/partials/index.esm.js"
     },
+    "./utils/functions": {
+      "source": "./src/utils/functions.js",
+      "default": "./src/utils/functions.js"
+    },
+    "./utils/getData": {
+      "source": "./src/utils/getData.js",
+      "default": "./src/utils/getData.js"
+    },
+    "./nuxt": {
+      "source": "./nuxt.js",
+      "default": "./nuxt.js"
+    },
     "./package.json": "./package.json"
   },
   "main": "./dist/index.js",
@@ -58,6 +70,7 @@
     "get-youtube-id": "^1.0.1",
     "hls.js": "^1.1.5",
     "lodash.camelcase": "^4.3.0",
+    "lottie-web": "^5.12.2",
     "prop-types": "^15.8.1",
     "react-icons": "^4.2.0",
     "react-youtube": "^7.13.1",
