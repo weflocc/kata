@@ -1,15 +1,18 @@
 import React from 'react'
-import { Card, Stack, Text, Container } from '@sanity/ui'
+import {Card, Stack, Text, Container} from '@sanity/ui'
 import InfoToolTip from './InfoTooltip'
-import { media } from '../partials/media'
+import {media} from '../partials/media'
+import { studioTheme, ThemeProvider } from "@sanity/ui";
 
-const MediaPreview = ({ value }) => {
+const MediaPreview = () => {
   return (
-    <InfoToolTip>
-      <Container padding={3}>
-        <p>Double click edit. (Media)</p>
-      </Container>
-    </InfoToolTip>
+    <ThemeProvider theme={studioTheme}>
+      <InfoToolTip>
+        <Container padding={3}>
+          <p>Double click edit. (Media)</p>
+        </Container>
+      </InfoToolTip>
+    </ThemeProvider>
   )
 }
 

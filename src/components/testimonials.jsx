@@ -1,44 +1,46 @@
 import React from 'react'
-import { Card, Stack, Text, Container } from '@sanity/ui'
+import {Card, Stack, Text, Container} from '@sanity/ui'
 import InfoToolTip from './InfoTooltip'
+import { studioTheme, ThemeProvider } from "@sanity/ui";
 
-const TestimonialsPreview = ({ value }) => {
-  const { testimonialsParent } = value
+const TestimonialsPreview = (value) => {
+  const {testimonialsParent} = value
   const testimonials = testimonialsParent?.list
 
   if (testimonials) {
     return (
-      <InfoToolTip>
-        <Container padding={3}>
-          <Stack space={[2, 2, 3, 4]}>
-            {testimonials.map((element) => {
-              if (element) {
-                return (
-                  <Card key={element._key} padding={4} shadow={1}>
-                    <Stack space={[3, 3, 4, 5]}>
-                      <Text
-                        size={[2, 2, 3, 4]}
-                        weight={'semibold'}
-                      >{`"${element.quote}"`}</Text>
-                      <Text muted size={[1, 1, 2]}>
-                        {'- ' + element.name}
-                      </Text>
-                    </Stack>
-                  </Card>
-                )
-              }
-            })}
-          </Stack>
-        </Container>
-      </InfoToolTip>
+      <ThemeProvider theme={studioTheme}>
+        <InfoToolTip>
+          <Container padding={3}>
+            <Stack space={[2, 2, 3, 4]}>
+              {testimonials.map((element) => {
+                if (element) {
+                  return (
+                    <Card key={element._key} padding={4} shadow={1}>
+                      <Stack space={[3, 3, 4, 5]}>
+                        <Text size={[2, 2, 3, 4]} weight={'semibold'}>{`"${element.quote}"`}</Text>
+                        <Text muted size={[1, 1, 2]}>
+                          {'- ' + element.name}
+                        </Text>
+                      </Stack>
+                    </Card>
+                  )
+                }
+              })}
+            </Stack>
+          </Container>
+        </InfoToolTip>
+      </ThemeProvider>
     )
   } else {
     return (
-      <InfoToolTip>
-        <Container padding={3}>
-          <p>Double click to add (Testimonials)</p>
-        </Container>
-      </InfoToolTip>
+      <ThemeProvider theme={studioTheme}>
+        <InfoToolTip>
+          <Container padding={3}>
+            <p>Double click to add (Testimonials)</p>
+          </Container>
+        </InfoToolTip>
+      </ThemeProvider>
     )
   }
 }

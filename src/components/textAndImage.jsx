@@ -1,14 +1,17 @@
 import React from 'react'
-import { Card, Heading, Container } from '@sanity/ui'
+import {Card, Heading, Container} from '@sanity/ui'
+import { studioTheme, ThemeProvider } from "@sanity/ui";
 
-const FeaturePreview = ({ value }) => {
-  const { feature } = value
+const FeaturePreview = (value) => {
+  const {feature} = value
   console.log(feature)
 
   return (
-    <Container padding={3}>
-      <p>Double click to add (Text &amp; Image)</p>
-    </Container>
+    <ThemeProvider theme={studioTheme}>
+      <Container padding={3}>
+        <p>Double click to add (Text &amp; Image)</p>
+      </Container>
+    </ThemeProvider>
   )
 }
 

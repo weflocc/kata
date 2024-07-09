@@ -1,11 +1,13 @@
 import React from 'react'
 import { Card, Stack, Text, Container } from '@sanity/ui'
 import InfoToolTip from './InfoTooltip'
+import { studioTheme, ThemeProvider } from "@sanity/ui";
 
-const StandoutTextPreview = ({ value }) => {
+const StandoutTextPreview = (value) => {
   const { text, cite } = value
   if (text || cite) {
     return (
+      <ThemeProvider theme={studioTheme}>
       <InfoToolTip>
         <Container padding={3}>
           <Card padding={4} shadow={1}>
@@ -18,14 +20,17 @@ const StandoutTextPreview = ({ value }) => {
           </Card>
         </Container>
       </InfoToolTip>
+      </ThemeProvider>
     )
   } else {
     return (
+      <ThemeProvider theme={studioTheme}>
       <InfoToolTip>
         <Container padding={3}>
           <p>Double click to add</p>
         </Container>
       </InfoToolTip>
+      </ThemeProvider>
     )
   }
 }

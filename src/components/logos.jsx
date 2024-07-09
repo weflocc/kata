@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card, Stack, Text, Container } from '@sanity/ui'
 import InfoToolTip from './InfoTooltip'
+import { studioTheme, ThemeProvider } from "@sanity/ui";
 
 const LogosPreview = (props) => {
   const { cta07 } = props
@@ -8,6 +9,7 @@ const LogosPreview = (props) => {
 
   if (logos) {
     return (
+      <ThemeProvider theme={studioTheme}>
       <InfoToolTip>
         <Container padding={3}>
           <Stack space={[2, 2, 3, 4]}>
@@ -28,14 +30,17 @@ const LogosPreview = (props) => {
           </Stack>
         </Container>
       </InfoToolTip>
+      </ThemeProvider>
     )
   } else {
     return (
+      <ThemeProvider theme={studioTheme}>
       <InfoToolTip>
         <Container padding={3}>
           <p>Double click to add (Logos)</p>
         </Container>
       </InfoToolTip>
+      </ThemeProvider>
     )
   }
 }
