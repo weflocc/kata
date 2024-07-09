@@ -1,6 +1,6 @@
 {
   "name": "@weflocc/kata",
-  "version": "3.0.10-alfa2",
+  "version": "3.0.10-alfa3",
   "description": "",
   "keywords": [
     "sanity",
@@ -54,6 +54,9 @@
     "src",
     "nuxt.js",
     "utils",
+    "plugins",
+    "mixins",
+    "components",
     "v2-incompatible.js"
   ],
   "scripts": {
