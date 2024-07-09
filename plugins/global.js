@@ -20,9 +20,8 @@ if (!Vue.__globalMixin__ || Vue.__globalMixin__ == undefined) {
                 ? obj?.file?.asset?._ref
                 : obj?.internalLink?._ref
 
-            const link = this.$store.getters['references/getLinkFromReference'](
-              ref
-            )
+            const link = this.$store.getters['references/getLinkFromReference'](ref)
+
             let path = '/'
             if (link && obj.linkType == 'internal') {
               path = link.path
@@ -36,6 +35,9 @@ if (!Vue.__globalMixin__ || Vue.__globalMixin__ == undefined) {
               } else {
                 path += '#' + obj.anchor
               }
+            }
+            if(ref == "file-d1cee09f6eab1255ca8cf52062b6746da7f755b0-doc") {
+              console.log('fsfdf', link, path);
             }
             return path
           } else if (obj.linkType == 'external') {
