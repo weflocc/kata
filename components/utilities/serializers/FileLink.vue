@@ -14,8 +14,9 @@ export default {
   },
   computed: {
     link() {
-      if (this.asset) {
-        const ref = this.asset._ref
+      const asset = this.asset || this?.$vnode?.data?.props?.file?.asset
+      if (asset) {
+        const ref = asset._ref
         return this.$store.getters['references/getLinkFromReference'](ref)
       }
       return ''

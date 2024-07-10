@@ -36,9 +36,6 @@ if (!Vue.__globalMixin__ || Vue.__globalMixin__ == undefined) {
                 path += '#' + obj.anchor
               }
             }
-            if(ref == "file-d1cee09f6eab1255ca8cf52062b6746da7f755b0-doc") {
-              console.log('fsfdf', link, path);
-            }
             return path
           } else if (obj.linkType == 'external') {
             return obj.url
