@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/slices/text/text02.js"],"names":["text02"],"mappings":";;;;;;;AAAA;;eACeA,Y","sourcesContent":["import { text02 } from './text'\nexport default text02\n"],"file":"text02.js"}

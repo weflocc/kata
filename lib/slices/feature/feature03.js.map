@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/slices/feature/feature03.js"],"names":["feature03"],"mappings":";;;;;;;AAAA;;eACeA,kB","sourcesContent":["import { feature03 } from './feature'\nexport default feature03\n"],"file":"feature03.js"}

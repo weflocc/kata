@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/slices/feature/feature10.js"],"names":["feature10"],"mappings":";;;;;;;AAAA;;eACeA,kB","sourcesContent":["import { feature10 } from './feature'\nexport default feature10\n"],"file":"feature10.js"}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/slices/images/images02.js"],"names":["images02"],"mappings":";;;;;;;AAAA;;eACeA,gB","sourcesContent":["import { images02 } from './images'\nexport default images02\n"],"file":"images02.js"}

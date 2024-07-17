@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/slices/team/team04.js"],"names":["team04"],"mappings":";;;;;;;AAAA;;eACeA,Y","sourcesContent":["import { team04 } from './team'\nexport default team04\n"],"file":"team04.js"}

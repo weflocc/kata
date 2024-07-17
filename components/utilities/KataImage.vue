@@ -1,6 +1,6 @@
 <template>
   <div v-if="showLoader" class="image-with-loader" :class="{ loaded: loaded }">
-    <nuxt-img
+    <img
       v-if="imageIsSet"
       :src="src()"
       :class="`${kataClass}${loaded ? ' loaded' : ''}`"
@@ -15,7 +15,7 @@
       @onLoad="imgLoaded"
     />
   </div>
-  <nuxt-img
+  <img
     v-else-if="imageIsSet"
     :src="src()"
     :class="`${kataClass}${loaded ? ' loaded' : ''}`"

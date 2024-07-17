@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/slices/news/news03.js"],"names":["news03"],"mappings":";;;;;;;AAAA;;eACeA,Y","sourcesContent":["import { news03 } from './news'\nexport default news03\n"],"file":"news03.js"}

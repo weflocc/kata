@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/slices/text/text04.js"],"names":["text04"],"mappings":";;;;;;;AAAA;;eACeA,Y","sourcesContent":["import { text04 } from './text'\nexport default text04\n"],"file":"text04.js"}

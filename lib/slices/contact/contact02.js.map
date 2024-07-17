@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/slices/contact/contact02.js"],"names":["contact02"],"mappings":";;;;;;;AAAA;;eACeA,kB","sourcesContent":["import { contact02 } from './contact'\nexport default contact02\n"],"file":"contact02.js"}

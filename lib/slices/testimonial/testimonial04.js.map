@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/slices/testimonial/testimonial04.js"],"names":["testimonial04"],"mappings":";;;;;;;AAAA;;eACeA,0B","sourcesContent":["import { testimonial04 } from './testimonial'\nexport default testimonial04\n"],"file":"testimonial04.js"}

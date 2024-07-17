@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/slices/text/text08.js"],"names":["text08"],"mappings":";;;;;;;AAAA;;eACeA,Y","sourcesContent":["import { text08 } from './text'\nexport default text08\n"],"file":"text08.js"}

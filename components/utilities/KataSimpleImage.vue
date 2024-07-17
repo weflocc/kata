@@ -1,5 +1,5 @@
 <template>
-  <nuxt-img
+  <img
     class="kata-simple-image"
     :loading="lazy ? 'lazy' : 'eager'"
     :alt="alt"

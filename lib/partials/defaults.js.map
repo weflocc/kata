@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/partials/defaults.js"],"names":["defaultOptions","collapsable","collapsed"],"mappings":";;;;;;AAAA,IAAMA,cAAc,GAAG;AACrBC,EAAAA,WAAW,EAAE,IADQ;AAErBC,EAAAA,SAAS,EAAE;AAFU,CAAvB","sourcesContent":["const defaultOptions = {\n  collapsable: true,\n  collapsed: false,\n}\n\nexport { defaultOptions }\n"],"file":"defaults.js"}

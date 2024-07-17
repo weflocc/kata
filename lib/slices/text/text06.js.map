@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/slices/text/text06.js"],"names":["text06"],"mappings":";;;;;;;AAAA;;eACeA,Y","sourcesContent":["import { text06 } from './text'\nexport default text06\n"],"file":"text06.js"}

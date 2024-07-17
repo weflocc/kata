@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/slices/text/text09.js"],"names":["text09"],"mappings":";;;;;;;AAAA;;eACeA,Y","sourcesContent":["import { text09 } from './text'\nexport default text09\n"],"file":"text09.js"}

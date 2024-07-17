@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/slices/portfolio/portfolio06.js"],"names":["portfolio06"],"mappings":";;;;;;;AAAA;;eACeA,sB","sourcesContent":["import { portfolio06 } from './portfolio'\nexport default portfolio06\n"],"file":"portfolio06.js"}

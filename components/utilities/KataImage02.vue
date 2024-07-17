@@ -1,5 +1,5 @@
 <template>
-  <nuxt-img
+  <img
     v-if="imageIsSet"
     :src="src()"
     :class="{ loaded: loaded }"

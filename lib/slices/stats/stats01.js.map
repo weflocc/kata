@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/slices/stats/stats01.js"],"names":["stats01"],"mappings":";;;;;;;AAAA;;eACeA,c","sourcesContent":["import { stats01 } from './stats'\nexport default stats01\n"],"file":"stats01.js"}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/slices/text/text10.js"],"names":["text10"],"mappings":";;;;;;;AAAA;;eACeA,Y","sourcesContent":["import { text10 } from './text'\nexport default text10\n"],"file":"text10.js"}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/slices/hero/hero01.js"],"names":["hero01"],"mappings":";;;;;;;AAAA;;eACeA,Y","sourcesContent":["import { hero01 } from './hero'\nexport default hero01\n"],"file":"hero01.js"}
