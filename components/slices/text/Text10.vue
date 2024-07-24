@@ -9,14 +9,22 @@
         class="mb-small"
       >
         <SanityEmbedContent v-if="item.textBody" :blocks="item.textBody" />
+				<a
+          v-if="item.singleLink"
+          :href="getSingleLink(item.singleLink)"
+          :class="(item.singleLink.linkType == 'file' ? 'btn-file' : 'btn-internal')+' btn-primary'"
+          target="_blank"
+          :download="item.singleLink.linkType == 'file'"
+          v-text="item.singleLink.linkType == 'file' ? 'Download Document' : 'More Details'"
+        />
       </AccordionSlot>
     </div>
   </div>
 </template>
 
 <script>
-import { title, list } from '../shared'
+import { title, list, singleLink } from '../shared'
 export default {
-  mixins: [title, list],
+  mixins: [title, list, singleLink],
 }
 </script>

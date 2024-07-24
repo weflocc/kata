@@ -97,6 +97,15 @@ const noCrop = {
   },
 }
 
+const singleLink = {
+  props: {
+    singleLink: {
+      type: Object,
+      default: null,
+    },
+  },
+}
+
 export {
   title,
   superHeading,
@@ -109,4 +118,5 @@ export {
   list,
   articles,
   noCrop,
+	singleLink
 }
