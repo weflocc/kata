@@ -34,5 +34,10 @@ export default {
       name: 'youtube',
       type: 'string',
     },
+    {
+      title: 'Blue Sky',
+      name: 'bluesky',
+      type: 'string',
+    },
   ],
 }

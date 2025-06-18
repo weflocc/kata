@@ -45,6 +45,15 @@
     >
       <instagramIcon :width="size" :height="size" />
     </a>
+    <a
+      v-if="socialMedia.bluesky"
+      :href="socialMedia.bluesky"
+      title="Blue Sky"
+      target="_blank"
+      class="inline-block hover:text-secondary bluesky"
+    >
+      <blueskyIcon :width="size" :height="size" />
+    </a>
   </div>
 </template>
 
@@ -54,6 +63,7 @@ import facebookIcon from '~/assets/svgs/facebook.svg?inline'
 import linkedinIcon from '~/assets/svgs/linkedin.svg?inline'
 import youtubeIcon from '~/assets/svgs/youtube.svg?inline'
 import instagramIcon from '~/assets/svgs/instagram.svg?inline'
+import blueskyIcon from '~/assets/svgs/bluesky.svg?inline'
 
 export default {
   components: {
@@ -62,6 +72,7 @@ export default {
     linkedinIcon,
     youtubeIcon,
     instagramIcon,
+    blueskyIcon,
   },
   props: {
     socialLinks: {
