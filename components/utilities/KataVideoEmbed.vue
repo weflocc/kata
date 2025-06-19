@@ -81,7 +81,7 @@ export default {
     },
   },
   data: () => ({
-    loaded: false,
+    loaded: true,
     imgSrc: '',
     imgAlt: 'Video embed',
     googleAPIKey: 'AIzaSyDH_t2JHugO2PBklI-fmNy8Ew0T34hJ-Ek',
@@ -143,7 +143,7 @@ export default {
   },
   async mounted() {
     // https://vimeo.com/api/v2/video/ID.json
-    if (this.source == 'vimeo') {
+    /* if (this.source == 'vimeo') {
       let id = this.getVimeoId
       // if $http is installed
       if (id && this.$http) {
@@ -190,7 +190,7 @@ export default {
           }
         }
       }
-    }
+    } */
   },
   methods: {
     loadFacade() {
