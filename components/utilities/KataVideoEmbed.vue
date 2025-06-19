@@ -34,7 +34,6 @@
             title="vimeo-player"
             width="640"
             height="360"
-            autoplay
             :src="embedUrl"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
@@ -48,8 +47,7 @@
             height="315"
             :src="
               'https://www.youtube-nocookie.com/embed/' +
-              getYoutubeId +
-              '?autoplay=1'
+              getYoutubeId
             "
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
@@ -133,9 +131,9 @@ export default {
     embedUrl() {
       if (this.source == 'vimeo') {
         if (this.url.includes('?') && !this.url.includes('autoplay')) {
-          return this.url + '&autoplay=1'
+          return this.url
         } else if (!this.url.includes('autoplay')) {
-          return this.url + '?autoplay=1'
+          return this.url
         }
       }
       return this.url
