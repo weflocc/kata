@@ -72,6 +72,13 @@ const basicTextEditor = (name = 'Text Body', settings, includes) => {
                     disableNew: true, // we don't want people to be able to create new pages here!
                   },
                 },
+                {
+                  title: 'Open in new tab',
+                  name: 'blank',
+                  type: 'boolean',
+                  layout: 'checkbox',
+                  initialValue: false,
+                },
               ],
             },
           ],

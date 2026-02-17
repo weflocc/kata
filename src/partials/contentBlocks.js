@@ -98,6 +98,13 @@ const richText = {
                     title: 'Reference',
                     to: config.allTypes,
                   },
+                  {
+                    title: 'Open in new tab',
+                    name: 'blank',
+                    type: 'boolean',
+                    layout: 'checkbox',
+                    initialValue: false,
+                  },
                 ],
               },
               {
