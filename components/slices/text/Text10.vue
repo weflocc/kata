@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import { title, list, singleLink } from '../shared'
+import { title, list, singleLink, textBody } from '../shared'
 export default {
-  mixins: [title, list, singleLink],
+  mixins: [title, list, singleLink, textBody],
 }
 </script>

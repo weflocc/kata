@@ -22,7 +22,21 @@ import StandoutText from './serializers/StandoutText.vue'
 import Id from './serializers/Id.vue'
 
 export default {
-  components: { SanityContent },
+  components: { 
+    SanityContent,
+    BlockLinks,
+    FileLink,
+    InternalLink,
+    ExternalLink,
+    AnchorLink,
+    TableField,
+    Accordion,
+    Testimonial04,
+    KataMediaSerializer,
+    Feature01Serializer,
+    StandoutText,
+    Id,
+  },
   props: {
     blocks: {
       type: Array,

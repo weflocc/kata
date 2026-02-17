@@ -1,4 +1,4 @@
-const title = {
+ const title = {
   props: {
     title: {
       type: String,

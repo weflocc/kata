@@ -1,5 +1,5 @@
 <template>
-  <div v-if="wrapper" class="kata-accordions tabs">
+  <div v-if="wrapper" class="kata-accordions tabs awdawd">
     <div v-for="item in wrapper.items" :key="item._key" class="tab">
       <input :id="'chck' + item._key" type="checkbox" name="rd" />
       <label class="tab-label" :for="'chck' + item._key">
@@ -25,7 +25,16 @@ import ExternalLink from './ExternalLink.vue'
 import TableField from './TableField.vue'
 
 export default {
-  components: { SanityContent },
+  components: { 
+    SanityContent,
+    Youtube,
+    Image,
+    BlockLinks,
+    FileLink,
+    InternalLink,
+    ExternalLink,
+    TableField,
+  },
   props: {
     // items: {
     //   type: Array,
@@ -42,7 +51,7 @@ export default {
         types: {
           youtube: Youtube,
           image: Image,
-          link: BlockLinks,
+          buttons: BlockLinks,
           tableField: TableField,
         },
         marks: {
