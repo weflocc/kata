@@ -1,5 +1,5 @@
 <template>
-  <n-link :to="link">
+  <n-link :to="link" :target="blank ? '_blank' : '_self'">
     <slot></slot>
   </n-link>
 </template>
@@ -8,6 +8,7 @@
 export default {
   props: {
     reference: { type: Object, default: null },
+    blank: { type: Boolean, default: true },
   },
   computed: {
     link() {
